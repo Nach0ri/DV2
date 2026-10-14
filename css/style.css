@@ -202,7 +202,8 @@ footer.note p {
 .idiom .subtitle { margin-bottom: 20px; }
 
 #reasons-chart,
-#seasonality-chart { width: 100%; }
+#seasonality-chart,
+#heatmap-chart { width: 100%; }
 
 .placeholder {
     padding: 24px;

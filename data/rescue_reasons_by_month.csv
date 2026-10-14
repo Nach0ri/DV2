@@ -1,0 +1,647 @@
+group,reason,month_number,month,count
+Birds,"Abandoned/Orphaned",1,January,2932
+Birds,"Abandoned/Orphaned",2,February,1322
+Birds,"Abandoned/Orphaned",3,March,738
+Birds,"Abandoned/Orphaned",4,April,497
+Birds,"Abandoned/Orphaned",5,May,423
+Birds,"Abandoned/Orphaned",6,June,347
+Birds,"Abandoned/Orphaned",7,July,454
+Birds,"Abandoned/Orphaned",8,August,1056
+Birds,"Abandoned/Orphaned",9,September,2783
+Birds,"Abandoned/Orphaned",10,October,5330
+Birds,"Abandoned/Orphaned",11,November,5125
+Birds,"Abandoned/Orphaned",12,December,4359
+Birds,"Attacked by cat",1,January,432
+Birds,"Attacked by cat",2,February,320
+Birds,"Attacked by cat",3,March,290
+Birds,"Attacked by cat",4,April,277
+Birds,"Attacked by cat",5,May,168
+Birds,"Attacked by cat",6,June,176
+Birds,"Attacked by cat",7,July,225
+Birds,"Attacked by cat",8,August,279
+Birds,"Attacked by cat",9,September,356
+Birds,"Attacked by cat",10,October,453
+Birds,"Attacked by cat",11,November,466
+Birds,"Attacked by cat",12,December,452
+Birds,"Attacked by dog",1,January,226
+Birds,"Attacked by dog",2,February,184
+Birds,"Attacked by dog",3,March,148
+Birds,"Attacked by dog",4,April,126
+Birds,"Attacked by dog",5,May,114
+Birds,"Attacked by dog",6,June,95
+Birds,"Attacked by dog",7,July,107
+Birds,"Attacked by dog",8,August,149
+Birds,"Attacked by dog",9,September,162
+Birds,"Attacked by dog",10,October,229
+Birds,"Attacked by dog",11,November,217
+Birds,"Attacked by dog",12,December,240
+Birds,"Attacked by other",1,January,572
+Birds,"Attacked by other",2,February,449
+Birds,"Attacked by other",3,March,473
+Birds,"Attacked by other",4,April,382
+Birds,"Attacked by other",5,May,355
+Birds,"Attacked by other",6,June,302
+Birds,"Attacked by other",7,July,428
+Birds,"Attacked by other",8,August,453
+Birds,"Attacked by other",9,September,622
+Birds,"Attacked by other",10,October,811
+Birds,"Attacked by other",11,November,814
+Birds,"Attacked by other",12,December,651
+Birds,"Collision with other",1,January,1179
+Birds,"Collision with other",2,February,1192
+Birds,"Collision with other",3,March,1101
+Birds,"Collision with other",4,April,973
+Birds,"Collision with other",5,May,708
+Birds,"Collision with other",6,June,655
+Birds,"Collision with other",7,July,758
+Birds,"Collision with other",8,August,857
+Birds,"Collision with other",9,September,948
+Birds,"Collision with other",10,October,1059
+Birds,"Collision with other",11,November,1148
+Birds,"Collision with other",12,December,1200
+Birds,"Collision with vehicle",1,January,1922
+Birds,"Collision with vehicle",2,February,1697
+Birds,"Collision with vehicle",3,March,1810
+Birds,"Collision with vehicle",4,April,1672
+Birds,"Collision with vehicle",5,May,1515
+Birds,"Collision with vehicle",6,June,1276
+Birds,"Collision with vehicle",7,July,1361
+Birds,"Collision with vehicle",8,August,1541
+Birds,"Collision with vehicle",9,September,1683
+Birds,"Collision with vehicle",10,October,2041
+Birds,"Collision with vehicle",11,November,2120
+Birds,"Collision with vehicle",12,December,1998
+Birds,"Disease",1,January,776
+Birds,"Disease",2,February,627
+Birds,"Disease",3,March,606
+Birds,"Disease",4,April,515
+Birds,"Disease",5,May,424
+Birds,"Disease",6,June,421
+Birds,"Disease",7,July,423
+Birds,"Disease",8,August,426
+Birds,"Disease",9,September,459
+Birds,"Disease",10,October,624
+Birds,"Disease",11,November,801
+Birds,"Disease",12,December,932
+Birds,"Domestic/Captivity issue",1,January,126
+Birds,"Domestic/Captivity issue",2,February,78
+Birds,"Domestic/Captivity issue",3,March,87
+Birds,"Domestic/Captivity issue",4,April,87
+Birds,"Domestic/Captivity issue",5,May,86
+Birds,"Domestic/Captivity issue",6,June,63
+Birds,"Domestic/Captivity issue",7,July,125
+Birds,"Domestic/Captivity issue",8,August,74
+Birds,"Domestic/Captivity issue",9,September,78
+Birds,"Domestic/Captivity issue",10,October,102
+Birds,"Domestic/Captivity issue",11,November,97
+Birds,"Domestic/Captivity issue",12,December,98
+Birds,"Electrocution",1,January,7
+Birds,"Electrocution",2,February,9
+Birds,"Electrocution",3,March,5
+Birds,"Electrocution",4,April,6
+Birds,"Electrocution",5,May,7
+Birds,"Electrocution",6,June,7
+Birds,"Electrocution",7,July,9
+Birds,"Electrocution",8,August,9
+Birds,"Electrocution",9,September,15
+Birds,"Electrocution",10,October,7
+Birds,"Electrocution",11,November,10
+Birds,"Electrocution",12,December,8
+Birds,"Entangled/Trapped",1,January,588
+Birds,"Entangled/Trapped",2,February,498
+Birds,"Entangled/Trapped",3,March,471
+Birds,"Entangled/Trapped",4,April,454
+Birds,"Entangled/Trapped",5,May,392
+Birds,"Entangled/Trapped",6,June,361
+Birds,"Entangled/Trapped",7,July,425
+Birds,"Entangled/Trapped",8,August,481
+Birds,"Entangled/Trapped",9,September,532
+Birds,"Entangled/Trapped",10,October,551
+Birds,"Entangled/Trapped",11,November,570
+Birds,"Entangled/Trapped",12,December,495
+Birds,"Fouled by Substance",1,January,45
+Birds,"Fouled by Substance",2,February,60
+Birds,"Fouled by Substance",3,March,38
+Birds,"Fouled by Substance",4,April,42
+Birds,"Fouled by Substance",5,May,38
+Birds,"Fouled by Substance",6,June,25
+Birds,"Fouled by Substance",7,July,27
+Birds,"Fouled by Substance",8,August,39
+Birds,"Fouled by Substance",9,September,36
+Birds,"Fouled by Substance",10,October,30
+Birds,"Fouled by Substance",11,November,47
+Birds,"Fouled by Substance",12,December,52
+Birds,"Nuisance",1,January,26
+Birds,"Nuisance",2,February,19
+Birds,"Nuisance",3,March,25
+Birds,"Nuisance",4,April,26
+Birds,"Nuisance",5,May,24
+Birds,"Nuisance",6,June,11
+Birds,"Nuisance",7,July,21
+Birds,"Nuisance",8,August,31
+Birds,"Nuisance",9,September,51
+Birds,"Nuisance",10,October,44
+Birds,"Nuisance",11,November,71
+Birds,"Nuisance",12,December,30
+Birds,"Poisoned",1,January,24
+Birds,"Poisoned",2,February,24
+Birds,"Poisoned",3,March,79
+Birds,"Poisoned",4,April,41
+Birds,"Poisoned",5,May,91
+Birds,"Poisoned",6,June,26
+Birds,"Poisoned",7,July,76
+Birds,"Poisoned",8,August,81
+Birds,"Poisoned",9,September,34
+Birds,"Poisoned",10,October,40
+Birds,"Poisoned",11,November,35
+Birds,"Poisoned",12,December,32
+Birds,"Suboptimal condition",1,January,20
+Birds,"Suboptimal condition",2,February,16
+Birds,"Suboptimal condition",3,March,15
+Birds,"Suboptimal condition",4,April,12
+Birds,"Suboptimal condition",5,May,15
+Birds,"Suboptimal condition",6,June,10
+Birds,"Suboptimal condition",7,July,12
+Birds,"Suboptimal condition",8,August,12
+Birds,"Suboptimal condition",9,September,10
+Birds,"Suboptimal condition",10,October,14
+Birds,"Suboptimal condition",11,November,17
+Birds,"Suboptimal condition",12,December,15
+Birds,"Unsuitable environment",1,January,1135
+Birds,"Unsuitable environment",2,February,720
+Birds,"Unsuitable environment",3,March,547
+Birds,"Unsuitable environment",4,April,1724
+Birds,"Unsuitable environment",5,May,824
+Birds,"Unsuitable environment",6,June,305
+Birds,"Unsuitable environment",7,July,422
+Birds,"Unsuitable environment",8,August,781
+Birds,"Unsuitable environment",9,September,1046
+Birds,"Unsuitable environment",10,October,1492
+Birds,"Unsuitable environment",11,November,1319
+Birds,"Unsuitable environment",12,December,1214
+Birds,"Weather - Drought/heat",1,January,57
+Birds,"Weather - Drought/heat",2,February,9
+Birds,"Weather - Drought/heat",3,March,1
+Birds,"Weather - Drought/heat",4,April,1
+Birds,"Weather - Drought/heat",8,August,2
+Birds,"Weather - Drought/heat",9,September,1
+Birds,"Weather - Drought/heat",10,October,3
+Birds,"Weather - Drought/heat",11,November,7
+Birds,"Weather - Drought/heat",12,December,15
+Birds,"Weather - Fire",1,January,1
+Birds,"Weather - Fire",2,February,1
+Birds,"Weather - Fire",3,March,3
+Birds,"Weather - Fire",4,April,5
+Birds,"Weather - Fire",5,May,1
+Birds,"Weather - Fire",7,July,3
+Birds,"Weather - Fire",8,August,5
+Birds,"Weather - Fire",9,September,1
+Birds,"Weather - Fire",10,October,9
+Birds,"Weather - Fire",11,November,4
+Birds,"Weather - Fire",12,December,3
+Birds,"Weather - Storm",1,January,120
+Birds,"Weather - Storm",2,February,73
+Birds,"Weather - Storm",3,March,61
+Birds,"Weather - Storm",4,April,213
+Birds,"Weather - Storm",5,May,98
+Birds,"Weather - Storm",6,June,46
+Birds,"Weather - Storm",7,July,21
+Birds,"Weather - Storm",8,August,87
+Birds,"Weather - Storm",9,September,73
+Birds,"Weather - Storm",10,October,208
+Birds,"Weather - Storm",11,November,212
+Birds,"Weather - Storm",12,December,160
+Birds,"Weather - Unspecified",1,January,215
+Birds,"Weather - Unspecified",2,February,100
+Birds,"Weather - Unspecified",3,March,72
+Birds,"Weather - Unspecified",4,April,297
+Birds,"Weather - Unspecified",5,May,141
+Birds,"Weather - Unspecified",6,June,49
+Birds,"Weather - Unspecified",7,July,37
+Birds,"Weather - Unspecified",8,August,58
+Birds,"Weather - Unspecified",9,September,94
+Birds,"Weather - Unspecified",10,October,312
+Birds,"Weather - Unspecified",11,November,283
+Birds,"Weather - Unspecified",12,December,257
+Mammals,"Abandoned/Orphaned",1,January,2030
+Mammals,"Abandoned/Orphaned",2,February,1310
+Mammals,"Abandoned/Orphaned",3,March,1048
+Mammals,"Abandoned/Orphaned",4,April,757
+Mammals,"Abandoned/Orphaned",5,May,778
+Mammals,"Abandoned/Orphaned",6,June,823
+Mammals,"Abandoned/Orphaned",7,July,1281
+Mammals,"Abandoned/Orphaned",8,August,1962
+Mammals,"Abandoned/Orphaned",9,September,2021
+Mammals,"Abandoned/Orphaned",10,October,1741
+Mammals,"Abandoned/Orphaned",11,November,2550
+Mammals,"Abandoned/Orphaned",12,December,1717
+Mammals,"Attacked by cat",1,January,316
+Mammals,"Attacked by cat",2,February,283
+Mammals,"Attacked by cat",3,March,296
+Mammals,"Attacked by cat",4,April,248
+Mammals,"Attacked by cat",5,May,204
+Mammals,"Attacked by cat",6,June,161
+Mammals,"Attacked by cat",7,July,259
+Mammals,"Attacked by cat",8,August,424
+Mammals,"Attacked by cat",9,September,428
+Mammals,"Attacked by cat",10,October,365
+Mammals,"Attacked by cat",11,November,277
+Mammals,"Attacked by cat",12,December,272
+Mammals,"Attacked by dog",1,January,252
+Mammals,"Attacked by dog",2,February,222
+Mammals,"Attacked by dog",3,March,208
+Mammals,"Attacked by dog",4,April,204
+Mammals,"Attacked by dog",5,May,190
+Mammals,"Attacked by dog",6,June,210
+Mammals,"Attacked by dog",7,July,288
+Mammals,"Attacked by dog",8,August,365
+Mammals,"Attacked by dog",9,September,358
+Mammals,"Attacked by dog",10,October,335
+Mammals,"Attacked by dog",11,November,291
+Mammals,"Attacked by dog",12,December,263
+Mammals,"Attacked by other",1,January,220
+Mammals,"Attacked by other",2,February,193
+Mammals,"Attacked by other",3,March,185
+Mammals,"Attacked by other",4,April,199
+Mammals,"Attacked by other",5,May,165
+Mammals,"Attacked by other",6,June,190
+Mammals,"Attacked by other",7,July,240
+Mammals,"Attacked by other",8,August,298
+Mammals,"Attacked by other",9,September,317
+Mammals,"Attacked by other",10,October,309
+Mammals,"Attacked by other",11,November,282
+Mammals,"Attacked by other",12,December,219
+Mammals,"Collision with other",1,January,147
+Mammals,"Collision with other",2,February,102
+Mammals,"Collision with other",3,March,132
+Mammals,"Collision with other",4,April,134
+Mammals,"Collision with other",5,May,114
+Mammals,"Collision with other",6,June,112
+Mammals,"Collision with other",7,July,136
+Mammals,"Collision with other",8,August,152
+Mammals,"Collision with other",9,September,131
+Mammals,"Collision with other",10,October,120
+Mammals,"Collision with other",11,November,118
+Mammals,"Collision with other",12,December,86
+Mammals,"Collision with vehicle",1,January,1734
+Mammals,"Collision with vehicle",2,February,1695
+Mammals,"Collision with vehicle",3,March,1943
+Mammals,"Collision with vehicle",4,April,2224
+Mammals,"Collision with vehicle",5,May,2684
+Mammals,"Collision with vehicle",6,June,2793
+Mammals,"Collision with vehicle",7,July,3493
+Mammals,"Collision with vehicle",8,August,3592
+Mammals,"Collision with vehicle",9,September,2912
+Mammals,"Collision with vehicle",10,October,2465
+Mammals,"Collision with vehicle",11,November,1960
+Mammals,"Collision with vehicle",12,December,1635
+Mammals,"Disease",1,January,325
+Mammals,"Disease",2,February,262
+Mammals,"Disease",3,March,224
+Mammals,"Disease",4,April,259
+Mammals,"Disease",5,May,318
+Mammals,"Disease",6,June,304
+Mammals,"Disease",7,July,368
+Mammals,"Disease",8,August,374
+Mammals,"Disease",9,September,385
+Mammals,"Disease",10,October,352
+Mammals,"Disease",11,November,312
+Mammals,"Disease",12,December,315
+Mammals,"Domestic/Captivity issue",1,January,13
+Mammals,"Domestic/Captivity issue",2,February,14
+Mammals,"Domestic/Captivity issue",3,March,17
+Mammals,"Domestic/Captivity issue",4,April,16
+Mammals,"Domestic/Captivity issue",5,May,26
+Mammals,"Domestic/Captivity issue",6,June,17
+Mammals,"Domestic/Captivity issue",7,July,12
+Mammals,"Domestic/Captivity issue",8,August,13
+Mammals,"Domestic/Captivity issue",9,September,11
+Mammals,"Domestic/Captivity issue",10,October,16
+Mammals,"Domestic/Captivity issue",11,November,13
+Mammals,"Domestic/Captivity issue",12,December,9
+Mammals,"Electrocution",1,January,146
+Mammals,"Electrocution",2,February,162
+Mammals,"Electrocution",3,March,109
+Mammals,"Electrocution",4,April,84
+Mammals,"Electrocution",5,May,48
+Mammals,"Electrocution",6,June,44
+Mammals,"Electrocution",7,July,42
+Mammals,"Electrocution",8,August,61
+Mammals,"Electrocution",9,September,79
+Mammals,"Electrocution",10,October,326
+Mammals,"Electrocution",11,November,275
+Mammals,"Electrocution",12,December,130
+Mammals,"Entangled/Trapped",1,January,1270
+Mammals,"Entangled/Trapped",2,February,1234
+Mammals,"Entangled/Trapped",3,March,830
+Mammals,"Entangled/Trapped",4,April,532
+Mammals,"Entangled/Trapped",5,May,384
+Mammals,"Entangled/Trapped",6,June,349
+Mammals,"Entangled/Trapped",7,July,413
+Mammals,"Entangled/Trapped",8,August,412
+Mammals,"Entangled/Trapped",9,September,484
+Mammals,"Entangled/Trapped",10,October,595
+Mammals,"Entangled/Trapped",11,November,847
+Mammals,"Entangled/Trapped",12,December,651
+Mammals,"Fouled by Substance",1,January,11
+Mammals,"Fouled by Substance",2,February,21
+Mammals,"Fouled by Substance",3,March,20
+Mammals,"Fouled by Substance",4,April,22
+Mammals,"Fouled by Substance",5,May,5
+Mammals,"Fouled by Substance",6,June,9
+Mammals,"Fouled by Substance",7,July,6
+Mammals,"Fouled by Substance",8,August,8
+Mammals,"Fouled by Substance",9,September,7
+Mammals,"Fouled by Substance",10,October,13
+Mammals,"Fouled by Substance",11,November,11
+Mammals,"Fouled by Substance",12,December,10
+Mammals,"Nuisance",1,January,68
+Mammals,"Nuisance",2,February,196
+Mammals,"Nuisance",3,March,61
+Mammals,"Nuisance",4,April,41
+Mammals,"Nuisance",5,May,59
+Mammals,"Nuisance",6,June,37
+Mammals,"Nuisance",7,July,88
+Mammals,"Nuisance",8,August,53
+Mammals,"Nuisance",9,September,55
+Mammals,"Nuisance",10,October,75
+Mammals,"Nuisance",11,November,94
+Mammals,"Nuisance",12,December,70
+Mammals,"Poisoned",1,January,32
+Mammals,"Poisoned",2,February,41
+Mammals,"Poisoned",3,March,43
+Mammals,"Poisoned",4,April,43
+Mammals,"Poisoned",5,May,37
+Mammals,"Poisoned",6,June,30
+Mammals,"Poisoned",7,July,39
+Mammals,"Poisoned",8,August,33
+Mammals,"Poisoned",9,September,36
+Mammals,"Poisoned",10,October,34
+Mammals,"Poisoned",11,November,35
+Mammals,"Poisoned",12,December,34
+Mammals,"Suboptimal condition",1,January,45
+Mammals,"Suboptimal condition",2,February,33
+Mammals,"Suboptimal condition",3,March,38
+Mammals,"Suboptimal condition",4,April,29
+Mammals,"Suboptimal condition",5,May,43
+Mammals,"Suboptimal condition",6,June,63
+Mammals,"Suboptimal condition",7,July,56
+Mammals,"Suboptimal condition",8,August,54
+Mammals,"Suboptimal condition",9,September,38
+Mammals,"Suboptimal condition",10,October,41
+Mammals,"Suboptimal condition",11,November,55
+Mammals,"Suboptimal condition",12,December,36
+Mammals,"Unsuitable environment",1,January,872
+Mammals,"Unsuitable environment",2,February,752
+Mammals,"Unsuitable environment",3,March,743
+Mammals,"Unsuitable environment",4,April,679
+Mammals,"Unsuitable environment",5,May,616
+Mammals,"Unsuitable environment",6,June,562
+Mammals,"Unsuitable environment",7,July,669
+Mammals,"Unsuitable environment",8,August,827
+Mammals,"Unsuitable environment",9,September,864
+Mammals,"Unsuitable environment",10,October,958
+Mammals,"Unsuitable environment",11,November,930
+Mammals,"Unsuitable environment",12,December,801
+Mammals,"Weather - Drought/heat",1,January,187
+Mammals,"Weather - Drought/heat",2,February,1440
+Mammals,"Weather - Drought/heat",3,March,4
+Mammals,"Weather - Drought/heat",4,April,19
+Mammals,"Weather - Drought/heat",5,May,1
+Mammals,"Weather - Drought/heat",7,July,1
+Mammals,"Weather - Drought/heat",8,August,2
+Mammals,"Weather - Drought/heat",9,September,2
+Mammals,"Weather - Drought/heat",10,October,1
+Mammals,"Weather - Drought/heat",11,November,59
+Mammals,"Weather - Drought/heat",12,December,56
+Mammals,"Weather - Fire",1,January,30
+Mammals,"Weather - Fire",2,February,70
+Mammals,"Weather - Fire",3,March,28
+Mammals,"Weather - Fire",4,April,10
+Mammals,"Weather - Fire",5,May,8
+Mammals,"Weather - Fire",6,June,11
+Mammals,"Weather - Fire",7,July,13
+Mammals,"Weather - Fire",8,August,14
+Mammals,"Weather - Fire",9,September,20
+Mammals,"Weather - Fire",10,October,61
+Mammals,"Weather - Fire",11,November,26
+Mammals,"Weather - Fire",12,December,25
+Mammals,"Weather - Storm",1,January,13
+Mammals,"Weather - Storm",2,February,14
+Mammals,"Weather - Storm",3,March,7
+Mammals,"Weather - Storm",4,April,17
+Mammals,"Weather - Storm",5,May,17
+Mammals,"Weather - Storm",6,June,14
+Mammals,"Weather - Storm",7,July,6
+Mammals,"Weather - Storm",8,August,9
+Mammals,"Weather - Storm",9,September,7
+Mammals,"Weather - Storm",10,October,8
+Mammals,"Weather - Storm",11,November,16
+Mammals,"Weather - Storm",12,December,18
+Mammals,"Weather - Unspecified",1,January,708
+Mammals,"Weather - Unspecified",2,February,124
+Mammals,"Weather - Unspecified",3,March,42
+Mammals,"Weather - Unspecified",4,April,38
+Mammals,"Weather - Unspecified",5,May,11
+Mammals,"Weather - Unspecified",6,June,27
+Mammals,"Weather - Unspecified",7,July,21
+Mammals,"Weather - Unspecified",8,August,43
+Mammals,"Weather - Unspecified",9,September,53
+Mammals,"Weather - Unspecified",10,October,43
+Mammals,"Weather - Unspecified",11,November,614
+Mammals,"Weather - Unspecified",12,December,92
+Reptiles,"Abandoned/Orphaned",1,January,54
+Reptiles,"Abandoned/Orphaned",2,February,15
+Reptiles,"Abandoned/Orphaned",3,March,30
+Reptiles,"Abandoned/Orphaned",4,April,6
+Reptiles,"Abandoned/Orphaned",5,May,8
+Reptiles,"Abandoned/Orphaned",6,June,9
+Reptiles,"Abandoned/Orphaned",7,July,2
+Reptiles,"Abandoned/Orphaned",8,August,17
+Reptiles,"Abandoned/Orphaned",9,September,2
+Reptiles,"Abandoned/Orphaned",10,October,7
+Reptiles,"Abandoned/Orphaned",11,November,7
+Reptiles,"Abandoned/Orphaned",12,December,36
+Reptiles,"Attacked by cat",1,January,170
+Reptiles,"Attacked by cat",2,February,136
+Reptiles,"Attacked by cat",3,March,112
+Reptiles,"Attacked by cat",4,April,101
+Reptiles,"Attacked by cat",5,May,63
+Reptiles,"Attacked by cat",6,June,20
+Reptiles,"Attacked by cat",7,July,20
+Reptiles,"Attacked by cat",8,August,41
+Reptiles,"Attacked by cat",9,September,73
+Reptiles,"Attacked by cat",10,October,120
+Reptiles,"Attacked by cat",11,November,89
+Reptiles,"Attacked by cat",12,December,97
+Reptiles,"Attacked by dog",1,January,484
+Reptiles,"Attacked by dog",2,February,337
+Reptiles,"Attacked by dog",3,March,253
+Reptiles,"Attacked by dog",4,April,146
+Reptiles,"Attacked by dog",5,May,70
+Reptiles,"Attacked by dog",6,June,42
+Reptiles,"Attacked by dog",7,July,69
+Reptiles,"Attacked by dog",8,August,143
+Reptiles,"Attacked by dog",9,September,416
+Reptiles,"Attacked by dog",10,October,480
+Reptiles,"Attacked by dog",11,November,453
+Reptiles,"Attacked by dog",12,December,501
+Reptiles,"Attacked by other",1,January,91
+Reptiles,"Attacked by other",2,February,93
+Reptiles,"Attacked by other",3,March,83
+Reptiles,"Attacked by other",4,April,78
+Reptiles,"Attacked by other",5,May,50
+Reptiles,"Attacked by other",6,June,30
+Reptiles,"Attacked by other",7,July,29
+Reptiles,"Attacked by other",8,August,51
+Reptiles,"Attacked by other",9,September,122
+Reptiles,"Attacked by other",10,October,172
+Reptiles,"Attacked by other",11,November,116
+Reptiles,"Attacked by other",12,December,88
+Reptiles,"Collision with other",1,January,25
+Reptiles,"Collision with other",2,February,10
+Reptiles,"Collision with other",3,March,20
+Reptiles,"Collision with other",4,April,17
+Reptiles,"Collision with other",5,May,9
+Reptiles,"Collision with other",6,June,5
+Reptiles,"Collision with other",7,July,7
+Reptiles,"Collision with other",8,August,4
+Reptiles,"Collision with other",9,September,19
+Reptiles,"Collision with other",10,October,20
+Reptiles,"Collision with other",11,November,17
+Reptiles,"Collision with other",12,December,13
+Reptiles,"Collision with vehicle",1,January,284
+Reptiles,"Collision with vehicle",2,February,221
+Reptiles,"Collision with vehicle",3,March,282
+Reptiles,"Collision with vehicle",4,April,216
+Reptiles,"Collision with vehicle",5,May,130
+Reptiles,"Collision with vehicle",6,June,79
+Reptiles,"Collision with vehicle",7,July,59
+Reptiles,"Collision with vehicle",8,August,115
+Reptiles,"Collision with vehicle",9,September,344
+Reptiles,"Collision with vehicle",10,October,527
+Reptiles,"Collision with vehicle",11,November,374
+Reptiles,"Collision with vehicle",12,December,304
+Reptiles,"Disease",1,January,24
+Reptiles,"Disease",2,February,25
+Reptiles,"Disease",3,March,14
+Reptiles,"Disease",4,April,10
+Reptiles,"Disease",5,May,7
+Reptiles,"Disease",6,June,1
+Reptiles,"Disease",7,July,12
+Reptiles,"Disease",8,August,15
+Reptiles,"Disease",9,September,25
+Reptiles,"Disease",10,October,45
+Reptiles,"Disease",11,November,27
+Reptiles,"Disease",12,December,17
+Reptiles,"Domestic/Captivity issue",1,January,40
+Reptiles,"Domestic/Captivity issue",2,February,32
+Reptiles,"Domestic/Captivity issue",3,March,34
+Reptiles,"Domestic/Captivity issue",4,April,24
+Reptiles,"Domestic/Captivity issue",5,May,14
+Reptiles,"Domestic/Captivity issue",6,June,53
+Reptiles,"Domestic/Captivity issue",7,July,14
+Reptiles,"Domestic/Captivity issue",8,August,25
+Reptiles,"Domestic/Captivity issue",9,September,16
+Reptiles,"Domestic/Captivity issue",10,October,24
+Reptiles,"Domestic/Captivity issue",11,November,19
+Reptiles,"Domestic/Captivity issue",12,December,24
+Reptiles,"Electrocution",3,March,1
+Reptiles,"Electrocution",8,August,1
+Reptiles,"Electrocution",10,October,1
+Reptiles,"Entangled/Trapped",1,January,229
+Reptiles,"Entangled/Trapped",2,February,208
+Reptiles,"Entangled/Trapped",3,March,201
+Reptiles,"Entangled/Trapped",4,April,92
+Reptiles,"Entangled/Trapped",5,May,54
+Reptiles,"Entangled/Trapped",6,June,32
+Reptiles,"Entangled/Trapped",7,July,21
+Reptiles,"Entangled/Trapped",8,August,48
+Reptiles,"Entangled/Trapped",9,September,150
+Reptiles,"Entangled/Trapped",10,October,203
+Reptiles,"Entangled/Trapped",11,November,186
+Reptiles,"Entangled/Trapped",12,December,198
+Reptiles,"Fouled by Substance",1,January,9
+Reptiles,"Fouled by Substance",2,February,8
+Reptiles,"Fouled by Substance",3,March,8
+Reptiles,"Fouled by Substance",4,April,3
+Reptiles,"Fouled by Substance",5,May,2
+Reptiles,"Fouled by Substance",6,June,6
+Reptiles,"Fouled by Substance",7,July,1
+Reptiles,"Fouled by Substance",8,August,1
+Reptiles,"Fouled by Substance",9,September,2
+Reptiles,"Fouled by Substance",10,October,5
+Reptiles,"Fouled by Substance",11,November,5
+Reptiles,"Fouled by Substance",12,December,7
+Reptiles,"Nuisance",1,January,400
+Reptiles,"Nuisance",2,February,328
+Reptiles,"Nuisance",3,March,319
+Reptiles,"Nuisance",4,April,161
+Reptiles,"Nuisance",5,May,80
+Reptiles,"Nuisance",6,June,32
+Reptiles,"Nuisance",7,July,35
+Reptiles,"Nuisance",8,August,30
+Reptiles,"Nuisance",9,September,189
+Reptiles,"Nuisance",10,October,328
+Reptiles,"Nuisance",11,November,314
+Reptiles,"Nuisance",12,December,365
+Reptiles,"Poisoned",1,January,6
+Reptiles,"Poisoned",2,February,2
+Reptiles,"Poisoned",3,March,7
+Reptiles,"Poisoned",4,April,2
+Reptiles,"Poisoned",6,June,1
+Reptiles,"Poisoned",7,July,3
+Reptiles,"Poisoned",8,August,3
+Reptiles,"Poisoned",9,September,3
+Reptiles,"Poisoned",10,October,2
+Reptiles,"Poisoned",11,November,6
+Reptiles,"Poisoned",12,December,4
+Reptiles,"Suboptimal condition",1,January,3
+Reptiles,"Suboptimal condition",2,February,5
+Reptiles,"Suboptimal condition",3,March,4
+Reptiles,"Suboptimal condition",4,April,2
+Reptiles,"Suboptimal condition",5,May,3
+Reptiles,"Suboptimal condition",6,June,1
+Reptiles,"Suboptimal condition",7,July,6
+Reptiles,"Suboptimal condition",8,August,3
+Reptiles,"Suboptimal condition",9,September,3
+Reptiles,"Suboptimal condition",10,October,3
+Reptiles,"Suboptimal condition",12,December,4
+Reptiles,"Unsuitable environment",1,January,2116
+Reptiles,"Unsuitable environment",2,February,1902
+Reptiles,"Unsuitable environment",3,March,1876
+Reptiles,"Unsuitable environment",4,April,1106
+Reptiles,"Unsuitable environment",5,May,680
+Reptiles,"Unsuitable environment",6,June,413
+Reptiles,"Unsuitable environment",7,July,326
+Reptiles,"Unsuitable environment",8,August,570
+Reptiles,"Unsuitable environment",9,September,1564
+Reptiles,"Unsuitable environment",10,October,1812
+Reptiles,"Unsuitable environment",11,November,1533
+Reptiles,"Unsuitable environment",12,December,1705
+Reptiles,"Weather - Drought/heat",1,January,3
+Reptiles,"Weather - Fire",1,January,1
+Reptiles,"Weather - Fire",2,February,2
+Reptiles,"Weather - Fire",3,March,1
+Reptiles,"Weather - Fire",7,July,3
+Reptiles,"Weather - Fire",8,August,4
+Reptiles,"Weather - Fire",10,October,6
+Reptiles,"Weather - Fire",11,November,1
+Reptiles,"Weather - Storm",2,February,1
+Reptiles,"Weather - Storm",3,March,6
+Reptiles,"Weather - Storm",4,April,2
+Reptiles,"Weather - Storm",5,May,2
+Reptiles,"Weather - Storm",6,June,1
+Reptiles,"Weather - Storm",10,October,1
+Reptiles,"Weather - Unspecified",1,January,11
+Reptiles,"Weather - Unspecified",2,February,3
+Reptiles,"Weather - Unspecified",3,March,6
+Reptiles,"Weather - Unspecified",4,April,7
+Reptiles,"Weather - Unspecified",5,May,1
+Reptiles,"Weather - Unspecified",6,June,11
+Reptiles,"Weather - Unspecified",7,July,1
+Reptiles,"Weather - Unspecified",8,August,7
+Reptiles,"Weather - Unspecified",9,September,2
+Reptiles,"Weather - Unspecified",10,October,7
+Reptiles,"Weather - Unspecified",11,November,5
+Reptiles,"Weather - Unspecified",12,December,4

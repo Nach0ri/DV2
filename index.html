@@ -154,10 +154,62 @@
                 </p>
             </footer>
         </section>
+        <section class="idiom section" aria-labelledby="idiom04-title">
+            <p class="kicker">Idiom 04</p>
+            <h2 class="idiom-title" id="idiom04-title">Which threats peak when?</h2>
+            <p class="subtitle">Rescue reasons by calendar month, across the six-year source period</p>
+
+            <div class="panel">
+                <div class="controls" id="heatmap-controls" hidden>
+                    <div id="heatmap-group"></div>
+                    <span class="hint">Hover over a cell to see the reason, month and count. Choose one animal group or all classes.</span>
+                </div>
+                <p class="summary" id="heatmap-summary" hidden></p>
+                <div id="heatmap-chart">
+                    <p class="status" id="heatmap-status">Loading heatmap…</p>
+                </div>
+                <p class="legend-note" id="heatmap-note"></p>
+
+                <div class="caution">
+                    <h3>What the heatmap shows</h3>
+                    <ul>
+                        <li><b>Abandoned or orphaned animals peak from October to December</b> (about 6,100–7,700 rescues a month across all
+                            groups), mostly birds. The count is lowest in mid-year.</li>
+                        <li><b>Vehicle collisions are highest from July to October</b>, peaking in August at 5,248 rescues. Mammals drive
+                            most of the July–September rise.</li>
+                        <li><b>Do not read this as complete seasonality.</b> “Unknown” causes make up 54% of all rescues, and they are not
+                            shown here. The source does not give years, so the pattern is for the whole period combined.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <footer class="note">
+                <h2>Data source and limitations</h2>
+                <p>
+                    Data come from supplementary file S8 (<code>pone.0257209.s008.xlsx</code>) of
+                    Kwok et al. (2021), PLoS ONE, <a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>.
+                    The data are historical and are <b>not</b> current NSW statistics.
+                </p>
+                <p>
+                    Cleaned data: <code>data/rescue_reasons_by_month.csv</code> (animal group, reason, month, count). Each row is one cause
+                    for one animal group in one month. The “total” rows in the source are left out so nothing is counted twice, and the
+                    group rows were checked against those totals for every month. “All classes” adds the three groups together.
+                </p>
+                <p>
+                    Left out: the “Unknown” cause (150,015 + 73,120 + 29,383 = 252,518 rescues), and the “No month reported” column.
+                    Blank cells in the source are treated as not reported, not zero.
+                </p>
+                <p>
+                    To view the heatmap, open this page with a local server such as VS Code Live Server.
+                    It will not load if you open the file directly.
+                </p>
+            </footer>
+        </section>
     </main>
 
     <script src="js/idiom01-map.js"></script>
     <script src="js/idiom02-reasons.js"></script>
     <script src="js/idiom03-seasonality.js"></script>
+    <script src="js/idiom04-heatmap.js"></script>
 </body>
 </html>
