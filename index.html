@@ -7,259 +7,70 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
-    <style>
-        :root {
-            --ink: #1f2933;
-            --muted: #5b6770;
-            --rule: #d9dee3;
-            --panel: #ffffff;
-            --page: #f5f7f9;
-            --accent: #38698c;
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            margin: 0;
-            background: var(--page);
-            color: var(--ink);
-            font-family: Avenir, "Segoe UI", Verdana, Geneva, sans-serif;
-            line-height: 1.5;
-        }
-
-        main {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 32px 16px 48px;
-        }
-
-        header {
-            border-bottom: 1px solid var(--rule);
-            padding-bottom: 16px;
-            margin-bottom: 24px;
-        }
-
-        .kicker {
-            margin: 0 0 4px;
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--accent);
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 1.9rem;
-            line-height: 1.2;
-        }
-
-        .subtitle {
-            margin: 6px 0 0;
-            font-size: 1.05rem;
-            color: var(--muted);
-        }
-
-        .panel {
-            background: var(--panel);
-            border: 1px solid var(--rule);
-            border-radius: 8px;
-            padding: 16px;
-        }
-
-        #map {
-            width: 100%;
-            min-height: 520px;
-            overflow-x: auto;
-        }
-
-        .controls {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 8px 20px;
-            margin: 0 0 12px;
-            font-size: 0.9rem;
-        }
-
-        .controls .vega-bind-name { font-weight: 600; }
-        .controls select { font: inherit; padding: 3px 6px; border: 1px solid #b9c2ca; border-radius: 4px; background: #fff; }
-        .controls .hint { color: var(--muted); font-size: 0.85rem; }
-
-        .summary {
-            margin: 0 0 14px;
-            padding: 10px 12px;
-            border-left: 3px solid var(--accent);
-            background: #f0f4f7;
-            font-size: 0.95rem;
-        }
-
-        .map-legend {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 6px 14px;
-            margin: 0 0 10px;
-            font-size: 0.82rem;
-        }
-
-        .map-legend b { width: 100%; font-size: 0.85rem; }
-        .map-legend .key { display: inline-flex; align-items: center; gap: 5px; }
-        .map-legend i { width: 14px; height: 14px; border-radius: 2px; border: 1px solid rgba(0, 0, 0, 0.15); }
-
-        .caution {
-            margin-top: 16px;
-            padding: 12px 14px;
-            border: 1px solid #e3c9a8;
-            background: #fdf6ec;
-            border-radius: 6px;
-            font-size: 0.9rem;
-        }
-
-        .caution h2 { font-size: 1rem; margin: 0 0 6px; }
-        .caution ul { margin: 0; padding-left: 18px; }
-        .caution li { margin-bottom: 4px; }
-
-        .status {
-            margin: 0;
-            padding: 24px;
-            color: var(--muted);
-            text-align: center;
-        }
-
-        .status.error {
-            color: #9b2c2c;
-        }
-
-        .legend-note {
-            margin: 12px 0 0;
-            font-size: 0.9rem;
-            color: var(--muted);
-        }
-
-        footer.note {
-            margin-top: 24px;
-            font-size: 0.875rem;
-            color: var(--muted);
-        }
-
-        footer.note h2 {
-            font-size: 1rem;
-            color: var(--ink);
-            margin: 0 0 6px;
-        }
-
-        footer.note p {
-            margin: 0 0 8px;
-        }
-
-        .idiom {
-            margin-top: 48px;
-            padding-top: 24px;
-            border-top: 1px solid var(--rule);
-        }
-
-        .idiom h2.idiom-title {
-            margin: 0;
-            font-size: 1.6rem;
-            line-height: 1.2;
-        }
-
-        .idiom .subtitle { margin-bottom: 20px; }
-
-        #reasons-chart { width: 100%; }
-
-        .placeholder {
-            padding: 24px;
-            border: 2px dashed var(--rule);
-            border-radius: 6px;
-            background: #fafbfc;
-            font-size: 0.95rem;
-        }
-
-        .placeholder .tag {
-            display: inline-block;
-            margin-bottom: 8px;
-            padding: 2px 8px;
-            border-radius: 4px;
-            background: #e9edf1;
-            color: var(--muted);
-            font-size: 0.75rem;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-
-        .placeholder h3 { margin: 0 0 8px; font-size: 1.1rem; }
-        .placeholder p { margin: 0 0 10px; }
-        .placeholder ul { margin: 0 0 10px; padding-left: 18px; }
-        .placeholder li { margin-bottom: 4px; }
-        .placeholder p:last-child { margin-bottom: 0; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 1.5rem; }
-            .idiom h2.idiom-title { font-size: 1.3rem; }
-            #map { min-height: 380px; }
-            .placeholder { padding: 16px; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <main>
         <header>
-            <p class="kicker">Idiom 01</p>
-            <h1>Where are rescues happening?</h1>
-            <p class="subtitle">Wildlife rescue and rehabilitation across New South Wales</p>
+            <p class="kicker">FIT3179 Data Visualisation 2</p>
+            <h1>Wildlife Rescue in NSW</h1>
+            <p class="subtitle">Where rescues happen, and what brings animals into care</p>
         </header>
 
-        <section class="panel" aria-label="Map of wildlife rescues by NSW local government area">
-            <div class="controls">
-                <div id="fy-control"></div>
-                <span class="hint">Hover over an area to see its numbers. Click an area or bar to highlight it, and double-click to clear.</span>
-            </div>
-            <p class="summary" id="fy-summary" aria-live="polite"></p>
-            <div class="map-legend" id="map-legend" aria-label="Colour key"></div>
-            <div id="map">
-                <p class="status" id="map-status">Loading map…</p>
-            </div>
-            <p class="legend-note" id="fy-gaps"></p>
+        <!-- Section 1: map first -->
+        <section class="idiom section" aria-labelledby="idiom01-title">
+            <p class="kicker">Idiom 01</p>
+            <h2 class="idiom-title" id="idiom01-title">Where are rescues happening?</h2>
+            <p class="subtitle">Wildlife rescue and rehabilitation across New South Wales</p>
 
-            <div class="caution">
-                <h2>Things to keep in mind</h2>
-                <ul>
-                    <li>More rescues does not mean an area is more dangerous for wildlife. The numbers also depend on
-                        how many people live there, how much bushland there is, and whether a rescue group is nearby.</li>
-                    <li>The map shows the number of rescues, not a rate. Dividing by population or land area would
-                        measure something different, so I have left the counts as they are.</li>
-                    <li>The colour groups stay the same for every year, so you can compare years fairly.</li>
-                </ul>
+            <div class="panel">
+                <div class="controls">
+                    <div id="fy-control"></div>
+                    <span class="hint">Hover over an area to see its numbers. Click an area or bar to highlight it, and double-click to clear.</span>
+                </div>
+                <p class="summary" id="fy-summary" aria-live="polite"></p>
+                <div class="map-legend" id="map-legend" aria-label="Colour key"></div>
+                <div id="map">
+                    <p class="status" id="map-status">Loading map…</p>
+                </div>
+                <p class="legend-note" id="fy-gaps"></p>
+
+                <div class="caution">
+                    <h3>Things to keep in mind</h3>
+                    <ul>
+                        <li>More rescues does not mean an area is more dangerous for wildlife. The numbers also depend on
+                            how many people live there, how much bushland there is, and whether a rescue group is nearby.</li>
+                        <li>The map shows the number of rescues, not a rate. Dividing by population or land area would
+                            measure something different, so I have left the counts as they are.</li>
+                        <li>The colour groups stay the same for every year, so you can compare years fairly.</li>
+                    </ul>
+                </div>
             </div>
+
+            <footer class="note">
+                <h2>Data sources</h2>
+                <p>
+                    Rescue numbers come from the
+                    <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/native-animals/rehabilitating-native-animals/wildlife-rehabilitation-data-and-reporting/wildlife-rehabilitation-data-dashboard">NSW Wildlife Rehabilitation Data Dashboard</a>
+                    (NSW Department of Climate Change, Energy, the Environment and Water). They cover native birds, mammals,
+                    reptiles and amphibians rescued by licensed groups from 2013–14 to 2024–25. The dashboard was last
+                    updated on 26 May 2026 and the numbers were downloaded on 15 October 2026.
+                </p>
+                <p>
+                    These numbers do not match the
+                    <a href="https://www.environment.nsw.gov.au/publications/nsw-wildlife-rehabilitation-annual-report-2023-25">NSW Wildlife Rehabilitation Annual Report 2023–25</a>.
+                    For example, the report says Tweed had 6,080 rescues in 2023–24, but the dashboard shows 3,155.
+                    The report's state totals (122,258 and 145,110) are also higher than the dashboard's (107,202 and 119,646).
+                    The two seem to use different versions of the data, so the numbers on this page are dashboard numbers.
+                </p>
+                <p>
+                    Council boundaries are from NSW Spatial Services (132 local government areas).
+                </p>
+            </footer>
         </section>
 
-        <footer class="note">
-            <h2>Data sources</h2>
-            <p>
-                Rescue numbers come from the
-                <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/native-animals/rehabilitating-native-animals/wildlife-rehabilitation-data-and-reporting/wildlife-rehabilitation-data-dashboard">NSW Wildlife Rehabilitation Data Dashboard</a>
-                (NSW Department of Climate Change, Energy, the Environment and Water). They cover native birds, mammals,
-                reptiles and amphibians rescued by licensed groups from 2013–14 to 2024–25. The dashboard was last
-                updated on 26 May 2026 and the numbers were downloaded on 15 October 2026.
-            </p>
-            <p>
-                These numbers do not match the
-                <a href="https://www.environment.nsw.gov.au/publications/nsw-wildlife-rehabilitation-annual-report-2023-25">NSW Wildlife Rehabilitation Annual Report 2023–25</a>.
-                For example, the report says Tweed had 6,080 rescues in 2023–24, but the dashboard shows 3,155.
-                The report's state totals (122,258 and 145,110) are also higher than the dashboard's (107,202 and 119,646).
-                The two seem to use different versions of the data, so the numbers on this page are dashboard numbers.
-            </p>
-            <p>
-                Council boundaries are from NSW Spatial Services (132 local government areas).
-            </p>
-            <p>
-                To view the map, open this page with a local server such as VS Code Live Server.
-                It will not load if you open the file directly.
-            </p>
-        </footer>
-
-        <section class="idiom" aria-labelledby="idiom02-title">
+        <!-- Section 2: reasons bar chart below the map -->
+        <section class="idiom section" aria-labelledby="idiom02-title">
             <p class="kicker">Idiom 02</p>
             <h2 class="idiom-title" id="idiom02-title">What brings animals into care?</h2>
             <p class="subtitle">The most common reasons wildlife are rescued in NSW</p>
@@ -270,22 +81,7 @@
                 </div>
                 <p class="summary" id="reasons-summary" hidden></p>
                 <div id="reasons-chart">
-                    <div class="placeholder" role="note">
-                        <span class="tag">Placeholder: no data yet</span>
-                        <h3>Rescue numbers by reason are not available yet</h3>
-                        <p>This chart will rank the reasons animals come into care, from most to least common.
-                            None of the files in this project have those numbers, so nothing is drawn here
-                            and no values have been made up.</p>
-                        <ul>
-                            <li><code>wildlife-rehabilitation-detailed-report-2026-27.xlsx</code> is an empty
-                                2026–27 record sheet. It lists the 44 reasons (“encounter types”) that groups must use,
-                                such as “Collision - Motor vehicle” and “Attack - Cat”, but no rescues have been entered.</li>
-                            <li><code>wildlife_rescue_annual_summary.csv</code> only has yearly totals and top species.</li>
-                            <li><code>rescue_counts_by_lga.csv</code> only has counts by council area.</li>
-                        </ul>
-                        <p><b>Still needed:</b> a file called <code>data/rescue_reasons_by_year.csv</code> with the columns
-                            <code>reason,financial_year,rescue_count</code>. Once it is added, the chart will appear here.</p>
-                    </div>
+                    <p class="status" id="reasons-status">Loading chart…</p>
                 </div>
                 <p class="legend-note" id="reasons-note">Reporting period: not available yet.</p>
             </div>
@@ -309,95 +105,6 @@
     </main>
 
     <script src="js/idiom01-map.js"></script>
-    <script>
-        // Idiom 02: ranked bar chart of rescue reasons.
-        // Draws only when data/rescue_reasons_by_year.csv exists; otherwise the placeholder stays.
-        (async function () {
-            const REASONS_URL = "data/rescue_reasons_by_year.csv";
-            let text;
-            try {
-                const res = await fetch(REASONS_URL);
-                if (!res.ok) return; // File not added yet: keep the placeholder.
-                text = await res.text();
-            } catch (err) {
-                return;
-            }
-
-            // Expects reason,financial_year,rescue_count. Blank or non-numeric counts are skipped, never treated as zero.
-            const rows = [];
-            for (const line of text.trim().split(/\r?\n/).slice(1)) {
-                const parts = line.split(",");
-                const raw = parts.pop().trim();
-                const year = parts.pop()?.trim();
-                const reason = parts.join(",").trim().replace(/^"|"$/g, "");
-                if (reason && year && /^\d+$/.test(raw)) rows.push({ reason, financial_year: year, rescue_count: Number(raw) });
-            }
-            if (rows.length === 0) return;
-
-            const years = [...new Set(rows.map(r => r.financial_year))].sort();
-            const fmt = n => n.toLocaleString("en-AU");
-
-            const spec = {
-                $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-                width: "container",
-                height: { step: 22 },
-                autosize: { type: "fit-x", contains: "padding" },
-                data: { values: rows },
-                params: [{ name: "reason_year", value: years[years.length - 1], bind: { input: "select", options: years, name: "Financial year ", element: "#reasons-year" } }],
-                transform: [
-                    { filter: "datum.financial_year === reason_year" },
-                    { window: [{ op: "rank", as: "rank" }], sort: [{ field: "rescue_count", order: "descending" }] },
-                    { filter: "datum.rank <= 15" }
-                ],
-                encoding: {
-                    y: { field: "reason", type: "nominal", sort: { field: "rescue_count", op: "max", order: "descending" }, title: null, axis: { labelLimit: 220, labelFontSize: 11, ticks: false, domain: false } },
-                    x: { field: "rescue_count", type: "quantitative", title: "Number of rescues", axis: { format: ",d", grid: true, tickCount: 5 } },
-                    tooltip: [
-                        { field: "reason", title: "Reason" },
-                        { field: "financial_year", title: "Year" },
-                        { field: "rescue_count", title: "Rescues", format: ",d" }
-                    ]
-                },
-                layer: [
-                    {
-                        mark: { type: "bar", cornerRadiusEnd: 2, height: { band: 0.7 } },
-                        encoding: { color: { condition: { test: "datum.rank === 1", value: "#c4510c" }, value: "#38698c" } }
-                    },
-                    {
-                        mark: { type: "text", align: "left", baseline: "middle", dx: 4, fontSize: 11, color: "#1f2933" },
-                        encoding: { text: { field: "rescue_count", format: ",d" } }
-                    }
-                ],
-                config: { view: { stroke: null }, font: "Avenir, Segoe UI, Verdana, sans-serif", axis: { labelColor: "#3e4a55", titleColor: "#3e4a55", gridColor: "#edf0f2" } }
-            };
-
-            // Years in the file look like 2022-23; show them with an en dash.
-            const showYear = year => year.replace(/[-\/]/, "–");
-
-            // No share is shown: the file lists only some reasons, so its total is not all rescues.
-            function updateSummary(year) {
-                const inYear = rows.filter(r => r.financial_year === year).sort((a, b) => b.rescue_count - a.rescue_count);
-                const top = inYear[0];
-                document.getElementById("reasons-summary").innerHTML =
-                    `In <b>${showYear(year)}</b>, the most common reason was <b>${top.reason}</b>, ` +
-                    `with ${fmt(top.rescue_count)} rescues.`;
-                document.getElementById("reasons-note").textContent =
-                    `Reporting period: ${showYear(years[0])}${years.length > 1 ? " to " + showYear(years[years.length - 1]) : ""}. ` +
-                    `Source: ${REASONS_URL}. Rescues with an unknown reason are not included.`;
-            }
-
-            try {
-                document.getElementById("reasons-chart").innerHTML = "";
-                document.getElementById("reasons-controls").hidden = false;
-                document.getElementById("reasons-summary").hidden = false;
-                const { view } = await vegaEmbed("#reasons-chart", spec, { actions: false, renderer: "svg" });
-                updateSummary(view.signal("reason_year"));
-                view.addSignalListener("reason_year", (_, year) => updateSummary(year));
-            } catch (err) {
-                console.error(err);
-                document.getElementById("reasons-chart").innerHTML = `<p class="status error">Could not draw the chart: ${err.message}</p>`;
-            }
-        })();
-    </script>
+    <script src="js/idiom02-reasons.js"></script>
 </body>
 </html>

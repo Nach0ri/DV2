@@ -254,7 +254,7 @@ function updateNotes(rows, notRecorded, fy) {
     const label = fy.replace("/", "–");
 
     document.getElementById("fy-summary").innerHTML =
-        `In <b>${label}</b>, ${fmt(total)} rescues were linked to a council area.` +
+        `In <b>${label}</b>, ${fmt(total)} rescues were linked to a council area. ` +
         `The top five (${sorted.slice(0, 5).map(r => r.lga_name).join(", ")}) had ` +
         `<b>${(100 * top5 / total).toFixed(1)}%</b> of them. The bottom ${sorted.length - half} areas together had only ` +
         `${(100 * bottomHalf / total).toFixed(1)}%.`;
