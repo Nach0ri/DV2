@@ -1,0 +1,62 @@
+# Source: Kwok et al. (2021), PLOS ONE, Table 10. https://doi.org/10.1371/journal.pone.0257209.t010 . Transcribed from the published table; percentages as published (rounded to 0.1%). Died = dead, died or euthanased; Survived = released, left and observed, relocated, or permanent care (paper, Data preparation).
+animal_group,rescue_reason,died_pct,survived_pct,total_rescues
+Birds,"Abandoned/Orphaned",36.9,63.1,22253
+Birds,"Attacked by cat",77.3,22.7,3275
+Birds,"Attacked by dog",70.1,29.9,1643
+Birds,"Attacked by other",58.7,41.3,5291
+Birds,"Collision with other",47.3,52.7,10526
+Birds,"Collision with vehicle",67.8,32.2,18129
+Birds,"Disease",89.3,10.7,6648
+Birds,"Domestic/Captivity issue",34.3,65.7,402
+Birds,"Electrocution",76.7,23.3,73
+Birds,"Entangled/Trapped",32.4,67.6,5153
+Birds,"Fouled by Substance",48.6,51.4,414
+Birds,"Nuisance",6.1,93.9,343
+Birds,"Poisoned",82.2,17.8,546
+Birds,"Suboptimal condition",73.0,27.0,152
+Birds,"Unknown",61.8,38.2,102475
+Birds,"Unsuitable environment",24.9,75.1,10510
+Birds,"Weather—Drought/heat",26.4,73.6,87
+Birds,"Weather—Fire",57.1,42.9,28
+Birds,"Weather—Storm",41.5,58.5,1281
+Birds,"Weather—Unspecified",36.9,63.1,1747
+Mammals,"Abandoned/Orphaned",50.9,49.1,13927
+Mammals,"Attacked by cat",73.9,26.1,3005
+Mammals,"Attacked by dog",73.5,26.5,2803
+Mammals,"Attacked by other",65.2,34.8,2401
+Mammals,"Collision with other",76.1,23.9,1325
+Mammals,"Collision with vehicle",87.8,12.2,25273
+Mammals,"Disease",75.1,24.9,3406
+Mammals,"Domestic/Captivity issue",36.0,64.0,125
+Mammals,"Electrocution",90.3,9.7,1419
+Mammals,"Entangled/Trapped",56.0,44.0,6384
+Mammals,"Fouled by Substance",68.1,31.9,119
+Mammals,"Nuisance",9.0,91.0,818
+Mammals,"Poisoned",82.3,17.7,419
+Mammals,"Suboptimal condition",79.0,21.0,500
+Mammals,"Unknown",63.5,36.5,50008
+Mammals,"Unsuitable environment",17.1,82.9,8224
+Mammals,"Weather—Drought/heat",91.0,9.0,1724
+Mammals,"Weather—Fire",62.4,37.6,237
+Mammals,"Weather—Storm",38.3,61.7,128
+Mammals,"Weather—Unspecified",63.1,36.9,1649
+Reptiles,"Abandoned/Orphaned",12.5,87.5,168
+Reptiles,"Attacked by cat",50.2,49.8,809
+Reptiles,"Attacked by dog",65.6,34.4,2803
+Reptiles,"Attacked by other",50.8,49.2,844
+Reptiles,"Collision with other",60.1,39.9,143
+Reptiles,"Collision with vehicle",67.4,32.6,2496
+Reptiles,"Disease",37.3,62.7,201
+Reptiles,"Domestic/Captivity issue",29.9,70.1,154
+Reptiles,"Electrocution",100.0,0.0,2
+Reptiles,"Entangled/Trapped",13.4,86.6,1444
+Reptiles,"Fouled by Substance",20.9,79.1,43
+Reptiles,"Nuisance",3.5,96.5,2233
+Reptiles,"Poisoned",65.7,34.3,35
+Reptiles,"Suboptimal condition",26.5,73.5,34
+Reptiles,"Unknown",28.7,71.3,20910
+Reptiles,"Unsuitable environment",2.5,97.5,14786
+Reptiles,"Weather—Drought/heat",33.3,66.7,3
+Reptiles,"Weather—Fire",60.0,40.0,15
+Reptiles,"Weather—Storm",16.7,83.3,12
+Reptiles,"Weather—Unspecified",22.6,77.4,53

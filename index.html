@@ -47,7 +47,6 @@
                 <h3 class="idiom-title" id="idiom-01-title"><span class="idiom-num">01</span>Where are rescues happening?</h3>
                 
                     <div class="idiom-text">
-                        <p class="card-kicker">Choropleth map</p>
                         <h4 class="card-heading">Mapping recorded rescues across NSW</h4>
                         <p>Explore how recorded wildlife rescues are distributed across NSW. Geographic differences may reflect animal populations, reporting practices and access to rescue services, rather than differences in
                             wildlife risk alone.</p>
@@ -69,7 +68,6 @@
             <article class="idiom idiom--stacked" aria-labelledby="idiom-02-title">
                 <h3 class="idiom-title" id="idiom-02-title"><span class="idiom-num">02</span>What brings animals into care?</h3>
                 <div class="idiom-text">
-                    <p class="card-kicker">Ranked bar chart</p>
                     <p>Compare the reported reasons animals enter rescue and rehabilitation services, highlighting the
                         categories that account for the largest number of recorded cases.</p>
                     <p class="card-note">Where a record has no reported reason, it cannot be ranked. Note how many cases
@@ -98,7 +96,6 @@
                         </div>
                     </figure>
                     <div class="text-card">
-                        <p class="card-kicker">Multi-series line chart</p>
                         <h4 class="card-heading">Following rescue demand through the year</h4>
                         <p>Compare rescue trends across selected animal groups to investigate when recorded rescue activity
                             rises or falls throughout the year.</p>
@@ -121,7 +118,6 @@
             <article class="idiom idiom--stacked" aria-labelledby="idiom-04-title">
                 <h3 class="idiom-title" id="idiom-04-title"><span class="idiom-num">04</span>Which threats peak when?</h3>
                 <div class="idiom-text">
-                    <p class="card-kicker">Heatmap</p>
                     <p>Compare monthly rescue patterns across reported reasons to identify periods when particular
                         categories become more common.</p>
                     <p class="card-note">Interpret apparent seasonal patterns carefully, especially where reporting is
@@ -141,7 +137,6 @@
             <article class="idiom idiom--stacked" aria-labelledby="idiom-05-title">
                 <h3 class="idiom-title" id="idiom-05-title"><span class="idiom-num">05</span>Which reasons have different outcomes?</h3>
                 <div class="idiom-text">
-                        <p class="card-kicker">Bubble chart</p>
                         <h4 class="card-heading">Volume and outcome, reason by reason</h4>
                         <p>Examine how case volume and documented outcomes vary between rescue reasons. Differences may be
                             associated with case characteristics and reporting practices, and should not be interpreted as
@@ -160,22 +155,17 @@
             </article>
 
             <!-- Idiom 06 · text beside chart -->
-            <article class="idiom idiom--split" aria-labelledby="idiom-06-title">
+            <article class="idiom idiom--stacked" aria-labelledby="idiom-06-title">
                 <h3 class="idiom-title" id="idiom-06-title"><span class="idiom-num">06</span>How are rescue reason rankings changing?</h3>
-                <div class="idiom-body">
-                    <div class="text-card">
-                        <p class="card-kicker">Bump chart</p>
+                <div class="idiom-text">
                         <h4 class="card-heading">Which reasons are rising or falling?</h4>
                         <p>Follow the ranking of major rescue reasons across reporting years to identify categories that
                             become more or less prominent in the recorded data.</p>
-                    </div>
-                    <figure class="chart-card">
-                        <div class="chart-placeholder" id="vis-06-bump">
-                            <!-- Vega-Lite chart container: vegaEmbed("#vis-06-bump", spec) -->
-                            <span class="placeholder-label">06 · Bump chart — chart to be added</span>
-                        </div>
-                    </figure>
                 </div>
+                <figure class="chart-card chart-card--full">
+                    <div class="chart-area" id="vis-06-bump"></div>
+                    <p class="legend-note" id="bump-note"></p>
+                </figure>
             </article>
         </section>
 
@@ -194,7 +184,6 @@
                 <h3 class="idiom-title" id="idiom-07-title"><span class="idiom-num">07</span>Which regions record the most rescues?</h3>
                 <div class="idiom-body">
                     <div class="text-card">
-                        <p class="card-kicker">Connected dot plot</p>
                         <h4 class="card-heading">Regional change between two periods</h4>
                         <p>Compare regional rescue figures across selected years to identify where recorded rescue activity
                             has increased or decreased.</p>
@@ -213,7 +202,6 @@
             <article class="idiom idiom--stacked" aria-labelledby="idiom-08-title">
                 <h3 class="idiom-title" id="idiom-08-title"><span class="idiom-num">08</span>Which species are rescued most often?</h3>
                 <div class="idiom-text">
-                    <p class="card-kicker">Treemap</p>
                     <p>Compare the relative contribution of recorded species to the overall rescue total. Larger
                         rectangles represent species with more recorded rescues, making the distribution of rescue
                         activity easier to explore.</p>
@@ -227,24 +215,17 @@
             </article>
 
             <!-- Idiom 09 · text beside chart -->
-            <article class="idiom idiom--split idiom--text-right" aria-labelledby="idiom-09-title">
+            <article class="idiom idiom--stacked" aria-labelledby="idiom-09-title">
                 <h3 class="idiom-title" id="idiom-09-title"><span class="idiom-num">09</span>What happens after rescue?</h3>
-                <div class="idiom-body">
-                    <figure class="chart-card">
-                        <div class="chart-placeholder chart-placeholder--tall" id="vis-09-sankey">
-                            <!-- Vega-Lite chart container: Sankey diagram for idiom 09 -->
-                            <span class="placeholder-label">09 · Sankey diagram — chart to be added</span>
-                        </div>
-                    </figure>
-                    <div class="text-card">
-                        <p class="card-kicker">Sankey diagram</p>
-                        <h4 class="card-heading">From rescue category to documented outcome</h4>
-                        <p>Trace recorded cases from their initial rescue category to their documented outcomes, where the
-                            dataset supports these relationships.</p>
-                        <p class="card-note">Flow widths should represent counts, with missing and ongoing cases handled
-                            transparently.</p>
-                    </div>
+                <div class="idiom-text">
+                    <p class="card-kicker">Sankey diagram</p>
+                    <h4 class="card-heading">How do outcomes differ across animal groups and rescue reasons?</h4>
+                    <p>Compare documented survival and death percentages across rescue reasons for birds, mammals, and reptiles over the study period.</p>
+                    <p class="card-note">Data are aggregated across the study period (2013–14 to 2018–19) and do not show year-by-year changes. Flow widths are estimated from the published survival and death percentages and rescue totals, because the percentages are rounded.</p>
                 </div>
+                <figure class="chart-card chart-card--full">
+                    <div class="chart-area" id="vis-09-sankey"></div>
+                </figure>
             </article>
         </section>
 
@@ -263,7 +244,6 @@
                 <article class="idiom idiom--pair-item" aria-labelledby="idiom-10-title">
                     <h3 class="idiom-title" id="idiom-10-title"><span class="idiom-num">10</span>Do rescue patterns differ by species group?</h3>
                     <div class="idiom-text">
-                        <p class="card-kicker">Small multiples</p>
                         <p>Display separate, consistently formatted trend charts for selected species groups to make
                             similarities and differences in recorded rescue patterns easier to identify.</p>
                     </div>
@@ -278,7 +258,6 @@
                 <article class="idiom idiom--pair-item" aria-labelledby="idiom-11-title">
                     <h3 class="idiom-title" id="idiom-11-title"><span class="idiom-num">11</span>Which species have the lowest rescue counts?</h3>
                     <div class="idiom-text">
-                        <p class="card-kicker">Lollipop chart</p>
                         <p>Rank selected species by recorded rescue counts to highlight less frequently recorded groups.</p>
                         <p class="card-note">Low counts do not necessarily mean low conservation risk. Rare records may reflect
                             reporting or data-availability limitations.</p>
@@ -296,7 +275,6 @@
             <article class="idiom idiom--stacked" aria-labelledby="idiom-12-title">
                 <h3 class="idiom-title" id="idiom-12-title"><span class="idiom-num">12</span>What proportion of rescued animals reach each outcome?</h3>
                 <div class="idiom-text">
-                    <p class="card-kicker">Waffle chart</p>
                     <p>Summarise the proportion of recorded cases associated with each documented outcome.</p>
                     <p class="card-note">Make the denominator explicit, and separate released animals from transferred,
                         ongoing, deceased, euthanised or unknown outcomes where these categories are available.</p>
@@ -327,5 +305,7 @@
     <script src="js/idiom03-seasonality.js"></script>
     <script src="js/idiom04-heatmap.js"></script>
     <script src="js/idiom05-bubble.js"></script>
+    <script src="js/idiom06-bump.js"></script>
+    <script src="js/idiom09-sankey.js"></script>
 </body>
 </html>

@@ -1,0 +1,352 @@
+reason,animal_group,reporting_year,rescues
+"Abandoned/Orphaned",Birds,2013-14,3216
+"Abandoned/Orphaned",Birds,2014-15,4176
+"Abandoned/Orphaned",Birds,2015-16,4220
+"Abandoned/Orphaned",Birds,2016-17,4638
+"Abandoned/Orphaned",Birds,2017-18,4672
+"Abandoned/Orphaned",Birds,2018-19,4489
+"Abandoned/Orphaned",Mammals,2013-14,2123
+"Abandoned/Orphaned",Mammals,2014-15,2180
+"Abandoned/Orphaned",Mammals,2015-16,2307
+"Abandoned/Orphaned",Mammals,2016-17,4400
+"Abandoned/Orphaned",Mammals,2017-18,3959
+"Abandoned/Orphaned",Mammals,2018-19,3080
+"Abandoned/Orphaned",Reptiles,2013-14,34
+"Abandoned/Orphaned",Reptiles,2014-15,22
+"Abandoned/Orphaned",Reptiles,2015-16,29
+"Abandoned/Orphaned",Reptiles,2016-17,23
+"Abandoned/Orphaned",Reptiles,2017-18,52
+"Abandoned/Orphaned",Reptiles,2018-19,33
+"Attacked by cat",Birds,2013-14,614
+"Attacked by cat",Birds,2014-15,643
+"Attacked by cat",Birds,2015-16,573
+"Attacked by cat",Birds,2016-17,602
+"Attacked by cat",Birds,2017-18,731
+"Attacked by cat",Birds,2018-19,733
+"Attacked by cat",Mammals,2013-14,567
+"Attacked by cat",Mammals,2014-15,608
+"Attacked by cat",Mammals,2015-16,504
+"Attacked by cat",Mammals,2016-17,606
+"Attacked by cat",Mammals,2017-18,623
+"Attacked by cat",Mammals,2018-19,626
+"Attacked by cat",Reptiles,2013-14,148
+"Attacked by cat",Reptiles,2014-15,169
+"Attacked by cat",Reptiles,2015-16,183
+"Attacked by cat",Reptiles,2016-17,153
+"Attacked by cat",Reptiles,2017-18,202
+"Attacked by cat",Reptiles,2018-19,187
+"Attacked by dog",Birds,2013-14,274
+"Attacked by dog",Birds,2014-15,299
+"Attacked by dog",Birds,2015-16,300
+"Attacked by dog",Birds,2016-17,321
+"Attacked by dog",Birds,2017-18,359
+"Attacked by dog",Birds,2018-19,444
+"Attacked by dog",Mammals,2013-14,504
+"Attacked by dog",Mammals,2014-15,510
+"Attacked by dog",Mammals,2015-16,484
+"Attacked by dog",Mammals,2016-17,549
+"Attacked by dog",Mammals,2017-18,581
+"Attacked by dog",Mammals,2018-19,561
+"Attacked by dog",Reptiles,2013-14,468
+"Attacked by dog",Reptiles,2014-15,554
+"Attacked by dog",Reptiles,2015-16,604
+"Attacked by dog",Reptiles,2016-17,557
+"Attacked by dog",Reptiles,2017-18,625
+"Attacked by dog",Reptiles,2018-19,587
+"Attacked by other",Birds,2013-14,880
+"Attacked by other",Birds,2014-15,938
+"Attacked by other",Birds,2015-16,1022
+"Attacked by other",Birds,2016-17,1111
+"Attacked by other",Birds,2017-18,1093
+"Attacked by other",Birds,2018-19,1272
+"Attacked by other",Mammals,2013-14,481
+"Attacked by other",Mammals,2014-15,421
+"Attacked by other",Mammals,2015-16,432
+"Attacked by other",Mammals,2016-17,505
+"Attacked by other",Mammals,2017-18,436
+"Attacked by other",Mammals,2018-19,542
+"Attacked by other",Reptiles,2013-14,115
+"Attacked by other",Reptiles,2014-15,152
+"Attacked by other",Reptiles,2015-16,164
+"Attacked by other",Reptiles,2016-17,174
+"Attacked by other",Reptiles,2017-18,176
+"Attacked by other",Reptiles,2018-19,223
+"Collision with other",Birds,2013-14,1553
+"Collision with other",Birds,2014-15,1803
+"Collision with other",Birds,2015-16,1810
+"Collision with other",Birds,2016-17,2014
+"Collision with other",Birds,2017-18,2151
+"Collision with other",Birds,2018-19,2452
+"Collision with other",Mammals,2013-14,184
+"Collision with other",Mammals,2014-15,211
+"Collision with other",Mammals,2015-16,178
+"Collision with other",Mammals,2016-17,244
+"Collision with other",Mammals,2017-18,324
+"Collision with other",Mammals,2018-19,343
+"Collision with other",Reptiles,2013-14,22
+"Collision with other",Reptiles,2014-15,39
+"Collision with other",Reptiles,2015-16,31
+"Collision with other",Reptiles,2016-17,27
+"Collision with other",Reptiles,2017-18,22
+"Collision with other",Reptiles,2018-19,25
+"Collision with vehicle",Birds,2013-14,2672
+"Collision with vehicle",Birds,2014-15,2943
+"Collision with vehicle",Birds,2015-16,3132
+"Collision with vehicle",Birds,2016-17,3517
+"Collision with vehicle",Birds,2017-18,3973
+"Collision with vehicle",Birds,2018-19,4414
+"Collision with vehicle",Mammals,2013-14,3941
+"Collision with vehicle",Mammals,2014-15,3759
+"Collision with vehicle",Mammals,2015-16,4741
+"Collision with vehicle",Mammals,2016-17,4737
+"Collision with vehicle",Mammals,2017-18,5449
+"Collision with vehicle",Mammals,2018-19,6512
+"Collision with vehicle",Reptiles,2013-14,403
+"Collision with vehicle",Reptiles,2014-15,440
+"Collision with vehicle",Reptiles,2015-16,490
+"Collision with vehicle",Reptiles,2016-17,499
+"Collision with vehicle",Reptiles,2017-18,498
+"Collision with vehicle",Reptiles,2018-19,607
+"Disease",Birds,2013-14,952
+"Disease",Birds,2014-15,1033
+"Disease",Birds,2015-16,1283
+"Disease",Birds,2016-17,985
+"Disease",Birds,2017-18,1288
+"Disease",Birds,2018-19,1495
+"Disease",Mammals,2013-14,533
+"Disease",Mammals,2014-15,553
+"Disease",Mammals,2015-16,630
+"Disease",Mammals,2016-17,576
+"Disease",Mammals,2017-18,664
+"Disease",Mammals,2018-19,843
+"Disease",Reptiles,2013-14,28
+"Disease",Reptiles,2014-15,25
+"Disease",Reptiles,2015-16,26
+"Disease",Reptiles,2016-17,40
+"Disease",Reptiles,2017-18,39
+"Disease",Reptiles,2018-19,64
+"Domestic/Captivity issue",Birds,2013-14,152
+"Domestic/Captivity issue",Birds,2014-15,177
+"Domestic/Captivity issue",Birds,2015-16,169
+"Domestic/Captivity issue",Birds,2016-17,254
+"Domestic/Captivity issue",Birds,2017-18,190
+"Domestic/Captivity issue",Birds,2018-19,160
+"Domestic/Captivity issue",Mammals,2013-14,34
+"Domestic/Captivity issue",Mammals,2014-15,32
+"Domestic/Captivity issue",Mammals,2015-16,22
+"Domestic/Captivity issue",Mammals,2016-17,22
+"Domestic/Captivity issue",Mammals,2017-18,33
+"Domestic/Captivity issue",Mammals,2018-19,34
+"Domestic/Captivity issue",Reptiles,2013-14,33
+"Domestic/Captivity issue",Reptiles,2014-15,35
+"Domestic/Captivity issue",Reptiles,2015-16,32
+"Domestic/Captivity issue",Reptiles,2016-17,35
+"Domestic/Captivity issue",Reptiles,2017-18,102
+"Domestic/Captivity issue",Reptiles,2018-19,83
+"Electrocution",Birds,2013-14,11
+"Electrocution",Birds,2014-15,13
+"Electrocution",Birds,2015-16,16
+"Electrocution",Birds,2016-17,17
+"Electrocution",Birds,2017-18,30
+"Electrocution",Birds,2018-19,12
+"Electrocution",Mammals,2013-14,242
+"Electrocution",Mammals,2014-15,186
+"Electrocution",Mammals,2015-16,191
+"Electrocution",Mammals,2016-17,313
+"Electrocution",Mammals,2017-18,324
+"Electrocution",Mammals,2018-19,251
+"Electrocution",Reptiles,2013-14,2
+"Electrocution",Reptiles,2016-17,1
+"Entangled/Trapped",Birds,2013-14,845
+"Entangled/Trapped",Birds,2014-15,971
+"Entangled/Trapped",Birds,2015-16,932
+"Entangled/Trapped",Birds,2016-17,959
+"Entangled/Trapped",Birds,2017-18,1027
+"Entangled/Trapped",Birds,2018-19,1086
+"Entangled/Trapped",Mammals,2013-14,1606
+"Entangled/Trapped",Mammals,2014-15,1356
+"Entangled/Trapped",Mammals,2015-16,846
+"Entangled/Trapped",Mammals,2016-17,1383
+"Entangled/Trapped",Mammals,2017-18,1327
+"Entangled/Trapped",Mammals,2018-19,1484
+"Entangled/Trapped",Reptiles,2013-14,224
+"Entangled/Trapped",Reptiles,2014-15,240
+"Entangled/Trapped",Reptiles,2015-16,272
+"Entangled/Trapped",Reptiles,2016-17,270
+"Entangled/Trapped",Reptiles,2017-18,282
+"Entangled/Trapped",Reptiles,2018-19,334
+"Fouled by Substance",Birds,2013-14,85
+"Fouled by Substance",Birds,2014-15,63
+"Fouled by Substance",Birds,2015-16,77
+"Fouled by Substance",Birds,2016-17,78
+"Fouled by Substance",Birds,2017-18,99
+"Fouled by Substance",Birds,2018-19,80
+"Fouled by Substance",Mammals,2013-14,22
+"Fouled by Substance",Mammals,2014-15,22
+"Fouled by Substance",Mammals,2015-16,27
+"Fouled by Substance",Mammals,2016-17,31
+"Fouled by Substance",Mammals,2017-18,23
+"Fouled by Substance",Mammals,2018-19,18
+"Fouled by Substance",Reptiles,2013-14,10
+"Fouled by Substance",Reptiles,2014-15,6
+"Fouled by Substance",Reptiles,2015-16,12
+"Fouled by Substance",Reptiles,2016-17,9
+"Fouled by Substance",Reptiles,2017-18,10
+"Fouled by Substance",Reptiles,2018-19,10
+"Nuisance",Birds,2013-14,25
+"Nuisance",Birds,2014-15,37
+"Nuisance",Birds,2015-16,24
+"Nuisance",Birds,2016-17,47
+"Nuisance",Birds,2017-18,123
+"Nuisance",Birds,2018-19,123
+"Nuisance",Mammals,2013-14,45
+"Nuisance",Mammals,2014-15,72
+"Nuisance",Mammals,2015-16,78
+"Nuisance",Mammals,2016-17,71
+"Nuisance",Mammals,2017-18,370
+"Nuisance",Mammals,2018-19,263
+"Nuisance",Reptiles,2013-14,228
+"Nuisance",Reptiles,2014-15,394
+"Nuisance",Reptiles,2015-16,353
+"Nuisance",Reptiles,2016-17,444
+"Nuisance",Reptiles,2017-18,499
+"Nuisance",Reptiles,2018-19,666
+"Poisoned",Birds,2013-14,128
+"Poisoned",Birds,2014-15,66
+"Poisoned",Birds,2015-16,129
+"Poisoned",Birds,2016-17,52
+"Poisoned",Birds,2017-18,141
+"Poisoned",Birds,2018-19,67
+"Poisoned",Mammals,2013-14,47
+"Poisoned",Mammals,2014-15,64
+"Poisoned",Mammals,2015-16,66
+"Poisoned",Mammals,2016-17,67
+"Poisoned",Mammals,2017-18,91
+"Poisoned",Mammals,2018-19,102
+"Poisoned",Reptiles,2013-14,6
+"Poisoned",Reptiles,2014-15,7
+"Poisoned",Reptiles,2015-16,2
+"Poisoned",Reptiles,2016-17,6
+"Poisoned",Reptiles,2017-18,10
+"Poisoned",Reptiles,2018-19,8
+"Suboptimal condition",Birds,2013-14,25
+"Suboptimal condition",Birds,2014-15,36
+"Suboptimal condition",Birds,2015-16,30
+"Suboptimal condition",Birds,2016-17,24
+"Suboptimal condition",Birds,2017-18,20
+"Suboptimal condition",Birds,2018-19,33
+"Suboptimal condition",Mammals,2013-14,70
+"Suboptimal condition",Mammals,2014-15,85
+"Suboptimal condition",Mammals,2015-16,97
+"Suboptimal condition",Mammals,2016-17,69
+"Suboptimal condition",Mammals,2017-18,77
+"Suboptimal condition",Mammals,2018-19,133
+"Suboptimal condition",Reptiles,2013-14,7
+"Suboptimal condition",Reptiles,2014-15,1
+"Suboptimal condition",Reptiles,2015-16,9
+"Suboptimal condition",Reptiles,2016-17,3
+"Suboptimal condition",Reptiles,2017-18,8
+"Suboptimal condition",Reptiles,2018-19,9
+"Unknown",Birds,2013-14,24765
+"Unknown",Birds,2014-15,23614
+"Unknown",Birds,2015-16,24328
+"Unknown",Birds,2016-17,24515
+"Unknown",Birds,2017-18,23802
+"Unknown",Birds,2018-19,28991
+"Unknown",Mammals,2013-14,12342
+"Unknown",Mammals,2014-15,11131
+"Unknown",Mammals,2015-16,10883
+"Unknown",Mammals,2016-17,11726
+"Unknown",Mammals,2017-18,12460
+"Unknown",Mammals,2018-19,14578
+"Unknown",Reptiles,2013-14,4565
+"Unknown",Reptiles,2014-15,4641
+"Unknown",Reptiles,2015-16,5343
+"Unknown",Reptiles,2016-17,5491
+"Unknown",Reptiles,2017-18,3681
+"Unknown",Reptiles,2018-19,5662
+"Unsuitable environment",Birds,2013-14,2040
+"Unsuitable environment",Birds,2014-15,1739
+"Unsuitable environment",Birds,2015-16,2000
+"Unsuitable environment",Birds,2016-17,1723
+"Unsuitable environment",Birds,2017-18,1835
+"Unsuitable environment",Birds,2018-19,2194
+"Unsuitable environment",Mammals,2013-14,1338
+"Unsuitable environment",Mammals,2014-15,1462
+"Unsuitable environment",Mammals,2015-16,1652
+"Unsuitable environment",Mammals,2016-17,1776
+"Unsuitable environment",Mammals,2017-18,1327
+"Unsuitable environment",Mammals,2018-19,1723
+"Unsuitable environment",Reptiles,2013-14,2534
+"Unsuitable environment",Reptiles,2014-15,2856
+"Unsuitable environment",Reptiles,2015-16,2813
+"Unsuitable environment",Reptiles,2016-17,2474
+"Unsuitable environment",Reptiles,2017-18,2156
+"Unsuitable environment",Reptiles,2018-19,2774
+"Weather - Drought/heat",Birds,2013-14,3
+"Weather - Drought/heat",Birds,2014-15,5
+"Weather - Drought/heat",Birds,2015-16,6
+"Weather - Drought/heat",Birds,2016-17,26
+"Weather - Drought/heat",Birds,2017-18,47
+"Weather - Drought/heat",Birds,2018-19,9
+"Weather - Drought/heat",Mammals,2013-14,3
+"Weather - Drought/heat",Mammals,2014-15,22
+"Weather - Drought/heat",Mammals,2015-16,10
+"Weather - Drought/heat",Mammals,2016-17,1546
+"Weather - Drought/heat",Mammals,2017-18,152
+"Weather - Drought/heat",Mammals,2018-19,39
+"Weather - Drought/heat",Reptiles,2016-17,1
+"Weather - Drought/heat",Reptiles,2017-18,1
+"Weather - Drought/heat",Reptiles,2018-19,1
+"Weather - Fire",Birds,2013-14,12
+"Weather - Fire",Birds,2014-15,3
+"Weather - Fire",Birds,2015-16,4
+"Weather - Fire",Birds,2016-17,8
+"Weather - Fire",Birds,2017-18,6
+"Weather - Fire",Birds,2018-19,3
+"Weather - Fire",Mammals,2013-14,84
+"Weather - Fire",Mammals,2014-15,17
+"Weather - Fire",Mammals,2015-16,27
+"Weather - Fire",Mammals,2016-17,102
+"Weather - Fire",Mammals,2017-18,49
+"Weather - Fire",Mammals,2018-19,37
+"Weather - Fire",Reptiles,2013-14,4
+"Weather - Fire",Reptiles,2014-15,3
+"Weather - Fire",Reptiles,2015-16,2
+"Weather - Fire",Reptiles,2016-17,2
+"Weather - Fire",Reptiles,2017-18,4
+"Weather - Fire",Reptiles,2018-19,3
+"Weather - Storm",Birds,2013-14,208
+"Weather - Storm",Birds,2014-15,355
+"Weather - Storm",Birds,2015-16,183
+"Weather - Storm",Birds,2016-17,186
+"Weather - Storm",Birds,2017-18,232
+"Weather - Storm",Birds,2018-19,208
+"Weather - Storm",Mammals,2013-14,23
+"Weather - Storm",Mammals,2014-15,36
+"Weather - Storm",Mammals,2015-16,24
+"Weather - Storm",Mammals,2016-17,10
+"Weather - Storm",Mammals,2017-18,22
+"Weather - Storm",Mammals,2018-19,31
+"Weather - Storm",Reptiles,2013-14,4
+"Weather - Storm",Reptiles,2014-15,4
+"Weather - Storm",Reptiles,2016-17,4
+"Weather - Storm",Reptiles,2017-18,1
+"Weather - Unspecified",Birds,2013-14,396
+"Weather - Unspecified",Birds,2014-15,501
+"Weather - Unspecified",Birds,2015-16,251
+"Weather - Unspecified",Birds,2016-17,277
+"Weather - Unspecified",Birds,2017-18,152
+"Weather - Unspecified",Birds,2018-19,338
+"Weather - Unspecified",Mammals,2013-14,106
+"Weather - Unspecified",Mammals,2014-15,631
+"Weather - Unspecified",Mammals,2015-16,202
+"Weather - Unspecified",Mammals,2016-17,166
+"Weather - Unspecified",Mammals,2017-18,599
+"Weather - Unspecified",Mammals,2018-19,112
+"Weather - Unspecified",Reptiles,2013-14,7
+"Weather - Unspecified",Reptiles,2014-15,13
+"Weather - Unspecified",Reptiles,2015-16,10
+"Weather - Unspecified",Reptiles,2016-17,19
+"Weather - Unspecified",Reptiles,2017-18,5
+"Weather - Unspecified",Reptiles,2018-19,11
