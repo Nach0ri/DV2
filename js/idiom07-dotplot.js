@@ -80,7 +80,7 @@
         width: "container",
         height: TOP_N * 26 + 60,
         autosize: { type: "fit-x", contains: "padding" },
-        config: { view: { stroke: null }, font: "IBM Plex Sans, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F", domain: false, ticks: false, grid: false } },
+        config: { view: { stroke: null }, font: "Atkinson Hyperlegible, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F", domain: false, ticks: false, grid: false } },
         layer: [
             {
                 data: { values: pairs },

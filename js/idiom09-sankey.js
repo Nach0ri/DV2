@@ -10,8 +10,8 @@
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
     const TOP_N = 8;                     // largest reasons get their own node; the rest are combined; Unknown is always its own node
     const UNKNOWN = "Unknown";
-    const COLOUR = { Survived: "#0072B2", Died: "#D55E00" }; // Okabe–Ito, same as the outcome chart
-    const NODE = "#24493A";
+    const COLOUR = { Survived: "#397DA5", Died: "#C66B4E" }; // project palette, same as the outcome chart
+    const NODE = "#176B60";
     const W = 1000, PAD_L = 250, PAD_R = 230, NODE_W = 14, GAP = 6;
 
     function showUnavailable(message) {
@@ -77,7 +77,7 @@
         if (!svg) return;
         root.style.position = "relative";
         const tip = document.createElement("div");
-        tip.style.cssText = "position:absolute;pointer-events:none;display:none;background:#FFFFFF;border:1px solid #D6DFD7;border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.45;color:#1F2A24;max-width:300px;z-index:2";
+        tip.style.cssText = "position:absolute;pointer-events:none;display:none;background:#FFFFFF;border:1px solid #D6DFD7;border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.45;color:#25332F;max-width:300px;z-index:2";
         root.appendChild(tip);
         const flows = [...svg.querySelectorAll(".flow")];
         const nodes = [...svg.querySelectorAll(".node")];
@@ -179,7 +179,7 @@
             const total = leftTotal.get(n.name);
             tips.push(`<b>${n.name}</b><br>Total rescues: ${fmt(total)} (${group})`);
             nodes += `<rect class="node" data-n="${n.name}" data-i="${tips.length - 1}" x="${PAD_L}" y="${y0}" width="${NODE_W}" height="${Math.max(1, y1 - y0)}" fill="${NODE}"></rect>`;
-            nodes += `<text x="${PAD_L - 10}" y="${(y0 + y1) / 2}" text-anchor="end" dominant-baseline="middle" font-size="13" fill="#1F2A24">${n.name} <tspan fill="#5E6B63">${fmt(total)}</tspan></text>`;
+            nodes += `<text x="${PAD_L - 10}" y="${(y0 + y1) / 2}" text-anchor="end" dominant-baseline="middle" font-size="13" fill="#25332F">${n.name} <tspan fill="#5E6B63">${fmt(total)}</tspan></text>`;
         }
         for (const n of ["Survived", "Died"]) {
             const { y0, y1 } = rightY.get(n);
@@ -187,7 +187,7 @@
             const pct = (100 * total / T).toFixed(1);
             tips.push(`<b>${n}</b><br>Estimated: ${fmt(total)} cases (${pct}% of ${group} rescues)`);
             nodes += `<rect class="node" data-n="${n}" data-i="${tips.length - 1}" x="${x1}" y="${y0}" width="${NODE_W}" height="${Math.max(1, y1 - y0)}" fill="${COLOUR[n]}"></rect>`;
-            nodes += `<text x="${x1 + NODE_W + 10}" y="${(y0 + y1) / 2}" dominant-baseline="middle" font-size="14" font-weight="600" fill="#1F2A24">${n}</text>`;
+            nodes += `<text x="${x1 + NODE_W + 10}" y="${(y0 + y1) / 2}" dominant-baseline="middle" font-size="14" font-weight="600" fill="#25332F">${n}</text>`;
             nodes += `<text x="${x1 + NODE_W + 10}" y="${(y0 + y1) / 2 + 18}" dominant-baseline="middle" font-size="12" fill="#5E6B63">≈${fmt(total)} cases · ${pct}%</text>`;
         }
 

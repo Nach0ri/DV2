@@ -65,14 +65,14 @@
         layer: [
             {
                 mark: { type: "bar", cornerRadiusEnd: 2, height: { band: 0.7 } },
-                encoding: { color: { condition: { test: "datum.rank === 1", value: "#c4510c" }, value: "#38698c" } }
+                encoding: { color: { condition: { test: "datum.rank === 1", value: "#C66B4E" }, value: "#397DA5" } }
             },
             {
-                mark: { type: "text", align: "left", baseline: "middle", dx: 4, fontSize: 11, color: "#1f2933" },
+                mark: { type: "text", align: "left", baseline: "middle", dx: 4, fontSize: 11, color: "#25332F" },
                 encoding: { text: { field: "rescue_count", format: ",d" } }
             }
         ],
-        config: { view: { stroke: null }, font: "Avenir, Segoe UI, Verdana, sans-serif", axis: { labelColor: "#3e4a55", titleColor: "#3e4a55", gridColor: "#edf0f2" } }
+        config: { view: { stroke: null }, font: "Atkinson Hyperlegible, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F", gridColor: "#edf0f2" } }
     };
 
     // Years in the file look like 2022-23; show them with an en dash.

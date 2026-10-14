@@ -1,10 +1,10 @@
 :root {
-    --ink: #1f2933;
-    --muted: #5b6770;
+    --ink: #25332F;
+    --muted: #5E6B63;
     --rule: #d9dee3;
     --panel: #ffffff;
     --page: #f5f7f9;
-    --accent: #38698c;
+    --accent: #397DA5;
 }
 
 * { box-sizing: border-box; }
@@ -13,7 +13,7 @@ body {
     margin: 0;
     background: var(--page);
     color: var(--ink);
-    font-family: Avenir, "Segoe UI", Verdana, Geneva, sans-serif;
+    font-family: var(--font-text);
     line-height: 1.5;
 }
 
@@ -244,19 +244,19 @@ footer.note p {
    Story layout (index.html). Palette and fonts are set once in :root.
    ========================================================================== */
 :root {
-    --forest: #24493A;          /* section numbers, titles, key accents */
+    --forest: #176B60;          /* section numbers, titles, key accents */
     --eucalyptus: #6F9A86;      /* kickers, secondary accents */
     --stone-page: #F4F1EA;      /* warm stone page background */
     --stone-card: #FBFAF6;      /* card background */
-    --ink: #1F2A24;             /* body text */
+    --ink: #25332F;             /* body text */
     --muted: #5E6B63;           /* notes and subtitles */
     --ochre: #B8862F;           /* muted ochre highlight, used sparingly */
     --rule: #D9D2C3;            /* dividers and card borders */
     --placeholder-bg: #EFEBE2;  /* empty chart area */
     --placeholder-edge: #A89F8C;/* empty chart area border */
 
-    --font-title: "Source Serif 4", Georgia, "Times New Roman", serif;
-    --font-text: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-title: "Newsreader", Georgia, "Times New Roman", serif;
+    --font-text: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
     --radius: 8px;
 }
 

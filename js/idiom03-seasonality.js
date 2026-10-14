@@ -8,7 +8,7 @@
     const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const SHORT = MONTHS.map(m => m.slice(0, 3));
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
-    const COLOURS = ["#0072B2", "#E69F00", "#009E73"];
+    const COLOURS = ["#397DA5", "#D49A38", "#176B60"];
     const ALL = "All years (average)";
 
     function showUnavailable(message) {
@@ -115,7 +115,7 @@
                 }
             }
         ],
-        config: { view: { stroke: null }, font: "Avenir, Segoe UI, Verdana, sans-serif", axis: { labelColor: "#3e4a55", titleColor: "#3e4a55", gridColor: "#edf0f2" } }
+        config: { view: { stroke: null }, font: "Atkinson Hyperlegible, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F", gridColor: "#edf0f2" } }
     };
 
     // Plain-language summary for the selected period: each group's peak month and its share of that period's rescues.

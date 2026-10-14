@@ -108,7 +108,7 @@
                 encoding: { x: { field: "cases", type: "quantitative" }, y: { field: "died", type: "quantitative" }, text: { field: "label", type: "nominal" } }
             }
         ],
-        config: { view: { stroke: null }, font: "IBM Plex Sans, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F", domain: false, ticks: false } }
+        config: { view: { stroke: null }, font: "Atkinson Hyperlegible, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F", domain: false, ticks: false } }
     };
 
     const hi = adequate.reduce((a, b) => (b.died > a.died ? b : a));

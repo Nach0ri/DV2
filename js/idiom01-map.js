@@ -9,8 +9,8 @@ const LORD_HOWE = "Lord Howe Island (unincorporated)";
 
 // Sequential classes (rescue records per LGA per year). Fixed across years so colours are comparable between years.
 const CLASS_BREAKS = [100, 250, 500, 1000, 2000, 4000];
-const CLASS_COLOURS = ["#fff3c4", "#fee391", "#fec44f", "#fe9929", "#ec7014", "#c4510c", "#7f2d06"];
-const NO_DATA_COLOUR = "#d5d9dd";
+const CLASS_COLOURS = ["#DCEBF5","#B5D5EA","#86BADA","#559CC6","#327DAA","#1F5F88","#103E5E"];
+const NO_DATA_COLOUR = "#E6E1D6";
 
 // Greater Sydney and Central Coast inset (small, high-count LGAs cluster here).
 const INSET_BOX = [[150.55, -32.98], [152.15, -32.98], [152.15, -34.25], [150.55, -34.25], [150.55, -32.98]];
@@ -102,7 +102,7 @@ function mapLayers(selectionName, labelFilter) {
             encoding: {
                 shape: { field: "geo", type: "geojson" },
                 color: { condition: { test: "datum.count === null", value: NO_DATA_COLOUR }, ...colour },
-                stroke: { condition: [{ param: "hover", empty: false, value: "#111111" }, { param: "pick", empty: false, value: "#111111" }], value: "#ffffff" },
+                stroke: { condition: [{ param: "hover", empty: false, value: "#25332F" }, { param: "pick", empty: false, value: "#25332F" }], value: "#ffffff" },
                 strokeWidth: { condition: [{ param: "hover", empty: false, value: 2 }, { param: "pick", empty: false, value: 2 }], value: 0.5 },
                 opacity: { condition: { param: "pick", value: 1 }, value: 0.35 },
                 tooltip
@@ -110,7 +110,7 @@ function mapLayers(selectionName, labelFilter) {
         },
         {
             transform: [{ filter: "datum.rank <= 5 && datum.count !== null" }, { filter: labelFilter }],
-            mark: { type: "circle", size: 210, fill: "#1f2933", stroke: "#ffffff", strokeWidth: 1.2, opacity: 1 },
+            mark: { type: "circle", size: 210, fill: "#25332F", stroke: "#ffffff", strokeWidth: 1.2, opacity: 1 },
             encoding: { longitude: { field: "lx", type: "quantitative" }, latitude: { field: "ly", type: "quantitative" }, tooltip }
         },
         {
@@ -129,7 +129,7 @@ function mapLayers(selectionName, labelFilter) {
         },
         {
             transform: [{ filter: "datum.rank <= 5 && datum.count !== null" }, { filter: labelFilter }],
-            mark: { type: "text", align: "left", dx: 11, fontSize: 11, fontWeight: 600, color: "#1f2933" },
+            mark: { type: "text", align: "left", dx: 11, fontSize: 11, fontWeight: 600, color: "#25332F" },
             encoding: {
                 longitude: { field: "lx", type: "quantitative" }, latitude: { field: "ly", type: "quantitative" },
                 text: { field: "short_label" }
@@ -175,7 +175,7 @@ function buildSpec(rows, years) {
                             ...mapLayers("lgaMain", `!(${inInset}) && datum.lga_name !== '${LORD_HOWE}'`),
                             {
                                 data: { values: [{ type: "Feature", properties: {}, geometry: { type: "Polygon", coordinates: [INSET_BOX] } }] },
-                                mark: { type: "geoshape", filled: false, stroke: "#1f2933", strokeWidth: 1.1, strokeDash: [4, 3] }
+                                mark: { type: "geoshape", filled: false, stroke: "#25332F", strokeWidth: 1.1, strokeDash: [4, 3] }
                             }
                         ]
                     },
@@ -209,11 +209,11 @@ function buildSpec(rows, years) {
                 layer: [
                     {
                         name: "topBars",
-                        mark: { type: "bar", cursor: "pointer", cornerRadiusEnd: 2, height: { band: 0.72 }, stroke: "#5b4a3a", strokeWidth: 0.4 },
+                        mark: { type: "bar", cursor: "pointer", cornerRadiusEnd: 2, height: { band: 0.72 }, stroke: "#25332F", strokeWidth: 0.4 },
                         encoding: { color: { ...colour, legend: null }, opacity: { condition: { param: "pick", value: 1 }, value: 0.35 } }
                     },
                     {
-                        mark: { type: "text", align: "left", baseline: "middle", dx: 5, fontSize: 11, color: "#1f2933" },
+                        mark: { type: "text", align: "left", baseline: "middle", dx: 5, fontSize: 11, color: "#25332F" },
                         encoding: { text: { field: "bar_label" } },
                         transform: [{ calculate: "datum.rank + '. ' + datum.lga_name + '  ' + format(datum.count, ',')", as: "bar_label" }]
                     }
@@ -222,9 +222,9 @@ function buildSpec(rows, years) {
         ],
         config: {
             view: { stroke: null },
-            font: "Avenir, Segoe UI, Verdana, sans-serif",
-            title: { fontSize: 14, fontWeight: 600, color: "#1f2933", subtitleFontSize: 11.5, subtitleColor: "#5b6770", offset: 8 },
-            axis: { labelFontSize: 10.5, titleFontSize: 11, labelColor: "#3e4a55", titleColor: "#3e4a55", gridColor: "#edf0f2" },
+            font: "Atkinson Hyperlegible, system-ui, sans-serif",
+            title: { fontSize: 14, fontWeight: 600, color: "#25332F", subtitleFontSize: 11.5, subtitleColor: "#5E6B63", offset: 8 },
+            axis: { labelFontSize: 10.5, titleFontSize: 11, labelColor: "#25332F", titleColor: "#25332F", gridColor: "#edf0f2" },
             concat: { spacing: 28 }
         }
     };

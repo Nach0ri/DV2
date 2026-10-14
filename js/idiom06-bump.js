@@ -6,7 +6,7 @@
 (async function () {
     const DATA_URL = "data/rescue_reasons_by_group_year.csv";
     const chartEl = document.getElementById("vis-06-bump");
-    const COLOURS = ["#0072B2", "#E69F00", "#009E73", "#D55E00", "#CC79A7"]; // Okabe–Ito, colour-blind safe
+    const COLOURS = ["#397DA5", "#D49A38", "#176B60", "#C66B4E", "#8A8175"]; // project palette (colour-blind considered)
     const EXCLUDE = new Set(["Unknown"]);
 
     function showUnavailable(message) {
@@ -123,7 +123,7 @@
                 }
             }
         ],
-        config: { view: { stroke: null }, font: "Avenir, Segoe UI, Verdana, sans-serif", axis: { labelColor: "#1F2A24", titleColor: "#1F2A24", gridColor: "#E6E1D6" } }
+        config: { view: { stroke: null }, font: "Atkinson Hyperlegible, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F", gridColor: "#E6E1D6" } }
     };
 
     try {

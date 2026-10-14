@@ -81,7 +81,7 @@
             },
             color: {
                 field: "rescues", type: "quantitative", title: "Rescues",
-                scale: { scheme: "blues" },
+                scale: { range: ["#F3F6F1", "#176B60"] },
                 legend: { orient: "bottom", direction: "horizontal", gradientLength: 260, titleFontSize: 11, labelFontSize: 10, format: ",d" }
             },
             tooltip: [
@@ -91,7 +91,7 @@
                 { field: "group_label", type: "nominal", title: "Animal group" }
             ]
         },
-        config: { view: { stroke: null }, font: "Avenir, Segoe UI, Verdana, sans-serif", axis: { labelColor: "#3e4a55", titleColor: "#3e4a55" } }
+        config: { view: { stroke: null }, font: "Atkinson Hyperlegible, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F" } }
     };
 
     // Plain-language summary: the largest cell for the selected group (calculated from the same rows).

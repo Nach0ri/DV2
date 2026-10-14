@@ -106,7 +106,7 @@
                 }
             }
         ],
-        config: { view: { stroke: null }, font: "IBM Plex Sans, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F" } }
+        config: { view: { stroke: null }, font: "Atkinson Hyperlegible, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F" } }
     };
 
     try {
