@@ -12,7 +12,7 @@
     const UNKNOWN = "Unknown";
     const COLOUR = { Survived: "#0072B2", Died: "#D55E00" }; // Okabe–Ito, same as the outcome chart
     const NODE = "#24493A";
-    const W = 1000, PAD_L = 300, PAD_R = 280, NODE_W = 14, GAP = 6;
+    const W = 1000, PAD_L = 250, PAD_R = 230, NODE_W = 14, GAP = 6;
 
     function showUnavailable(message) {
         chartEl.innerHTML =
@@ -192,7 +192,7 @@
         }
 
         holder.innerHTML =
-            `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Sankey diagram: rescue reasons to Survived and Died, ${group}">` +
+            `<svg viewBox="30 0 950 ${H}" width="100%" role="img" aria-label="Sankey diagram: rescue reasons to Survived and Died, ${group}">` +
             `<g>${paths}</g><g>${nodes}</g></svg>` +
             `<p class="legend-note">Estimated flows: each count is calculated from the published percentage (rounded to 0.1%) and the total rescues for that reason. ` +
             `Data are aggregated across 2013–14 to 2018–19 and do not show year-by-year change. Source: Kwok et al. (2021), Table 10 (${DATA_URL}). ` +

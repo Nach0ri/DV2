@@ -117,9 +117,9 @@
             `<b>${rose}</b> of ${both.length} LGAs recorded more rescues in ${L2} than in ${L1}, ${fell} recorded fewer, and ${same} the same. ` +
             `Largest rise among the ${TOP_N} shown: <b>${biggestRise.name}</b> (${fmt(biggestRise.a)} to ${fmt(biggestRise.b)}). ` +
             (fallers.length ? `Largest fall among the ${TOP_N} shown: <b>${fallers[0].name}</b> (${fmt(fallers[0].a)} to ${fmt(fallers[0].b)}). ` : `None of the ${TOP_N} LGAs shown recorded a fall. `) +
-            `Counts are not population-adjusted and reflect where animals were found and reported. ` +
-            `Source: ${DATA_URL}, NSW wildlife rehabilitation data dashboard. ` +
-            `The ${TOP_N} LGAs were chosen by their ${L2} count.`;
+            `Counts are not population-adjusted and reflect where animals were found and reported.`;
+        const source = document.getElementById("dot-source");
+        if (source) source.textContent = `Source: ${DATA_URL}, NSW wildlife rehabilitation data dashboard. The ${TOP_N} LGAs were chosen by their ${L2} count.`;
     } catch (err) {
         console.error(err);
         chartEl.innerHTML = `<p class="status error">Could not draw the chart: ${err.message}</p>`;

@@ -58,7 +58,6 @@ h1 {
 
 #map {
     width: 100%;
-    min-height: 520px;
     overflow-x: auto;
 }
 
@@ -312,14 +311,14 @@ footer.note p {
 }
 
 /* ---------- Sections ---------- */
-.story-section { margin-top: 56px; }
+.story-section { margin-top: 48px; }
 
 .section-head {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 6px 18px;
     align-items: baseline;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
     padding-bottom: 16px;
     border-bottom: 2px solid var(--forest);
 }
@@ -349,7 +348,7 @@ footer.note p {
 }
 
 /* ---------- Idiom blocks ---------- */
-.idiom { margin-bottom: 40px; }
+.idiom { margin-bottom: 32px; }
 
 .idiom-title {
     display: flex;
@@ -421,7 +420,7 @@ footer.note p {
 /* Pattern C: wide chart with a narrower annotation panel to the right. */
 .idiom--wide-chart .idiom-body {
     display: grid;
-    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     gap: 32px;
     align-items: start;
 }
@@ -493,7 +492,7 @@ footer.note p {
     .idiom--split.idiom--text-right .chart-card { order: 0; }
     .idiom--split.idiom--text-right .chart-card { order: 1; }
     .idiom-pair { grid-template-columns: minmax(0, 1fr); gap: 0; }
-    .idiom-pair .idiom { margin-bottom: 40px; }
+    .idiom-pair .idiom { margin-bottom: 32px; }
 }
 
 @media (max-width: 680px) {
@@ -575,3 +574,29 @@ footer.note p {
     .source-list li { padding-left: 26px; }
     .source-list li::before { left: 0; }
 }
+/* Idiom 03: key-pattern list beside the chart. */
+.insight-list {
+    margin: 16px 0 0;
+    padding: 14px 0 0;
+    list-style: none;
+    border-top: 1px solid var(--rule);
+}
+.insight-list li {
+    position: relative;
+    margin: 0 0 10px;
+    padding-left: 16px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+}
+.insight-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--eucalyptus);
+}
+.insight-list li:last-child { margin-bottom: 0; }

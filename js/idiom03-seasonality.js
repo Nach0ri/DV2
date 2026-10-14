@@ -119,6 +119,32 @@
     };
 
     // Plain-language summary for the selected period: each group's peak month and its share of that period's rescues.
+    // Key patterns for the selected period, computed from the same monthly averages as the chart.
+    function renderInsights(useYears) {
+        const list = document.getElementById("season-insights");
+        if (!list) return;
+        const fmtN = n => Math.round(n).toLocaleString("en-AU");
+        const stats = GROUPS.map(g => {
+            const perMonth = MONTHS.map((_, i) => {
+                const vals = useYears.map(y => (rows.find(r => r.financial_year === y && r.month_number === i + 1 && r.animal_group === g) || { count: 0 }).count);
+                return vals.reduce((s, v) => s + v, 0) / useYears.length;
+            });
+            const peak = perMonth.indexOf(Math.max(...perMonth));
+            const low = perMonth.indexOf(Math.min(...perMonth));
+            return { g, peak, low, peakV: perMonth[peak], lowV: perMonth[low] };
+        });
+        const byVolume = [...stats].sort((a, b) => b.peakV - a.peakV);
+        const top = byVolume[0], second = byVolume[1];
+        const items = [
+            `<b>${top.g}</b> have the highest peak monthly volume: ${MONTHS[top.peak]} averages ${fmtN(top.peakV)} rescues, ` +
+            `${(top.peakV / second.peakV).toFixed(1)}× the ${second.g.toLowerCase()} peak (${MONTHS[second.peak]}, ${fmtN(second.peakV)}).`
+        ];
+        for (const s of stats) {
+            items.push(`<b>${s.g}</b> range from ${fmtN(s.lowV)} in ${MONTHS[s.low]} to ${fmtN(s.peakV)} in ${MONTHS[s.peak]}, ` +
+                `a ${(s.peakV / Math.max(s.lowV, 1)).toFixed(1)}× spread across the year.`);
+        }
+        list.innerHTML = items.map(x => `<li>${x}</li>`).join("");
+    }
     function summarise(selected) {
         const useYears = selected === ALL ? years : years.filter(y => showYear(y) === selected);
         const lines = GROUPS.map(g => {
@@ -131,6 +157,7 @@
             return `<b>${g}</b> peak in ${MONTHS[peak]} (${(100 * perMonth[peak] / total).toFixed(0)}% of their year)`;
         });
         document.getElementById("season-summary").innerHTML = lines.join(" · ");
+        renderInsights(useYears);
     }
 
     try {
