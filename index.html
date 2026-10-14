@@ -19,7 +19,6 @@
 
         <!-- Section 1: map first -->
         <section class="idiom section" aria-labelledby="idiom01-title">
-            <p class="kicker">Idiom 01</p>
             <h2 class="idiom-title" id="idiom01-title">Where are rescues happening?</h2>
             <p class="subtitle">Wildlife rescue and rehabilitation across New South Wales</p>
 
@@ -71,7 +70,6 @@
 
         <!-- Section 2: reasons bar chart below the map -->
         <section class="idiom section" aria-labelledby="idiom02-title">
-            <p class="kicker">Idiom 02</p>
             <h2 class="idiom-title" id="idiom02-title">What brings animals into care?</h2>
             <p class="subtitle">The most common reasons wildlife are rescued in NSW</p>
 
@@ -102,9 +100,64 @@
                 </p>
             </footer>
         </section>
+
+<section class="idiom section" aria-labelledby="idiom03-title">
+            <h2 class="idiom-title" id="idiom03-title">When do wildlife rescues peak?</h2>
+            <p class="subtitle">Monthly rescues by animal group, to see how seasonality differs between birds, mammals and reptiles</p>
+
+            <div class="panel">
+                <div class="controls" id="season-controls" hidden>
+                    <div id="season-year"></div>
+                    <span class="hint">Hover over a point to see its month, group and count. Pick a single year, or keep the six-year average.</span>
+                </div>
+                <p class="summary" id="season-summary" hidden></p>
+                <div id="seasonality-chart">
+                    <p class="status" id="seasonality-status">Loading chart…</p>
+                </div>
+                <p class="legend-note" id="season-note"></p>
+
+                <div class="caution">
+                    <h3>What the data shows</h3>
+                    <ul>
+                        <li><b>Birds peak in spring and early summer.</b> November is the highest month for birds on average. Across all
+                            rescues, September to November made up 31–35% of each year.</li>
+                        <li><b>Reptiles peak in January</b> on average (about 13% of their rescues), and are lowest in July.</li>
+                        <li><b>Mammals do not have a stable peak.</b> The highest month changes from year to year (September, October,
+                            February, January and August across the six years), so no single season stands out.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <footer class="note">
+                <h2>Data source and limitations</h2>
+                <p>
+                    Data come from supplementary file S7 (<code>pone.0257209.s007.xlsx</code>) of
+                    Kwok et al. (2021), PLoS ONE, <a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>.
+                    They cover financial years 2013–14 to 2018–19 and are historical. They are <b>not</b> current NSW statistics.
+                </p>
+                <p>
+                    <b>Animal groups.</b> The source reports 42 sub-groups. They are grouped as follows:
+                    <b>Birds</b> = cuckoos, diurnal birds of prey, emu, herons and allies, honeyeaters, kingfishers, marine birds,
+                    other aquatic birds, other birds, owls/nightjars/frogmouths, parrots, passerines, pigeons and doves;
+                    <b>Mammals</b> = bandicoots/bettongs/potoroos, echidna, feathertail glider, flying-foxes, koala, large gliders,
+                    large kangaroos, marsupial dasyurid, microbats, platypus, possums, rodents, small macropods, unknown macropod,
+                    unknown mammals, wombat; <b>Reptiles</b> = bearded dragons and blue tongues, freshwater turtle, geckoes,
+                    large reptiles and monitors, small skinks and lizards, snakes (others and pythons), unidentified turtle/tortoise.
+                </p>
+                <p>
+                    Counts are sums of sub-groups, so groups do not overlap. The source's “Not recorded” rows (no month) are left out.
+                    The “Average” option is the mean of each year’s monthly count, not a combined total. Monthly values are
+                    rescue counts, not rates, so differences in population or search effort are not adjusted for.
+                </p>
+                <p>
+                    Cleaned data: <code>data/rescue_monthly_by_group.csv</code> (financial year, month, animal group, sub-group, count).
+                </p>
+            </footer>
+        </section>
     </main>
 
     <script src="js/idiom01-map.js"></script>
     <script src="js/idiom02-reasons.js"></script>
+    <script src="js/idiom03-seasonality.js"></script>
 </body>
 </html>

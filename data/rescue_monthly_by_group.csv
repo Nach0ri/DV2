@@ -1,0 +1,2665 @@
+financial_year,month_number,month,animal_group,sub_group,rescue_count
+2013-14,1,January,Birds,"Cuckoos",62
+2013-14,1,January,Birds,"Diurnal birds of prey",47
+2013-14,1,January,Birds,"Emu",1
+2013-14,1,January,Birds,"Herons and allies",140
+2013-14,1,January,Birds,"Honeyeaters",160
+2013-14,1,January,Birds,"Kingfishers",307
+2013-14,1,January,Birds,"Marine birds",98
+2013-14,1,January,Birds,"Other aquatic birds",339
+2013-14,1,January,Birds,"Other birds",418
+2013-14,1,January,Birds,"Owls, nightjars and frogmouths",169
+2013-14,1,January,Birds,"Parrots",1238
+2013-14,1,January,Birds,"Passerines",659
+2013-14,1,January,Birds,"Pigeons and Doves",160
+2013-14,1,January,Mammals,"Bandicoots, bettongs, and potoroos",46
+2013-14,1,January,Mammals,"Echidna",19
+2013-14,1,January,Mammals,"Feathertail glider",13
+2013-14,1,January,Mammals,"Flying-foxes",358
+2013-14,1,January,Mammals,"Koala",100
+2013-14,1,January,Mammals,"Large gliders",47
+2013-14,1,January,Mammals,"Large kangaroos",220
+2013-14,1,January,Mammals,"Marsupial dasyurid",7
+2013-14,1,January,Mammals,"Microbats",92
+2013-14,1,January,Mammals,"Platypus",4
+2013-14,1,January,Mammals,"Possums",1032
+2013-14,1,January,Mammals,"Rodents",3
+2013-14,1,January,Mammals,"Small macropods",122
+2013-14,1,January,Mammals,"Unknown macropod",76
+2013-14,1,January,Mammals,"Unknown mammals",12
+2013-14,1,January,Mammals,"Wombat",43
+2013-14,1,January,Reptiles,"Bearded dragons and blue tongues",353
+2013-14,1,January,Reptiles,"Freshwater turtle",30
+2013-14,1,January,Reptiles,"Geckoes",1
+2013-14,1,January,Reptiles,"Large reptiles and monitors",97
+2013-14,1,January,Reptiles,"Small skinks and lizards",26
+2013-14,1,January,Reptiles,"Snakes - others",530
+2013-14,1,January,Reptiles,"Snakes - Pythons",179
+2013-14,1,January,Reptiles,"Unidentified turtle/tortoise",27
+2013-14,2,February,Birds,"Cuckoos",72
+2013-14,2,February,Birds,"Diurnal birds of prey",40
+2013-14,2,February,Birds,"Emu",2
+2013-14,2,February,Birds,"Herons and allies",106
+2013-14,2,February,Birds,"Honeyeaters",168
+2013-14,2,February,Birds,"Kingfishers",423
+2013-14,2,February,Birds,"Marine birds",85
+2013-14,2,February,Birds,"Other aquatic birds",163
+2013-14,2,February,Birds,"Other birds",243
+2013-14,2,February,Birds,"Owls, nightjars and frogmouths",184
+2013-14,2,February,Birds,"Parrots",967
+2013-14,2,February,Birds,"Passerines",503
+2013-14,2,February,Birds,"Pigeons and Doves",132
+2013-14,2,February,Mammals,"Bandicoots, bettongs, and potoroos",47
+2013-14,2,February,Mammals,"Echidna",25
+2013-14,2,February,Mammals,"Feathertail glider",19
+2013-14,2,February,Mammals,"Flying-foxes",370
+2013-14,2,February,Mammals,"Koala",60
+2013-14,2,February,Mammals,"Large gliders",27
+2013-14,2,February,Mammals,"Large kangaroos",189
+2013-14,2,February,Mammals,"Marsupial dasyurid",5
+2013-14,2,February,Mammals,"Microbats",62
+2013-14,2,February,Mammals,"Platypus",1
+2013-14,2,February,Mammals,"Possums",890
+2013-14,2,February,Mammals,"Rodents",5
+2013-14,2,February,Mammals,"Small macropods",93
+2013-14,2,February,Mammals,"Unknown macropod",88
+2013-14,2,February,Mammals,"Unknown mammals",8
+2013-14,2,February,Mammals,"Wombat",36
+2013-14,2,February,Reptiles,"Bearded dragons and blue tongues",157
+2013-14,2,February,Reptiles,"Freshwater turtle",30
+2013-14,2,February,Reptiles,"Geckoes",0
+2013-14,2,February,Reptiles,"Large reptiles and monitors",46
+2013-14,2,February,Reptiles,"Small skinks and lizards",17
+2013-14,2,February,Reptiles,"Snakes - others",469
+2013-14,2,February,Reptiles,"Snakes - Pythons",154
+2013-14,2,February,Reptiles,"Unidentified turtle/tortoise",27
+2013-14,3,March,Birds,"Cuckoos",31
+2013-14,3,March,Birds,"Diurnal birds of prey",49
+2013-14,3,March,Birds,"Emu",3
+2013-14,3,March,Birds,"Herons and allies",70
+2013-14,3,March,Birds,"Honeyeaters",228
+2013-14,3,March,Birds,"Kingfishers",299
+2013-14,3,March,Birds,"Marine birds",82
+2013-14,3,March,Birds,"Other aquatic birds",133
+2013-14,3,March,Birds,"Other birds",169
+2013-14,3,March,Birds,"Owls, nightjars and frogmouths",254
+2013-14,3,March,Birds,"Parrots",1129
+2013-14,3,March,Birds,"Passerines",356
+2013-14,3,March,Birds,"Pigeons and Doves",158
+2013-14,3,March,Mammals,"Bandicoots, bettongs, and potoroos",33
+2013-14,3,March,Mammals,"Echidna",23
+2013-14,3,March,Mammals,"Feathertail glider",10
+2013-14,3,March,Mammals,"Flying-foxes",257
+2013-14,3,March,Mammals,"Koala",42
+2013-14,3,March,Mammals,"Large gliders",35
+2013-14,3,March,Mammals,"Large kangaroos",252
+2013-14,3,March,Mammals,"Marsupial dasyurid",8
+2013-14,3,March,Mammals,"Microbats",69
+2013-14,3,March,Mammals,"Platypus",1
+2013-14,3,March,Mammals,"Possums",910
+2013-14,3,March,Mammals,"Rodents",6
+2013-14,3,March,Mammals,"Small macropods",129
+2013-14,3,March,Mammals,"Unknown macropod",70
+2013-14,3,March,Mammals,"Unknown mammals",6
+2013-14,3,March,Mammals,"Wombat",35
+2013-14,3,March,Reptiles,"Bearded dragons and blue tongues",175
+2013-14,3,March,Reptiles,"Freshwater turtle",52
+2013-14,3,March,Reptiles,"Geckoes",1
+2013-14,3,March,Reptiles,"Large reptiles and monitors",44
+2013-14,3,March,Reptiles,"Small skinks and lizards",15
+2013-14,3,March,Reptiles,"Snakes - others",494
+2013-14,3,March,Reptiles,"Snakes - Pythons",195
+2013-14,3,March,Reptiles,"Unidentified turtle/tortoise",37
+2013-14,4,April,Birds,"Cuckoos",14
+2013-14,4,April,Birds,"Diurnal birds of prey",33
+2013-14,4,April,Birds,"Emu",1
+2013-14,4,April,Birds,"Herons and allies",80
+2013-14,4,April,Birds,"Honeyeaters",144
+2013-14,4,April,Birds,"Kingfishers",154
+2013-14,4,April,Birds,"Marine birds",495
+2013-14,4,April,Birds,"Other aquatic birds",77
+2013-14,4,April,Birds,"Other birds",118
+2013-14,4,April,Birds,"Owls, nightjars and frogmouths",223
+2013-14,4,April,Birds,"Parrots",871
+2013-14,4,April,Birds,"Passerines",288
+2013-14,4,April,Birds,"Pigeons and Doves",145
+2013-14,4,April,Mammals,"Bandicoots, bettongs, and potoroos",19
+2013-14,4,April,Mammals,"Echidna",28
+2013-14,4,April,Mammals,"Feathertail glider",11
+2013-14,4,April,Mammals,"Flying-foxes",185
+2013-14,4,April,Mammals,"Koala",45
+2013-14,4,April,Mammals,"Large gliders",32
+2013-14,4,April,Mammals,"Large kangaroos",227
+2013-14,4,April,Mammals,"Marsupial dasyurid",7
+2013-14,4,April,Mammals,"Microbats",51
+2013-14,4,April,Mammals,"Platypus",0
+2013-14,4,April,Mammals,"Possums",737
+2013-14,4,April,Mammals,"Rodents",7
+2013-14,4,April,Mammals,"Small macropods",109
+2013-14,4,April,Mammals,"Unknown macropod",82
+2013-14,4,April,Mammals,"Unknown mammals",7
+2013-14,4,April,Mammals,"Wombat",25
+2013-14,4,April,Reptiles,"Bearded dragons and blue tongues",111
+2013-14,4,April,Reptiles,"Freshwater turtle",45
+2013-14,4,April,Reptiles,"Geckoes",2
+2013-14,4,April,Reptiles,"Large reptiles and monitors",19
+2013-14,4,April,Reptiles,"Small skinks and lizards",5
+2013-14,4,April,Reptiles,"Snakes - others",330
+2013-14,4,April,Reptiles,"Snakes - Pythons",123
+2013-14,4,April,Reptiles,"Unidentified turtle/tortoise",24
+2013-14,5,May,Birds,"Cuckoos",12
+2013-14,5,May,Birds,"Diurnal birds of prey",28
+2013-14,5,May,Birds,"Emu",4
+2013-14,5,May,Birds,"Herons and allies",77
+2013-14,5,May,Birds,"Honeyeaters",112
+2013-14,5,May,Birds,"Kingfishers",141
+2013-14,5,May,Birds,"Marine birds",197
+2013-14,5,May,Birds,"Other aquatic birds",101
+2013-14,5,May,Birds,"Other birds",77
+2013-14,5,May,Birds,"Owls, nightjars and frogmouths",200
+2013-14,5,May,Birds,"Parrots",718
+2013-14,5,May,Birds,"Passerines",232
+2013-14,5,May,Birds,"Pigeons and Doves",123
+2013-14,5,May,Mammals,"Bandicoots, bettongs, and potoroos",18
+2013-14,5,May,Mammals,"Echidna",64
+2013-14,5,May,Mammals,"Feathertail glider",20
+2013-14,5,May,Mammals,"Flying-foxes",101
+2013-14,5,May,Mammals,"Koala",41
+2013-14,5,May,Mammals,"Large gliders",19
+2013-14,5,May,Mammals,"Large kangaroos",264
+2013-14,5,May,Mammals,"Marsupial dasyurid",7
+2013-14,5,May,Mammals,"Microbats",49
+2013-14,5,May,Mammals,"Platypus",0
+2013-14,5,May,Mammals,"Possums",637
+2013-14,5,May,Mammals,"Rodents",11
+2013-14,5,May,Mammals,"Small macropods",148
+2013-14,5,May,Mammals,"Unknown macropod",113
+2013-14,5,May,Mammals,"Unknown mammals",6
+2013-14,5,May,Mammals,"Wombat",83
+2013-14,5,May,Reptiles,"Bearded dragons and blue tongues",66
+2013-14,5,May,Reptiles,"Freshwater turtle",16
+2013-14,5,May,Reptiles,"Geckoes",5
+2013-14,5,May,Reptiles,"Large reptiles and monitors",20
+2013-14,5,May,Reptiles,"Small skinks and lizards",4
+2013-14,5,May,Reptiles,"Snakes - others",139
+2013-14,5,May,Reptiles,"Snakes - Pythons",113
+2013-14,5,May,Reptiles,"Unidentified turtle/tortoise",12
+2013-14,6,June,Birds,"Cuckoos",2
+2013-14,6,June,Birds,"Diurnal birds of prey",33
+2013-14,6,June,Birds,"Emu",4
+2013-14,6,June,Birds,"Herons and allies",72
+2013-14,6,June,Birds,"Honeyeaters",53
+2013-14,6,June,Birds,"Kingfishers",100
+2013-14,6,June,Birds,"Marine birds",42
+2013-14,6,June,Birds,"Other aquatic birds",60
+2013-14,6,June,Birds,"Other birds",82
+2013-14,6,June,Birds,"Owls, nightjars and frogmouths",111
+2013-14,6,June,Birds,"Parrots",898
+2013-14,6,June,Birds,"Passerines",174
+2013-14,6,June,Birds,"Pigeons and Doves",120
+2013-14,6,June,Mammals,"Bandicoots, bettongs, and potoroos",17
+2013-14,6,June,Mammals,"Echidna",40
+2013-14,6,June,Mammals,"Feathertail glider",23
+2013-14,6,June,Mammals,"Flying-foxes",70
+2013-14,6,June,Mammals,"Koala",60
+2013-14,6,June,Mammals,"Large gliders",41
+2013-14,6,June,Mammals,"Large kangaroos",297
+2013-14,6,June,Mammals,"Marsupial dasyurid",5
+2013-14,6,June,Mammals,"Microbats",66
+2013-14,6,June,Mammals,"Platypus",1
+2013-14,6,June,Mammals,"Possums",680
+2013-14,6,June,Mammals,"Rodents",4
+2013-14,6,June,Mammals,"Small macropods",138
+2013-14,6,June,Mammals,"Unknown macropod",108
+2013-14,6,June,Mammals,"Unknown mammals",1
+2013-14,6,June,Mammals,"Wombat",57
+2013-14,6,June,Reptiles,"Bearded dragons and blue tongues",51
+2013-14,6,June,Reptiles,"Freshwater turtle",13
+2013-14,6,June,Reptiles,"Geckoes",0
+2013-14,6,June,Reptiles,"Large reptiles and monitors",9
+2013-14,6,June,Reptiles,"Small skinks and lizards",6
+2013-14,6,June,Reptiles,"Snakes - others",58
+2013-14,6,June,Reptiles,"Snakes - Pythons",69
+2013-14,6,June,Reptiles,"Unidentified turtle/tortoise",2
+2013-14,7,July,Birds,"Cuckoos",6
+2013-14,7,July,Birds,"Diurnal birds of prey",32
+2013-14,7,July,Birds,"Emu",1
+2013-14,7,July,Birds,"Herons and allies",148
+2013-14,7,July,Birds,"Honeyeaters",48
+2013-14,7,July,Birds,"Kingfishers",116
+2013-14,7,July,Birds,"Marine birds",91
+2013-14,7,July,Birds,"Other aquatic birds",86
+2013-14,7,July,Birds,"Other birds",79
+2013-14,7,July,Birds,"Owls, nightjars and frogmouths",106
+2013-14,7,July,Birds,"Parrots",590
+2013-14,7,July,Birds,"Passerines",225
+2013-14,7,July,Birds,"Pigeons and Doves",130
+2013-14,7,July,Mammals,"Bandicoots, bettongs, and potoroos",21
+2013-14,7,July,Mammals,"Echidna",24
+2013-14,7,July,Mammals,"Feathertail glider",20
+2013-14,7,July,Mammals,"Flying-foxes",108
+2013-14,7,July,Mammals,"Koala",59
+2013-14,7,July,Mammals,"Large gliders",23
+2013-14,7,July,Mammals,"Large kangaroos",326
+2013-14,7,July,Mammals,"Marsupial dasyurid",4
+2013-14,7,July,Mammals,"Microbats",46
+2013-14,7,July,Mammals,"Platypus",3
+2013-14,7,July,Mammals,"Possums",865
+2013-14,7,July,Mammals,"Rodents",2
+2013-14,7,July,Mammals,"Small macropods",166
+2013-14,7,July,Mammals,"Unknown macropod",101
+2013-14,7,July,Mammals,"Unknown mammals",1
+2013-14,7,July,Mammals,"Wombat",79
+2013-14,7,July,Reptiles,"Bearded dragons and blue tongues",82
+2013-14,7,July,Reptiles,"Freshwater turtle",18
+2013-14,7,July,Reptiles,"Geckoes",0
+2013-14,7,July,Reptiles,"Large reptiles and monitors",7
+2013-14,7,July,Reptiles,"Small skinks and lizards",4
+2013-14,7,July,Reptiles,"Snakes - others",64
+2013-14,7,July,Reptiles,"Snakes - Pythons",39
+2013-14,7,July,Reptiles,"Unidentified turtle/tortoise",7
+2013-14,8,August,Birds,"Cuckoos",8
+2013-14,8,August,Birds,"Diurnal birds of prey",38
+2013-14,8,August,Birds,"Emu",0
+2013-14,8,August,Birds,"Herons and allies",136
+2013-14,8,August,Birds,"Honeyeaters",208
+2013-14,8,August,Birds,"Kingfishers",197
+2013-14,8,August,Birds,"Marine birds",164
+2013-14,8,August,Birds,"Other aquatic birds",245
+2013-14,8,August,Birds,"Other birds",102
+2013-14,8,August,Birds,"Owls, nightjars and frogmouths",127
+2013-14,8,August,Birds,"Parrots",632
+2013-14,8,August,Birds,"Passerines",297
+2013-14,8,August,Birds,"Pigeons and Doves",140
+2013-14,8,August,Mammals,"Bandicoots, bettongs, and potoroos",28
+2013-14,8,August,Mammals,"Echidna",75
+2013-14,8,August,Mammals,"Feathertail glider",22
+2013-14,8,August,Mammals,"Flying-foxes",46
+2013-14,8,August,Mammals,"Koala",102
+2013-14,8,August,Mammals,"Large gliders",32
+2013-14,8,August,Mammals,"Large kangaroos",390
+2013-14,8,August,Mammals,"Marsupial dasyurid",10
+2013-14,8,August,Mammals,"Microbats",38
+2013-14,8,August,Mammals,"Platypus",0
+2013-14,8,August,Mammals,"Possums",1362
+2013-14,8,August,Mammals,"Rodents",5
+2013-14,8,August,Mammals,"Small macropods",198
+2013-14,8,August,Mammals,"Unknown macropod",120
+2013-14,8,August,Mammals,"Unknown mammals",1
+2013-14,8,August,Mammals,"Wombat",91
+2013-14,8,August,Reptiles,"Bearded dragons and blue tongues",128
+2013-14,8,August,Reptiles,"Freshwater turtle",5
+2013-14,8,August,Reptiles,"Geckoes",1
+2013-14,8,August,Reptiles,"Large reptiles and monitors",14
+2013-14,8,August,Reptiles,"Small skinks and lizards",7
+2013-14,8,August,Reptiles,"Snakes - others",103
+2013-14,8,August,Reptiles,"Snakes - Pythons",111
+2013-14,8,August,Reptiles,"Unidentified turtle/tortoise",8
+2013-14,9,September,Birds,"Cuckoos",22
+2013-14,9,September,Birds,"Diurnal birds of prey",31
+2013-14,9,September,Birds,"Emu",4
+2013-14,9,September,Birds,"Herons and allies",156
+2013-14,9,September,Birds,"Honeyeaters",443
+2013-14,9,September,Birds,"Kingfishers",210
+2013-14,9,September,Birds,"Marine birds",150
+2013-14,9,September,Birds,"Other aquatic birds",383
+2013-14,9,September,Birds,"Other birds",187
+2013-14,9,September,Birds,"Owls, nightjars and frogmouths",142
+2013-14,9,September,Birds,"Parrots",770
+2013-14,9,September,Birds,"Passerines",929
+2013-14,9,September,Birds,"Pigeons and Doves",167
+2013-14,9,September,Mammals,"Bandicoots, bettongs, and potoroos",36
+2013-14,9,September,Mammals,"Echidna",102
+2013-14,9,September,Mammals,"Feathertail glider",34
+2013-14,9,September,Mammals,"Flying-foxes",69
+2013-14,9,September,Mammals,"Koala",118
+2013-14,9,September,Mammals,"Large gliders",47
+2013-14,9,September,Mammals,"Large kangaroos",271
+2013-14,9,September,Mammals,"Marsupial dasyurid",25
+2013-14,9,September,Mammals,"Microbats",20
+2013-14,9,September,Mammals,"Platypus",0
+2013-14,9,September,Mammals,"Possums",1259
+2013-14,9,September,Mammals,"Rodents",2
+2013-14,9,September,Mammals,"Small macropods",152
+2013-14,9,September,Mammals,"Unknown macropod",130
+2013-14,9,September,Mammals,"Unknown mammals",3
+2013-14,9,September,Mammals,"Wombat",75
+2013-14,9,September,Reptiles,"Bearded dragons and blue tongues",374
+2013-14,9,September,Reptiles,"Freshwater turtle",31
+2013-14,9,September,Reptiles,"Geckoes",1
+2013-14,9,September,Reptiles,"Large reptiles and monitors",63
+2013-14,9,September,Reptiles,"Small skinks and lizards",22
+2013-14,9,September,Reptiles,"Snakes - others",419
+2013-14,9,September,Reptiles,"Snakes - Pythons",209
+2013-14,9,September,Reptiles,"Unidentified turtle/tortoise",16
+2013-14,10,October,Birds,"Cuckoos",31
+2013-14,10,October,Birds,"Diurnal birds of prey",35
+2013-14,10,October,Birds,"Emu",7
+2013-14,10,October,Birds,"Herons and allies",113
+2013-14,10,October,Birds,"Honeyeaters",605
+2013-14,10,October,Birds,"Kingfishers",271
+2013-14,10,October,Birds,"Marine birds",618
+2013-14,10,October,Birds,"Other aquatic birds",345
+2013-14,10,October,Birds,"Other birds",349
+2013-14,10,October,Birds,"Owls, nightjars and frogmouths",312
+2013-14,10,October,Birds,"Parrots",1127
+2013-14,10,October,Birds,"Passerines",1864
+2013-14,10,October,Birds,"Pigeons and Doves",150
+2013-14,10,October,Mammals,"Bandicoots, bettongs, and potoroos",46
+2013-14,10,October,Mammals,"Echidna",87
+2013-14,10,October,Mammals,"Feathertail glider",37
+2013-14,10,October,Mammals,"Flying-foxes",401
+2013-14,10,October,Mammals,"Koala",150
+2013-14,10,October,Mammals,"Large gliders",60
+2013-14,10,October,Mammals,"Large kangaroos",289
+2013-14,10,October,Mammals,"Marsupial dasyurid",8
+2013-14,10,October,Mammals,"Microbats",32
+2013-14,10,October,Mammals,"Platypus",0
+2013-14,10,October,Mammals,"Possums",1205
+2013-14,10,October,Mammals,"Rodents",1
+2013-14,10,October,Mammals,"Small macropods",124
+2013-14,10,October,Mammals,"Unknown macropod",165
+2013-14,10,October,Mammals,"Unknown mammals",6
+2013-14,10,October,Mammals,"Wombat",48
+2013-14,10,October,Reptiles,"Bearded dragons and blue tongues",236
+2013-14,10,October,Reptiles,"Freshwater turtle",64
+2013-14,10,October,Reptiles,"Geckoes",2
+2013-14,10,October,Reptiles,"Large reptiles and monitors",79
+2013-14,10,October,Reptiles,"Small skinks and lizards",11
+2013-14,10,October,Reptiles,"Snakes - others",351
+2013-14,10,October,Reptiles,"Snakes - Pythons",134
+2013-14,10,October,Reptiles,"Unidentified turtle/tortoise",38
+2013-14,11,November,Birds,"Cuckoos",48
+2013-14,11,November,Birds,"Diurnal birds of prey",51
+2013-14,11,November,Birds,"Emu",2
+2013-14,11,November,Birds,"Herons and allies",138
+2013-14,11,November,Birds,"Honeyeaters",418
+2013-14,11,November,Birds,"Kingfishers",295
+2013-14,11,November,Birds,"Marine birds",363
+2013-14,11,November,Birds,"Other aquatic birds",279
+2013-14,11,November,Birds,"Other birds",344
+2013-14,11,November,Birds,"Owls, nightjars and frogmouths",335
+2013-14,11,November,Birds,"Parrots",1637
+2013-14,11,November,Birds,"Passerines",1038
+2013-14,11,November,Birds,"Pigeons and Doves",132
+2013-14,11,November,Mammals,"Bandicoots, bettongs, and potoroos",57
+2013-14,11,November,Mammals,"Echidna",39
+2013-14,11,November,Mammals,"Feathertail glider",11
+2013-14,11,November,Mammals,"Flying-foxes",616
+2013-14,11,November,Mammals,"Koala",112
+2013-14,11,November,Mammals,"Large gliders",49
+2013-14,11,November,Mammals,"Large kangaroos",211
+2013-14,11,November,Mammals,"Marsupial dasyurid",73
+2013-14,11,November,Mammals,"Microbats",71
+2013-14,11,November,Mammals,"Platypus",1
+2013-14,11,November,Mammals,"Possums",923
+2013-14,11,November,Mammals,"Rodents",2
+2013-14,11,November,Mammals,"Small macropods",91
+2013-14,11,November,Mammals,"Unknown macropod",99
+2013-14,11,November,Mammals,"Unknown mammals",14
+2013-14,11,November,Mammals,"Wombat",29
+2013-14,11,November,Reptiles,"Bearded dragons and blue tongues",207
+2013-14,11,November,Reptiles,"Freshwater turtle",77
+2013-14,11,November,Reptiles,"Geckoes",2
+2013-14,11,November,Reptiles,"Large reptiles and monitors",64
+2013-14,11,November,Reptiles,"Small skinks and lizards",15
+2013-14,11,November,Reptiles,"Snakes - others",261
+2013-14,11,November,Reptiles,"Snakes - Pythons",111
+2013-14,11,November,Reptiles,"Unidentified turtle/tortoise",43
+2013-14,12,December,Birds,"Cuckoos",65
+2013-14,12,December,Birds,"Diurnal birds of prey",48
+2013-14,12,December,Birds,"Emu",3
+2013-14,12,December,Birds,"Herons and allies",93
+2013-14,12,December,Birds,"Honeyeaters",230
+2013-14,12,December,Birds,"Kingfishers",329
+2013-14,12,December,Birds,"Marine birds",101
+2013-14,12,December,Birds,"Other aquatic birds",211
+2013-14,12,December,Birds,"Other birds",383
+2013-14,12,December,Birds,"Owls, nightjars and frogmouths",190
+2013-14,12,December,Birds,"Parrots",1496
+2013-14,12,December,Birds,"Passerines",822
+2013-14,12,December,Birds,"Pigeons and Doves",136
+2013-14,12,December,Mammals,"Bandicoots, bettongs, and potoroos",44
+2013-14,12,December,Mammals,"Echidna",29
+2013-14,12,December,Mammals,"Feathertail glider",3
+2013-14,12,December,Mammals,"Flying-foxes",229
+2013-14,12,December,Mammals,"Koala",98
+2013-14,12,December,Mammals,"Large gliders",23
+2013-14,12,December,Mammals,"Large kangaroos",196
+2013-14,12,December,Mammals,"Marsupial dasyurid",32
+2013-14,12,December,Mammals,"Microbats",49
+2013-14,12,December,Mammals,"Platypus",0
+2013-14,12,December,Mammals,"Possums",797
+2013-14,12,December,Mammals,"Rodents",4
+2013-14,12,December,Mammals,"Small macropods",100
+2013-14,12,December,Mammals,"Unknown macropod",95
+2013-14,12,December,Mammals,"Unknown mammals",6
+2013-14,12,December,Mammals,"Wombat",40
+2013-14,12,December,Reptiles,"Bearded dragons and blue tongues",311
+2013-14,12,December,Reptiles,"Freshwater turtle",42
+2013-14,12,December,Reptiles,"Geckoes",3
+2013-14,12,December,Reptiles,"Large reptiles and monitors",60
+2013-14,12,December,Reptiles,"Small skinks and lizards",28
+2013-14,12,December,Reptiles,"Snakes - others",398
+2013-14,12,December,Reptiles,"Snakes - Pythons",136
+2013-14,12,December,Reptiles,"Unidentified turtle/tortoise",33
+2014-15,1,January,Birds,"Cuckoos",57
+2014-15,1,January,Birds,"Diurnal birds of prey",43
+2014-15,1,January,Birds,"Emu",5
+2014-15,1,January,Birds,"Herons and allies",125
+2014-15,1,January,Birds,"Honeyeaters",160
+2014-15,1,January,Birds,"Kingfishers",315
+2014-15,1,January,Birds,"Marine birds",118
+2014-15,1,January,Birds,"Other aquatic birds",296
+2014-15,1,January,Birds,"Other birds",319
+2014-15,1,January,Birds,"Owls, nightjars and frogmouths",211
+2014-15,1,January,Birds,"Parrots",1189
+2014-15,1,January,Birds,"Passerines",692
+2014-15,1,January,Birds,"Pigeons and Doves",176
+2014-15,1,January,Mammals,"Bandicoots, bettongs, and potoroos",19
+2014-15,1,January,Mammals,"Echidna",33
+2014-15,1,January,Mammals,"Feathertail glider",13
+2014-15,1,January,Mammals,"Flying-foxes",466
+2014-15,1,January,Mammals,"Koala",52
+2014-15,1,January,Mammals,"Large gliders",50
+2014-15,1,January,Mammals,"Large kangaroos",170
+2014-15,1,January,Mammals,"Marsupial dasyurid",7
+2014-15,1,January,Mammals,"Microbats",61
+2014-15,1,January,Mammals,"Platypus",1
+2014-15,1,January,Mammals,"Possums",872
+2014-15,1,January,Mammals,"Rodents",5
+2014-15,1,January,Mammals,"Small macropods",104
+2014-15,1,January,Mammals,"Unknown macropod",65
+2014-15,1,January,Mammals,"Unknown mammals",7
+2014-15,1,January,Mammals,"Wombat",31
+2014-15,1,January,Reptiles,"Bearded dragons and blue tongues",325
+2014-15,1,January,Reptiles,"Freshwater turtle",24
+2014-15,1,January,Reptiles,"Geckoes",2
+2014-15,1,January,Reptiles,"Large reptiles and monitors",60
+2014-15,1,January,Reptiles,"Small skinks and lizards",25
+2014-15,1,January,Reptiles,"Snakes - others",503
+2014-15,1,January,Reptiles,"Snakes - Pythons",209
+2014-15,1,January,Reptiles,"Unidentified turtle/tortoise",31
+2014-15,2,February,Birds,"Cuckoos",52
+2014-15,2,February,Birds,"Diurnal birds of prey",43
+2014-15,2,February,Birds,"Emu",1
+2014-15,2,February,Birds,"Herons and allies",77
+2014-15,2,February,Birds,"Honeyeaters",141
+2014-15,2,February,Birds,"Kingfishers",237
+2014-15,2,February,Birds,"Marine birds",64
+2014-15,2,February,Birds,"Other aquatic birds",176
+2014-15,2,February,Birds,"Other birds",196
+2014-15,2,February,Birds,"Owls, nightjars and frogmouths",230
+2014-15,2,February,Birds,"Parrots",850
+2014-15,2,February,Birds,"Passerines",464
+2014-15,2,February,Birds,"Pigeons and Doves",181
+2014-15,2,February,Mammals,"Bandicoots, bettongs, and potoroos",38
+2014-15,2,February,Mammals,"Echidna",16
+2014-15,2,February,Mammals,"Feathertail glider",20
+2014-15,2,February,Mammals,"Flying-foxes",319
+2014-15,2,February,Mammals,"Koala",40
+2014-15,2,February,Mammals,"Large gliders",22
+2014-15,2,February,Mammals,"Large kangaroos",123
+2014-15,2,February,Mammals,"Marsupial dasyurid",4
+2014-15,2,February,Mammals,"Microbats",80
+2014-15,2,February,Mammals,"Platypus",0
+2014-15,2,February,Mammals,"Possums",765
+2014-15,2,February,Mammals,"Rodents",23
+2014-15,2,February,Mammals,"Small macropods",84
+2014-15,2,February,Mammals,"Unknown macropod",53
+2014-15,2,February,Mammals,"Unknown mammals",1
+2014-15,2,February,Mammals,"Wombat",38
+2014-15,2,February,Reptiles,"Bearded dragons and blue tongues",228
+2014-15,2,February,Reptiles,"Freshwater turtle",57
+2014-15,2,February,Reptiles,"Geckoes",0
+2014-15,2,February,Reptiles,"Large reptiles and monitors",57
+2014-15,2,February,Reptiles,"Small skinks and lizards",19
+2014-15,2,February,Reptiles,"Snakes - others",572
+2014-15,2,February,Reptiles,"Snakes - Pythons",164
+2014-15,2,February,Reptiles,"Unidentified turtle/tortoise",36
+2014-15,3,March,Birds,"Cuckoos",44
+2014-15,3,March,Birds,"Diurnal birds of prey",35
+2014-15,3,March,Birds,"Emu",1
+2014-15,3,March,Birds,"Herons and allies",94
+2014-15,3,March,Birds,"Honeyeaters",279
+2014-15,3,March,Birds,"Kingfishers",192
+2014-15,3,March,Birds,"Marine birds",75
+2014-15,3,March,Birds,"Other aquatic birds",230
+2014-15,3,March,Birds,"Other birds",183
+2014-15,3,March,Birds,"Owls, nightjars and frogmouths",278
+2014-15,3,March,Birds,"Parrots",832
+2014-15,3,March,Birds,"Passerines",351
+2014-15,3,March,Birds,"Pigeons and Doves",197
+2014-15,3,March,Mammals,"Bandicoots, bettongs, and potoroos",20
+2014-15,3,March,Mammals,"Echidna",22
+2014-15,3,March,Mammals,"Feathertail glider",18
+2014-15,3,March,Mammals,"Flying-foxes",237
+2014-15,3,March,Mammals,"Koala",49
+2014-15,3,March,Mammals,"Large gliders",20
+2014-15,3,March,Mammals,"Large kangaroos",221
+2014-15,3,March,Mammals,"Marsupial dasyurid",6
+2014-15,3,March,Mammals,"Microbats",83
+2014-15,3,March,Mammals,"Platypus",1
+2014-15,3,March,Mammals,"Possums",712
+2014-15,3,March,Mammals,"Rodents",13
+2014-15,3,March,Mammals,"Small macropods",118
+2014-15,3,March,Mammals,"Unknown macropod",86
+2014-15,3,March,Mammals,"Unknown mammals",7
+2014-15,3,March,Mammals,"Wombat",30
+2014-15,3,March,Reptiles,"Bearded dragons and blue tongues",196
+2014-15,3,March,Reptiles,"Freshwater turtle",44
+2014-15,3,March,Reptiles,"Geckoes",0
+2014-15,3,March,Reptiles,"Large reptiles and monitors",60
+2014-15,3,March,Reptiles,"Small skinks and lizards",15
+2014-15,3,March,Reptiles,"Snakes - others",542
+2014-15,3,March,Reptiles,"Snakes - Pythons",176
+2014-15,3,March,Reptiles,"Unidentified turtle/tortoise",34
+2014-15,4,April,Birds,"Cuckoos",15
+2014-15,4,April,Birds,"Diurnal birds of prey",34
+2014-15,4,April,Birds,"Emu",3
+2014-15,4,April,Birds,"Herons and allies",145
+2014-15,4,April,Birds,"Honeyeaters",160
+2014-15,4,April,Birds,"Kingfishers",156
+2014-15,4,April,Birds,"Marine birds",301
+2014-15,4,April,Birds,"Other aquatic birds",112
+2014-15,4,April,Birds,"Other birds",142
+2014-15,4,April,Birds,"Owls, nightjars and frogmouths",261
+2014-15,4,April,Birds,"Parrots",763
+2014-15,4,April,Birds,"Passerines",311
+2014-15,4,April,Birds,"Pigeons and Doves",185
+2014-15,4,April,Mammals,"Bandicoots, bettongs, and potoroos",27
+2014-15,4,April,Mammals,"Echidna",41
+2014-15,4,April,Mammals,"Feathertail glider",19
+2014-15,4,April,Mammals,"Flying-foxes",82
+2014-15,4,April,Mammals,"Koala",55
+2014-15,4,April,Mammals,"Large gliders",30
+2014-15,4,April,Mammals,"Large kangaroos",221
+2014-15,4,April,Mammals,"Marsupial dasyurid",4
+2014-15,4,April,Mammals,"Microbats",76
+2014-15,4,April,Mammals,"Platypus",0
+2014-15,4,April,Mammals,"Possums",715
+2014-15,4,April,Mammals,"Rodents",11
+2014-15,4,April,Mammals,"Small macropods",108
+2014-15,4,April,Mammals,"Unknown macropod",94
+2014-15,4,April,Mammals,"Unknown mammals",6
+2014-15,4,April,Mammals,"Wombat",50
+2014-15,4,April,Reptiles,"Bearded dragons and blue tongues",91
+2014-15,4,April,Reptiles,"Freshwater turtle",46
+2014-15,4,April,Reptiles,"Geckoes",1
+2014-15,4,April,Reptiles,"Large reptiles and monitors",29
+2014-15,4,April,Reptiles,"Small skinks and lizards",12
+2014-15,4,April,Reptiles,"Snakes - others",271
+2014-15,4,April,Reptiles,"Snakes - Pythons",121
+2014-15,4,April,Reptiles,"Unidentified turtle/tortoise",26
+2014-15,5,May,Birds,"Cuckoos",11
+2014-15,5,May,Birds,"Diurnal birds of prey",28
+2014-15,5,May,Birds,"Emu",10
+2014-15,5,May,Birds,"Herons and allies",139
+2014-15,5,May,Birds,"Honeyeaters",68
+2014-15,5,May,Birds,"Kingfishers",112
+2014-15,5,May,Birds,"Marine birds",219
+2014-15,5,May,Birds,"Other aquatic birds",62
+2014-15,5,May,Birds,"Other birds",76
+2014-15,5,May,Birds,"Owls, nightjars and frogmouths",250
+2014-15,5,May,Birds,"Parrots",724
+2014-15,5,May,Birds,"Passerines",200
+2014-15,5,May,Birds,"Pigeons and Doves",126
+2014-15,5,May,Mammals,"Bandicoots, bettongs, and potoroos",16
+2014-15,5,May,Mammals,"Echidna",64
+2014-15,5,May,Mammals,"Feathertail glider",16
+2014-15,5,May,Mammals,"Flying-foxes",52
+2014-15,5,May,Mammals,"Koala",46
+2014-15,5,May,Mammals,"Large gliders",51
+2014-15,5,May,Mammals,"Large kangaroos",280
+2014-15,5,May,Mammals,"Marsupial dasyurid",2
+2014-15,5,May,Mammals,"Microbats",55
+2014-15,5,May,Mammals,"Platypus",0
+2014-15,5,May,Mammals,"Possums",623
+2014-15,5,May,Mammals,"Rodents",6
+2014-15,5,May,Mammals,"Small macropods",120
+2014-15,5,May,Mammals,"Unknown macropod",122
+2014-15,5,May,Mammals,"Unknown mammals",1
+2014-15,5,May,Mammals,"Wombat",68
+2014-15,5,May,Reptiles,"Bearded dragons and blue tongues",73
+2014-15,5,May,Reptiles,"Freshwater turtle",39
+2014-15,5,May,Reptiles,"Geckoes",6
+2014-15,5,May,Reptiles,"Large reptiles and monitors",20
+2014-15,5,May,Reptiles,"Small skinks and lizards",8
+2014-15,5,May,Reptiles,"Snakes - others",170
+2014-15,5,May,Reptiles,"Snakes - Pythons",104
+2014-15,5,May,Reptiles,"Unidentified turtle/tortoise",27
+2014-15,6,June,Birds,"Cuckoos",2
+2014-15,6,June,Birds,"Diurnal birds of prey",28
+2014-15,6,June,Birds,"Emu",2
+2014-15,6,June,Birds,"Herons and allies",99
+2014-15,6,June,Birds,"Honeyeaters",55
+2014-15,6,June,Birds,"Kingfishers",100
+2014-15,6,June,Birds,"Marine birds",58
+2014-15,6,June,Birds,"Other aquatic birds",98
+2014-15,6,June,Birds,"Other birds",48
+2014-15,6,June,Birds,"Owls, nightjars and frogmouths",165
+2014-15,6,June,Birds,"Parrots",671
+2014-15,6,June,Birds,"Passerines",187
+2014-15,6,June,Birds,"Pigeons and Doves",133
+2014-15,6,June,Mammals,"Bandicoots, bettongs, and potoroos",24
+2014-15,6,June,Mammals,"Echidna",39
+2014-15,6,June,Mammals,"Feathertail glider",32
+2014-15,6,June,Mammals,"Flying-foxes",37
+2014-15,6,June,Mammals,"Koala",39
+2014-15,6,June,Mammals,"Large gliders",22
+2014-15,6,June,Mammals,"Large kangaroos",300
+2014-15,6,June,Mammals,"Marsupial dasyurid",5
+2014-15,6,June,Mammals,"Microbats",56
+2014-15,6,June,Mammals,"Platypus",2
+2014-15,6,June,Mammals,"Possums",559
+2014-15,6,June,Mammals,"Rodents",2
+2014-15,6,June,Mammals,"Small macropods",158
+2014-15,6,June,Mammals,"Unknown macropod",137
+2014-15,6,June,Mammals,"Unknown mammals",2
+2014-15,6,June,Mammals,"Wombat",91
+2014-15,6,June,Reptiles,"Bearded dragons and blue tongues",58
+2014-15,6,June,Reptiles,"Freshwater turtle",8
+2014-15,6,June,Reptiles,"Geckoes",1
+2014-15,6,June,Reptiles,"Large reptiles and monitors",11
+2014-15,6,June,Reptiles,"Small skinks and lizards",6
+2014-15,6,June,Reptiles,"Snakes - others",80
+2014-15,6,June,Reptiles,"Snakes - Pythons",79
+2014-15,6,June,Reptiles,"Unidentified turtle/tortoise",2
+2014-15,7,July,Birds,"Cuckoos",13
+2014-15,7,July,Birds,"Diurnal birds of prey",55
+2014-15,7,July,Birds,"Emu",13
+2014-15,7,July,Birds,"Herons and allies",152
+2014-15,7,July,Birds,"Honeyeaters",79
+2014-15,7,July,Birds,"Kingfishers",182
+2014-15,7,July,Birds,"Marine birds",80
+2014-15,7,July,Birds,"Other aquatic birds",84
+2014-15,7,July,Birds,"Other birds",86
+2014-15,7,July,Birds,"Owls, nightjars and frogmouths",162
+2014-15,7,July,Birds,"Parrots",1077
+2014-15,7,July,Birds,"Passerines",236
+2014-15,7,July,Birds,"Pigeons and Doves",106
+2014-15,7,July,Mammals,"Bandicoots, bettongs, and potoroos",25
+2014-15,7,July,Mammals,"Echidna",24
+2014-15,7,July,Mammals,"Feathertail glider",25
+2014-15,7,July,Mammals,"Flying-foxes",97
+2014-15,7,July,Mammals,"Koala",97
+2014-15,7,July,Mammals,"Large gliders",32
+2014-15,7,July,Mammals,"Large kangaroos",304
+2014-15,7,July,Mammals,"Marsupial dasyurid",3
+2014-15,7,July,Mammals,"Microbats",35
+2014-15,7,July,Mammals,"Platypus",1
+2014-15,7,July,Mammals,"Possums",863
+2014-15,7,July,Mammals,"Rodents",4
+2014-15,7,July,Mammals,"Small macropods",181
+2014-15,7,July,Mammals,"Unknown macropod",153
+2014-15,7,July,Mammals,"Unknown mammals",3
+2014-15,7,July,Mammals,"Wombat",88
+2014-15,7,July,Reptiles,"Bearded dragons and blue tongues",61
+2014-15,7,July,Reptiles,"Freshwater turtle",10
+2014-15,7,July,Reptiles,"Geckoes",0
+2014-15,7,July,Reptiles,"Large reptiles and monitors",21
+2014-15,7,July,Reptiles,"Small skinks and lizards",5
+2014-15,7,July,Reptiles,"Snakes - others",41
+2014-15,7,July,Reptiles,"Snakes - Pythons",45
+2014-15,7,July,Reptiles,"Unidentified turtle/tortoise",7
+2014-15,8,August,Birds,"Cuckoos",7
+2014-15,8,August,Birds,"Diurnal birds of prey",47
+2014-15,8,August,Birds,"Emu",8
+2014-15,8,August,Birds,"Herons and allies",99
+2014-15,8,August,Birds,"Honeyeaters",209
+2014-15,8,August,Birds,"Kingfishers",228
+2014-15,8,August,Birds,"Marine birds",89
+2014-15,8,August,Birds,"Other aquatic birds",226
+2014-15,8,August,Birds,"Other birds",128
+2014-15,8,August,Birds,"Owls, nightjars and frogmouths",190
+2014-15,8,August,Birds,"Parrots",1041
+2014-15,8,August,Birds,"Passerines",294
+2014-15,8,August,Birds,"Pigeons and Doves",167
+2014-15,8,August,Mammals,"Bandicoots, bettongs, and potoroos",32
+2014-15,8,August,Mammals,"Echidna",26
+2014-15,8,August,Mammals,"Feathertail glider",29
+2014-15,8,August,Mammals,"Flying-foxes",191
+2014-15,8,August,Mammals,"Koala",88
+2014-15,8,August,Mammals,"Large gliders",41
+2014-15,8,August,Mammals,"Large kangaroos",331
+2014-15,8,August,Mammals,"Marsupial dasyurid",5
+2014-15,8,August,Mammals,"Microbats",62
+2014-15,8,August,Mammals,"Platypus",2
+2014-15,8,August,Mammals,"Possums",1229
+2014-15,8,August,Mammals,"Rodents",3
+2014-15,8,August,Mammals,"Small macropods",167
+2014-15,8,August,Mammals,"Unknown macropod",144
+2014-15,8,August,Mammals,"Unknown mammals",7
+2014-15,8,August,Mammals,"Wombat",57
+2014-15,8,August,Reptiles,"Bearded dragons and blue tongues",81
+2014-15,8,August,Reptiles,"Freshwater turtle",16
+2014-15,8,August,Reptiles,"Geckoes",0
+2014-15,8,August,Reptiles,"Large reptiles and monitors",20
+2014-15,8,August,Reptiles,"Small skinks and lizards",11
+2014-15,8,August,Reptiles,"Snakes - others",74
+2014-15,8,August,Reptiles,"Snakes - Pythons",64
+2014-15,8,August,Reptiles,"Unidentified turtle/tortoise",10
+2014-15,9,September,Birds,"Cuckoos",15
+2014-15,9,September,Birds,"Diurnal birds of prey",28
+2014-15,9,September,Birds,"Emu",5
+2014-15,9,September,Birds,"Herons and allies",114
+2014-15,9,September,Birds,"Honeyeaters",315
+2014-15,9,September,Birds,"Kingfishers",239
+2014-15,9,September,Birds,"Marine birds",207
+2014-15,9,September,Birds,"Other aquatic birds",303
+2014-15,9,September,Birds,"Other birds",166
+2014-15,9,September,Birds,"Owls, nightjars and frogmouths",177
+2014-15,9,September,Birds,"Parrots",828
+2014-15,9,September,Birds,"Passerines",828
+2014-15,9,September,Birds,"Pigeons and Doves",196
+2014-15,9,September,Mammals,"Bandicoots, bettongs, and potoroos",31
+2014-15,9,September,Mammals,"Echidna",115
+2014-15,9,September,Mammals,"Feathertail glider",44
+2014-15,9,September,Mammals,"Flying-foxes",147
+2014-15,9,September,Mammals,"Koala",131
+2014-15,9,September,Mammals,"Large gliders",59
+2014-15,9,September,Mammals,"Large kangaroos",283
+2014-15,9,September,Mammals,"Marsupial dasyurid",14
+2014-15,9,September,Mammals,"Microbats",47
+2014-15,9,September,Mammals,"Platypus",1
+2014-15,9,September,Mammals,"Possums",1357
+2014-15,9,September,Mammals,"Rodents",5
+2014-15,9,September,Mammals,"Small macropods",134
+2014-15,9,September,Mammals,"Unknown macropod",140
+2014-15,9,September,Mammals,"Unknown mammals",7
+2014-15,9,September,Mammals,"Wombat",62
+2014-15,9,September,Reptiles,"Bearded dragons and blue tongues",325
+2014-15,9,September,Reptiles,"Freshwater turtle",32
+2014-15,9,September,Reptiles,"Geckoes",2
+2014-15,9,September,Reptiles,"Large reptiles and monitors",47
+2014-15,9,September,Reptiles,"Small skinks and lizards",21
+2014-15,9,September,Reptiles,"Snakes - others",312
+2014-15,9,September,Reptiles,"Snakes - Pythons",202
+2014-15,9,September,Reptiles,"Unidentified turtle/tortoise",13
+2014-15,10,October,Birds,"Cuckoos",18
+2014-15,10,October,Birds,"Diurnal birds of prey",50
+2014-15,10,October,Birds,"Emu",0
+2014-15,10,October,Birds,"Herons and allies",97
+2014-15,10,October,Birds,"Honeyeaters",570
+2014-15,10,October,Birds,"Kingfishers",301
+2014-15,10,October,Birds,"Marine birds",190
+2014-15,10,October,Birds,"Other aquatic birds",569
+2014-15,10,October,Birds,"Other birds",288
+2014-15,10,October,Birds,"Owls, nightjars and frogmouths",349
+2014-15,10,October,Birds,"Parrots",769
+2014-15,10,October,Birds,"Passerines",1784
+2014-15,10,October,Birds,"Pigeons and Doves",184
+2014-15,10,October,Mammals,"Bandicoots, bettongs, and potoroos",61
+2014-15,10,October,Mammals,"Echidna",111
+2014-15,10,October,Mammals,"Feathertail glider",22
+2014-15,10,October,Mammals,"Flying-foxes",187
+2014-15,10,October,Mammals,"Koala",137
+2014-15,10,October,Mammals,"Large gliders",44
+2014-15,10,October,Mammals,"Large kangaroos",249
+2014-15,10,October,Mammals,"Marsupial dasyurid",17
+2014-15,10,October,Mammals,"Microbats",37
+2014-15,10,October,Mammals,"Platypus",1
+2014-15,10,October,Mammals,"Possums",1116
+2014-15,10,October,Mammals,"Rodents",7
+2014-15,10,October,Mammals,"Small macropods",116
+2014-15,10,October,Mammals,"Unknown macropod",153
+2014-15,10,October,Mammals,"Unknown mammals",4
+2014-15,10,October,Mammals,"Wombat",52
+2014-15,10,October,Reptiles,"Bearded dragons and blue tongues",386
+2014-15,10,October,Reptiles,"Freshwater turtle",67
+2014-15,10,October,Reptiles,"Geckoes",1
+2014-15,10,October,Reptiles,"Large reptiles and monitors",94
+2014-15,10,October,Reptiles,"Small skinks and lizards",21
+2014-15,10,October,Reptiles,"Snakes - others",530
+2014-15,10,October,Reptiles,"Snakes - Pythons",178
+2014-15,10,October,Reptiles,"Unidentified turtle/tortoise",36
+2014-15,11,November,Birds,"Cuckoos",48
+2014-15,11,November,Birds,"Diurnal birds of prey",74
+2014-15,11,November,Birds,"Emu",3
+2014-15,11,November,Birds,"Herons and allies",142
+2014-15,11,November,Birds,"Honeyeaters",516
+2014-15,11,November,Birds,"Kingfishers",329
+2014-15,11,November,Birds,"Marine birds",163
+2014-15,11,November,Birds,"Other aquatic birds",385
+2014-15,11,November,Birds,"Other birds",395
+2014-15,11,November,Birds,"Owls, nightjars and frogmouths",465
+2014-15,11,November,Birds,"Parrots",1463
+2014-15,11,November,Birds,"Passerines",1369
+2014-15,11,November,Birds,"Pigeons and Doves",174
+2014-15,11,November,Mammals,"Bandicoots, bettongs, and potoroos",55
+2014-15,11,November,Mammals,"Echidna",60
+2014-15,11,November,Mammals,"Feathertail glider",25
+2014-15,11,November,Mammals,"Flying-foxes",775
+2014-15,11,November,Mammals,"Koala",125
+2014-15,11,November,Mammals,"Large gliders",44
+2014-15,11,November,Mammals,"Large kangaroos",258
+2014-15,11,November,Mammals,"Marsupial dasyurid",37
+2014-15,11,November,Mammals,"Microbats",42
+2014-15,11,November,Mammals,"Platypus",0
+2014-15,11,November,Mammals,"Possums",813
+2014-15,11,November,Mammals,"Rodents",9
+2014-15,11,November,Mammals,"Small macropods",121
+2014-15,11,November,Mammals,"Unknown macropod",99
+2014-15,11,November,Mammals,"Unknown mammals",8
+2014-15,11,November,Mammals,"Wombat",40
+2014-15,11,November,Reptiles,"Bearded dragons and blue tongues",267
+2014-15,11,November,Reptiles,"Freshwater turtle",55
+2014-15,11,November,Reptiles,"Geckoes",2
+2014-15,11,November,Reptiles,"Large reptiles and monitors",84
+2014-15,11,November,Reptiles,"Small skinks and lizards",26
+2014-15,11,November,Reptiles,"Snakes - others",460
+2014-15,11,November,Reptiles,"Snakes - Pythons",175
+2014-15,11,November,Reptiles,"Unidentified turtle/tortoise",50
+2014-15,12,December,Birds,"Cuckoos",73
+2014-15,12,December,Birds,"Diurnal birds of prey",61
+2014-15,12,December,Birds,"Emu",4
+2014-15,12,December,Birds,"Herons and allies",96
+2014-15,12,December,Birds,"Honeyeaters",336
+2014-15,12,December,Birds,"Kingfishers",378
+2014-15,12,December,Birds,"Marine birds",94
+2014-15,12,December,Birds,"Other aquatic birds",213
+2014-15,12,December,Birds,"Other birds",375
+2014-15,12,December,Birds,"Owls, nightjars and frogmouths",239
+2014-15,12,December,Birds,"Parrots",1696
+2014-15,12,December,Birds,"Passerines",961
+2014-15,12,December,Birds,"Pigeons and Doves",179
+2014-15,12,December,Mammals,"Bandicoots, bettongs, and potoroos",46
+2014-15,12,December,Mammals,"Echidna",24
+2014-15,12,December,Mammals,"Feathertail glider",31
+2014-15,12,December,Mammals,"Flying-foxes",232
+2014-15,12,December,Mammals,"Koala",93
+2014-15,12,December,Mammals,"Large gliders",44
+2014-15,12,December,Mammals,"Large kangaroos",186
+2014-15,12,December,Mammals,"Marsupial dasyurid",28
+2014-15,12,December,Mammals,"Microbats",66
+2014-15,12,December,Mammals,"Platypus",0
+2014-15,12,December,Mammals,"Possums",807
+2014-15,12,December,Mammals,"Rodents",6
+2014-15,12,December,Mammals,"Small macropods",100
+2014-15,12,December,Mammals,"Unknown macropod",86
+2014-15,12,December,Mammals,"Unknown mammals",7
+2014-15,12,December,Mammals,"Wombat",31
+2014-15,12,December,Reptiles,"Bearded dragons and blue tongues",268
+2014-15,12,December,Reptiles,"Freshwater turtle",59
+2014-15,12,December,Reptiles,"Geckoes",2
+2014-15,12,December,Reptiles,"Large reptiles and monitors",87
+2014-15,12,December,Reptiles,"Small skinks and lizards",20
+2014-15,12,December,Reptiles,"Snakes - others",442
+2014-15,12,December,Reptiles,"Snakes - Pythons",168
+2014-15,12,December,Reptiles,"Unidentified turtle/tortoise",31
+2015-16,1,January,Birds,"Cuckoos",98
+2015-16,1,January,Birds,"Diurnal birds of prey",62
+2015-16,1,January,Birds,"Emu",0
+2015-16,1,January,Birds,"Herons and allies",109
+2015-16,1,January,Birds,"Honeyeaters",194
+2015-16,1,January,Birds,"Kingfishers",322
+2015-16,1,January,Birds,"Marine birds",138
+2015-16,1,January,Birds,"Other aquatic birds",202
+2015-16,1,January,Birds,"Other birds",346
+2015-16,1,January,Birds,"Owls, nightjars and frogmouths",277
+2015-16,1,January,Birds,"Parrots",1241
+2015-16,1,January,Birds,"Passerines",793
+2015-16,1,January,Birds,"Pigeons and Doves",212
+2015-16,1,January,Mammals,"Bandicoots, bettongs, and potoroos",37
+2015-16,1,January,Mammals,"Echidna",38
+2015-16,1,January,Mammals,"Feathertail glider",19
+2015-16,1,January,Mammals,"Flying-foxes",224
+2015-16,1,January,Mammals,"Koala",58
+2015-16,1,January,Mammals,"Large gliders",42
+2015-16,1,January,Mammals,"Large kangaroos",274
+2015-16,1,January,Mammals,"Marsupial dasyurid",8
+2015-16,1,January,Mammals,"Microbats",73
+2015-16,1,January,Mammals,"Platypus",0
+2015-16,1,January,Mammals,"Possums",877
+2015-16,1,January,Mammals,"Rodents",12
+2015-16,1,January,Mammals,"Small macropods",103
+2015-16,1,January,Mammals,"Unknown macropod",81
+2015-16,1,January,Mammals,"Unknown mammals",7
+2015-16,1,January,Mammals,"Wombat",43
+2015-16,1,January,Reptiles,"Bearded dragons and blue tongues",380
+2015-16,1,January,Reptiles,"Freshwater turtle",73
+2015-16,1,January,Reptiles,"Geckoes",1
+2015-16,1,January,Reptiles,"Large reptiles and monitors",80
+2015-16,1,January,Reptiles,"Small skinks and lizards",24
+2015-16,1,January,Reptiles,"Snakes - others",490
+2015-16,1,January,Reptiles,"Snakes - Pythons",206
+2015-16,1,January,Reptiles,"Unidentified turtle/tortoise",70
+2015-16,2,February,Birds,"Cuckoos",61
+2015-16,2,February,Birds,"Diurnal birds of prey",39
+2015-16,2,February,Birds,"Emu",1
+2015-16,2,February,Birds,"Herons and allies",100
+2015-16,2,February,Birds,"Honeyeaters",165
+2015-16,2,February,Birds,"Kingfishers",284
+2015-16,2,February,Birds,"Marine birds",91
+2015-16,2,February,Birds,"Other aquatic birds",191
+2015-16,2,February,Birds,"Other birds",189
+2015-16,2,February,Birds,"Owls, nightjars and frogmouths",208
+2015-16,2,February,Birds,"Parrots",892
+2015-16,2,February,Birds,"Passerines",532
+2015-16,2,February,Birds,"Pigeons and Doves",187
+2015-16,2,February,Mammals,"Bandicoots, bettongs, and potoroos",30
+2015-16,2,February,Mammals,"Echidna",35
+2015-16,2,February,Mammals,"Feathertail glider",16
+2015-16,2,February,Mammals,"Flying-foxes",122
+2015-16,2,February,Mammals,"Koala",47
+2015-16,2,February,Mammals,"Large gliders",37
+2015-16,2,February,Mammals,"Large kangaroos",171
+2015-16,2,February,Mammals,"Marsupial dasyurid",5
+2015-16,2,February,Mammals,"Microbats",84
+2015-16,2,February,Mammals,"Platypus",5
+2015-16,2,February,Mammals,"Possums",868
+2015-16,2,February,Mammals,"Rodents",7
+2015-16,2,February,Mammals,"Small macropods",90
+2015-16,2,February,Mammals,"Unknown macropod",72
+2015-16,2,February,Mammals,"Unknown mammals",8
+2015-16,2,February,Mammals,"Wombat",46
+2015-16,2,February,Reptiles,"Bearded dragons and blue tongues",342
+2015-16,2,February,Reptiles,"Freshwater turtle",41
+2015-16,2,February,Reptiles,"Geckoes",2
+2015-16,2,February,Reptiles,"Large reptiles and monitors",99
+2015-16,2,February,Reptiles,"Small skinks and lizards",19
+2015-16,2,February,Reptiles,"Snakes - others",611
+2015-16,2,February,Reptiles,"Snakes - Pythons",208
+2015-16,2,February,Reptiles,"Unidentified turtle/tortoise",29
+2015-16,3,March,Birds,"Cuckoos",47
+2015-16,3,March,Birds,"Diurnal birds of prey",40
+2015-16,3,March,Birds,"Emu",2
+2015-16,3,March,Birds,"Herons and allies",108
+2015-16,3,March,Birds,"Honeyeaters",202
+2015-16,3,March,Birds,"Kingfishers",205
+2015-16,3,March,Birds,"Marine birds",55
+2015-16,3,March,Birds,"Other aquatic birds",223
+2015-16,3,March,Birds,"Other birds",132
+2015-16,3,March,Birds,"Owls, nightjars and frogmouths",268
+2015-16,3,March,Birds,"Parrots",915
+2015-16,3,March,Birds,"Passerines",380
+2015-16,3,March,Birds,"Pigeons and Doves",207
+2015-16,3,March,Mammals,"Bandicoots, bettongs, and potoroos",20
+2015-16,3,March,Mammals,"Echidna",57
+2015-16,3,March,Mammals,"Feathertail glider",22
+2015-16,3,March,Mammals,"Flying-foxes",167
+2015-16,3,March,Mammals,"Koala",55
+2015-16,3,March,Mammals,"Large gliders",26
+2015-16,3,March,Mammals,"Large kangaroos",265
+2015-16,3,March,Mammals,"Marsupial dasyurid",5
+2015-16,3,March,Mammals,"Microbats",82
+2015-16,3,March,Mammals,"Platypus",1
+2015-16,3,March,Mammals,"Possums",839
+2015-16,3,March,Mammals,"Rodents",24
+2015-16,3,March,Mammals,"Small macropods",128
+2015-16,3,March,Mammals,"Unknown macropod",117
+2015-16,3,March,Mammals,"Unknown mammals",10
+2015-16,3,March,Mammals,"Wombat",51
+2015-16,3,March,Reptiles,"Bearded dragons and blue tongues",156
+2015-16,3,March,Reptiles,"Freshwater turtle",40
+2015-16,3,March,Reptiles,"Geckoes",1
+2015-16,3,March,Reptiles,"Large reptiles and monitors",65
+2015-16,3,March,Reptiles,"Small skinks and lizards",11
+2015-16,3,March,Reptiles,"Snakes - others",519
+2015-16,3,March,Reptiles,"Snakes - Pythons",182
+2015-16,3,March,Reptiles,"Unidentified turtle/tortoise",29
+2015-16,4,April,Birds,"Cuckoos",24
+2015-16,4,April,Birds,"Diurnal birds of prey",25
+2015-16,4,April,Birds,"Emu",4
+2015-16,4,April,Birds,"Herons and allies",115
+2015-16,4,April,Birds,"Honeyeaters",161
+2015-16,4,April,Birds,"Kingfishers",157
+2015-16,4,April,Birds,"Marine birds",269
+2015-16,4,April,Birds,"Other aquatic birds",118
+2015-16,4,April,Birds,"Other birds",118
+2015-16,4,April,Birds,"Owls, nightjars and frogmouths",230
+2015-16,4,April,Birds,"Parrots",773
+2015-16,4,April,Birds,"Passerines",293
+2015-16,4,April,Birds,"Pigeons and Doves",177
+2015-16,4,April,Mammals,"Bandicoots, bettongs, and potoroos",21
+2015-16,4,April,Mammals,"Echidna",63
+2015-16,4,April,Mammals,"Feathertail glider",8
+2015-16,4,April,Mammals,"Flying-foxes",61
+2015-16,4,April,Mammals,"Koala",63
+2015-16,4,April,Mammals,"Large gliders",29
+2015-16,4,April,Mammals,"Large kangaroos",328
+2015-16,4,April,Mammals,"Marsupial dasyurid",5
+2015-16,4,April,Mammals,"Microbats",62
+2015-16,4,April,Mammals,"Platypus",1
+2015-16,4,April,Mammals,"Possums",737
+2015-16,4,April,Mammals,"Rodents",8
+2015-16,4,April,Mammals,"Small macropods",122
+2015-16,4,April,Mammals,"Unknown macropod",126
+2015-16,4,April,Mammals,"Unknown mammals",4
+2015-16,4,April,Mammals,"Wombat",80
+2015-16,4,April,Reptiles,"Bearded dragons and blue tongues",119
+2015-16,4,April,Reptiles,"Freshwater turtle",55
+2015-16,4,April,Reptiles,"Geckoes",2
+2015-16,4,April,Reptiles,"Large reptiles and monitors",34
+2015-16,4,April,Reptiles,"Small skinks and lizards",12
+2015-16,4,April,Reptiles,"Snakes - others",322
+2015-16,4,April,Reptiles,"Snakes - Pythons",178
+2015-16,4,April,Reptiles,"Unidentified turtle/tortoise",19
+2015-16,5,May,Birds,"Cuckoos",11
+2015-16,5,May,Birds,"Diurnal birds of prey",26
+2015-16,5,May,Birds,"Emu",2
+2015-16,5,May,Birds,"Herons and allies",102
+2015-16,5,May,Birds,"Honeyeaters",110
+2015-16,5,May,Birds,"Kingfishers",137
+2015-16,5,May,Birds,"Marine birds",168
+2015-16,5,May,Birds,"Other aquatic birds",73
+2015-16,5,May,Birds,"Other birds",83
+2015-16,5,May,Birds,"Owls, nightjars and frogmouths",188
+2015-16,5,May,Birds,"Parrots",846
+2015-16,5,May,Birds,"Passerines",230
+2015-16,5,May,Birds,"Pigeons and Doves",159
+2015-16,5,May,Mammals,"Bandicoots, bettongs, and potoroos",22
+2015-16,5,May,Mammals,"Echidna",92
+2015-16,5,May,Mammals,"Feathertail glider",20
+2015-16,5,May,Mammals,"Flying-foxes",51
+2015-16,5,May,Mammals,"Koala",63
+2015-16,5,May,Mammals,"Large gliders",26
+2015-16,5,May,Mammals,"Large kangaroos",358
+2015-16,5,May,Mammals,"Marsupial dasyurid",5
+2015-16,5,May,Mammals,"Microbats",54
+2015-16,5,May,Mammals,"Platypus",0
+2015-16,5,May,Mammals,"Possums",606
+2015-16,5,May,Mammals,"Rodents",5
+2015-16,5,May,Mammals,"Small macropods",172
+2015-16,5,May,Mammals,"Unknown macropod",159
+2015-16,5,May,Mammals,"Unknown mammals",9
+2015-16,5,May,Mammals,"Wombat",81
+2015-16,5,May,Reptiles,"Bearded dragons and blue tongues",65
+2015-16,5,May,Reptiles,"Freshwater turtle",16
+2015-16,5,May,Reptiles,"Geckoes",3
+2015-16,5,May,Reptiles,"Large reptiles and monitors",14
+2015-16,5,May,Reptiles,"Small skinks and lizards",7
+2015-16,5,May,Reptiles,"Snakes - others",132
+2015-16,5,May,Reptiles,"Snakes - Pythons",144
+2015-16,5,May,Reptiles,"Unidentified turtle/tortoise",3
+2015-16,6,June,Birds,"Cuckoos",10
+2015-16,6,June,Birds,"Diurnal birds of prey",29
+2015-16,6,June,Birds,"Emu",1
+2015-16,6,June,Birds,"Herons and allies",111
+2015-16,6,June,Birds,"Honeyeaters",70
+2015-16,6,June,Birds,"Kingfishers",131
+2015-16,6,June,Birds,"Marine birds",31
+2015-16,6,June,Birds,"Other aquatic birds",86
+2015-16,6,June,Birds,"Other birds",80
+2015-16,6,June,Birds,"Owls, nightjars and frogmouths",140
+2015-16,6,June,Birds,"Parrots",773
+2015-16,6,June,Birds,"Passerines",211
+2015-16,6,June,Birds,"Pigeons and Doves",123
+2015-16,6,June,Mammals,"Bandicoots, bettongs, and potoroos",21
+2015-16,6,June,Mammals,"Echidna",43
+2015-16,6,June,Mammals,"Feathertail glider",28
+2015-16,6,June,Mammals,"Flying-foxes",68
+2015-16,6,June,Mammals,"Koala",71
+2015-16,6,June,Mammals,"Large gliders",26
+2015-16,6,June,Mammals,"Large kangaroos",434
+2015-16,6,June,Mammals,"Marsupial dasyurid",4
+2015-16,6,June,Mammals,"Microbats",76
+2015-16,6,June,Mammals,"Platypus",1
+2015-16,6,June,Mammals,"Possums",560
+2015-16,6,June,Mammals,"Rodents",3
+2015-16,6,June,Mammals,"Small macropods",167
+2015-16,6,June,Mammals,"Unknown macropod",128
+2015-16,6,June,Mammals,"Unknown mammals",5
+2015-16,6,June,Mammals,"Wombat",89
+2015-16,6,June,Reptiles,"Bearded dragons and blue tongues",60
+2015-16,6,June,Reptiles,"Freshwater turtle",29
+2015-16,6,June,Reptiles,"Geckoes",2
+2015-16,6,June,Reptiles,"Large reptiles and monitors",18
+2015-16,6,June,Reptiles,"Small skinks and lizards",4
+2015-16,6,June,Reptiles,"Snakes - others",65
+2015-16,6,June,Reptiles,"Snakes - Pythons",84
+2015-16,6,June,Reptiles,"Unidentified turtle/tortoise",15
+2015-16,7,July,Birds,"Cuckoos",10
+2015-16,7,July,Birds,"Diurnal birds of prey",40
+2015-16,7,July,Birds,"Emu",5
+2015-16,7,July,Birds,"Herons and allies",115
+2015-16,7,July,Birds,"Honeyeaters",74
+2015-16,7,July,Birds,"Kingfishers",151
+2015-16,7,July,Birds,"Marine birds",113
+2015-16,7,July,Birds,"Other aquatic birds",98
+2015-16,7,July,Birds,"Other birds",71
+2015-16,7,July,Birds,"Owls, nightjars and frogmouths",145
+2015-16,7,July,Birds,"Parrots",814
+2015-16,7,July,Birds,"Passerines",216
+2015-16,7,July,Birds,"Pigeons and Doves",109
+2015-16,7,July,Mammals,"Bandicoots, bettongs, and potoroos",18
+2015-16,7,July,Mammals,"Echidna",60
+2015-16,7,July,Mammals,"Feathertail glider",31
+2015-16,7,July,Mammals,"Flying-foxes",57
+2015-16,7,July,Mammals,"Koala",59
+2015-16,7,July,Mammals,"Large gliders",30
+2015-16,7,July,Mammals,"Large kangaroos",550
+2015-16,7,July,Mammals,"Marsupial dasyurid",12
+2015-16,7,July,Mammals,"Microbats",44
+2015-16,7,July,Mammals,"Platypus",0
+2015-16,7,July,Mammals,"Possums",663
+2015-16,7,July,Mammals,"Rodents",3
+2015-16,7,July,Mammals,"Small macropods",169
+2015-16,7,July,Mammals,"Unknown macropod",131
+2015-16,7,July,Mammals,"Unknown mammals",3
+2015-16,7,July,Mammals,"Wombat",114
+2015-16,7,July,Reptiles,"Bearded dragons and blue tongues",77
+2015-16,7,July,Reptiles,"Freshwater turtle",5
+2015-16,7,July,Reptiles,"Geckoes",1
+2015-16,7,July,Reptiles,"Large reptiles and monitors",8
+2015-16,7,July,Reptiles,"Small skinks and lizards",6
+2015-16,7,July,Reptiles,"Snakes - others",64
+2015-16,7,July,Reptiles,"Snakes - Pythons",28
+2015-16,7,July,Reptiles,"Unidentified turtle/tortoise",3
+2015-16,8,August,Birds,"Cuckoos",4
+2015-16,8,August,Birds,"Diurnal birds of prey",59
+2015-16,8,August,Birds,"Emu",18
+2015-16,8,August,Birds,"Herons and allies",119
+2015-16,8,August,Birds,"Honeyeaters",152
+2015-16,8,August,Birds,"Kingfishers",208
+2015-16,8,August,Birds,"Marine birds",154
+2015-16,8,August,Birds,"Other aquatic birds",296
+2015-16,8,August,Birds,"Other birds",114
+2015-16,8,August,Birds,"Owls, nightjars and frogmouths",176
+2015-16,8,August,Birds,"Parrots",938
+2015-16,8,August,Birds,"Passerines",272
+2015-16,8,August,Birds,"Pigeons and Doves",156
+2015-16,8,August,Mammals,"Bandicoots, bettongs, and potoroos",27
+2015-16,8,August,Mammals,"Echidna",68
+2015-16,8,August,Mammals,"Feathertail glider",25
+2015-16,8,August,Mammals,"Flying-foxes",46
+2015-16,8,August,Mammals,"Koala",86
+2015-16,8,August,Mammals,"Large gliders",30
+2015-16,8,August,Mammals,"Large kangaroos",494
+2015-16,8,August,Mammals,"Marsupial dasyurid",9
+2015-16,8,August,Mammals,"Microbats",49
+2015-16,8,August,Mammals,"Platypus",0
+2015-16,8,August,Mammals,"Possums",1074
+2015-16,8,August,Mammals,"Rodents",3
+2015-16,8,August,Mammals,"Small macropods",211
+2015-16,8,August,Mammals,"Unknown macropod",130
+2015-16,8,August,Mammals,"Unknown mammals",0
+2015-16,8,August,Mammals,"Wombat",133
+2015-16,8,August,Reptiles,"Bearded dragons and blue tongues",149
+2015-16,8,August,Reptiles,"Freshwater turtle",16
+2015-16,8,August,Reptiles,"Geckoes",1
+2015-16,8,August,Reptiles,"Large reptiles and monitors",14
+2015-16,8,August,Reptiles,"Small skinks and lizards",8
+2015-16,8,August,Reptiles,"Snakes - others",93
+2015-16,8,August,Reptiles,"Snakes - Pythons",82
+2015-16,8,August,Reptiles,"Unidentified turtle/tortoise",5
+2015-16,9,September,Birds,"Cuckoos",11
+2015-16,9,September,Birds,"Diurnal birds of prey",40
+2015-16,9,September,Birds,"Emu",7
+2015-16,9,September,Birds,"Herons and allies",168
+2015-16,9,September,Birds,"Honeyeaters",374
+2015-16,9,September,Birds,"Kingfishers",206
+2015-16,9,September,Birds,"Marine birds",197
+2015-16,9,September,Birds,"Other aquatic birds",342
+2015-16,9,September,Birds,"Other birds",157
+2015-16,9,September,Birds,"Owls, nightjars and frogmouths",166
+2015-16,9,September,Birds,"Parrots",830
+2015-16,9,September,Birds,"Passerines",770
+2015-16,9,September,Birds,"Pigeons and Doves",200
+2015-16,9,September,Mammals,"Bandicoots, bettongs, and potoroos",32
+2015-16,9,September,Mammals,"Echidna",159
+2015-16,9,September,Mammals,"Feathertail glider",26
+2015-16,9,September,Mammals,"Flying-foxes",83
+2015-16,9,September,Mammals,"Koala",123
+2015-16,9,September,Mammals,"Large gliders",40
+2015-16,9,September,Mammals,"Large kangaroos",452
+2015-16,9,September,Mammals,"Marsupial dasyurid",7
+2015-16,9,September,Mammals,"Microbats",39
+2015-16,9,September,Mammals,"Platypus",0
+2015-16,9,September,Mammals,"Possums",1059
+2015-16,9,September,Mammals,"Rodents",11
+2015-16,9,September,Mammals,"Small macropods",150
+2015-16,9,September,Mammals,"Unknown macropod",130
+2015-16,9,September,Mammals,"Unknown mammals",2
+2015-16,9,September,Mammals,"Wombat",105
+2015-16,9,September,Reptiles,"Bearded dragons and blue tongues",354
+2015-16,9,September,Reptiles,"Freshwater turtle",61
+2015-16,9,September,Reptiles,"Geckoes",0
+2015-16,9,September,Reptiles,"Large reptiles and monitors",57
+2015-16,9,September,Reptiles,"Small skinks and lizards",21
+2015-16,9,September,Reptiles,"Snakes - others",307
+2015-16,9,September,Reptiles,"Snakes - Pythons",204
+2015-16,9,September,Reptiles,"Unidentified turtle/tortoise",11
+2015-16,10,October,Birds,"Cuckoos",30
+2015-16,10,October,Birds,"Diurnal birds of prey",44
+2015-16,10,October,Birds,"Emu",8
+2015-16,10,October,Birds,"Herons and allies",150
+2015-16,10,October,Birds,"Honeyeaters",555
+2015-16,10,October,Birds,"Kingfishers",266
+2015-16,10,October,Birds,"Marine birds",231
+2015-16,10,October,Birds,"Other aquatic birds",527
+2015-16,10,October,Birds,"Other birds",299
+2015-16,10,October,Birds,"Owls, nightjars and frogmouths",295
+2015-16,10,October,Birds,"Parrots",1021
+2015-16,10,October,Birds,"Passerines",1802
+2015-16,10,October,Birds,"Pigeons and Doves",220
+2015-16,10,October,Mammals,"Bandicoots, bettongs, and potoroos",36
+2015-16,10,October,Mammals,"Echidna",178
+2015-16,10,October,Mammals,"Feathertail glider",25
+2015-16,10,October,Mammals,"Flying-foxes",242
+2015-16,10,October,Mammals,"Koala",139
+2015-16,10,October,Mammals,"Large gliders",71
+2015-16,10,October,Mammals,"Large kangaroos",302
+2015-16,10,October,Mammals,"Marsupial dasyurid",6
+2015-16,10,October,Mammals,"Microbats",44
+2015-16,10,October,Mammals,"Platypus",0
+2015-16,10,October,Mammals,"Possums",975
+2015-16,10,October,Mammals,"Rodents",7
+2015-16,10,October,Mammals,"Small macropods",137
+2015-16,10,October,Mammals,"Unknown macropod",121
+2015-16,10,October,Mammals,"Unknown mammals",7
+2015-16,10,October,Mammals,"Wombat",66
+2015-16,10,October,Reptiles,"Bearded dragons and blue tongues",402
+2015-16,10,October,Reptiles,"Freshwater turtle",124
+2015-16,10,October,Reptiles,"Geckoes",1
+2015-16,10,October,Reptiles,"Large reptiles and monitors",111
+2015-16,10,October,Reptiles,"Small skinks and lizards",31
+2015-16,10,October,Reptiles,"Snakes - others",566
+2015-16,10,October,Reptiles,"Snakes - Pythons",204
+2015-16,10,October,Reptiles,"Unidentified turtle/tortoise",64
+2015-16,11,November,Birds,"Cuckoos",36
+2015-16,11,November,Birds,"Diurnal birds of prey",58
+2015-16,11,November,Birds,"Emu",1
+2015-16,11,November,Birds,"Herons and allies",154
+2015-16,11,November,Birds,"Honeyeaters",577
+2015-16,11,November,Birds,"Kingfishers",373
+2015-16,11,November,Birds,"Marine birds",182
+2015-16,11,November,Birds,"Other aquatic birds",363
+2015-16,11,November,Birds,"Other birds",353
+2015-16,11,November,Birds,"Owls, nightjars and frogmouths",465
+2015-16,11,November,Birds,"Parrots",1541
+2015-16,11,November,Birds,"Passerines",1419
+2015-16,11,November,Birds,"Pigeons and Doves",238
+2015-16,11,November,Mammals,"Bandicoots, bettongs, and potoroos",26
+2015-16,11,November,Mammals,"Echidna",85
+2015-16,11,November,Mammals,"Feathertail glider",19
+2015-16,11,November,Mammals,"Flying-foxes",329
+2015-16,11,November,Mammals,"Koala",75
+2015-16,11,November,Mammals,"Large gliders",53
+2015-16,11,November,Mammals,"Large kangaroos",272
+2015-16,11,November,Mammals,"Marsupial dasyurid",33
+2015-16,11,November,Mammals,"Microbats",95
+2015-16,11,November,Mammals,"Platypus",0
+2015-16,11,November,Mammals,"Possums",802
+2015-16,11,November,Mammals,"Rodents",12
+2015-16,11,November,Mammals,"Small macropods",91
+2015-16,11,November,Mammals,"Unknown macropod",92
+2015-16,11,November,Mammals,"Unknown mammals",14
+2015-16,11,November,Mammals,"Wombat",45
+2015-16,11,November,Reptiles,"Bearded dragons and blue tongues",339
+2015-16,11,November,Reptiles,"Freshwater turtle",118
+2015-16,11,November,Reptiles,"Geckoes",2
+2015-16,11,November,Reptiles,"Large reptiles and monitors",86
+2015-16,11,November,Reptiles,"Small skinks and lizards",13
+2015-16,11,November,Reptiles,"Snakes - others",353
+2015-16,11,November,Reptiles,"Snakes - Pythons",140
+2015-16,11,November,Reptiles,"Unidentified turtle/tortoise",50
+2015-16,12,December,Birds,"Cuckoos",95
+2015-16,12,December,Birds,"Diurnal birds of prey",59
+2015-16,12,December,Birds,"Emu",1
+2015-16,12,December,Birds,"Herons and allies",141
+2015-16,12,December,Birds,"Honeyeaters",335
+2015-16,12,December,Birds,"Kingfishers",408
+2015-16,12,December,Birds,"Marine birds",113
+2015-16,12,December,Birds,"Other aquatic birds",320
+2015-16,12,December,Birds,"Other birds",398
+2015-16,12,December,Birds,"Owls, nightjars and frogmouths",269
+2015-16,12,December,Birds,"Parrots",1500
+2015-16,12,December,Birds,"Passerines",1211
+2015-16,12,December,Birds,"Pigeons and Doves",186
+2015-16,12,December,Mammals,"Bandicoots, bettongs, and potoroos",31
+2015-16,12,December,Mammals,"Echidna",56
+2015-16,12,December,Mammals,"Feathertail glider",10
+2015-16,12,December,Mammals,"Flying-foxes",91
+2015-16,12,December,Mammals,"Koala",64
+2015-16,12,December,Mammals,"Large gliders",36
+2015-16,12,December,Mammals,"Large kangaroos",254
+2015-16,12,December,Mammals,"Marsupial dasyurid",42
+2015-16,12,December,Mammals,"Microbats",73
+2015-16,12,December,Mammals,"Platypus",0
+2015-16,12,December,Mammals,"Possums",746
+2015-16,12,December,Mammals,"Rodents",16
+2015-16,12,December,Mammals,"Small macropods",91
+2015-16,12,December,Mammals,"Unknown macropod",107
+2015-16,12,December,Mammals,"Unknown mammals",12
+2015-16,12,December,Mammals,"Wombat",39
+2015-16,12,December,Reptiles,"Bearded dragons and blue tongues",335
+2015-16,12,December,Reptiles,"Freshwater turtle",47
+2015-16,12,December,Reptiles,"Geckoes",2
+2015-16,12,December,Reptiles,"Large reptiles and monitors",88
+2015-16,12,December,Reptiles,"Small skinks and lizards",17
+2015-16,12,December,Reptiles,"Snakes - others",442
+2015-16,12,December,Reptiles,"Snakes - Pythons",164
+2015-16,12,December,Reptiles,"Unidentified turtle/tortoise",20
+2016-17,1,January,Birds,"Cuckoos",106
+2016-17,1,January,Birds,"Diurnal birds of prey",81
+2016-17,1,January,Birds,"Emu",9
+2016-17,1,January,Birds,"Herons and allies",130
+2016-17,1,January,Birds,"Honeyeaters",228
+2016-17,1,January,Birds,"Kingfishers",375
+2016-17,1,January,Birds,"Marine birds",104
+2016-17,1,January,Birds,"Other aquatic birds",287
+2016-17,1,January,Birds,"Other birds",399
+2016-17,1,January,Birds,"Owls, nightjars and frogmouths",236
+2016-17,1,January,Birds,"Parrots",1404
+2016-17,1,January,Birds,"Passerines",807
+2016-17,1,January,Birds,"Pigeons and Doves",218
+2016-17,1,January,Mammals,"Bandicoots, bettongs, and potoroos",57
+2016-17,1,January,Mammals,"Echidna",41
+2016-17,1,January,Mammals,"Feathertail glider",15
+2016-17,1,January,Mammals,"Flying-foxes",722
+2016-17,1,January,Mammals,"Koala",83
+2016-17,1,January,Mammals,"Large gliders",48
+2016-17,1,January,Mammals,"Large kangaroos",254
+2016-17,1,January,Mammals,"Marsupial dasyurid",6
+2016-17,1,January,Mammals,"Microbats",104
+2016-17,1,January,Mammals,"Platypus",4
+2016-17,1,January,Mammals,"Possums",1067
+2016-17,1,January,Mammals,"Rodents",17
+2016-17,1,January,Mammals,"Small macropods",105
+2016-17,1,January,Mammals,"Unknown macropod",92
+2016-17,1,January,Mammals,"Unknown mammals",9
+2016-17,1,January,Mammals,"Wombat",40
+2016-17,1,January,Reptiles,"Bearded dragons and blue tongues",402
+2016-17,1,January,Reptiles,"Freshwater turtle",39
+2016-17,1,January,Reptiles,"Geckoes",2
+2016-17,1,January,Reptiles,"Large reptiles and monitors",113
+2016-17,1,January,Reptiles,"Small skinks and lizards",26
+2016-17,1,January,Reptiles,"Snakes - others",478
+2016-17,1,January,Reptiles,"Snakes - Pythons",260
+2016-17,1,January,Reptiles,"Unidentified turtle/tortoise",20
+2016-17,2,February,Birds,"Cuckoos",70
+2016-17,2,February,Birds,"Diurnal birds of prey",56
+2016-17,2,February,Birds,"Emu",5
+2016-17,2,February,Birds,"Herons and allies",113
+2016-17,2,February,Birds,"Honeyeaters",142
+2016-17,2,February,Birds,"Kingfishers",378
+2016-17,2,February,Birds,"Marine birds",85
+2016-17,2,February,Birds,"Other aquatic birds",148
+2016-17,2,February,Birds,"Other birds",200
+2016-17,2,February,Birds,"Owls, nightjars and frogmouths",237
+2016-17,2,February,Birds,"Parrots",913
+2016-17,2,February,Birds,"Passerines",535
+2016-17,2,February,Birds,"Pigeons and Doves",246
+2016-17,2,February,Mammals,"Bandicoots, bettongs, and potoroos",29
+2016-17,2,February,Mammals,"Echidna",43
+2016-17,2,February,Mammals,"Feathertail glider",10
+2016-17,2,February,Mammals,"Flying-foxes",2061
+2016-17,2,February,Mammals,"Koala",61
+2016-17,2,February,Mammals,"Large gliders",14
+2016-17,2,February,Mammals,"Large kangaroos",339
+2016-17,2,February,Mammals,"Marsupial dasyurid",5
+2016-17,2,February,Mammals,"Microbats",83
+2016-17,2,February,Mammals,"Platypus",2
+2016-17,2,February,Mammals,"Possums",952
+2016-17,2,February,Mammals,"Rodents",4
+2016-17,2,February,Mammals,"Small macropods",77
+2016-17,2,February,Mammals,"Unknown macropod",114
+2016-17,2,February,Mammals,"Unknown mammals",7
+2016-17,2,February,Mammals,"Wombat",32
+2016-17,2,February,Reptiles,"Bearded dragons and blue tongues",234
+2016-17,2,February,Reptiles,"Freshwater turtle",51
+2016-17,2,February,Reptiles,"Geckoes",4
+2016-17,2,February,Reptiles,"Large reptiles and monitors",78
+2016-17,2,February,Reptiles,"Small skinks and lizards",20
+2016-17,2,February,Reptiles,"Snakes - others",461
+2016-17,2,February,Reptiles,"Snakes - Pythons",215
+2016-17,2,February,Reptiles,"Unidentified turtle/tortoise",20
+2016-17,3,March,Birds,"Cuckoos",20
+2016-17,3,March,Birds,"Diurnal birds of prey",49
+2016-17,3,March,Birds,"Emu",1
+2016-17,3,March,Birds,"Herons and allies",89
+2016-17,3,March,Birds,"Honeyeaters",115
+2016-17,3,March,Birds,"Kingfishers",218
+2016-17,3,March,Birds,"Marine birds",79
+2016-17,3,March,Birds,"Other aquatic birds",103
+2016-17,3,March,Birds,"Other birds",152
+2016-17,3,March,Birds,"Owls, nightjars and frogmouths",318
+2016-17,3,March,Birds,"Parrots",764
+2016-17,3,March,Birds,"Passerines",379
+2016-17,3,March,Birds,"Pigeons and Doves",218
+2016-17,3,March,Mammals,"Bandicoots, bettongs, and potoroos",27
+2016-17,3,March,Mammals,"Echidna",47
+2016-17,3,March,Mammals,"Feathertail glider",10
+2016-17,3,March,Mammals,"Flying-foxes",166
+2016-17,3,March,Mammals,"Koala",44
+2016-17,3,March,Mammals,"Large gliders",31
+2016-17,3,March,Mammals,"Large kangaroos",282
+2016-17,3,March,Mammals,"Marsupial dasyurid",3
+2016-17,3,March,Mammals,"Microbats",73
+2016-17,3,March,Mammals,"Platypus",2
+2016-17,3,March,Mammals,"Possums",789
+2016-17,3,March,Mammals,"Rodents",8
+2016-17,3,March,Mammals,"Small macropods",92
+2016-17,3,March,Mammals,"Unknown macropod",107
+2016-17,3,March,Mammals,"Unknown mammals",6
+2016-17,3,March,Mammals,"Wombat",34
+2016-17,3,March,Reptiles,"Bearded dragons and blue tongues",177
+2016-17,3,March,Reptiles,"Freshwater turtle",149
+2016-17,3,March,Reptiles,"Geckoes",3
+2016-17,3,March,Reptiles,"Large reptiles and monitors",60
+2016-17,3,March,Reptiles,"Small skinks and lizards",16
+2016-17,3,March,Reptiles,"Snakes - others",510
+2016-17,3,March,Reptiles,"Snakes - Pythons",184
+2016-17,3,March,Reptiles,"Unidentified turtle/tortoise",75
+2016-17,4,April,Birds,"Cuckoos",12
+2016-17,4,April,Birds,"Diurnal birds of prey",32
+2016-17,4,April,Birds,"Emu",1
+2016-17,4,April,Birds,"Herons and allies",98
+2016-17,4,April,Birds,"Honeyeaters",124
+2016-17,4,April,Birds,"Kingfishers",159
+2016-17,4,April,Birds,"Marine birds",386
+2016-17,4,April,Birds,"Other aquatic birds",97
+2016-17,4,April,Birds,"Other birds",102
+2016-17,4,April,Birds,"Owls, nightjars and frogmouths",245
+2016-17,4,April,Birds,"Parrots",711
+2016-17,4,April,Birds,"Passerines",304
+2016-17,4,April,Birds,"Pigeons and Doves",191
+2016-17,4,April,Mammals,"Bandicoots, bettongs, and potoroos",22
+2016-17,4,April,Mammals,"Echidna",81
+2016-17,4,April,Mammals,"Feathertail glider",22
+2016-17,4,April,Mammals,"Flying-foxes",213
+2016-17,4,April,Mammals,"Koala",53
+2016-17,4,April,Mammals,"Large gliders",32
+2016-17,4,April,Mammals,"Large kangaroos",286
+2016-17,4,April,Mammals,"Marsupial dasyurid",4
+2016-17,4,April,Mammals,"Microbats",92
+2016-17,4,April,Mammals,"Platypus",3
+2016-17,4,April,Mammals,"Possums",658
+2016-17,4,April,Mammals,"Rodents",13
+2016-17,4,April,Mammals,"Small macropods",110
+2016-17,4,April,Mammals,"Unknown macropod",142
+2016-17,4,April,Mammals,"Unknown mammals",8
+2016-17,4,April,Mammals,"Wombat",54
+2016-17,4,April,Reptiles,"Bearded dragons and blue tongues",154
+2016-17,4,April,Reptiles,"Freshwater turtle",121
+2016-17,4,April,Reptiles,"Geckoes",4
+2016-17,4,April,Reptiles,"Large reptiles and monitors",35
+2016-17,4,April,Reptiles,"Small skinks and lizards",12
+2016-17,4,April,Reptiles,"Snakes - others",355
+2016-17,4,April,Reptiles,"Snakes - Pythons",142
+2016-17,4,April,Reptiles,"Unidentified turtle/tortoise",48
+2016-17,5,May,Birds,"Cuckoos",2
+2016-17,5,May,Birds,"Diurnal birds of prey",28
+2016-17,5,May,Birds,"Emu",7
+2016-17,5,May,Birds,"Herons and allies",119
+2016-17,5,May,Birds,"Honeyeaters",83
+2016-17,5,May,Birds,"Kingfishers",153
+2016-17,5,May,Birds,"Marine birds",98
+2016-17,5,May,Birds,"Other aquatic birds",143
+2016-17,5,May,Birds,"Other birds",78
+2016-17,5,May,Birds,"Owls, nightjars and frogmouths",239
+2016-17,5,May,Birds,"Parrots",700
+2016-17,5,May,Birds,"Passerines",266
+2016-17,5,May,Birds,"Pigeons and Doves",130
+2016-17,5,May,Mammals,"Bandicoots, bettongs, and potoroos",18
+2016-17,5,May,Mammals,"Echidna",100
+2016-17,5,May,Mammals,"Feathertail glider",13
+2016-17,5,May,Mammals,"Flying-foxes",103
+2016-17,5,May,Mammals,"Koala",52
+2016-17,5,May,Mammals,"Large gliders",23
+2016-17,5,May,Mammals,"Large kangaroos",352
+2016-17,5,May,Mammals,"Marsupial dasyurid",2
+2016-17,5,May,Mammals,"Microbats",77
+2016-17,5,May,Mammals,"Platypus",2
+2016-17,5,May,Mammals,"Possums",573
+2016-17,5,May,Mammals,"Rodents",5
+2016-17,5,May,Mammals,"Small macropods",116
+2016-17,5,May,Mammals,"Unknown macropod",166
+2016-17,5,May,Mammals,"Unknown mammals",7
+2016-17,5,May,Mammals,"Wombat",83
+2016-17,5,May,Reptiles,"Bearded dragons and blue tongues",109
+2016-17,5,May,Reptiles,"Freshwater turtle",23
+2016-17,5,May,Reptiles,"Geckoes",4
+2016-17,5,May,Reptiles,"Large reptiles and monitors",24
+2016-17,5,May,Reptiles,"Small skinks and lizards",6
+2016-17,5,May,Reptiles,"Snakes - others",162
+2016-17,5,May,Reptiles,"Snakes - Pythons",128
+2016-17,5,May,Reptiles,"Unidentified turtle/tortoise",11
+2016-17,6,June,Birds,"Cuckoos",4
+2016-17,6,June,Birds,"Diurnal birds of prey",22
+2016-17,6,June,Birds,"Emu",9
+2016-17,6,June,Birds,"Herons and allies",94
+2016-17,6,June,Birds,"Honeyeaters",61
+2016-17,6,June,Birds,"Kingfishers",138
+2016-17,6,June,Birds,"Marine birds",52
+2016-17,6,June,Birds,"Other aquatic birds",103
+2016-17,6,June,Birds,"Other birds",70
+2016-17,6,June,Birds,"Owls, nightjars and frogmouths",150
+2016-17,6,June,Birds,"Parrots",919
+2016-17,6,June,Birds,"Passerines",186
+2016-17,6,June,Birds,"Pigeons and Doves",140
+2016-17,6,June,Mammals,"Bandicoots, bettongs, and potoroos",34
+2016-17,6,June,Mammals,"Echidna",61
+2016-17,6,June,Mammals,"Feathertail glider",16
+2016-17,6,June,Mammals,"Flying-foxes",40
+2016-17,6,June,Mammals,"Koala",38
+2016-17,6,June,Mammals,"Large gliders",29
+2016-17,6,June,Mammals,"Large kangaroos",367
+2016-17,6,June,Mammals,"Marsupial dasyurid",6
+2016-17,6,June,Mammals,"Microbats",46
+2016-17,6,June,Mammals,"Platypus",1
+2016-17,6,June,Mammals,"Possums",541
+2016-17,6,June,Mammals,"Rodents",7
+2016-17,6,June,Mammals,"Small macropods",129
+2016-17,6,June,Mammals,"Unknown macropod",179
+2016-17,6,June,Mammals,"Unknown mammals",7
+2016-17,6,June,Mammals,"Wombat",87
+2016-17,6,June,Reptiles,"Bearded dragons and blue tongues",68
+2016-17,6,June,Reptiles,"Freshwater turtle",17
+2016-17,6,June,Reptiles,"Geckoes",2
+2016-17,6,June,Reptiles,"Large reptiles and monitors",20
+2016-17,6,June,Reptiles,"Small skinks and lizards",3
+2016-17,6,June,Reptiles,"Snakes - others",75
+2016-17,6,June,Reptiles,"Snakes - Pythons",71
+2016-17,6,June,Reptiles,"Unidentified turtle/tortoise",9
+2016-17,7,July,Birds,"Cuckoos",14
+2016-17,7,July,Birds,"Diurnal birds of prey",35
+2016-17,7,July,Birds,"Emu",0
+2016-17,7,July,Birds,"Herons and allies",118
+2016-17,7,July,Birds,"Honeyeaters",84
+2016-17,7,July,Birds,"Kingfishers",127
+2016-17,7,July,Birds,"Marine birds",98
+2016-17,7,July,Birds,"Other aquatic birds",123
+2016-17,7,July,Birds,"Other birds",68
+2016-17,7,July,Birds,"Owls, nightjars and frogmouths",139
+2016-17,7,July,Birds,"Parrots",917
+2016-17,7,July,Birds,"Passerines",236
+2016-17,7,July,Birds,"Pigeons and Doves",163
+2016-17,7,July,Mammals,"Bandicoots, bettongs, and potoroos",27
+2016-17,7,July,Mammals,"Echidna",63
+2016-17,7,July,Mammals,"Feathertail glider",22
+2016-17,7,July,Mammals,"Flying-foxes",98
+2016-17,7,July,Mammals,"Koala",88
+2016-17,7,July,Mammals,"Large gliders",33
+2016-17,7,July,Mammals,"Large kangaroos",568
+2016-17,7,July,Mammals,"Marsupial dasyurid",9
+2016-17,7,July,Mammals,"Microbats",60
+2016-17,7,July,Mammals,"Platypus",0
+2016-17,7,July,Mammals,"Possums",744
+2016-17,7,July,Mammals,"Rodents",3
+2016-17,7,July,Mammals,"Small macropods",192
+2016-17,7,July,Mammals,"Unknown macropod",109
+2016-17,7,July,Mammals,"Unknown mammals",3
+2016-17,7,July,Mammals,"Wombat",129
+2016-17,7,July,Reptiles,"Bearded dragons and blue tongues",78
+2016-17,7,July,Reptiles,"Freshwater turtle",26
+2016-17,7,July,Reptiles,"Geckoes",2
+2016-17,7,July,Reptiles,"Large reptiles and monitors",7
+2016-17,7,July,Reptiles,"Small skinks and lizards",4
+2016-17,7,July,Reptiles,"Snakes - others",74
+2016-17,7,July,Reptiles,"Snakes - Pythons",53
+2016-17,7,July,Reptiles,"Unidentified turtle/tortoise",9
+2016-17,8,August,Birds,"Cuckoos",3
+2016-17,8,August,Birds,"Diurnal birds of prey",36
+2016-17,8,August,Birds,"Emu",4
+2016-17,8,August,Birds,"Herons and allies",117
+2016-17,8,August,Birds,"Honeyeaters",142
+2016-17,8,August,Birds,"Kingfishers",168
+2016-17,8,August,Birds,"Marine birds",183
+2016-17,8,August,Birds,"Other aquatic birds",235
+2016-17,8,August,Birds,"Other birds",91
+2016-17,8,August,Birds,"Owls, nightjars and frogmouths",183
+2016-17,8,August,Birds,"Parrots",881
+2016-17,8,August,Birds,"Passerines",297
+2016-17,8,August,Birds,"Pigeons and Doves",182
+2016-17,8,August,Mammals,"Bandicoots, bettongs, and potoroos",23
+2016-17,8,August,Mammals,"Echidna",94
+2016-17,8,August,Mammals,"Feathertail glider",36
+2016-17,8,August,Mammals,"Flying-foxes",101
+2016-17,8,August,Mammals,"Koala",80
+2016-17,8,August,Mammals,"Large gliders",46
+2016-17,8,August,Mammals,"Large kangaroos",492
+2016-17,8,August,Mammals,"Marsupial dasyurid",2
+2016-17,8,August,Mammals,"Microbats",94
+2016-17,8,August,Mammals,"Platypus",0
+2016-17,8,August,Mammals,"Possums",1174
+2016-17,8,August,Mammals,"Rodents",6
+2016-17,8,August,Mammals,"Small macropods",178
+2016-17,8,August,Mammals,"Unknown macropod",133
+2016-17,8,August,Mammals,"Unknown mammals",8
+2016-17,8,August,Mammals,"Wombat",111
+2016-17,8,August,Reptiles,"Bearded dragons and blue tongues",112
+2016-17,8,August,Reptiles,"Freshwater turtle",34
+2016-17,8,August,Reptiles,"Geckoes",2
+2016-17,8,August,Reptiles,"Large reptiles and monitors",18
+2016-17,8,August,Reptiles,"Small skinks and lizards",6
+2016-17,8,August,Reptiles,"Snakes - others",73
+2016-17,8,August,Reptiles,"Snakes - Pythons",106
+2016-17,8,August,Reptiles,"Unidentified turtle/tortoise",10
+2016-17,9,September,Birds,"Cuckoos",10
+2016-17,9,September,Birds,"Diurnal birds of prey",30
+2016-17,9,September,Birds,"Emu",1
+2016-17,9,September,Birds,"Herons and allies",114
+2016-17,9,September,Birds,"Honeyeaters",345
+2016-17,9,September,Birds,"Kingfishers",228
+2016-17,9,September,Birds,"Marine birds",191
+2016-17,9,September,Birds,"Other aquatic birds",436
+2016-17,9,September,Birds,"Other birds",148
+2016-17,9,September,Birds,"Owls, nightjars and frogmouths",180
+2016-17,9,September,Birds,"Parrots",699
+2016-17,9,September,Birds,"Passerines",671
+2016-17,9,September,Birds,"Pigeons and Doves",202
+2016-17,9,September,Mammals,"Bandicoots, bettongs, and potoroos",31
+2016-17,9,September,Mammals,"Echidna",141
+2016-17,9,September,Mammals,"Feathertail glider",22
+2016-17,9,September,Mammals,"Flying-foxes",61
+2016-17,9,September,Mammals,"Koala",89
+2016-17,9,September,Mammals,"Large gliders",54
+2016-17,9,September,Mammals,"Large kangaroos",347
+2016-17,9,September,Mammals,"Marsupial dasyurid",3
+2016-17,9,September,Mammals,"Microbats",57
+2016-17,9,September,Mammals,"Platypus",1
+2016-17,9,September,Mammals,"Possums",1123
+2016-17,9,September,Mammals,"Rodents",5
+2016-17,9,September,Mammals,"Small macropods",117
+2016-17,9,September,Mammals,"Unknown macropod",113
+2016-17,9,September,Mammals,"Unknown mammals",5
+2016-17,9,September,Mammals,"Wombat",66
+2016-17,9,September,Reptiles,"Bearded dragons and blue tongues",288
+2016-17,9,September,Reptiles,"Freshwater turtle",54
+2016-17,9,September,Reptiles,"Geckoes",2
+2016-17,9,September,Reptiles,"Large reptiles and monitors",68
+2016-17,9,September,Reptiles,"Small skinks and lizards",13
+2016-17,9,September,Reptiles,"Snakes - others",286
+2016-17,9,September,Reptiles,"Snakes - Pythons",201
+2016-17,9,September,Reptiles,"Unidentified turtle/tortoise",17
+2016-17,10,October,Birds,"Cuckoos",37
+2016-17,10,October,Birds,"Diurnal birds of prey",54
+2016-17,10,October,Birds,"Emu",6
+2016-17,10,October,Birds,"Herons and allies",199
+2016-17,10,October,Birds,"Honeyeaters",562
+2016-17,10,October,Birds,"Kingfishers",300
+2016-17,10,October,Birds,"Marine birds",209
+2016-17,10,October,Birds,"Other aquatic birds",461
+2016-17,10,October,Birds,"Other birds",299
+2016-17,10,October,Birds,"Owls, nightjars and frogmouths",387
+2016-17,10,October,Birds,"Parrots",882
+2016-17,10,October,Birds,"Passerines",2099
+2016-17,10,October,Birds,"Pigeons and Doves",216
+2016-17,10,October,Mammals,"Bandicoots, bettongs, and potoroos",43
+2016-17,10,October,Mammals,"Echidna",131
+2016-17,10,October,Mammals,"Feathertail glider",28
+2016-17,10,October,Mammals,"Flying-foxes",199
+2016-17,10,October,Mammals,"Koala",144
+2016-17,10,October,Mammals,"Large gliders",61
+2016-17,10,October,Mammals,"Large kangaroos",336
+2016-17,10,October,Mammals,"Marsupial dasyurid",14
+2016-17,10,October,Mammals,"Microbats",53
+2016-17,10,October,Mammals,"Platypus",1
+2016-17,10,October,Mammals,"Possums",1016
+2016-17,10,October,Mammals,"Rodents",5
+2016-17,10,October,Mammals,"Small macropods",121
+2016-17,10,October,Mammals,"Unknown macropod",156
+2016-17,10,October,Mammals,"Unknown mammals",16
+2016-17,10,October,Mammals,"Wombat",77
+2016-17,10,October,Reptiles,"Bearded dragons and blue tongues",349
+2016-17,10,October,Reptiles,"Freshwater turtle",93
+2016-17,10,October,Reptiles,"Geckoes",3
+2016-17,10,October,Reptiles,"Large reptiles and monitors",101
+2016-17,10,October,Reptiles,"Small skinks and lizards",20
+2016-17,10,October,Reptiles,"Snakes - others",459
+2016-17,10,October,Reptiles,"Snakes - Pythons",177
+2016-17,10,October,Reptiles,"Unidentified turtle/tortoise",41
+2016-17,11,November,Birds,"Cuckoos",43
+2016-17,11,November,Birds,"Diurnal birds of prey",50
+2016-17,11,November,Birds,"Emu",2
+2016-17,11,November,Birds,"Herons and allies",138
+2016-17,11,November,Birds,"Honeyeaters",607
+2016-17,11,November,Birds,"Kingfishers",331
+2016-17,11,November,Birds,"Marine birds",203
+2016-17,11,November,Birds,"Other aquatic birds",397
+2016-17,11,November,Birds,"Other birds",351
+2016-17,11,November,Birds,"Owls, nightjars and frogmouths",492
+2016-17,11,November,Birds,"Parrots",1608
+2016-17,11,November,Birds,"Passerines",1358
+2016-17,11,November,Birds,"Pigeons and Doves",231
+2016-17,11,November,Mammals,"Bandicoots, bettongs, and potoroos",37
+2016-17,11,November,Mammals,"Echidna",125
+2016-17,11,November,Mammals,"Feathertail glider",24
+2016-17,11,November,Mammals,"Flying-foxes",1859
+2016-17,11,November,Mammals,"Koala",127
+2016-17,11,November,Mammals,"Large gliders",59
+2016-17,11,November,Mammals,"Large kangaroos",256
+2016-17,11,November,Mammals,"Marsupial dasyurid",48
+2016-17,11,November,Mammals,"Microbats",58
+2016-17,11,November,Mammals,"Platypus",0
+2016-17,11,November,Mammals,"Possums",867
+2016-17,11,November,Mammals,"Rodents",6
+2016-17,11,November,Mammals,"Small macropods",99
+2016-17,11,November,Mammals,"Unknown macropod",136
+2016-17,11,November,Mammals,"Unknown mammals",18
+2016-17,11,November,Mammals,"Wombat",58
+2016-17,11,November,Reptiles,"Bearded dragons and blue tongues",301
+2016-17,11,November,Reptiles,"Freshwater turtle",94
+2016-17,11,November,Reptiles,"Geckoes",1
+2016-17,11,November,Reptiles,"Large reptiles and monitors",95
+2016-17,11,November,Reptiles,"Small skinks and lizards",23
+2016-17,11,November,Reptiles,"Snakes - others",429
+2016-17,11,November,Reptiles,"Snakes - Pythons",121
+2016-17,11,November,Reptiles,"Unidentified turtle/tortoise",43
+2016-17,12,December,Birds,"Cuckoos",103
+2016-17,12,December,Birds,"Diurnal birds of prey",91
+2016-17,12,December,Birds,"Emu",6
+2016-17,12,December,Birds,"Herons and allies",102
+2016-17,12,December,Birds,"Honeyeaters",367
+2016-17,12,December,Birds,"Kingfishers",420
+2016-17,12,December,Birds,"Marine birds",142
+2016-17,12,December,Birds,"Other aquatic birds",357
+2016-17,12,December,Birds,"Other birds",332
+2016-17,12,December,Birds,"Owls, nightjars and frogmouths",237
+2016-17,12,December,Birds,"Parrots",1978
+2016-17,12,December,Birds,"Passerines",1098
+2016-17,12,December,Birds,"Pigeons and Doves",217
+2016-17,12,December,Mammals,"Bandicoots, bettongs, and potoroos",38
+2016-17,12,December,Mammals,"Echidna",64
+2016-17,12,December,Mammals,"Feathertail glider",15
+2016-17,12,December,Mammals,"Flying-foxes",726
+2016-17,12,December,Mammals,"Koala",96
+2016-17,12,December,Mammals,"Large gliders",40
+2016-17,12,December,Mammals,"Large kangaroos",212
+2016-17,12,December,Mammals,"Marsupial dasyurid",15
+2016-17,12,December,Mammals,"Microbats",98
+2016-17,12,December,Mammals,"Platypus",0
+2016-17,12,December,Mammals,"Possums",888
+2016-17,12,December,Mammals,"Rodents",23
+2016-17,12,December,Mammals,"Small macropods",86
+2016-17,12,December,Mammals,"Unknown macropod",107
+2016-17,12,December,Mammals,"Unknown mammals",11
+2016-17,12,December,Mammals,"Wombat",45
+2016-17,12,December,Reptiles,"Bearded dragons and blue tongues",354
+2016-17,12,December,Reptiles,"Freshwater turtle",55
+2016-17,12,December,Reptiles,"Geckoes",2
+2016-17,12,December,Reptiles,"Large reptiles and monitors",82
+2016-17,12,December,Reptiles,"Small skinks and lizards",29
+2016-17,12,December,Reptiles,"Snakes - others",408
+2016-17,12,December,Reptiles,"Snakes - Pythons",181
+2016-17,12,December,Reptiles,"Unidentified turtle/tortoise",26
+2017-18,1,January,Birds,"Cuckoos",58
+2017-18,1,January,Birds,"Diurnal birds of prey",47
+2017-18,1,January,Birds,"Emu",6
+2017-18,1,January,Birds,"Herons and allies",193
+2017-18,1,January,Birds,"Honeyeaters",257
+2017-18,1,January,Birds,"Kingfishers",371
+2017-18,1,January,Birds,"Marine birds",128
+2017-18,1,January,Birds,"Other aquatic birds",265
+2017-18,1,January,Birds,"Other birds",560
+2017-18,1,January,Birds,"Owls, nightjars and frogmouths",195
+2017-18,1,January,Birds,"Parrots",1478
+2017-18,1,January,Birds,"Passerines",958
+2017-18,1,January,Birds,"Pigeons and Doves",240
+2017-18,1,January,Mammals,"Bandicoots, bettongs, and potoroos",41
+2017-18,1,January,Mammals,"Echidna",27
+2017-18,1,January,Mammals,"Feathertail glider",14
+2017-18,1,January,Mammals,"Flying-foxes",1680
+2017-18,1,January,Mammals,"Koala",62
+2017-18,1,January,Mammals,"Large gliders",40
+2017-18,1,January,Mammals,"Large kangaroos",295
+2017-18,1,January,Mammals,"Marsupial dasyurid",9
+2017-18,1,January,Mammals,"Microbats",114
+2017-18,1,January,Mammals,"Platypus",2
+2017-18,1,January,Mammals,"Possums",991
+2017-18,1,January,Mammals,"Rodents",9
+2017-18,1,January,Mammals,"Small macropods",124
+2017-18,1,January,Mammals,"Unknown macropod",131
+2017-18,1,January,Mammals,"Unknown mammals",6
+2017-18,1,January,Mammals,"Wombat",42
+2017-18,1,January,Reptiles,"Bearded dragons and blue tongues",360
+2017-18,1,January,Reptiles,"Freshwater turtle",39
+2017-18,1,January,Reptiles,"Geckoes",1
+2017-18,1,January,Reptiles,"Large reptiles and monitors",68
+2017-18,1,January,Reptiles,"Small skinks and lizards",19
+2017-18,1,January,Reptiles,"Snakes - others",455
+2017-18,1,January,Reptiles,"Snakes - Pythons",175
+2017-18,1,January,Reptiles,"Unidentified turtle/tortoise",51
+2017-18,2,February,Birds,"Cuckoos",50
+2017-18,2,February,Birds,"Diurnal birds of prey",50
+2017-18,2,February,Birds,"Emu",10
+2017-18,2,February,Birds,"Herons and allies",136
+2017-18,2,February,Birds,"Honeyeaters",158
+2017-18,2,February,Birds,"Kingfishers",390
+2017-18,2,February,Birds,"Marine birds",93
+2017-18,2,February,Birds,"Other aquatic birds",149
+2017-18,2,February,Birds,"Other birds",335
+2017-18,2,February,Birds,"Owls, nightjars and frogmouths",217
+2017-18,2,February,Birds,"Parrots",935
+2017-18,2,February,Birds,"Passerines",559
+2017-18,2,February,Birds,"Pigeons and Doves",198
+2017-18,2,February,Mammals,"Bandicoots, bettongs, and potoroos",41
+2017-18,2,February,Mammals,"Echidna",30
+2017-18,2,February,Mammals,"Feathertail glider",16
+2017-18,2,February,Mammals,"Flying-foxes",370
+2017-18,2,February,Mammals,"Koala",65
+2017-18,2,February,Mammals,"Large gliders",24
+2017-18,2,February,Mammals,"Large kangaroos",378
+2017-18,2,February,Mammals,"Marsupial dasyurid",1
+2017-18,2,February,Mammals,"Microbats",213
+2017-18,2,February,Mammals,"Platypus",0
+2017-18,2,February,Mammals,"Possums",840
+2017-18,2,February,Mammals,"Rodents",27
+2017-18,2,February,Mammals,"Small macropods",100
+2017-18,2,February,Mammals,"Unknown macropod",139
+2017-18,2,February,Mammals,"Unknown mammals",7
+2017-18,2,February,Mammals,"Wombat",49
+2017-18,2,February,Reptiles,"Bearded dragons and blue tongues",236
+2017-18,2,February,Reptiles,"Freshwater turtle",44
+2017-18,2,February,Reptiles,"Geckoes",1
+2017-18,2,February,Reptiles,"Large reptiles and monitors",72
+2017-18,2,February,Reptiles,"Small skinks and lizards",11
+2017-18,2,February,Reptiles,"Snakes - others",397
+2017-18,2,February,Reptiles,"Snakes - Pythons",169
+2017-18,2,February,Reptiles,"Unidentified turtle/tortoise",30
+2017-18,3,March,Birds,"Cuckoos",47
+2017-18,3,March,Birds,"Diurnal birds of prey",37
+2017-18,3,March,Birds,"Emu",11
+2017-18,3,March,Birds,"Herons and allies",142
+2017-18,3,March,Birds,"Honeyeaters",144
+2017-18,3,March,Birds,"Kingfishers",285
+2017-18,3,March,Birds,"Marine birds",63
+2017-18,3,March,Birds,"Other aquatic birds",76
+2017-18,3,March,Birds,"Other birds",217
+2017-18,3,March,Birds,"Owls, nightjars and frogmouths",268
+2017-18,3,March,Birds,"Parrots",837
+2017-18,3,March,Birds,"Passerines",416
+2017-18,3,March,Birds,"Pigeons and Doves",220
+2017-18,3,March,Mammals,"Bandicoots, bettongs, and potoroos",24
+2017-18,3,March,Mammals,"Echidna",29
+2017-18,3,March,Mammals,"Feathertail glider",12
+2017-18,3,March,Mammals,"Flying-foxes",256
+2017-18,3,March,Mammals,"Koala",40
+2017-18,3,March,Mammals,"Large gliders",28
+2017-18,3,March,Mammals,"Large kangaroos",333
+2017-18,3,March,Mammals,"Marsupial dasyurid",8
+2017-18,3,March,Mammals,"Microbats",88
+2017-18,3,March,Mammals,"Platypus",0
+2017-18,3,March,Mammals,"Possums",835
+2017-18,3,March,Mammals,"Rodents",12
+2017-18,3,March,Mammals,"Small macropods",88
+2017-18,3,March,Mammals,"Unknown macropod",145
+2017-18,3,March,Mammals,"Unknown mammals",7
+2017-18,3,March,Mammals,"Wombat",50
+2017-18,3,March,Reptiles,"Bearded dragons and blue tongues",184
+2017-18,3,March,Reptiles,"Freshwater turtle",80
+2017-18,3,March,Reptiles,"Geckoes",3
+2017-18,3,March,Reptiles,"Large reptiles and monitors",54
+2017-18,3,March,Reptiles,"Small skinks and lizards",16
+2017-18,3,March,Reptiles,"Snakes - others",432
+2017-18,3,March,Reptiles,"Snakes - Pythons",125
+2017-18,3,March,Reptiles,"Unidentified turtle/tortoise",66
+2017-18,4,April,Birds,"Cuckoos",19
+2017-18,4,April,Birds,"Diurnal birds of prey",27
+2017-18,4,April,Birds,"Emu",13
+2017-18,4,April,Birds,"Herons and allies",116
+2017-18,4,April,Birds,"Honeyeaters",142
+2017-18,4,April,Birds,"Kingfishers",168
+2017-18,4,April,Birds,"Marine birds",194
+2017-18,4,April,Birds,"Other aquatic birds",86
+2017-18,4,April,Birds,"Other birds",160
+2017-18,4,April,Birds,"Owls, nightjars and frogmouths",281
+2017-18,4,April,Birds,"Parrots",838
+2017-18,4,April,Birds,"Passerines",342
+2017-18,4,April,Birds,"Pigeons and Doves",197
+2017-18,4,April,Mammals,"Bandicoots, bettongs, and potoroos",27
+2017-18,4,April,Mammals,"Echidna",63
+2017-18,4,April,Mammals,"Feathertail glider",5
+2017-18,4,April,Mammals,"Flying-foxes",189
+2017-18,4,April,Mammals,"Koala",50
+2017-18,4,April,Mammals,"Large gliders",27
+2017-18,4,April,Mammals,"Large kangaroos",438
+2017-18,4,April,Mammals,"Marsupial dasyurid",5
+2017-18,4,April,Mammals,"Microbats",98
+2017-18,4,April,Mammals,"Platypus",0
+2017-18,4,April,Mammals,"Possums",735
+2017-18,4,April,Mammals,"Rodents",17
+2017-18,4,April,Mammals,"Small macropods",100
+2017-18,4,April,Mammals,"Unknown macropod",162
+2017-18,4,April,Mammals,"Unknown mammals",11
+2017-18,4,April,Mammals,"Wombat",66
+2017-18,4,April,Reptiles,"Bearded dragons and blue tongues",99
+2017-18,4,April,Reptiles,"Freshwater turtle",33
+2017-18,4,April,Reptiles,"Geckoes",1
+2017-18,4,April,Reptiles,"Large reptiles and monitors",20
+2017-18,4,April,Reptiles,"Small skinks and lizards",7
+2017-18,4,April,Reptiles,"Snakes - others",213
+2017-18,4,April,Reptiles,"Snakes - Pythons",126
+2017-18,4,April,Reptiles,"Unidentified turtle/tortoise",22
+2017-18,5,May,Birds,"Cuckoos",10
+2017-18,5,May,Birds,"Diurnal birds of prey",29
+2017-18,5,May,Birds,"Emu",7
+2017-18,5,May,Birds,"Herons and allies",97
+2017-18,5,May,Birds,"Honeyeaters",125
+2017-18,5,May,Birds,"Kingfishers",192
+2017-18,5,May,Birds,"Marine birds",116
+2017-18,5,May,Birds,"Other aquatic birds",91
+2017-18,5,May,Birds,"Other birds",136
+2017-18,5,May,Birds,"Owls, nightjars and frogmouths",280
+2017-18,5,May,Birds,"Parrots",690
+2017-18,5,May,Birds,"Passerines",260
+2017-18,5,May,Birds,"Pigeons and Doves",185
+2017-18,5,May,Mammals,"Bandicoots, bettongs, and potoroos",20
+2017-18,5,May,Mammals,"Echidna",61
+2017-18,5,May,Mammals,"Feathertail glider",17
+2017-18,5,May,Mammals,"Flying-foxes",131
+2017-18,5,May,Mammals,"Koala",40
+2017-18,5,May,Mammals,"Large gliders",35
+2017-18,5,May,Mammals,"Large kangaroos",647
+2017-18,5,May,Mammals,"Marsupial dasyurid",6
+2017-18,5,May,Mammals,"Microbats",59
+2017-18,5,May,Mammals,"Platypus",0
+2017-18,5,May,Mammals,"Possums",692
+2017-18,5,May,Mammals,"Rodents",8
+2017-18,5,May,Mammals,"Small macropods",150
+2017-18,5,May,Mammals,"Unknown macropod",258
+2017-18,5,May,Mammals,"Unknown mammals",10
+2017-18,5,May,Mammals,"Wombat",125
+2017-18,5,May,Reptiles,"Bearded dragons and blue tongues",72
+2017-18,5,May,Reptiles,"Freshwater turtle",17
+2017-18,5,May,Reptiles,"Geckoes",1
+2017-18,5,May,Reptiles,"Large reptiles and monitors",14
+2017-18,5,May,Reptiles,"Small skinks and lizards",8
+2017-18,5,May,Reptiles,"Snakes - others",101
+2017-18,5,May,Reptiles,"Snakes - Pythons",96
+2017-18,5,May,Reptiles,"Unidentified turtle/tortoise",11
+2017-18,6,June,Birds,"Cuckoos",9
+2017-18,6,June,Birds,"Diurnal birds of prey",38
+2017-18,6,June,Birds,"Emu",11
+2017-18,6,June,Birds,"Herons and allies",90
+2017-18,6,June,Birds,"Honeyeaters",55
+2017-18,6,June,Birds,"Kingfishers",194
+2017-18,6,June,Birds,"Marine birds",47
+2017-18,6,June,Birds,"Other aquatic birds",72
+2017-18,6,June,Birds,"Other birds",83
+2017-18,6,June,Birds,"Owls, nightjars and frogmouths",217
+2017-18,6,June,Birds,"Parrots",951
+2017-18,6,June,Birds,"Passerines",256
+2017-18,6,June,Birds,"Pigeons and Doves",156
+2017-18,6,June,Mammals,"Bandicoots, bettongs, and potoroos",19
+2017-18,6,June,Mammals,"Echidna",37
+2017-18,6,June,Mammals,"Feathertail glider",12
+2017-18,6,June,Mammals,"Flying-foxes",81
+2017-18,6,June,Mammals,"Koala",47
+2017-18,6,June,Mammals,"Large gliders",31
+2017-18,6,June,Mammals,"Large kangaroos",660
+2017-18,6,June,Mammals,"Marsupial dasyurid",8
+2017-18,6,June,Mammals,"Microbats",52
+2017-18,6,June,Mammals,"Platypus",1
+2017-18,6,June,Mammals,"Possums",566
+2017-18,6,June,Mammals,"Rodents",5
+2017-18,6,June,Mammals,"Small macropods",181
+2017-18,6,June,Mammals,"Unknown macropod",301
+2017-18,6,June,Mammals,"Unknown mammals",3
+2017-18,6,June,Mammals,"Wombat",119
+2017-18,6,June,Reptiles,"Bearded dragons and blue tongues",61
+2017-18,6,June,Reptiles,"Freshwater turtle",17
+2017-18,6,June,Reptiles,"Geckoes",1
+2017-18,6,June,Reptiles,"Large reptiles and monitors",11
+2017-18,6,June,Reptiles,"Small skinks and lizards",1
+2017-18,6,June,Reptiles,"Snakes - others",69
+2017-18,6,June,Reptiles,"Snakes - Pythons",71
+2017-18,6,June,Reptiles,"Unidentified turtle/tortoise",6
+2017-18,7,July,Birds,"Cuckoos",4
+2017-18,7,July,Birds,"Diurnal birds of prey",22
+2017-18,7,July,Birds,"Emu",1
+2017-18,7,July,Birds,"Herons and allies",137
+2017-18,7,July,Birds,"Honeyeaters",71
+2017-18,7,July,Birds,"Kingfishers",130
+2017-18,7,July,Birds,"Marine birds",85
+2017-18,7,July,Birds,"Other aquatic birds",97
+2017-18,7,July,Birds,"Other birds",126
+2017-18,7,July,Birds,"Owls, nightjars and frogmouths",139
+2017-18,7,July,Birds,"Parrots",717
+2017-18,7,July,Birds,"Passerines",220
+2017-18,7,July,Birds,"Pigeons and Doves",155
+2017-18,7,July,Mammals,"Bandicoots, bettongs, and potoroos",20
+2017-18,7,July,Mammals,"Echidna",34
+2017-18,7,July,Mammals,"Feathertail glider",21
+2017-18,7,July,Mammals,"Flying-foxes",50
+2017-18,7,July,Mammals,"Koala",61
+2017-18,7,July,Mammals,"Large gliders",34
+2017-18,7,July,Mammals,"Large kangaroos",529
+2017-18,7,July,Mammals,"Marsupial dasyurid",3
+2017-18,7,July,Mammals,"Microbats",89
+2017-18,7,July,Mammals,"Platypus",0
+2017-18,7,July,Mammals,"Possums",750
+2017-18,7,July,Mammals,"Rodents",1
+2017-18,7,July,Mammals,"Small macropods",176
+2017-18,7,July,Mammals,"Unknown macropod",177
+2017-18,7,July,Mammals,"Unknown mammals",3
+2017-18,7,July,Mammals,"Wombat",89
+2017-18,7,July,Reptiles,"Bearded dragons and blue tongues",73
+2017-18,7,July,Reptiles,"Freshwater turtle",10
+2017-18,7,July,Reptiles,"Geckoes",4
+2017-18,7,July,Reptiles,"Large reptiles and monitors",10
+2017-18,7,July,Reptiles,"Small skinks and lizards",4
+2017-18,7,July,Reptiles,"Snakes - others",38
+2017-18,7,July,Reptiles,"Snakes - Pythons",35
+2017-18,7,July,Reptiles,"Unidentified turtle/tortoise",13
+2017-18,8,August,Birds,"Cuckoos",8
+2017-18,8,August,Birds,"Diurnal birds of prey",35
+2017-18,8,August,Birds,"Emu",4
+2017-18,8,August,Birds,"Herons and allies",127
+2017-18,8,August,Birds,"Honeyeaters",310
+2017-18,8,August,Birds,"Kingfishers",169
+2017-18,8,August,Birds,"Marine birds",120
+2017-18,8,August,Birds,"Other aquatic birds",226
+2017-18,8,August,Birds,"Other birds",213
+2017-18,8,August,Birds,"Owls, nightjars and frogmouths",195
+2017-18,8,August,Birds,"Parrots",713
+2017-18,8,August,Birds,"Passerines",258
+2017-18,8,August,Birds,"Pigeons and Doves",161
+2017-18,8,August,Mammals,"Bandicoots, bettongs, and potoroos",39
+2017-18,8,August,Mammals,"Echidna",56
+2017-18,8,August,Mammals,"Feathertail glider",26
+2017-18,8,August,Mammals,"Flying-foxes",87
+2017-18,8,August,Mammals,"Koala",87
+2017-18,8,August,Mammals,"Large gliders",22
+2017-18,8,August,Mammals,"Large kangaroos",532
+2017-18,8,August,Mammals,"Marsupial dasyurid",10
+2017-18,8,August,Mammals,"Microbats",59
+2017-18,8,August,Mammals,"Platypus",1
+2017-18,8,August,Mammals,"Possums",1310
+2017-18,8,August,Mammals,"Rodents",6
+2017-18,8,August,Mammals,"Small macropods",183
+2017-18,8,August,Mammals,"Unknown macropod",201
+2017-18,8,August,Mammals,"Unknown mammals",2
+2017-18,8,August,Mammals,"Wombat",88
+2017-18,8,August,Reptiles,"Bearded dragons and blue tongues",112
+2017-18,8,August,Reptiles,"Freshwater turtle",11
+2017-18,8,August,Reptiles,"Geckoes",0
+2017-18,8,August,Reptiles,"Large reptiles and monitors",21
+2017-18,8,August,Reptiles,"Small skinks and lizards",5
+2017-18,8,August,Reptiles,"Snakes - others",67
+2017-18,8,August,Reptiles,"Snakes - Pythons",52
+2017-18,8,August,Reptiles,"Unidentified turtle/tortoise",29
+2017-18,9,September,Birds,"Cuckoos",28
+2017-18,9,September,Birds,"Diurnal birds of prey",36
+2017-18,9,September,Birds,"Emu",4
+2017-18,9,September,Birds,"Herons and allies",126
+2017-18,9,September,Birds,"Honeyeaters",441
+2017-18,9,September,Birds,"Kingfishers",307
+2017-18,9,September,Birds,"Marine birds",187
+2017-18,9,September,Birds,"Other aquatic birds",256
+2017-18,9,September,Birds,"Other birds",339
+2017-18,9,September,Birds,"Owls, nightjars and frogmouths",190
+2017-18,9,September,Birds,"Parrots",772
+2017-18,9,September,Birds,"Passerines",1060
+2017-18,9,September,Birds,"Pigeons and Doves",204
+2017-18,9,September,Mammals,"Bandicoots, bettongs, and potoroos",35
+2017-18,9,September,Mammals,"Echidna",93
+2017-18,9,September,Mammals,"Feathertail glider",39
+2017-18,9,September,Mammals,"Flying-foxes",195
+2017-18,9,September,Mammals,"Koala",136
+2017-18,9,September,Mammals,"Large gliders",54
+2017-18,9,September,Mammals,"Large kangaroos",511
+2017-18,9,September,Mammals,"Marsupial dasyurid",14
+2017-18,9,September,Mammals,"Microbats",37
+2017-18,9,September,Mammals,"Platypus",0
+2017-18,9,September,Mammals,"Possums",1369
+2017-18,9,September,Mammals,"Rodents",0
+2017-18,9,September,Mammals,"Small macropods",170
+2017-18,9,September,Mammals,"Unknown macropod",227
+2017-18,9,September,Mammals,"Unknown mammals",0
+2017-18,9,September,Mammals,"Wombat",73
+2017-18,9,September,Reptiles,"Bearded dragons and blue tongues",304
+2017-18,9,September,Reptiles,"Freshwater turtle",20
+2017-18,9,September,Reptiles,"Geckoes",1
+2017-18,9,September,Reptiles,"Large reptiles and monitors",45
+2017-18,9,September,Reptiles,"Small skinks and lizards",24
+2017-18,9,September,Reptiles,"Snakes - others",265
+2017-18,9,September,Reptiles,"Snakes - Pythons",177
+2017-18,9,September,Reptiles,"Unidentified turtle/tortoise",21
+2017-18,10,October,Birds,"Cuckoos",27
+2017-18,10,October,Birds,"Diurnal birds of prey",55
+2017-18,10,October,Birds,"Emu",3
+2017-18,10,October,Birds,"Herons and allies",132
+2017-18,10,October,Birds,"Honeyeaters",600
+2017-18,10,October,Birds,"Kingfishers",299
+2017-18,10,October,Birds,"Marine birds",163
+2017-18,10,October,Birds,"Other aquatic birds",294
+2017-18,10,October,Birds,"Other birds",466
+2017-18,10,October,Birds,"Owls, nightjars and frogmouths",324
+2017-18,10,October,Birds,"Parrots",1156
+2017-18,10,October,Birds,"Passerines",1688
+2017-18,10,October,Birds,"Pigeons and Doves",256
+2017-18,10,October,Mammals,"Bandicoots, bettongs, and potoroos",38
+2017-18,10,October,Mammals,"Echidna",84
+2017-18,10,October,Mammals,"Feathertail glider",33
+2017-18,10,October,Mammals,"Flying-foxes",384
+2017-18,10,October,Mammals,"Koala",95
+2017-18,10,October,Mammals,"Large gliders",60
+2017-18,10,October,Mammals,"Large kangaroos",399
+2017-18,10,October,Mammals,"Marsupial dasyurid",10
+2017-18,10,October,Mammals,"Microbats",65
+2017-18,10,October,Mammals,"Platypus",0
+2017-18,10,October,Mammals,"Possums",964
+2017-18,10,October,Mammals,"Rodents",9
+2017-18,10,October,Mammals,"Small macropods",159
+2017-18,10,October,Mammals,"Unknown macropod",183
+2017-18,10,October,Mammals,"Unknown mammals",5
+2017-18,10,October,Mammals,"Wombat",72
+2017-18,10,October,Reptiles,"Bearded dragons and blue tongues",296
+2017-18,10,October,Reptiles,"Freshwater turtle",109
+2017-18,10,October,Reptiles,"Geckoes",1
+2017-18,10,October,Reptiles,"Large reptiles and monitors",88
+2017-18,10,October,Reptiles,"Small skinks and lizards",16
+2017-18,10,October,Reptiles,"Snakes - others",339
+2017-18,10,October,Reptiles,"Snakes - Pythons",128
+2017-18,10,October,Reptiles,"Unidentified turtle/tortoise",79
+2017-18,11,November,Birds,"Cuckoos",33
+2017-18,11,November,Birds,"Diurnal birds of prey",74
+2017-18,11,November,Birds,"Emu",3
+2017-18,11,November,Birds,"Herons and allies",101
+2017-18,11,November,Birds,"Honeyeaters",430
+2017-18,11,November,Birds,"Kingfishers",281
+2017-18,11,November,Birds,"Marine birds",175
+2017-18,11,November,Birds,"Other aquatic birds",240
+2017-18,11,November,Birds,"Other birds",470
+2017-18,11,November,Birds,"Owls, nightjars and frogmouths",439
+2017-18,11,November,Birds,"Parrots",1633
+2017-18,11,November,Birds,"Passerines",1278
+2017-18,11,November,Birds,"Pigeons and Doves",200
+2017-18,11,November,Mammals,"Bandicoots, bettongs, and potoroos",23
+2017-18,11,November,Mammals,"Echidna",45
+2017-18,11,November,Mammals,"Feathertail glider",18
+2017-18,11,November,Mammals,"Flying-foxes",506
+2017-18,11,November,Mammals,"Koala",102
+2017-18,11,November,Mammals,"Large gliders",74
+2017-18,11,November,Mammals,"Large kangaroos",342
+2017-18,11,November,Mammals,"Marsupial dasyurid",40
+2017-18,11,November,Mammals,"Microbats",100
+2017-18,11,November,Mammals,"Platypus",1
+2017-18,11,November,Mammals,"Possums",812
+2017-18,11,November,Mammals,"Rodents",9
+2017-18,11,November,Mammals,"Small macropods",113
+2017-18,11,November,Mammals,"Unknown macropod",130
+2017-18,11,November,Mammals,"Unknown mammals",10
+2017-18,11,November,Mammals,"Wombat",45
+2017-18,11,November,Reptiles,"Bearded dragons and blue tongues",255
+2017-18,11,November,Reptiles,"Freshwater turtle",92
+2017-18,11,November,Reptiles,"Geckoes",1
+2017-18,11,November,Reptiles,"Large reptiles and monitors",86
+2017-18,11,November,Reptiles,"Small skinks and lizards",19
+2017-18,11,November,Reptiles,"Snakes - others",261
+2017-18,11,November,Reptiles,"Snakes - Pythons",98
+2017-18,11,November,Reptiles,"Unidentified turtle/tortoise",61
+2017-18,12,December,Birds,"Cuckoos",65
+2017-18,12,December,Birds,"Diurnal birds of prey",61
+2017-18,12,December,Birds,"Emu",4
+2017-18,12,December,Birds,"Herons and allies",119
+2017-18,12,December,Birds,"Honeyeaters",313
+2017-18,12,December,Birds,"Kingfishers",370
+2017-18,12,December,Birds,"Marine birds",133
+2017-18,12,December,Birds,"Other aquatic birds",252
+2017-18,12,December,Birds,"Other birds",500
+2017-18,12,December,Birds,"Owls, nightjars and frogmouths",229
+2017-18,12,December,Birds,"Parrots",1648
+2017-18,12,December,Birds,"Passerines",1087
+2017-18,12,December,Birds,"Pigeons and Doves",183
+2017-18,12,December,Mammals,"Bandicoots, bettongs, and potoroos",34
+2017-18,12,December,Mammals,"Echidna",29
+2017-18,12,December,Mammals,"Feathertail glider",9
+2017-18,12,December,Mammals,"Flying-foxes",450
+2017-18,12,December,Mammals,"Koala",99
+2017-18,12,December,Mammals,"Large gliders",31
+2017-18,12,December,Mammals,"Large kangaroos",227
+2017-18,12,December,Mammals,"Marsupial dasyurid",24
+2017-18,12,December,Mammals,"Microbats",92
+2017-18,12,December,Mammals,"Platypus",0
+2017-18,12,December,Mammals,"Possums",783
+2017-18,12,December,Mammals,"Rodents",9
+2017-18,12,December,Mammals,"Small macropods",102
+2017-18,12,December,Mammals,"Unknown macropod",120
+2017-18,12,December,Mammals,"Unknown mammals",5
+2017-18,12,December,Mammals,"Wombat",27
+2017-18,12,December,Reptiles,"Bearded dragons and blue tongues",300
+2017-18,12,December,Reptiles,"Freshwater turtle",64
+2017-18,12,December,Reptiles,"Geckoes",2
+2017-18,12,December,Reptiles,"Large reptiles and monitors",55
+2017-18,12,December,Reptiles,"Small skinks and lizards",21
+2017-18,12,December,Reptiles,"Snakes - others",301
+2017-18,12,December,Reptiles,"Snakes - Pythons",145
+2017-18,12,December,Reptiles,"Unidentified turtle/tortoise",45
+2018-19,1,January,Birds,"Cuckoos",116
+2018-19,1,January,Birds,"Diurnal birds of prey",70
+2018-19,1,January,Birds,"Emu",2
+2018-19,1,January,Birds,"Herons and allies",148
+2018-19,1,January,Birds,"Honeyeaters",287
+2018-19,1,January,Birds,"Kingfishers",394
+2018-19,1,January,Birds,"Marine birds",122
+2018-19,1,January,Birds,"Other aquatic birds",227
+2018-19,1,January,Birds,"Other birds",397
+2018-19,1,January,Birds,"Owls, nightjars and frogmouths",224
+2018-19,1,January,Birds,"Parrots",1648
+2018-19,1,January,Birds,"Passerines",1127
+2018-19,1,January,Birds,"Pigeons and Doves",309
+2018-19,1,January,Mammals,"Bandicoots, bettongs, and potoroos",39
+2018-19,1,January,Mammals,"Echidna",35
+2018-19,1,January,Mammals,"Feathertail glider",21
+2018-19,1,January,Mammals,"Flying-foxes",507
+2018-19,1,January,Mammals,"Koala",113
+2018-19,1,January,Mammals,"Large gliders",35
+2018-19,1,January,Mammals,"Large kangaroos",319
+2018-19,1,January,Mammals,"Marsupial dasyurid",7
+2018-19,1,January,Mammals,"Microbats",144
+2018-19,1,January,Mammals,"Platypus",1
+2018-19,1,January,Mammals,"Possums",1038
+2018-19,1,January,Mammals,"Rodents",5
+2018-19,1,January,Mammals,"Small macropods",124
+2018-19,1,January,Mammals,"Unknown macropod",94
+2018-19,1,January,Mammals,"Unknown mammals",14
+2018-19,1,January,Mammals,"Wombat",54
+2018-19,1,January,Reptiles,"Bearded dragons and blue tongues",430
+2018-19,1,January,Reptiles,"Freshwater turtle",70
+2018-19,1,January,Reptiles,"Geckoes",3
+2018-19,1,January,Reptiles,"Large reptiles and monitors",117
+2018-19,1,January,Reptiles,"Small skinks and lizards",29
+2018-19,1,January,Reptiles,"Snakes - others",693
+2018-19,1,January,Reptiles,"Snakes - Pythons",246
+2018-19,1,January,Reptiles,"Unidentified turtle/tortoise",35
+2018-19,2,February,Birds,"Cuckoos",93
+2018-19,2,February,Birds,"Diurnal birds of prey",58
+2018-19,2,February,Birds,"Emu",3
+2018-19,2,February,Birds,"Herons and allies",130
+2018-19,2,February,Birds,"Honeyeaters",189
+2018-19,2,February,Birds,"Kingfishers",390
+2018-19,2,February,Birds,"Marine birds",153
+2018-19,2,February,Birds,"Other aquatic birds",219
+2018-19,2,February,Birds,"Other birds",303
+2018-19,2,February,Birds,"Owls, nightjars and frogmouths",277
+2018-19,2,February,Birds,"Parrots",1311
+2018-19,2,February,Birds,"Passerines",786
+2018-19,2,February,Birds,"Pigeons and Doves",296
+2018-19,2,February,Mammals,"Bandicoots, bettongs, and potoroos",36
+2018-19,2,February,Mammals,"Echidna",49
+2018-19,2,February,Mammals,"Feathertail glider",16
+2018-19,2,February,Mammals,"Flying-foxes",749
+2018-19,2,February,Mammals,"Koala",70
+2018-19,2,February,Mammals,"Large gliders",40
+2018-19,2,February,Mammals,"Large kangaroos",308
+2018-19,2,February,Mammals,"Marsupial dasyurid",8
+2018-19,2,February,Mammals,"Microbats",110
+2018-19,2,February,Mammals,"Platypus",0
+2018-19,2,February,Mammals,"Possums",989
+2018-19,2,February,Mammals,"Rodents",16
+2018-19,2,February,Mammals,"Small macropods",145
+2018-19,2,February,Mammals,"Unknown macropod",113
+2018-19,2,February,Mammals,"Unknown mammals",5
+2018-19,2,February,Mammals,"Wombat",55
+2018-19,2,February,Reptiles,"Bearded dragons and blue tongues",305
+2018-19,2,February,Reptiles,"Freshwater turtle",32
+2018-19,2,February,Reptiles,"Geckoes",4
+2018-19,2,February,Reptiles,"Large reptiles and monitors",84
+2018-19,2,February,Reptiles,"Small skinks and lizards",28
+2018-19,2,February,Reptiles,"Snakes - others",541
+2018-19,2,February,Reptiles,"Snakes - Pythons",202
+2018-19,2,February,Reptiles,"Unidentified turtle/tortoise",21
+2018-19,3,March,Birds,"Cuckoos",49
+2018-19,3,March,Birds,"Diurnal birds of prey",46
+2018-19,3,March,Birds,"Emu",8
+2018-19,3,March,Birds,"Herons and allies",125
+2018-19,3,March,Birds,"Honeyeaters",202
+2018-19,3,March,Birds,"Kingfishers",329
+2018-19,3,March,Birds,"Marine birds",76
+2018-19,3,March,Birds,"Other aquatic birds",138
+2018-19,3,March,Birds,"Other birds",200
+2018-19,3,March,Birds,"Owls, nightjars and frogmouths",347
+2018-19,3,March,Birds,"Parrots",1249
+2018-19,3,March,Birds,"Passerines",521
+2018-19,3,March,Birds,"Pigeons and Doves",265
+2018-19,3,March,Mammals,"Bandicoots, bettongs, and potoroos",23
+2018-19,3,March,Mammals,"Echidna",56
+2018-19,3,March,Mammals,"Feathertail glider",12
+2018-19,3,March,Mammals,"Flying-foxes",496
+2018-19,3,March,Mammals,"Koala",55
+2018-19,3,March,Mammals,"Large gliders",29
+2018-19,3,March,Mammals,"Large kangaroos",403
+2018-19,3,March,Mammals,"Marsupial dasyurid",7
+2018-19,3,March,Mammals,"Microbats",141
+2018-19,3,March,Mammals,"Platypus",0
+2018-19,3,March,Mammals,"Possums",984
+2018-19,3,March,Mammals,"Rodents",4
+2018-19,3,March,Mammals,"Small macropods",130
+2018-19,3,March,Mammals,"Unknown macropod",137
+2018-19,3,March,Mammals,"Unknown mammals",9
+2018-19,3,March,Mammals,"Wombat",72
+2018-19,3,March,Reptiles,"Bearded dragons and blue tongues",172
+2018-19,3,March,Reptiles,"Freshwater turtle",83
+2018-19,3,March,Reptiles,"Geckoes",7
+2018-19,3,March,Reptiles,"Large reptiles and monitors",92
+2018-19,3,March,Reptiles,"Small skinks and lizards",8
+2018-19,3,March,Reptiles,"Snakes - others",505
+2018-19,3,March,Reptiles,"Snakes - Pythons",216
+2018-19,3,March,Reptiles,"Unidentified turtle/tortoise",56
+2018-19,4,April,Birds,"Cuckoos",23
+2018-19,4,April,Birds,"Diurnal birds of prey",36
+2018-19,4,April,Birds,"Emu",3
+2018-19,4,April,Birds,"Herons and allies",113
+2018-19,4,April,Birds,"Honeyeaters",188
+2018-19,4,April,Birds,"Kingfishers",194
+2018-19,4,April,Birds,"Marine birds",564
+2018-19,4,April,Birds,"Other aquatic birds",90
+2018-19,4,April,Birds,"Other birds",119
+2018-19,4,April,Birds,"Owls, nightjars and frogmouths",362
+2018-19,4,April,Birds,"Parrots",879
+2018-19,4,April,Birds,"Passerines",369
+2018-19,4,April,Birds,"Pigeons and Doves",254
+2018-19,4,April,Mammals,"Bandicoots, bettongs, and potoroos",21
+2018-19,4,April,Mammals,"Echidna",82
+2018-19,4,April,Mammals,"Feathertail glider",12
+2018-19,4,April,Mammals,"Flying-foxes",198
+2018-19,4,April,Mammals,"Koala",45
+2018-19,4,April,Mammals,"Large gliders",31
+2018-19,4,April,Mammals,"Large kangaroos",443
+2018-19,4,April,Mammals,"Marsupial dasyurid",8
+2018-19,4,April,Mammals,"Microbats",112
+2018-19,4,April,Mammals,"Platypus",0
+2018-19,4,April,Mammals,"Possums",780
+2018-19,4,April,Mammals,"Rodents",15
+2018-19,4,April,Mammals,"Small macropods",127
+2018-19,4,April,Mammals,"Unknown macropod",167
+2018-19,4,April,Mammals,"Unknown mammals",7
+2018-19,4,April,Mammals,"Wombat",57
+2018-19,4,April,Reptiles,"Bearded dragons and blue tongues",177
+2018-19,4,April,Reptiles,"Freshwater turtle",62
+2018-19,4,April,Reptiles,"Geckoes",2
+2018-19,4,April,Reptiles,"Large reptiles and monitors",32
+2018-19,4,April,Reptiles,"Small skinks and lizards",13
+2018-19,4,April,Reptiles,"Snakes - others",323
+2018-19,4,April,Reptiles,"Snakes - Pythons",143
+2018-19,4,April,Reptiles,"Unidentified turtle/tortoise",39
+2018-19,5,May,Birds,"Cuckoos",6
+2018-19,5,May,Birds,"Diurnal birds of prey",42
+2018-19,5,May,Birds,"Emu",2
+2018-19,5,May,Birds,"Herons and allies",132
+2018-19,5,May,Birds,"Honeyeaters",146
+2018-19,5,May,Birds,"Kingfishers",186
+2018-19,5,May,Birds,"Marine birds",243
+2018-19,5,May,Birds,"Other aquatic birds",88
+2018-19,5,May,Birds,"Other birds",96
+2018-19,5,May,Birds,"Owls, nightjars and frogmouths",325
+2018-19,5,May,Birds,"Parrots",707
+2018-19,5,May,Birds,"Passerines",290
+2018-19,5,May,Birds,"Pigeons and Doves",200
+2018-19,5,May,Mammals,"Bandicoots, bettongs, and potoroos",22
+2018-19,5,May,Mammals,"Echidna",124
+2018-19,5,May,Mammals,"Feathertail glider",27
+2018-19,5,May,Mammals,"Flying-foxes",166
+2018-19,5,May,Mammals,"Koala",73
+2018-19,5,May,Mammals,"Large gliders",25
+2018-19,5,May,Mammals,"Large kangaroos",463
+2018-19,5,May,Mammals,"Marsupial dasyurid",9
+2018-19,5,May,Mammals,"Microbats",77
+2018-19,5,May,Mammals,"Platypus",0
+2018-19,5,May,Mammals,"Possums",708
+2018-19,5,May,Mammals,"Rodents",3
+2018-19,5,May,Mammals,"Small macropods",142
+2018-19,5,May,Mammals,"Unknown macropod",192
+2018-19,5,May,Mammals,"Unknown mammals",5
+2018-19,5,May,Mammals,"Wombat",110
+2018-19,5,May,Reptiles,"Bearded dragons and blue tongues",97
+2018-19,5,May,Reptiles,"Freshwater turtle",31
+2018-19,5,May,Reptiles,"Geckoes",4
+2018-19,5,May,Reptiles,"Large reptiles and monitors",16
+2018-19,5,May,Reptiles,"Small skinks and lizards",12
+2018-19,5,May,Reptiles,"Snakes - others",136
+2018-19,5,May,Reptiles,"Snakes - Pythons",133
+2018-19,5,May,Reptiles,"Unidentified turtle/tortoise",16
+2018-19,6,June,Birds,"Cuckoos",9
+2018-19,6,June,Birds,"Diurnal birds of prey",45
+2018-19,6,June,Birds,"Emu",1
+2018-19,6,June,Birds,"Herons and allies",114
+2018-19,6,June,Birds,"Honeyeaters",86
+2018-19,6,June,Birds,"Kingfishers",163
+2018-19,6,June,Birds,"Marine birds",62
+2018-19,6,June,Birds,"Other aquatic birds",76
+2018-19,6,June,Birds,"Other birds",83
+2018-19,6,June,Birds,"Owls, nightjars and frogmouths",227
+2018-19,6,June,Birds,"Parrots",896
+2018-19,6,June,Birds,"Passerines",249
+2018-19,6,June,Birds,"Pigeons and Doves",184
+2018-19,6,June,Mammals,"Bandicoots, bettongs, and potoroos",20
+2018-19,6,June,Mammals,"Echidna",72
+2018-19,6,June,Mammals,"Feathertail glider",24
+2018-19,6,June,Mammals,"Flying-foxes",72
+2018-19,6,June,Mammals,"Koala",78
+2018-19,6,June,Mammals,"Large gliders",26
+2018-19,6,June,Mammals,"Large kangaroos",501
+2018-19,6,June,Mammals,"Marsupial dasyurid",7
+2018-19,6,June,Mammals,"Microbats",44
+2018-19,6,June,Mammals,"Platypus",2
+2018-19,6,June,Mammals,"Possums",671
+2018-19,6,June,Mammals,"Rodents",5
+2018-19,6,June,Mammals,"Small macropods",193
+2018-19,6,June,Mammals,"Unknown macropod",196
+2018-19,6,June,Mammals,"Unknown mammals",2
+2018-19,6,June,Mammals,"Wombat",148
+2018-19,6,June,Reptiles,"Bearded dragons and blue tongues",73
+2018-19,6,June,Reptiles,"Freshwater turtle",28
+2018-19,6,June,Reptiles,"Geckoes",3
+2018-19,6,June,Reptiles,"Large reptiles and monitors",18
+2018-19,6,June,Reptiles,"Small skinks and lizards",6
+2018-19,6,June,Reptiles,"Snakes - others",80
+2018-19,6,June,Reptiles,"Snakes - Pythons",91
+2018-19,6,June,Reptiles,"Unidentified turtle/tortoise",5
+2018-19,7,July,Birds,"Cuckoos",9
+2018-19,7,July,Birds,"Diurnal birds of prey",44
+2018-19,7,July,Birds,"Emu",11
+2018-19,7,July,Birds,"Herons and allies",87
+2018-19,7,July,Birds,"Honeyeaters",87
+2018-19,7,July,Birds,"Kingfishers",174
+2018-19,7,July,Birds,"Marine birds",88
+2018-19,7,July,Birds,"Other aquatic birds",86
+2018-19,7,July,Birds,"Other birds",73
+2018-19,7,July,Birds,"Owls, nightjars and frogmouths",247
+2018-19,7,July,Birds,"Parrots",1061
+2018-19,7,July,Birds,"Passerines",291
+2018-19,7,July,Birds,"Pigeons and Doves",193
+2018-19,7,July,Mammals,"Bandicoots, bettongs, and potoroos",32
+2018-19,7,July,Mammals,"Echidna",73
+2018-19,7,July,Mammals,"Feathertail glider",24
+2018-19,7,July,Mammals,"Flying-foxes",67
+2018-19,7,July,Mammals,"Koala",84
+2018-19,7,July,Mammals,"Large gliders",32
+2018-19,7,July,Mammals,"Large kangaroos",985
+2018-19,7,July,Mammals,"Marsupial dasyurid",4
+2018-19,7,July,Mammals,"Microbats",56
+2018-19,7,July,Mammals,"Platypus",0
+2018-19,7,July,Mammals,"Possums",778
+2018-19,7,July,Mammals,"Rodents",7
+2018-19,7,July,Mammals,"Small macropods",229
+2018-19,7,July,Mammals,"Unknown macropod",346
+2018-19,7,July,Mammals,"Unknown mammals",5
+2018-19,7,July,Mammals,"Wombat",178
+2018-19,7,July,Reptiles,"Bearded dragons and blue tongues",79
+2018-19,7,July,Reptiles,"Freshwater turtle",7
+2018-19,7,July,Reptiles,"Geckoes",0
+2018-19,7,July,Reptiles,"Large reptiles and monitors",12
+2018-19,7,July,Reptiles,"Small skinks and lizards",5
+2018-19,7,July,Reptiles,"Snakes - others",55
+2018-19,7,July,Reptiles,"Snakes - Pythons",65
+2018-19,7,July,Reptiles,"Unidentified turtle/tortoise",3
+2018-19,8,August,Birds,"Cuckoos",20
+2018-19,8,August,Birds,"Diurnal birds of prey",47
+2018-19,8,August,Birds,"Emu",8
+2018-19,8,August,Birds,"Herons and allies",149
+2018-19,8,August,Birds,"Honeyeaters",314
+2018-19,8,August,Birds,"Kingfishers",256
+2018-19,8,August,Birds,"Marine birds",181
+2018-19,8,August,Birds,"Other aquatic birds",233
+2018-19,8,August,Birds,"Other birds",125
+2018-19,8,August,Birds,"Owls, nightjars and frogmouths",438
+2018-19,8,August,Birds,"Parrots",966
+2018-19,8,August,Birds,"Passerines",393
+2018-19,8,August,Birds,"Pigeons and Doves",197
+2018-19,8,August,Mammals,"Bandicoots, bettongs, and potoroos",24
+2018-19,8,August,Mammals,"Echidna",92
+2018-19,8,August,Mammals,"Feathertail glider",47
+2018-19,8,August,Mammals,"Flying-foxes",108
+2018-19,8,August,Mammals,"Koala",155
+2018-19,8,August,Mammals,"Large gliders",43
+2018-19,8,August,Mammals,"Large kangaroos",1006
+2018-19,8,August,Mammals,"Marsupial dasyurid",3
+2018-19,8,August,Mammals,"Microbats",45
+2018-19,8,August,Mammals,"Platypus",0
+2018-19,8,August,Mammals,"Possums",1307
+2018-19,8,August,Mammals,"Rodents",6
+2018-19,8,August,Mammals,"Small macropods",220
+2018-19,8,August,Mammals,"Unknown macropod",334
+2018-19,8,August,Mammals,"Unknown mammals",7
+2018-19,8,August,Mammals,"Wombat",162
+2018-19,8,August,Reptiles,"Bearded dragons and blue tongues",84
+2018-19,8,August,Reptiles,"Freshwater turtle",20
+2018-19,8,August,Reptiles,"Geckoes",2
+2018-19,8,August,Reptiles,"Large reptiles and monitors",11
+2018-19,8,August,Reptiles,"Small skinks and lizards",8
+2018-19,8,August,Reptiles,"Snakes - others",77
+2018-19,8,August,Reptiles,"Snakes - Pythons",97
+2018-19,8,August,Reptiles,"Unidentified turtle/tortoise",5
+2018-19,9,September,Birds,"Cuckoos",40
+2018-19,9,September,Birds,"Diurnal birds of prey",39
+2018-19,9,September,Birds,"Emu",8
+2018-19,9,September,Birds,"Herons and allies",143
+2018-19,9,September,Birds,"Honeyeaters",473
+2018-19,9,September,Birds,"Kingfishers",276
+2018-19,9,September,Birds,"Marine birds",206
+2018-19,9,September,Birds,"Other aquatic birds",283
+2018-19,9,September,Birds,"Other birds",155
+2018-19,9,September,Birds,"Owls, nightjars and frogmouths",207
+2018-19,9,September,Birds,"Parrots",1031
+2018-19,9,September,Birds,"Passerines",933
+2018-19,9,September,Birds,"Pigeons and Doves",257
+2018-19,9,September,Mammals,"Bandicoots, bettongs, and potoroos",36
+2018-19,9,September,Mammals,"Echidna",199
+2018-19,9,September,Mammals,"Feathertail glider",43
+2018-19,9,September,Mammals,"Flying-foxes",84
+2018-19,9,September,Mammals,"Koala",151
+2018-19,9,September,Mammals,"Large gliders",70
+2018-19,9,September,Mammals,"Large kangaroos",819
+2018-19,9,September,Mammals,"Marsupial dasyurid",3
+2018-19,9,September,Mammals,"Microbats",77
+2018-19,9,September,Mammals,"Platypus",0
+2018-19,9,September,Mammals,"Possums",1265
+2018-19,9,September,Mammals,"Rodents",5
+2018-19,9,September,Mammals,"Small macropods",212
+2018-19,9,September,Mammals,"Unknown macropod",264
+2018-19,9,September,Mammals,"Unknown mammals",8
+2018-19,9,September,Mammals,"Wombat",177
+2018-19,9,September,Reptiles,"Bearded dragons and blue tongues",242
+2018-19,9,September,Reptiles,"Freshwater turtle",53
+2018-19,9,September,Reptiles,"Geckoes",1
+2018-19,9,September,Reptiles,"Large reptiles and monitors",56
+2018-19,9,September,Reptiles,"Small skinks and lizards",20
+2018-19,9,September,Reptiles,"Snakes - others",226
+2018-19,9,September,Reptiles,"Snakes - Pythons",233
+2018-19,9,September,Reptiles,"Unidentified turtle/tortoise",16
+2018-19,10,October,Birds,"Cuckoos",54
+2018-19,10,October,Birds,"Diurnal birds of prey",55
+2018-19,10,October,Birds,"Emu",3
+2018-19,10,October,Birds,"Herons and allies",142
+2018-19,10,October,Birds,"Honeyeaters",548
+2018-19,10,October,Birds,"Kingfishers",289
+2018-19,10,October,Birds,"Marine birds",280
+2018-19,10,October,Birds,"Other aquatic birds",363
+2018-19,10,October,Birds,"Other birds",260
+2018-19,10,October,Birds,"Owls, nightjars and frogmouths",255
+2018-19,10,October,Birds,"Parrots",1360
+2018-19,10,October,Birds,"Passerines",1796
+2018-19,10,October,Birds,"Pigeons and Doves",299
+2018-19,10,October,Mammals,"Bandicoots, bettongs, and potoroos",38
+2018-19,10,October,Mammals,"Echidna",205
+2018-19,10,October,Mammals,"Feathertail glider",21
+2018-19,10,October,Mammals,"Flying-foxes",212
+2018-19,10,October,Mammals,"Koala",147
+2018-19,10,October,Mammals,"Large gliders",65
+2018-19,10,October,Mammals,"Large kangaroos",570
+2018-19,10,October,Mammals,"Marsupial dasyurid",11
+2018-19,10,October,Mammals,"Microbats",50
+2018-19,10,October,Mammals,"Platypus",4
+2018-19,10,October,Mammals,"Possums",1057
+2018-19,10,October,Mammals,"Rodents",10
+2018-19,10,October,Mammals,"Small macropods",172
+2018-19,10,October,Mammals,"Unknown macropod",203
+2018-19,10,October,Mammals,"Unknown mammals",6
+2018-19,10,October,Mammals,"Wombat",107
+2018-19,10,October,Reptiles,"Bearded dragons and blue tongues",456
+2018-19,10,October,Reptiles,"Freshwater turtle",157
+2018-19,10,October,Reptiles,"Geckoes",1
+2018-19,10,October,Reptiles,"Large reptiles and monitors",93
+2018-19,10,October,Reptiles,"Small skinks and lizards",47
+2018-19,10,October,Reptiles,"Snakes - others",475
+2018-19,10,October,Reptiles,"Snakes - Pythons",308
+2018-19,10,October,Reptiles,"Unidentified turtle/tortoise",56
+2018-19,11,November,Birds,"Cuckoos",54
+2018-19,11,November,Birds,"Diurnal birds of prey",58
+2018-19,11,November,Birds,"Emu",0
+2018-19,11,November,Birds,"Herons and allies",174
+2018-19,11,November,Birds,"Honeyeaters",590
+2018-19,11,November,Birds,"Kingfishers",330
+2018-19,11,November,Birds,"Marine birds",239
+2018-19,11,November,Birds,"Other aquatic birds",379
+2018-19,11,November,Birds,"Other birds",364
+2018-19,11,November,Birds,"Owls, nightjars and frogmouths",549
+2018-19,11,November,Birds,"Parrots",1822
+2018-19,11,November,Birds,"Passerines",1654
+2018-19,11,November,Birds,"Pigeons and Doves",276
+2018-19,11,November,Mammals,"Bandicoots, bettongs, and potoroos",41
+2018-19,11,November,Mammals,"Echidna",111
+2018-19,11,November,Mammals,"Feathertail glider",23
+2018-19,11,November,Mammals,"Flying-foxes",181
+2018-19,11,November,Mammals,"Koala",147
+2018-19,11,November,Mammals,"Large gliders",53
+2018-19,11,November,Mammals,"Large kangaroos",430
+2018-19,11,November,Mammals,"Marsupial dasyurid",9
+2018-19,11,November,Mammals,"Microbats",78
+2018-19,11,November,Mammals,"Platypus",0
+2018-19,11,November,Mammals,"Possums",876
+2018-19,11,November,Mammals,"Rodents",11
+2018-19,11,November,Mammals,"Small macropods",124
+2018-19,11,November,Mammals,"Unknown macropod",183
+2018-19,11,November,Mammals,"Unknown mammals",11
+2018-19,11,November,Mammals,"Wombat",72
+2018-19,11,November,Reptiles,"Bearded dragons and blue tongues",321
+2018-19,11,November,Reptiles,"Freshwater turtle",171
+2018-19,11,November,Reptiles,"Geckoes",2
+2018-19,11,November,Reptiles,"Large reptiles and monitors",124
+2018-19,11,November,Reptiles,"Small skinks and lizards",27
+2018-19,11,November,Reptiles,"Snakes - others",497
+2018-19,11,November,Reptiles,"Snakes - Pythons",168
+2018-19,11,November,Reptiles,"Unidentified turtle/tortoise",66
+2018-19,12,December,Birds,"Cuckoos",84
+2018-19,12,December,Birds,"Diurnal birds of prey",70
+2018-19,12,December,Birds,"Emu",3
+2018-19,12,December,Birds,"Herons and allies",208
+2018-19,12,December,Birds,"Honeyeaters",416
+2018-19,12,December,Birds,"Kingfishers",418
+2018-19,12,December,Birds,"Marine birds",157
+2018-19,12,December,Birds,"Other aquatic birds",343
+2018-19,12,December,Birds,"Other birds",434
+2018-19,12,December,Birds,"Owls, nightjars and frogmouths",329
+2018-19,12,December,Birds,"Parrots",1695
+2018-19,12,December,Birds,"Passerines",1450
+2018-19,12,December,Birds,"Pigeons and Doves",285
+2018-19,12,December,Mammals,"Bandicoots, bettongs, and potoroos",38
+2018-19,12,December,Mammals,"Echidna",72
+2018-19,12,December,Mammals,"Feathertail glider",29
+2018-19,12,December,Mammals,"Flying-foxes",240
+2018-19,12,December,Mammals,"Koala",95
+2018-19,12,December,Mammals,"Large gliders",64
+2018-19,12,December,Mammals,"Large kangaroos",331
+2018-19,12,December,Mammals,"Marsupial dasyurid",21
+2018-19,12,December,Mammals,"Microbats",83
+2018-19,12,December,Mammals,"Platypus",0
+2018-19,12,December,Mammals,"Possums",788
+2018-19,12,December,Mammals,"Rodents",11
+2018-19,12,December,Mammals,"Small macropods",125
+2018-19,12,December,Mammals,"Unknown macropod",119
+2018-19,12,December,Mammals,"Unknown mammals",11
+2018-19,12,December,Mammals,"Wombat",55
+2018-19,12,December,Reptiles,"Bearded dragons and blue tongues",359
+2018-19,12,December,Reptiles,"Freshwater turtle",123
+2018-19,12,December,Reptiles,"Geckoes",2
+2018-19,12,December,Reptiles,"Large reptiles and monitors",91
+2018-19,12,December,Reptiles,"Small skinks and lizards",38
+2018-19,12,December,Reptiles,"Snakes - others",535
+2018-19,12,December,Reptiles,"Snakes - Pythons",207
+2018-19,12,December,Reptiles,"Unidentified turtle/tortoise",66
