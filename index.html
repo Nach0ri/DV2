@@ -205,11 +205,70 @@
                 </p>
             </footer>
         </section>
+        <section class="idiom section" aria-labelledby="idiom05-title">
+            <h2 class="idiom-title" id="idiom05-title">More Rescues, Better Outcomes?</h2>
+            <p class="subtitle">Explore how reported rescue reasons differ in volume and outcome.</p>
+
+            <div class="panel">
+                <div class="controls" id="bubble-controls" hidden>
+                    <div id="bubble-year"></div>
+                    <span class="hint">Hover over a bubble to highlight it. Bubble area shows the number of cases.</span>
+                </div>
+                <p class="summary" id="bubble-summary" hidden></p>
+                <div id="bubble-chart">
+                    <p class="status" id="bubble-status">Loading chart…</p>
+                </div>
+                <p class="legend-note" id="bubble-note"></p>
+
+                <div class="caution">
+                    <h3>What the chart shows</h3>
+                    <ul>
+                        <li><b>Abandoned/Orphaned is the largest reason in every year</b> (22.6–26.4% of cases). Its positive share
+                            stays between 60.6% and 65.9%.</li>
+                        <li><b>Disease has the lowest positive share</b> among reasons with at least 100 cases in every year (8.2–14.1%).</li>
+                        <li><b>The highest shares come from small categories.</b> In 2017–18 and 2018–19, Nuisance reached 92–97%, but on only
+                            115–117 cases. Volume and outcome do not show a consistent pattern.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <footer class="note">
+                <h2>Data source, definitions and limitations</h2>
+                <p>
+                    Data come from supplementary file S9 (<code>journal.pone.0257209.s009.xlsx</code>) of
+                    Kwok et al. (2021), PLoS ONE, <a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>.
+                    The data are historical and are <b>not</b> current NSW statistics.
+                </p>
+                <p>
+                    <b>Definitions.</b> The workbook reports “Negative” and “Positive” shares of each reason’s rescues. It does not define
+                    them, so this chart uses the labels as given and does not treat “Positive” as a release rate.
+                </p>
+                <p>
+                    <b>Denominator.</b> Every percentage uses the number of rescues shown in the same row of S9 (the “Number of rescues” column).
+                    The bubble x-axis uses that same count. S4 reports different rescue counts for birds (for example 3,216 vs 2,691 for
+                    Abandoned/Orphaned in 2013–14). The workbooks do not explain the difference, so the two are not combined.
+                </p>
+                <p>
+                    <b>Coverage.</b> S9 covers Birds only, so the colour shows a single animal group. The “Unknown” reason is not plotted.
+                    The workbook gives no separate counts for missing or ongoing outcomes. The S9 cause rows sum to its Birds total,
+                    and each row’s Negative and Positive shares add to 100%.
+                </p>
+                <p>
+                    Cleaned data: <code>data/rescue_fate_by_reason_year.csv</code> (one row per reason and year, with the S4 birds count
+                    for reference only).
+                </p>
+                <p>
+                    To view the chart, open this page with a local server such as VS Code Live Server.
+                    It will not load if you open the file directly.
+                </p>
+            </footer>
+        </section>
     </main>
 
     <script src="js/idiom01-map.js"></script>
     <script src="js/idiom02-reasons.js"></script>
     <script src="js/idiom03-seasonality.js"></script>
     <script src="js/idiom04-heatmap.js"></script>
+    <script src="js/idiom05-bubble.js"></script>
 </body>
 </html>

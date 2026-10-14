@@ -203,7 +203,8 @@ footer.note p {
 
 #reasons-chart,
 #seasonality-chart,
-#heatmap-chart { width: 100%; }
+#heatmap-chart,
+#bubble-chart { width: 100%; }
 
 .placeholder {
     padding: 24px;
