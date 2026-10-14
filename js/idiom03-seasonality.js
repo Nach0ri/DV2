@@ -139,10 +139,6 @@
             `<b>${top.g}</b> have the highest peak monthly volume: ${MONTHS[top.peak]} averages ${fmtN(top.peakV)} rescues, ` +
             `${(top.peakV / second.peakV).toFixed(1)}× the ${second.g.toLowerCase()} peak (${MONTHS[second.peak]}, ${fmtN(second.peakV)}).`
         ];
-        for (const s of stats) {
-            items.push(`<b>${s.g}</b> range from ${fmtN(s.lowV)} in ${MONTHS[s.low]} to ${fmtN(s.peakV)} in ${MONTHS[s.peak]}, ` +
-                `a ${(s.peakV / Math.max(s.lowV, 1)).toFixed(1)}× spread across the year.`);
-        }
         list.innerHTML = items.map(x => `<li>${x}</li>`).join("");
     }
     function summarise(selected) {
