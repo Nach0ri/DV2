@@ -600,3 +600,8 @@ footer.note p {
     background: var(--eucalyptus);
 }
 .insight-list li:last-child { margin-bottom: 0; }
+/* Idiom 05: full-period group summary beneath the bubble chart. */
+.group-summary { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--rule); }
+.group-summary .card-kicker { margin-bottom: 4px; }
+.group-summary .legend-note { margin-top: 8px; }
+#group-summary { width: 100%; }

@@ -139,15 +139,20 @@
                 <h3 class="idiom-title" id="idiom-05-title"><span class="idiom-num">05</span>Which reasons have different outcomes?</h3>
                 <div class="idiom-text">
                         <h4 class="card-heading">Volume and outcome, reason by reason</h4>
-                        <p>Compare how rescue volume and the share of animals that died differ between rescue reasons, for birds, mammals and reptiles. Year-level views cover birds only. Differences are associated with the reasons, not caused by them.</p>
+                        <p>Compare how rescue volume and the share of animals that died differ between rescue reasons, for birds, mammals and reptiles across the full period, 2013–14 to 2018–19. Differences are associated with the reasons, not caused by them.</p>
                         <p class="card-note">“Died” and “survived” follow the definitions in Kwok et al. (2021). Survived is not the same as released.</p>
                 </div>
                 <figure class="chart-card chart-card--full">
                         <div class="chart-area" id="vis-05-bubble">
-                            <div class="controls" id="bubble-controls" hidden><div id="bubble-year"></div><span class="hint">Hover over a bubble to highlight it. Bubble area shows the number of cases.</span></div>
+                            
                             <p class="summary" id="bubble-summary" hidden></p>
                             <div id="bubble-chart"><p class="status">Loading chart…</p></div>
                             <p class="legend-note" id="bubble-note"></p>
+                            <div class="group-summary">
+                                <p class="card-kicker">Full-period summary by animal group (Table 8)</p>
+                                <div id="group-summary"><p class="status">Loading summary…</p></div>
+                                <p class="legend-note" id="group-summary-note"></p>
+                            </div>
                         </div>
                     </figure>
             </article>
@@ -329,6 +334,7 @@
     <script src="js/idiom03-seasonality.js"></script>
     <script src="js/idiom04-heatmap.js"></script>
     <script src="js/idiom05-bubble.js"></script>
+    <script src="js/idiom05-group-summary.js"></script>
     <script src="js/idiom06-bump.js"></script>
     <script src="js/idiom07-dotplot.js"></script>
     <script src="js/idiom09-sankey.js"></script>
