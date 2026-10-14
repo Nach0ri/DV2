@@ -287,12 +287,39 @@
         </section>
 
         <!-- ============ Footer ============ -->
-        <footer class="story-footer">
+        <footer class="story-footer" aria-labelledby="sources-title">
             <p class="footer-meta">FIT3179 · Data Visualisation 2 &nbsp;|&nbsp; Wildlife Rescue &amp; Rehabilitation in NSW</p>
-            <h2 class="footer-heading">Data sources and acknowledgements</h2>
-            <ul class="source-list">
-                <!-- Add verified sources here: dataset name, publisher, publication date and URL. -->
-            </ul>
+
+            <h2 class="footer-heading" id="sources-title">Data Sources &amp; Acknowledgements</h2>
+
+            <h3 class="sources-sub">Data sources</h3>
+            <ol class="source-list">
+                <li>
+                    <a href="https://doi.org/10.1371/journal.pone.0257209">Kwok, A. B. C., Haering, R., Travers, S. K., &amp; Stathis, P. (2021). Trends in wildlife rehabilitation rescues and animal fate across a six-year period in New South Wales, Australia.</a>
+                    <span class="src-meta">PLOS ONE. Records 2013–14 to 2018–19. Supplementary files S4, S7, S8, S9 and Table 10.</span>
+                    <span class="src-use">Used in: 03 (S7), 04 (S8), 05 (S9), 06 (S4), 09 (Table 10).</span>
+                </li>
+                <li>
+                    <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/native-animals/rehabilitating-native-animals/wildlife-rehabilitation-data-and-reporting/wildlife-rehabilitation-data-dashboard">NSW Wildlife Rehabilitation Data Dashboard</a>
+                    <span class="src-meta">NSW Department of Climate Change, Energy, the Environment and Water (DCCEEW). Number of rescues by council area and financial year, 2013–14 to 2024–25 (dashboard last updated 26 May 2026; accessed 15 October 2026).</span>
+                    <span class="src-use">Used in: 01 (council-area map and top 15), 07 (2018–19 and 2024–25 comparison).</span>
+                </li>
+                <li>
+                    <a href="https://www2.environment.nsw.gov.au/sites/default/files/wildlife-rehabilitaton-annual-report-2022-23-240222.pdf">NSW Wildlife Rehabilitation Annual Report 2022–23</a>
+                    <span class="src-meta">DCCEEW. Reasons for rescue, 2022–23, p. 15 (PDF).</span>
+                    <span class="src-use">Used in: 02 (reasons for rescue, 2022–23). Values checked against the report text.</span>
+                </li>
+                <li>
+                    <a href="https://www.environment.nsw.gov.au/publications/nsw-wildlife-rehabilitation-annual-report-2023-25">NSW Wildlife Rehabilitation Annual Report 2023–25</a>
+                    <span class="src-meta">DCCEEW. Reports 2023–24 and 2024–25 statewide totals and highest-LGA figures.</span>
+                    <span class="src-use">Used in: 02 (reasons for rescue, 2023–24 and 2024–25). Values checked against the report text.</span>
+                </li>
+                <li>
+                    <a href="https://portal.spatial.nsw.gov.au/server/rest/services/NSW_Administrative_Boundaries_Theme/FeatureServer/8">NSW Administrative Boundaries: Local Government Area</a>
+                    <span class="src-meta">NSW Spatial Services, ArcGIS REST service (layer 8). 132 LGAs, simplified for web display. Accessed 15 October 2026.</span>
+                    <span class="src-use">Used in: 01 (council boundaries).</span>
+                </li>
+            </ol>
         </footer>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>

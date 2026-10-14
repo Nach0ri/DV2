@@ -511,3 +511,67 @@ footer.note p {
 .chart-area .summary { margin: 0; font-size: 14px; }
 .chart-area .legend-note { margin: 0; font-size: 13px; }
 .chart-area #map { min-height: 380px; }
+
+/* Sources & acknowledgements (footer). */
+.story-footer a {
+    color: var(--forest);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+}
+.story-footer a:hover { color: var(--terracotta); }
+.story-footer a:focus-visible {
+    outline: 2px solid var(--ochre);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+.sources-sub {
+    margin: 28px 0 10px;
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+.source-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: src;
+}
+.source-list li {
+    counter-increment: src;
+    position: relative;
+    padding: 12px 0 12px 32px;
+    border-top: 1px solid var(--rule);
+    line-height: 1.5;
+}
+.source-list li:last-child { border-bottom: 1px solid var(--rule); }
+.source-list li::before {
+    content: counter(src) ".";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    color: var(--eucalyptus);
+    font-weight: 600;
+}
+.source-list a { font-size: 15px; color: var(--ink); }
+.source-list a:hover { color: var(--terracotta); }
+.src-meta,
+.src-use {
+    display: block;
+    font-size: 13.5px;
+    color: var(--muted);
+}
+.src-use { margin-top: 2px; }
+.ack {
+    margin: 0 0 10px;
+    max-width: 780px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.src-note { color: var(--muted); font-size: 13px; }
+@media (max-width: 680px) {
+    .source-list li { padding-left: 26px; }
+    .source-list li::before { left: 0; }
+}
