@@ -204,7 +204,8 @@ footer.note p {
 #reasons-chart,
 #seasonality-chart,
 #heatmap-chart,
-#bubble-chart { width: 100%; }
+#bubble-chart,
+#outcomes-chart { width: 100%; }
 
 .placeholder {
     padding: 24px;
@@ -238,3 +239,275 @@ footer.note p {
     #map { min-height: 380px; }
     .placeholder { padding: 16px; }
 }
+
+
+/* ==========================================================================
+   Story layout (index.html). Palette and fonts are set once in :root.
+   ========================================================================== */
+:root {
+    --forest: #24493A;          /* section numbers, titles, key accents */
+    --eucalyptus: #6F9A86;      /* kickers, secondary accents */
+    --stone-page: #F4F1EA;      /* warm stone page background */
+    --stone-card: #FBFAF6;      /* card background */
+    --ink: #1F2A24;             /* body text */
+    --muted: #5E6B63;           /* notes and subtitles */
+    --ochre: #B8862F;           /* muted ochre highlight, used sparingly */
+    --rule: #D9D2C3;            /* dividers and card borders */
+    --placeholder-bg: #EFEBE2;  /* empty chart area */
+    --placeholder-edge: #A89F8C;/* empty chart area border */
+
+    --font-title: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --font-text: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --radius: 8px;
+}
+
+.story-page {
+    background: var(--stone-page);
+    color: var(--ink);
+    font-family: var(--font-text);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.story {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 64px 24px 72px;
+}
+
+/* ---------- Header ---------- */
+.story-header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--rule);
+}
+
+.story-meta {
+    margin: 0 0 16px;
+    font-size: 13px;
+    color: var(--eucalyptus);
+}
+
+.story-title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: clamp(2.3rem, 4.8vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--forest);
+}
+
+.story-subtitle {
+    margin: 16px 0 22px;
+    font-family: var(--font-title);
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    font-weight: 600;
+    color: var(--ochre);
+}
+
+.story-intro {
+    max-width: 780px;
+    margin: 0;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+}
+
+/* ---------- Sections ---------- */
+.story-section { margin-top: 56px; }
+
+.section-head {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 18px;
+    align-items: baseline;
+    margin-bottom: 36px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--forest);
+}
+
+.section-number {
+    font-family: var(--font-title);
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--eucalyptus);
+}
+
+.section-title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--forest);
+}
+
+.section-subtitle {
+    grid-column: 2;
+    margin: 4px 0 0;
+    font-size: 15px;
+    color: var(--muted);
+}
+
+/* ---------- Idiom blocks ---------- */
+.idiom { margin-bottom: 40px; }
+
+.idiom-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin: 0 0 18px;
+    font-family: var(--font-title);
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink);
+}
+
+.idiom-num {
+    flex: 0 0 auto;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--eucalyptus);
+}
+
+.idiom-text { max-width: 720px; margin-bottom: 18px; }
+.idiom-text p { margin: 0 0 10px; }
+
+.card-kicker {
+    margin: 0 0 6px !important;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--eucalyptus);
+}
+
+.card-note {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.text-card { padding: 4px 0; }
+
+.text-card .card-heading {
+    margin: 0 0 10px;
+    font-family: var(--font-title);
+    font-size: 1.18rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink);
+}
+
+.text-card p { margin: 0 0 10px; }
+.text-card p:last-child { margin-bottom: 0; }
+
+/* Pattern A: text beside chart (text narrower). */
+.idiom--split .idiom-body {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+    gap: 32px;
+    align-items: start;
+}
+
+/* Pattern A reversed: chart left, text right. */
+.idiom--split.idiom--text-right .idiom-body { grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr); }
+.idiom--split.idiom--text-right .text-card { order: 2; }
+.idiom--split.idiom--text-right .chart-card { order: 1; }
+
+/* Pattern B: explanation first, full-width chart area. */
+.idiom--stacked .chart-card--full { margin: 0; }
+
+/* Pattern C: wide chart with a narrower annotation panel to the right. */
+.idiom--wide-chart .idiom-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+}
+
+/* Pattern D: two related idioms side by side, each with its own heading and area. */
+.idiom-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+}
+
+.idiom--pair-item { margin-bottom: 0; }
+
+/* ---------- Chart areas ---------- */
+.chart-card {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.chart-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 300px;
+    padding: 20px;
+    background: var(--placeholder-bg);
+    border: 1px solid var(--placeholder-edge);
+    border-radius: var(--radius);
+}
+
+.chart-placeholder--tall { min-height: 420px; }
+
+.placeholder-label {
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+}
+
+/* ---------- Footer ---------- */
+.story-footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.footer-meta { margin: 0 0 14px; }
+
+.footer-heading {
+    margin: 0 0 8px;
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.source-list { margin: 0; padding-left: 18px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+    .idiom--split .idiom-body,
+    .idiom--split.idiom--text-right .idiom-body,
+    .idiom--wide-chart .idiom-body { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .idiom--split.idiom--text-right .text-card,
+    .idiom--split.idiom--text-right .chart-card { order: 0; }
+    .idiom--split.idiom--text-right .chart-card { order: 1; }
+    .idiom-pair { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .idiom-pair .idiom { margin-bottom: 40px; }
+}
+
+@media (max-width: 680px) {
+    .story { padding: 40px 16px 56px; }
+    .section-head { grid-template-columns: 1fr; }
+    .section-subtitle { grid-column: 1; }
+    .section-number { font-size: 1.9rem; }
+    .chart-placeholder { min-height: 240px; }
+    .chart-placeholder--tall { min-height: 320px; }
+}
+/* Chart containers for the idioms that are built. Drops the empty-placeholder look. */
+.chart-area { display: flex; flex-direction: column; gap: 10px; min-width: 0; width: 100%; }
+.chart-area .controls { margin: 0; font-size: 14px; }
+.chart-area .hint { font-size: 13px; }
+.chart-area .summary { margin: 0; font-size: 14px; }
+.chart-area .legend-note { margin: 0; font-size: 13px; }
+.chart-area #map { min-height: 380px; }

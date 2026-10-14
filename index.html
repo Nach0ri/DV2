@@ -3,268 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wildlife Rescue in NSW | FIT3179 DV2</title>
+    <title>Wildlife Rescue &amp; Rehabilitation in NSW | FIT3179 DV2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!--
+        Chart areas are intentionally empty. When adding a Vega-Lite chart, load:
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+        Each placeholder's id (vis-01-choropleth, ...) is the container for its chart.
+    -->
+</head>
+<body class="story-page">
+    <main class="story">
+
+        <!-- ============ Page header ============ -->
+        <header class="story-header">
+            <p class="story-meta">FIT3179 · Data Visualisation 2 · Sketch</p>
+            <h1 class="story-title">Wildlife Rescue &amp; Rehabilitation in NSW</h1>
+            <p class="story-subtitle">Understanding where wildlife is rescued, why animals need help, and what happens next.</p>
+            <p class="story-intro">
+                Wildlife rescue and rehabilitation services play an important role in protecting native animals across
+                New South Wales. By exploring recorded rescue locations, reported reasons, seasonal patterns, species
+                differences and rehabilitation outcomes, this visualisation investigates what the available data can tell
+                us about wildlife rescue in NSW, and where important gaps remain.
+            </p>
+        </header>
+
+        <!-- ============ Section 1 ============ -->
+        <section class="story-section" aria-labelledby="section-1-title">
+            <header class="section-head">
+                <span class="section-number" aria-hidden="true">1</span>
+                <div>
+                    <h2 class="section-title" id="section-1-title">Where are rescues happening?</h2>
+                    <p class="section-subtitle">Understanding where rescues happen, what brings animals into care, and when demand rises</p>
+                </div>
+            </header>
+
+            <!-- Idiom 01 · text beside a tall chart area -->
+            <article class="idiom idiom--stacked" aria-labelledby="idiom-01-title">
+                <h3 class="idiom-title" id="idiom-01-title"><span class="idiom-num">01</span>Where are rescues happening?</h3>
+                
+                    <div class="idiom-text">
+                        <p class="card-kicker">Choropleth map</p>
+                        <h4 class="card-heading">Mapping recorded rescues across NSW</h4>
+                        <p>Explore how recorded wildlife rescues are distributed across NSW. Geographic differences may reflect animal populations, reporting practices and access to rescue services, rather than differences in
+                            wildlife risk alone.</p>
+                        <p class="card-note">Counts depend on where animals are found and reported, so a busy area is not
+                            necessarily a dangerous one.</p>
+                    </div>
+                    <figure class="chart-card chart-card--full">
+                        <div class="chart-area" id="vis-01-choropleth">
+                            <div class="controls"><div id="fy-control"></div><span class="hint">Hover over an area to see its numbers. Click an area or bar to highlight it, and double-click to clear.</span></div>
+                            <p class="summary" id="fy-summary" aria-live="polite"></p>
+                            <div class="map-legend" id="map-legend" aria-label="Colour key"></div>
+                            <div id="map"><p class="status" id="map-status">Loading map…</p></div>
+                            <p class="legend-note" id="fy-gaps"></p>
+                        </div>
+                    </figure>
+            </article>
+
+            <!-- Idiom 02 · explanation first, full-width chart area -->
+            <article class="idiom idiom--stacked" aria-labelledby="idiom-02-title">
+                <h3 class="idiom-title" id="idiom-02-title"><span class="idiom-num">02</span>What brings animals into care?</h3>
+                <div class="idiom-text">
+                    <p class="card-kicker">Ranked bar chart</p>
+                    <p>Compare the reported reasons animals enter rescue and rehabilitation services, highlighting the
+                        categories that account for the largest number of recorded cases.</p>
+                    <p class="card-note">Where a record has no reported reason, it cannot be ranked. Note how many cases
+                        fall outside the categories shown.</p>
+                </div>
+                <figure class="chart-card chart-card--full">
+                    <div class="chart-area" id="vis-02-ranked-bar">
+                            <div class="controls" id="reasons-controls" hidden><div id="reasons-year"></div></div>
+                            <p class="summary" id="reasons-summary" hidden></p>
+                            <div id="reasons-chart"><p class="status" id="reasons-status">Loading chart…</p></div>
+                            <p class="legend-note" id="reasons-note"></p>
+                        </div>
+                </figure>
+            </article>
+
+            <!-- Idiom 03 · wide chart with a narrower annotation panel -->
+            <article class="idiom idiom--wide-chart" aria-labelledby="idiom-03-title">
+                <h3 class="idiom-title" id="idiom-03-title"><span class="idiom-num">03</span>When do rescues peak?</h3>
+                <div class="idiom-body">
+                    <figure class="chart-card">
+                        <div class="chart-area" id="vis-03-multiline">
+                            <div class="controls" id="season-controls" hidden><div id="season-year"></div><span class="hint">Hover over a point to see its month, group and count.</span></div>
+                            <p class="summary" id="season-summary" hidden></p>
+                            <div id="seasonality-chart"><p class="status">Loading chart…</p></div>
+                            <p class="legend-note" id="season-note"></p>
+                        </div>
+                    </figure>
+                    <div class="text-card">
+                        <p class="card-kicker">Multi-series line chart</p>
+                        <h4 class="card-heading">Following rescue demand through the year</h4>
+                        <p>Compare rescue trends across selected animal groups to investigate when recorded rescue activity
+                            rises or falls throughout the year.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- ============ Section 2 ============ -->
+        <section class="story-section" aria-labelledby="section-2-title">
+            <header class="section-head">
+                <span class="section-number" aria-hidden="true">2</span>
+                <div>
+                    <h2 class="section-title" id="section-2-title">Why do animals need rescuing?</h2>
+                    <p class="section-subtitle">Understanding reported threats and reasons, and how they change across the year</p>
+                </div>
+            </header>
+
+            <!-- Idiom 04 · full-width heatmap area, text in a column above -->
+            <article class="idiom idiom--stacked" aria-labelledby="idiom-04-title">
+                <h3 class="idiom-title" id="idiom-04-title"><span class="idiom-num">04</span>Which threats peak when?</h3>
+                <div class="idiom-text">
+                    <p class="card-kicker">Heatmap</p>
+                    <p>Compare monthly rescue patterns across reported reasons to identify periods when particular
+                        categories become more common.</p>
+                    <p class="card-note">Interpret apparent seasonal patterns carefully, especially where reporting is
+                        incomplete.</p>
+                </div>
+                <figure class="chart-card chart-card--full">
+                    <div class="chart-area" id="vis-04-heatmap">
+                            <div class="controls" id="heatmap-controls" hidden><div id="heatmap-group"></div><span class="hint">Hover over a cell to see the reason, month and count.</span></div>
+                            <p class="summary" id="heatmap-summary" hidden></p>
+                            <div id="heatmap-chart"><p class="status">Loading heatmap…</p></div>
+                            <p class="legend-note" id="heatmap-note"></p>
+                        </div>
+                </figure>
+            </article>
+
+            <!-- Idiom 05 · text beside chart -->
+            <article class="idiom idiom--stacked" aria-labelledby="idiom-05-title">
+                <h3 class="idiom-title" id="idiom-05-title"><span class="idiom-num">05</span>Which reasons have different outcomes?</h3>
+                <div class="idiom-text">
+                        <p class="card-kicker">Bubble chart</p>
+                        <h4 class="card-heading">Volume and outcome, reason by reason</h4>
+                        <p>Examine how case volume and documented outcomes vary between rescue reasons. Differences may be
+                            associated with case characteristics and reporting practices, and should not be interpreted as
+                            proof of causation.</p>
+                        <p class="card-note">Use outcome labels exactly as the source defines them. A “positive” outcome is
+                            not necessarily a release.</p>
+                </div>
+                <figure class="chart-card chart-card--full">
+                        <div class="chart-area" id="vis-05-bubble">
+                            <div class="controls" id="bubble-controls" hidden><div id="bubble-year"></div><span class="hint">Hover over a bubble to highlight it. Bubble area shows the number of cases.</span></div>
+                            <p class="summary" id="bubble-summary" hidden></p>
+                            <div id="bubble-chart"><p class="status">Loading chart…</p></div>
+                            <p class="legend-note" id="bubble-note"></p>
+                        </div>
+                    </figure>
+            </article>
+
+            <!-- Idiom 06 · text beside chart -->
+            <article class="idiom idiom--split" aria-labelledby="idiom-06-title">
+                <h3 class="idiom-title" id="idiom-06-title"><span class="idiom-num">06</span>How are rescue reason rankings changing?</h3>
+                <div class="idiom-body">
+                    <div class="text-card">
+                        <p class="card-kicker">Bump chart</p>
+                        <h4 class="card-heading">Which reasons are rising or falling?</h4>
+                        <p>Follow the ranking of major rescue reasons across reporting years to identify categories that
+                            become more or less prominent in the recorded data.</p>
+                    </div>
+                    <figure class="chart-card">
+                        <div class="chart-placeholder" id="vis-06-bump">
+                            <!-- Vega-Lite chart container: vegaEmbed("#vis-06-bump", spec) -->
+                            <span class="placeholder-label">06 · Bump chart — chart to be added</span>
+                        </div>
+                    </figure>
+                </div>
+            </article>
+        </section>
+
+        <!-- ============ Section 3 ============ -->
+        <section class="story-section" aria-labelledby="section-3-title">
+            <header class="section-head">
+                <span class="section-number" aria-hidden="true">3</span>
+                <div>
+                    <h2 class="section-title" id="section-3-title">When do rescues happen, and how do outcomes differ?</h2>
+                    <p class="section-subtitle">Comparing regions and species, and following cases after rescue</p>
+                </div>
+            </header>
+
+            <!-- Idiom 07 · text beside chart -->
+            <article class="idiom idiom--split" aria-labelledby="idiom-07-title">
+                <h3 class="idiom-title" id="idiom-07-title"><span class="idiom-num">07</span>Which regions record the most rescues?</h3>
+                <div class="idiom-body">
+                    <div class="text-card">
+                        <p class="card-kicker">Connected dot plot</p>
+                        <h4 class="card-heading">Regional change between two periods</h4>
+                        <p>Compare regional rescue figures across selected years to identify where recorded rescue activity
+                            has increased or decreased.</p>
+                        <p class="card-note">Rate comparisons require an appropriate and consistent population denominator.</p>
+                    </div>
+                    <figure class="chart-card">
+                        <div class="chart-placeholder" id="vis-07-connected-dot">
+                            <!-- Vega-Lite chart container: vegaEmbed("#vis-07-connected-dot", spec) -->
+                            <span class="placeholder-label">07 · Connected dot plot — chart to be added</span>
+                        </div>
+                    </figure>
+                </div>
+            </article>
+
+            <!-- Idiom 08 · explanation first, full-width treemap area -->
+            <article class="idiom idiom--stacked" aria-labelledby="idiom-08-title">
+                <h3 class="idiom-title" id="idiom-08-title"><span class="idiom-num">08</span>Which species are rescued most often?</h3>
+                <div class="idiom-text">
+                    <p class="card-kicker">Treemap</p>
+                    <p>Compare the relative contribution of recorded species to the overall rescue total. Larger
+                        rectangles represent species with more recorded rescues, making the distribution of rescue
+                        activity easier to explore.</p>
+                </div>
+                <figure class="chart-card chart-card--full">
+                    <div class="chart-placeholder chart-placeholder--tall" id="vis-08-treemap">
+                        <!-- Vega-Lite chart container: vegaEmbed("#vis-08-treemap", spec) -->
+                        <span class="placeholder-label">08 · Treemap — chart to be added</span>
+                    </div>
+                </figure>
+            </article>
+
+            <!-- Idiom 09 · text beside chart -->
+            <article class="idiom idiom--split idiom--text-right" aria-labelledby="idiom-09-title">
+                <h3 class="idiom-title" id="idiom-09-title"><span class="idiom-num">09</span>What happens after rescue?</h3>
+                <div class="idiom-body">
+                    <figure class="chart-card">
+                        <div class="chart-placeholder chart-placeholder--tall" id="vis-09-sankey">
+                            <!-- Vega-Lite chart container: Sankey diagram for idiom 09 -->
+                            <span class="placeholder-label">09 · Sankey diagram — chart to be added</span>
+                        </div>
+                    </figure>
+                    <div class="text-card">
+                        <p class="card-kicker">Sankey diagram</p>
+                        <h4 class="card-heading">From rescue category to documented outcome</h4>
+                        <p>Trace recorded cases from their initial rescue category to their documented outcomes, where the
+                            dataset supports these relationships.</p>
+                        <p class="card-note">Flow widths should represent counts, with missing and ongoing cases handled
+                            transparently.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- ============ Section 4 ============ -->
+        <section class="story-section" aria-labelledby="section-4-title">
+            <header class="section-head">
+                <span class="section-number" aria-hidden="true">4</span>
+                <div>
+                    <h2 class="section-title" id="section-4-title">What does the data reveal about species and rehabilitation outcomes?</h2>
+                    <p class="section-subtitle">Exploring trends by species group, less common species and documented outcomes</p>
+                </div>
+            </header>
+
+            <!-- Idiom 10 and 11 · two related idioms side by side -->
+            <div class="idiom-pair">
+                <article class="idiom idiom--pair-item" aria-labelledby="idiom-10-title">
+                    <h3 class="idiom-title" id="idiom-10-title"><span class="idiom-num">10</span>Do rescue patterns differ by species group?</h3>
+                    <div class="idiom-text">
+                        <p class="card-kicker">Small multiples</p>
+                        <p>Display separate, consistently formatted trend charts for selected species groups to make
+                            similarities and differences in recorded rescue patterns easier to identify.</p>
+                    </div>
+                    <figure class="chart-card">
+                        <div class="chart-placeholder chart-placeholder--tall" id="vis-10-small-multiples">
+                            <!-- Vega-Lite chart container: vegaEmbed("#vis-10-small-multiples", spec) -->
+                            <span class="placeholder-label">10 · Small multiples — chart to be added</span>
+                        </div>
+                    </figure>
+                </article>
+
+                <article class="idiom idiom--pair-item" aria-labelledby="idiom-11-title">
+                    <h3 class="idiom-title" id="idiom-11-title"><span class="idiom-num">11</span>Which species have the lowest rescue counts?</h3>
+                    <div class="idiom-text">
+                        <p class="card-kicker">Lollipop chart</p>
+                        <p>Rank selected species by recorded rescue counts to highlight less frequently recorded groups.</p>
+                        <p class="card-note">Low counts do not necessarily mean low conservation risk. Rare records may reflect
+                            reporting or data-availability limitations.</p>
+                    </div>
+                    <figure class="chart-card">
+                        <div class="chart-placeholder" id="vis-11-lollipop">
+                            <!-- Vega-Lite chart container: vegaEmbed("#vis-11-lollipop", spec) -->
+                            <span class="placeholder-label">11 · Lollipop chart — chart to be added</span>
+                        </div>
+                    </figure>
+                </article>
+            </div>
+
+            <!-- Idiom 12 · explanation first, full-width waffle area -->
+            <article class="idiom idiom--stacked" aria-labelledby="idiom-12-title">
+                <h3 class="idiom-title" id="idiom-12-title"><span class="idiom-num">12</span>What proportion of rescued animals reach each outcome?</h3>
+                <div class="idiom-text">
+                    <p class="card-kicker">Waffle chart</p>
+                    <p>Summarise the proportion of recorded cases associated with each documented outcome.</p>
+                    <p class="card-note">Make the denominator explicit, and separate released animals from transferred,
+                        ongoing, deceased, euthanised or unknown outcomes where these categories are available.</p>
+                </div>
+                <figure class="chart-card chart-card--full">
+                    <div class="chart-placeholder" id="vis-12-waffle">
+                        <!-- Vega-Lite chart container: vegaEmbed("#vis-12-waffle", spec) -->
+                        <span class="placeholder-label">12 · Waffle chart — chart to be added</span>
+                    </div>
+                </figure>
+            </article>
+        </section>
+
+        <!-- ============ Footer ============ -->
+        <footer class="story-footer">
+            <p class="footer-meta">FIT3179 · Data Visualisation 2 &nbsp;|&nbsp; Wildlife Rescue &amp; Rehabilitation in NSW</p>
+            <h2 class="footer-heading">Data sources and acknowledgements</h2>
+            <ul class="source-list">
+                <!-- Add verified sources here: dataset name, publisher, publication date and URL. -->
+            </ul>
+        </footer>
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <main>
-        <header>
-            <p class="kicker">FIT3179 Data Visualisation 2</p>
-            <h1>Wildlife Rescue in NSW</h1>
-            <p class="subtitle">Where rescues happen, and what brings animals into care</p>
-        </header>
-
-        <!-- Section 1: map first -->
-        <section class="idiom section" aria-labelledby="idiom01-title">
-            <h2 class="idiom-title" id="idiom01-title">Where are rescues happening?</h2>
-            <p class="subtitle">Wildlife rescue and rehabilitation across New South Wales</p>
-
-            <div class="panel">
-                <div class="controls">
-                    <div id="fy-control"></div>
-                    <span class="hint">Hover over an area to see its numbers. Click an area or bar to highlight it, and double-click to clear.</span>
-                </div>
-                <p class="summary" id="fy-summary" aria-live="polite"></p>
-                <div class="map-legend" id="map-legend" aria-label="Colour key"></div>
-                <div id="map">
-                    <p class="status" id="map-status">Loading map…</p>
-                </div>
-                <p class="legend-note" id="fy-gaps"></p>
-
-                <div class="caution">
-                    <h3>Things to keep in mind</h3>
-                    <ul>
-                        <li>More rescues does not mean an area is more dangerous for wildlife. The numbers also depend on
-                            how many people live there, how much bushland there is, and whether a rescue group is nearby.</li>
-                        <li>The map shows the number of rescues, not a rate. Dividing by population or land area would
-                            measure something different, so I have left the counts as they are.</li>
-                        <li>The colour groups stay the same for every year, so you can compare years fairly.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <footer class="note">
-                <h2>Data sources</h2>
-                <p>
-                    Rescue numbers come from the
-                    <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/native-animals/rehabilitating-native-animals/wildlife-rehabilitation-data-and-reporting/wildlife-rehabilitation-data-dashboard">NSW Wildlife Rehabilitation Data Dashboard</a>
-                    (NSW Department of Climate Change, Energy, the Environment and Water). They cover native birds, mammals,
-                    reptiles and amphibians rescued by licensed groups from 2013–14 to 2024–25. The dashboard was last
-                    updated on 26 May 2026 and the numbers were downloaded on 15 October 2026.
-                </p>
-                <p>
-                    These numbers do not match the
-                    <a href="https://www.environment.nsw.gov.au/publications/nsw-wildlife-rehabilitation-annual-report-2023-25">NSW Wildlife Rehabilitation Annual Report 2023–25</a>.
-                    For example, the report says Tweed had 6,080 rescues in 2023–24, but the dashboard shows 3,155.
-                    The report's state totals (122,258 and 145,110) are also higher than the dashboard's (107,202 and 119,646).
-                    The two seem to use different versions of the data, so the numbers on this page are dashboard numbers.
-                </p>
-                <p>
-                    Council boundaries are from NSW Spatial Services (132 local government areas).
-                </p>
-            </footer>
-        </section>
-
-        <!-- Section 2: reasons bar chart below the map -->
-        <section class="idiom section" aria-labelledby="idiom02-title">
-            <h2 class="idiom-title" id="idiom02-title">What brings animals into care?</h2>
-            <p class="subtitle">The most common reasons wildlife are rescued in NSW</p>
-
-            <div class="panel">
-                <div class="controls" id="reasons-controls" hidden>
-                    <div id="reasons-year"></div>
-                </div>
-                <p class="summary" id="reasons-summary" hidden></p>
-                <div id="reasons-chart">
-                    <p class="status" id="reasons-status">Loading chart…</p>
-                </div>
-                <p class="legend-note" id="reasons-note">Reporting period: not available yet.</p>
-            </div>
-
-            <footer class="note">
-                <h2>About this chart</h2>
-                <p>
-                    The reason categories come from the NSW record sheet for fauna rehabilitators
-                    (the “Encounter Type” sheet in the 2026–27 template). Each rescue is recorded with one reason.
-                </p>
-                <p>
-                    Bars are sorted from most to least rescues for the chosen year. The file does not include the
-                    “unknown” reason, which the NSW report says covers 49% of 2022–23 rescues, so the bars do not
-                    add up to all rescues and no share is shown.
-                </p>
-                <p>
-                    Figures match the NSW Wildlife Rehabilitation Annual Report 2022–23 (reasons for rescue, PDF page 15).
-                </p>
-            </footer>
-        </section>
-
-<section class="idiom section" aria-labelledby="idiom03-title">
-            <h2 class="idiom-title" id="idiom03-title">When do wildlife rescues peak?</h2>
-            <p class="subtitle">Monthly rescues by animal group, to see how seasonality differs between birds, mammals and reptiles</p>
-
-            <div class="panel">
-                <div class="controls" id="season-controls" hidden>
-                    <div id="season-year"></div>
-                    <span class="hint">Hover over a point to see its month, group and count. Pick a single year, or keep the six-year average.</span>
-                </div>
-                <p class="summary" id="season-summary" hidden></p>
-                <div id="seasonality-chart">
-                    <p class="status" id="seasonality-status">Loading chart…</p>
-                </div>
-                <p class="legend-note" id="season-note"></p>
-
-                <div class="caution">
-                    <h3>What the data shows</h3>
-                    <ul>
-                        <li><b>Birds peak in spring and early summer.</b> November is the highest month for birds on average. Across all
-                            rescues, September to November made up 31–35% of each year.</li>
-                        <li><b>Reptiles peak in January</b> on average (about 13% of their rescues), and are lowest in July.</li>
-                        <li><b>Mammals do not have a stable peak.</b> The highest month changes from year to year (September, October,
-                            February, January and August across the six years), so no single season stands out.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <footer class="note">
-                <h2>Data source and limitations</h2>
-                <p>
-                    Data come from supplementary file S7 (<code>pone.0257209.s007.xlsx</code>) of
-                    Kwok et al. (2021), PLoS ONE, <a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>.
-                    They cover financial years 2013–14 to 2018–19 and are historical. They are <b>not</b> current NSW statistics.
-                </p>
-                <p>
-                    <b>Animal groups.</b> The source reports 42 sub-groups. They are grouped as follows:
-                    <b>Birds</b> = cuckoos, diurnal birds of prey, emu, herons and allies, honeyeaters, kingfishers, marine birds,
-                    other aquatic birds, other birds, owls/nightjars/frogmouths, parrots, passerines, pigeons and doves;
-                    <b>Mammals</b> = bandicoots/bettongs/potoroos, echidna, feathertail glider, flying-foxes, koala, large gliders,
-                    large kangaroos, marsupial dasyurid, microbats, platypus, possums, rodents, small macropods, unknown macropod,
-                    unknown mammals, wombat; <b>Reptiles</b> = bearded dragons and blue tongues, freshwater turtle, geckoes,
-                    large reptiles and monitors, small skinks and lizards, snakes (others and pythons), unidentified turtle/tortoise.
-                </p>
-                <p>
-                    Counts are sums of sub-groups, so groups do not overlap. The source's “Not recorded” rows (no month) are left out.
-                    The “Average” option is the mean of each year’s monthly count, not a combined total. Monthly values are
-                    rescue counts, not rates, so differences in population or search effort are not adjusted for.
-                </p>
-                <p>
-                    Cleaned data: <code>data/rescue_monthly_by_group.csv</code> (financial year, month, animal group, sub-group, count).
-                </p>
-            </footer>
-        </section>
-        <section class="idiom section" aria-labelledby="idiom04-title">
-            <p class="kicker">Idiom 04</p>
-            <h2 class="idiom-title" id="idiom04-title">Which threats peak when?</h2>
-            <p class="subtitle">Rescue reasons by calendar month, across the six-year source period</p>
-
-            <div class="panel">
-                <div class="controls" id="heatmap-controls" hidden>
-                    <div id="heatmap-group"></div>
-                    <span class="hint">Hover over a cell to see the reason, month and count. Choose one animal group or all classes.</span>
-                </div>
-                <p class="summary" id="heatmap-summary" hidden></p>
-                <div id="heatmap-chart">
-                    <p class="status" id="heatmap-status">Loading heatmap…</p>
-                </div>
-                <p class="legend-note" id="heatmap-note"></p>
-
-                <div class="caution">
-                    <h3>What the heatmap shows</h3>
-                    <ul>
-                        <li><b>Abandoned or orphaned animals peak from October to December</b> (about 6,100–7,700 rescues a month across all
-                            groups), mostly birds. The count is lowest in mid-year.</li>
-                        <li><b>Vehicle collisions are highest from July to October</b>, peaking in August at 5,248 rescues. Mammals drive
-                            most of the July–September rise.</li>
-                        <li><b>Do not read this as complete seasonality.</b> “Unknown” causes make up 54% of all rescues, and they are not
-                            shown here. The source does not give years, so the pattern is for the whole period combined.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <footer class="note">
-                <h2>Data source and limitations</h2>
-                <p>
-                    Data come from supplementary file S8 (<code>pone.0257209.s008.xlsx</code>) of
-                    Kwok et al. (2021), PLoS ONE, <a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>.
-                    The data are historical and are <b>not</b> current NSW statistics.
-                </p>
-                <p>
-                    Cleaned data: <code>data/rescue_reasons_by_month.csv</code> (animal group, reason, month, count). Each row is one cause
-                    for one animal group in one month. The “total” rows in the source are left out so nothing is counted twice, and the
-                    group rows were checked against those totals for every month. “All classes” adds the three groups together.
-                </p>
-                <p>
-                    Left out: the “Unknown” cause (150,015 + 73,120 + 29,383 = 252,518 rescues), and the “No month reported” column.
-                    Blank cells in the source are treated as not reported, not zero.
-                </p>
-                <p>
-                    To view the heatmap, open this page with a local server such as VS Code Live Server.
-                    It will not load if you open the file directly.
-                </p>
-            </footer>
-        </section>
-        <section class="idiom section" aria-labelledby="idiom05-title">
-            <h2 class="idiom-title" id="idiom05-title">More Rescues, Better Outcomes?</h2>
-            <p class="subtitle">Explore how reported rescue reasons differ in volume and outcome.</p>
-
-            <div class="panel">
-                <div class="controls" id="bubble-controls" hidden>
-                    <div id="bubble-year"></div>
-                    <span class="hint">Hover over a bubble to highlight it. Bubble area shows the number of cases.</span>
-                </div>
-                <p class="summary" id="bubble-summary" hidden></p>
-                <div id="bubble-chart">
-                    <p class="status" id="bubble-status">Loading chart…</p>
-                </div>
-                <p class="legend-note" id="bubble-note"></p>
-
-                <div class="caution">
-                    <h3>What the chart shows</h3>
-                    <ul>
-                        <li><b>Abandoned/Orphaned is the largest reason in every year</b> (22.6–26.4% of cases). Its positive share
-                            stays between 60.6% and 65.9%.</li>
-                        <li><b>Disease has the lowest positive share</b> among reasons with at least 100 cases in every year (8.2–14.1%).</li>
-                        <li><b>The highest shares come from small categories.</b> In 2017–18 and 2018–19, Nuisance reached 92–97%, but on only
-                            115–117 cases. Volume and outcome do not show a consistent pattern.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <footer class="note">
-                <h2>Data source, definitions and limitations</h2>
-                <p>
-                    Data come from supplementary file S9 (<code>journal.pone.0257209.s009.xlsx</code>) of
-                    Kwok et al. (2021), PLoS ONE, <a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>.
-                    The data are historical and are <b>not</b> current NSW statistics.
-                </p>
-                <p>
-                    <b>Definitions.</b> The workbook reports “Negative” and “Positive” shares of each reason’s rescues. It does not define
-                    them, so this chart uses the labels as given and does not treat “Positive” as a release rate.
-                </p>
-                <p>
-                    <b>Denominator.</b> Every percentage uses the number of rescues shown in the same row of S9 (the “Number of rescues” column).
-                    The bubble x-axis uses that same count. S4 reports different rescue counts for birds (for example 3,216 vs 2,691 for
-                    Abandoned/Orphaned in 2013–14). The workbooks do not explain the difference, so the two are not combined.
-                </p>
-                <p>
-                    <b>Coverage.</b> S9 covers Birds only, so the colour shows a single animal group. The “Unknown” reason is not plotted.
-                    The workbook gives no separate counts for missing or ongoing outcomes. The S9 cause rows sum to its Birds total,
-                    and each row’s Negative and Positive shares add to 100%.
-                </p>
-                <p>
-                    Cleaned data: <code>data/rescue_fate_by_reason_year.csv</code> (one row per reason and year, with the S4 birds count
-                    for reference only).
-                </p>
-                <p>
-                    To view the chart, open this page with a local server such as VS Code Live Server.
-                    It will not load if you open the file directly.
-                </p>
-            </footer>
-        </section>
-    </main>
-
     <script src="js/idiom01-map.js"></script>
     <script src="js/idiom02-reasons.js"></script>
     <script src="js/idiom03-seasonality.js"></script>
