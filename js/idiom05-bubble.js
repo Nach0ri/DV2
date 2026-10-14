@@ -4,7 +4,7 @@
 //  - Single years: Birds only, from supplementary file S9 (no year-level outcomes exist for mammals or reptiles).
 // Outcome definitions (Kwok et al. 2021): Died = dead, died or euthanased; Survived = released, left and observed,
 // relocated, or permanent care. In S9, "Negative" = died and "Positive" = survived; checked against Table 10
-// (identical case counts; died shares agree to within 0.1 percentage points for all 15 bird causes compared).
+// (identical case counts; died shares agree to within 0.1 percentage points for all 19 bird causes, excluding Unknown).
 // Denominator for every percentage: total rescues for that reason, group and period. Unknown cause is not shown.
 (async function () {
     const DATA_URL = "data/rescue_outcomes_comparison.csv";
@@ -89,7 +89,7 @@
         const flagged = labelsFor(pool);
         const data = pool.map(r => ({
             ...r,
-            label: flagged.has(r) ? `${r.reason} (${r.animal_group})` : "",
+            label: flagged.has(r) ? r.reason : "",
             period_label: isAll ? "2013–14 to 2018–19" : showYear(r.period),
             definition: DEF
         }));
@@ -104,7 +104,7 @@
                 {
                     mark: { type: "circle", stroke: "#25332F", strokeWidth: 0.6, opacity: 0.8 },
                     encoding: {
-                        x: { field: "cases", type: "quantitative", title: "Total rescues for this reason and group (denominator)", scale: { zero: true, padding: 60 }, axis: { format: ",d", grid: false, labelFontSize: 11, titleFontSize: 12 } },
+                        x: { field: "cases", type: "quantitative", title: "Total rescues for this reason and group (denominator)", scale: { zero: true, padding: 110 }, axis: { format: ",d", grid: false, labelFontSize: 11, titleFontSize: 12 } },
                         y: { field: "died", type: "quantitative", title: "Died (% of rescues)", scale: { domain: [0, 100] }, axis: { format: "d", grid: true, tickCount: 6, labelFontSize: 11, titleFontSize: 12 } },
                         size: { field: "cases", type: "quantitative", title: "Rescues (bubble area)", scale: { type: "sqrt", range: [30, 1500], zero: true }, legend: { orient: "bottom", direction: "horizontal", titleFontSize: 11, labelFontSize: 10, format: ",d", values: [100, 1000, 10000] } },
                         color: {
