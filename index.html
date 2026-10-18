@@ -258,16 +258,17 @@
                 </article>
 
                 <article class="idiom idiom--pair-item" aria-labelledby="idiom-11-title">
-                    <h3 class="idiom-title" id="idiom-11-title"><span class="idiom-num">11</span>Which species have the lowest rescue counts?</h3>
+                    <h3 class="idiom-title" id="idiom-11-title"><span class="idiom-num">11</span>Which animal sub-groups have the lowest rescue counts?</h3>
                     <div class="idiom-text">
-                        <p>Rank selected species by recorded rescue counts to highlight less frequently recorded groups.</p>
+                        <p>Rank the least frequently recorded animal sub-groups, from 2013–14 to 2018–19, to show how recorded counts differ.</p>
                         <p class="card-note">Low counts do not necessarily mean low conservation risk. Rare records may reflect
                             reporting or data-availability limitations.</p>
                     </div>
                     <figure class="chart-card">
-                        <div class="chart-placeholder" id="vis-11-lollipop">
-                            <!-- Vega-Lite chart container: vegaEmbed("#vis-11-lollipop", spec) -->
-                            <span class="placeholder-label">11 · Lollipop chart — chart to be added</span>
+                        <div class="chart-area" id="vis-11-lollipop">
+                            <p class="summary" id="lp-insight" hidden></p>
+                            <div id="lollipop-chart"><p class="status">Loading chart…</p></div>
+                            <p class="legend-note" id="lp-note"></p>
                         </div>
                     </figure>
                 </article>
@@ -301,7 +302,7 @@
                 <li>
                     <a href="https://doi.org/10.1371/journal.pone.0257209">Kwok, A. B. C., Haering, R., Travers, S. K., &amp; Stathis, P. (2021). Trends in wildlife rehabilitation rescues and animal fate across a six-year period in New South Wales, Australia.</a>
                     <span class="src-meta">PLOS ONE. Records 2013–14 to 2018–19. Supplementary files S4, S7, S8, S9 and Table 10.</span>
-                    <span class="src-use">Used in: 03 (S7), 04 (S8), 05 (S9), 06 (S4), 09 (Table 10), 10 (S7).</span>
+                    <span class="src-use">Used in: 03 (S7), 04 (S8), 05 (S9), 06 (S4), 09 (Table 10), 10 (S7), 11 (S7).</span>
                 </li>
                 <li>
                     <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/native-animals/rehabilitating-native-animals/wildlife-rehabilitation-data-and-reporting/wildlife-rehabilitation-data-dashboard">NSW Wildlife Rehabilitation Data Dashboard</a>
@@ -339,5 +340,6 @@
     <script src="js/idiom07-dotplot.js"></script>
     <script src="js/idiom09-sankey.js"></script>
     <script src="js/idiom10-small-multiples.js"></script>
+    <script src="js/idiom11-lollipop.js"></script>
 </body>
 </html>

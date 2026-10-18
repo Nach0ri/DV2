@@ -205,7 +205,8 @@ footer.note p {
 #heatmap-chart,
 #bubble-chart,
 #outcomes-chart,
-#small-multiples-chart { width: 100%; }
+#small-multiples-chart,
+#lollipop-chart { width: 100%; }
 
 .placeholder {
     padding: 24px;
