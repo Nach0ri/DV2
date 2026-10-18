@@ -633,3 +633,62 @@ footer.note p {
     .wf-layout { grid-template-columns: minmax(0, 1fr); gap: 18px; }
     .wf-grid { max-width: 280px; }
 }
+
+/* ---------- Key findings (end of page) ---------- */
+.findings-section .section-head { margin-bottom: 24px; }
+.findings-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+.finding-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 22px 20px 18px;
+    background: var(--stone-card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+}
+.finding-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    margin-bottom: 4px;
+}
+.finding-icon svg { width: 24px; height: 24px; }
+.finding-icon--teal { color: #176B60; background: #E3EEEA; }
+.finding-icon--blue { color: #397DA5; background: #E2EEF4; }
+.finding-icon--ochre { color: #B07C22; background: #F7EEDB; }
+.finding-icon--terracotta { color: #C66B4E; background: #F6E6DF; }
+.finding-heading {
+    margin: 0;
+    font-size: 1.02rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #25332F;
+}
+.finding-card p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink);
+}
+.finding-ref {
+    margin-top: auto;
+    padding-top: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #176B60;
+    text-decoration: none;
+}
+.finding-ref:hover { text-decoration: underline; }
+@media (max-width: 960px) {
+    .findings-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 680px) {
+    .findings-grid { grid-template-columns: minmax(0, 1fr); }
+}
