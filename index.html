@@ -278,14 +278,15 @@
             <article class="idiom idiom--stacked" aria-labelledby="idiom-12-title">
                 <h3 class="idiom-title" id="idiom-12-title"><span class="idiom-num">12</span>What proportion of rescued animals reach each outcome?</h3>
                 <div class="idiom-text">
-                    <p>Summarise the proportion of recorded cases associated with each documented outcome.</p>
-                    <p class="card-note">Make the denominator explicit, and separate released animals from transferred,
-                        ongoing, deceased, euthanised or unknown outcomes where these categories are available.</p>
+                    <p>Share of recorded rescues in each outcome category, for Birds, Mammals and Reptiles combined, 2013–14 to 2018–19.</p>
+                    <p class="card-note">Categories are the source’s own. “Released” is not the same as surviving: “Left and observed”
+                        and “Permanent/long term care” are separate categories in the source.</p>
                 </div>
                 <figure class="chart-card chart-card--full">
-                    <div class="chart-placeholder" id="vis-12-waffle">
-                        <!-- Vega-Lite chart container: vegaEmbed("#vis-12-waffle", spec) -->
-                        <span class="placeholder-label">12 · Waffle chart — chart to be added</span>
+                    <div class="chart-area" id="vis-12-waffle">
+                        <p class="summary" id="wf-insight" hidden></p>
+                        <div id="waffle-chart"><p class="status">Loading chart…</p></div>
+                        <p class="legend-note" id="wf-note"></p>
                     </div>
                 </figure>
             </article>
@@ -301,8 +302,8 @@
             <ol class="source-list">
                 <li>
                     <a href="https://doi.org/10.1371/journal.pone.0257209">Kwok, A. B. C., Haering, R., Travers, S. K., &amp; Stathis, P. (2021). Trends in wildlife rehabilitation rescues and animal fate across a six-year period in New South Wales, Australia.</a>
-                    <span class="src-meta">PLOS ONE. Records 2013–14 to 2018–19. Supplementary files S4, S7, S8, S9 and Table 10.</span>
-                    <span class="src-use">Used in: 03 (S7), 04 (S8), 05 (S9), 06 (S4), 09 (Table 10), 10 (S7), 11 (S7).</span>
+                    <span class="src-meta">PLOS ONE. Records 2013–14 to 2018–19. Supplementary files S4, S7, S8, S9; Tables 8 and 10.</span>
+                    <span class="src-use">Used in: 03 (S7), 04 (S8), 05 (S9, Table 8), 06 (S4), 09 (Table 10), 10 (S7), 11 (S7), 12 (Table 8).</span>
                 </li>
                 <li>
                     <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/native-animals/rehabilitating-native-animals/wildlife-rehabilitation-data-and-reporting/wildlife-rehabilitation-data-dashboard">NSW Wildlife Rehabilitation Data Dashboard</a>
@@ -341,5 +342,6 @@
     <script src="js/idiom09-sankey.js"></script>
     <script src="js/idiom10-small-multiples.js"></script>
     <script src="js/idiom11-lollipop.js"></script>
+    <script src="js/idiom12-waffle.js"></script>
 </body>
 </html>

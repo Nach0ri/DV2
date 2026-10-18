@@ -607,3 +607,29 @@ footer.note p {
 .group-summary .card-kicker { margin-bottom: 4px; }
 .group-summary .legend-note { margin-top: 8px; }
 #group-summary { width: 100%; }
+
+/* ---------- Idiom 12: waffle chart ---------- */
+#waffle-chart { width: 100%; }
+.wf-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+.wf-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 3px;
+    width: 100%;
+    max-width: 340px;
+}
+.wf-cell { display: block; aspect-ratio: 1 / 1; border-radius: 2px; }
+.wf-legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.wf-legend li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--ink); }
+.wf-swatch { flex: 0 0 14px; height: 14px; margin-top: 3px; border-radius: 2px; }
+.wf-label { line-height: 1.45; }
+.wf-label b { font-weight: 600; }
+@media (max-width: 680px) {
+    .wf-layout { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+    .wf-grid { max-width: 280px; }
+}
