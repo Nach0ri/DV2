@@ -204,7 +204,8 @@ footer.note p {
 #seasonality-chart,
 #heatmap-chart,
 #bubble-chart,
-#outcomes-chart { width: 100%; }
+#outcomes-chart,
+#small-multiples-chart { width: 100%; }
 
 .placeholder {
     padding: 24px;
