@@ -1,8 +1,8 @@
 // Idiom 08: Which animal sub-groups are rescued most often?
 // Two-level treemap: animal group (Birds, Mammals, Reptiles) containing its sub-groups.
 // Data: data/rescue_monthly_by_group.csv = Kwok et al. (2021), supplementary file S7, 2013–14 to 2018–19.
-// Each rectangle's area is proportional to its rescue count. "Unknown" and "Unidentified" sub-groups are kept
-// (grey) so the areas add up to every rescue in S7. Sub-groups are not individual species.
+// Each rectangle's area is proportional to its rescue count. "Unknown" and "Unidentified" sub-groups are excluded
+// before the total is taken. Sub-groups are not individual species.
 (async function () {
     const DATA_URL = "data/rescue_monthly_by_group.csv";
     const chartEl = document.getElementById("treemap-chart");
@@ -11,7 +11,6 @@
     const tooltip = document.getElementById("tm-tooltip");
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
     const COLOUR = { Birds: "#397DA5", Mammals: "#D49A38", Reptiles: "#176B60" }; // project palette
-    const UNKNOWN_FILL = "#C9CFCB";
     const TEXT_ON = { Birds: "#FFFFFF", Mammals: "#25332F", Reptiles: "#FFFFFF" };
     const BAND = 24;   // height of the group label band
     const GAP = 1.5;   // white gap between rectangles
@@ -53,10 +52,13 @@
     if ([iY, iG, iS, iC].some(i => i < 0)) { showUnavailable(`The file <code>${DATA_URL}</code> is missing expected columns.`); return; }
 
     // Sum every month and year for each sub-group. Blank counts are skipped, never treated as zero.
+    // "Unknown" and "Unidentified" sub-groups are not categories, so they are left out and counted separately.
     const sub = new Map();
     const periods = new Set();
+    let excluded = 0;
     for (const r of body) {
         if (!GROUPS.includes(r[iG]) || !/^\d+$/.test(r[iC])) continue;
+        if (UNKNOWN.test(r[iS])) { excluded += Number(r[iC]); continue; }
         periods.add(r[iY]);
         const key = `${r[iG]}|${r[iS]}`;
         sub.set(key, (sub.get(key) || 0) + Number(r[iC]));
@@ -67,7 +69,7 @@
     const groups = GROUPS.map(g => {
         const leaves = [...sub.entries()]
             .filter(([k]) => k.startsWith(g + "|"))
-            .map(([k, v]) => ({ name: k.split("|")[1], group: g, value: v, unknown: UNKNOWN.test(k.split("|")[1]) }))
+            .map(([k, v]) => ({ name: k.split("|")[1], group: g, value: v }))
             .sort((a, b) => b.value - a.value);
         return { name: g, value: leaves.reduce((s, l) => s + l.value, 0), children: leaves };
     }).filter(g => g.children.length > 0);
@@ -150,8 +152,8 @@
             const leafArea = inner.w * inner.h;
             const leaves = squarify(g.children.map(c => ({ ...c, area: (c.value / g.value) * leafArea })), inner.x, inner.y, inner.w, inner.h);
             for (const l of leaves) {
-                const fill = l.unknown ? UNKNOWN_FILL : COLOUR[g.name];
-                const textFill = l.unknown ? "#25332F" : TEXT_ON[g.name];
+                const fill = COLOUR[g.name];
+                const textFill = TEXT_ON[g.name];
                 const r = el("rect", {
                     x: l.x + GAP / 2, y: l.y + GAP / 2,
                     width: Math.max(0, l.w - GAP), height: Math.max(0, l.h - GAP),
@@ -220,7 +222,7 @@
             `Source: Kwok, A. B. C., Haering, R., Travers, S. K., &amp; Stathis, P. (2021). <i>PLOS ONE</i>, supplementary file S7 ` +
             `(<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), rescues ${periodText}. ` +
             `Project aggregation for this chart: each sub-group’s monthly counts summed over all months and years; areas are proportional to those totals. ` +
-            `Percentages use the ${fmt(total)} rescues in S7 as the denominator. Grey tiles are the “Unknown” or “Unidentified” sub-groups as recorded. ` +
+            `Percentages use the ${fmt(total)} rescues with a named sub-group as the denominator. ${fmt(excluded)} rescues recorded as “Unknown” or “Unidentified” sub-groups are excluded. ` +
             `Sub-groups are not all single species. Not combined with Table 10 or S9.`;
     } catch (err) {
         console.error(err);
