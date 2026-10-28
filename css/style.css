@@ -692,3 +692,24 @@ footer.note p {
 @media (max-width: 680px) {
     .findings-grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* ---------- Idiom 08: treemap ---------- */
+#treemap-chart { width: 100%; }
+.tm-tooltip {
+    position: absolute;
+    z-index: 5;
+    max-width: 240px;
+    padding: 8px 10px;
+    background: #25332F;
+    color: #F5F7F2;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.45;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+.tm-tooltip[hidden] { display: none; }
+.tm-tip-muted { opacity: 0.8; font-size: 12px; }
+.tm-leaf { cursor: default; outline: none; }
+.tm-leaf:hover,
+.tm-leaf:focus { stroke: #25332F; stroke-width: 2; }

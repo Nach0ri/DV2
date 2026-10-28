@@ -201,16 +201,18 @@
 
             <!-- Idiom 08 · explanation first, full-width treemap area -->
             <article class="idiom idiom--stacked" aria-labelledby="idiom-08-title">
-                <h3 class="idiom-title" id="idiom-08-title"><span class="idiom-num">08</span>Which species are rescued most often?</h3>
+                <h3 class="idiom-title" id="idiom-08-title"><span class="idiom-num">08</span>Which animal sub-groups are rescued most often?</h3>
                 <div class="idiom-text">
-                    <p>Compare the relative contribution of recorded species to the overall rescue total. Larger
-                        rectangles represent species with more recorded rescues, making the distribution of rescue
-                        activity easier to explore.</p>
+                    <p>Compare how recorded rescues are spread across animal sub-groups within Birds, Mammals and Reptiles,
+                        from 2013–14 to 2018–19. Larger rectangles represent sub-groups with more recorded rescues. Sub-groups
+                        are not all single species.</p>
                 </div>
                 <figure class="chart-card chart-card--full">
-                    <div class="chart-placeholder chart-placeholder--tall" id="vis-08-treemap">
-                        <!-- Vega-Lite chart container: vegaEmbed("#vis-08-treemap", spec) -->
-                        <span class="placeholder-label">08 · Treemap — chart to be added</span>
+                    <div class="chart-area" id="vis-08-treemap">
+                        <p class="summary" id="tm-insight" hidden></p>
+                        <div id="treemap-chart"><p class="status">Loading chart…</p></div>
+                        <div class="tm-tooltip" id="tm-tooltip" hidden></div>
+                        <p class="legend-note" id="tm-note"></p>
                     </div>
                 </figure>
             </article>
@@ -351,7 +353,7 @@
                 <li>
                     <a href="https://doi.org/10.1371/journal.pone.0257209">Kwok, A. B. C., Haering, R., Travers, S. K., &amp; Stathis, P. (2021). Trends in wildlife rehabilitation rescues and animal fate across a six-year period in New South Wales, Australia.</a>
                     <span class="src-meta">PLOS ONE. Records 2013–14 to 2018–19. Supplementary files S4, S7, S8, S9; Tables 8 and 10.</span>
-                    <span class="src-use">Used in: 03 (S7), 04 (S8), 05 (S9, Table 8), 06 (S4), 09 (Table 10), 10 (S7), 11 (S7), 12 (Table 8).</span>
+                    <span class="src-use">Used in: 03 (S7), 04 (S8), 05 (S9, Table 8), 06 (S4), 09 (Table 10), 08 (S7), 10 (S7), 11 (S7), 12 (Table 8).</span>
                 </li>
                 <li>
                     <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/native-animals/rehabilitating-native-animals/wildlife-rehabilitation-data-and-reporting/wildlife-rehabilitation-data-dashboard">NSW Wildlife Rehabilitation Data Dashboard</a>
@@ -391,5 +393,6 @@
     <script src="js/idiom10-small-multiples.js"></script>
     <script src="js/idiom11-lollipop.js"></script>
     <script src="js/idiom12-waffle.js"></script>
+    <script src="js/idiom08-treemap.js"></script>
 </body>
 </html>
