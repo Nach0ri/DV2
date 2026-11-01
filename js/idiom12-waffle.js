@@ -83,13 +83,17 @@
     }
 
     // Squares: largest-remainder rounding so the 100 squares add up exactly.
-    const exact = counts.map(c => (c.n / denom) * SQUARES);
-    const squares = exact.map(Math.floor);
-    let left = SQUARES - squares.reduce((s, v) => s + v, 0);
-    exact.map((v, i) => ({ i, rem: v - Math.floor(v) }))
-        .sort((a, b) => b.rem - a.rem)
-        .slice(0, left)
-        .forEach(({ i }) => squares[i] += 1);
+    function allocate(values, total) {
+        const exact = values.map(v => (v / total) * SQUARES);
+        const out = exact.map(Math.floor);
+        const left = SQUARES - out.reduce((s, v) => s + v, 0);
+        exact.map((v, i) => ({ i, rem: v - Math.floor(v) }))
+            .sort((a, b) => b.rem - a.rem)
+            .slice(0, left)
+            .forEach(({ i }) => out[i] += 1);
+        return out;
+    }
+    const squares = allocate(counts.map(c => c.n), denom);
 
     const pct = c => `${((c.n / denom) * 100).toFixed(1)}%`;
     const fmt = n => n.toLocaleString("en-AU");
@@ -98,21 +102,39 @@
         return (100 * r.n / groupTotal[group]).toFixed(1);
     };
 
-    // Waffle cells, filled row by row from the top left, in the order of the legend.
-    const cells = [];
-    counts.forEach((c, i) => { for (let k = 0; k < squares[i]; k++) cells.push(c); });
+    // One waffle: cells filled row by row from the top left, in the order of the legend.
+    function waffle(sq, cls, label) {
+        const cells = [];
+        CATEGORIES.forEach((c, i) => { for (let k = 0; k < sq[i]; k++) cells.push(c); });
+        return `<div class="wf-grid ${cls}" role="img" aria-label="${label}">` +
+            cells.map(c => `<span class="wf-cell" style="background:${c.colour}" title="${c.name}"></span>`).join("") +
+            `</div>`;
+    }
+
+    // Small multiples: the same 100-square waffle for each animal group, using that group's own total.
+    const groupPanels = GROUPS.map(g => {
+        const gCounts = CATEGORIES.map(c => (rows.find(r => r.group === g && r.outcome === c.name) || { n: 0 }).n);
+        const gSq = allocate(gCounts, groupTotal[g]);
+        return `<figure class="wf-group">` +
+            `<figcaption><b>${g}</b> <span class="wf-total">${fmt(groupTotal[g])}</span></figcaption>` +
+            waffle(gSq, "wf-grid--small", `${g}: 100 squares, each 1% of ${fmt(groupTotal[g])} recorded rescues`) +
+            `<p class="wf-group-note"><span style="color:#C66B4E">Died ${share(g, "Died")}%</span> · <span style="color:#397DA5">Released ${share(g, "Released")}%</span></p>` +
+            `</figure>`;
+    }).join("");
+
     chartEl.innerHTML =
         `<div class="wf-layout">` +
-        `<div class="wf-grid" role="img" aria-label="Waffle chart: each square is one of 100 equal shares of ${fmt(denom)} recorded rescues">` +
-        cells.map(c => `<span class="wf-cell" style="background:${c.colour}" title="${c.name}"></span>`).join("") +
+        `<figure class="wf-group wf-group--all"><figcaption><b>All groups</b> <span class="wf-total">${fmt(denom)}</span></figcaption>` +
+        waffle(squares, "", `Waffle chart: each square is one of 100 equal shares of ${fmt(denom)} recorded rescues`) +
+        `</figure>` +
+        `<div class="wf-groups">${groupPanels}</div>` +
         `</div>` +
         `<ul class="wf-legend">` +
         counts.map((c, i) =>
             `<li><span class="wf-swatch" style="background:${c.colour}"></span>` +
-            `<span class="wf-label"><b>${c.name}</b><br>${fmt(c.n)} rescues · ${pct(c)} · ${squares[i] === 0 ? "under one square" : `${squares[i]} square${squares[i] === 1 ? "" : "s"}`}</span></li>`
+            `<span class="wf-label"><b>${c.name}</b> ${fmt(c.n)} · ${pct(c)}${squares[i] === 0 ? " (under one square)" : ""}</span></li>`
         ).join("") +
-        `</ul>` +
-        `</div>`;
+        `</ul>`;
 
     insightEl.innerHTML =
         `<b>Died</b> is the largest outcome: ${pct(counts[0])} of ${fmt(denom)} recorded rescues. ` +
@@ -121,10 +143,7 @@
     insightEl.hidden = false;
 
     noteEl.innerHTML =
-        `Source: Kwok et al. (2021), <i>PLOS ONE</i>, Table 8 ` +
-        `(<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), rescues 2013–14 to 2018–19. ` +
-        `Percentages use ${fmt(denom)} recorded rescues across Birds (${fmt(groupTotal.Birds)}), Mammals (${fmt(groupTotal.Mammals)}) and Reptiles (${fmt(groupTotal.Reptiles)}), ` +
-        `the group totals in Table 8. Calculated for this chart: each category’s count ÷ ${fmt(denom)}, shown to one decimal place; ` +
-        `the 100 squares use largest-remainder rounding, so a category under 0.5% can show no square. ` +
-        `“Died” is the source’s category (dead, died or euthanased). Not combined with Table 10 or S9.`;
+        `Source: ${SRC.kwok("Table 8")}, rescues 2013–14 to 2018–19. ` +
+        `Each waffle has 100 squares (1% each) of that group’s recorded rescues, rounded so the squares add to 100; a category under 0.5% can show no square. ` +
+        `Died = dead, died or euthanased.`;
 })();
