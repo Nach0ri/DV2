@@ -222,23 +222,38 @@ body { margin: 0; }
 /* ---------- Idiom blocks ---------- */
 .idiom { margin-top: 16px; margin-bottom: 32px; }
 
+/* Idiom headings: larger and bolder, with the number as a solid badge, one step below section titles. */
 .idiom-title {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 12px;
     margin: 0 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--rule);
     font-family: var(--font-title);
-    font-size: 1.3rem;
-    font-weight: 600;
-    line-height: 1.3;
-    color: var(--ink);
+    font-size: clamp(1.35rem, 2.2vw, 1.6rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    color: var(--forest);
 }
 
 .idiom-num {
     flex: 0 0 auto;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--eucalyptus);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 28px;
+    padding: 0 9px;
+    border-radius: 999px;
+    background: var(--forest);
+    color: #FFFFFF;
+    font-family: var(--font-text);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    font-variant-numeric: tabular-nums;
 }
 
 .idiom-text { max-width: 32em; margin-bottom: 18px; }   /* about 70 characters per line */
