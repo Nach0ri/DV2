@@ -354,7 +354,7 @@ body { margin: 0; }
 .text-card .controls { margin: 14px 0 10px; font-size: 14px; }
 .text-card .hint { font-size: 13px; }
 .text-card .summary { margin: 0; font-size: 14px; }
-.chart-area .legend-note { margin: 0; font-size: 13px; line-height: 1.55; max-width: 42em; }
+.chart-area .legend-note { margin: 0; font-size: 13px; line-height: 1.55; max-width: none; }   /* source notes span the full panel width */
 .chart-area #map { min-height: 380px; }
 
 /* Sources & acknowledgements (footer). */
