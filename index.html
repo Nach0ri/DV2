@@ -8,13 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <!--
-        Chart areas are intentionally empty. When adding a Vega-Lite chart, load:
-        <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
-        Each placeholder's id (vis-01-choropleth, ...) is the container for its chart.
-    -->
 </head>
 <body class="story-page">
     <main class="story">
@@ -88,8 +81,6 @@
                 <div class="idiom-body">
                     <figure class="chart-card">
                         <div class="chart-area" id="vis-03-multiline">
-                            <div class="controls" id="season-controls" hidden><div id="season-year"></div><span class="hint">Hover over a point to see its month, group and count.</span></div>
-                            <p class="summary" id="season-summary" hidden></p>
                             <div id="seasonality-chart"><p class="status">Loading chart…</p></div>
                             <p class="legend-note" id="season-note"></p>
                         </div>
@@ -98,6 +89,8 @@
                         <h4 class="card-heading">Following rescue demand through the year</h4>
                         <p>Compare rescue trends across selected animal groups to investigate when recorded rescue activity
                             rises or falls throughout the year.</p>
+                        <div class="controls" id="season-controls" hidden><div id="season-year"></div><span class="hint">Hover over a point to see its month, group and count.</span></div>
+                        <p class="summary" id="season-summary" hidden></p>
                         <ul class="insight-list" id="season-insights" aria-label="Key patterns in the selected period"></ul>
                     </div>
                 </div>
@@ -352,8 +345,8 @@
             <ol class="source-list">
                 <li>
                     <a href="https://doi.org/10.1371/journal.pone.0257209">Kwok, A. B. C., Haering, R., Travers, S. K., &amp; Stathis, P. (2021). Trends in wildlife rehabilitation rescues and animal fate across a six-year period in New South Wales, Australia.</a>
-                    <span class="src-meta">PLOS ONE. Records 2013–14 to 2018–19. Supplementary files S4, S7, S8, S9; Tables 8 and 10.</span>
-                    <span class="src-use">Used in: 03 (S7), 04 (S8), 05 (S9, Table 8), 06 (S4), 09 (Table 10), 08 (S7), 10 (S7), 11 (S7), 12 (Table 8).</span>
+                    <span class="src-meta">PLOS ONE. Records 2013–14 to 2018–19. Supplementary files S4, S7 and S8; Tables 8 and 10.</span>
+                    <span class="src-use">Used in: 03 (S7), 04 (S8), 05 (Tables 8 and 10), 06 (S4), 08 (S7), 09 (Table 10), 10 (S7), 11 (S7), 12 (Table 8).</span>
                 </li>
                 <li>
                     <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/native-animals/rehabilitating-native-animals/wildlife-rehabilitation-data-and-reporting/wildlife-rehabilitation-data-dashboard">NSW Wildlife Rehabilitation Data Dashboard</a>

@@ -78,7 +78,7 @@
     const spec = {
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         width: "container",
-        height: TOP_N * 26 + 60,
+        height: TOP_N * 22 + 60,
         autosize: { type: "fit-x", contains: "padding" },
         config: { view: { stroke: null }, font: "Atkinson Hyperlegible, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F", domain: false, ticks: false, grid: false } },
         layer: [

@@ -167,7 +167,7 @@ function buildSpec(rows, years) {
             {
                 hconcat: [
                     {
-                        width: 640, height: 450,
+                        width: 668, height: 470,
                         title: { text: "Wildlife rescues by council area", subtitle: "Darker areas had more rescues. Numbers 1 to 5 mark the top five.", anchor: "start" },
                         transform: viewTransforms,
                         projection: projection(NSW_BOX),
@@ -180,7 +180,7 @@ function buildSpec(rows, years) {
                         ]
                     },
                     {
-                        width: 300, height: 360,
+                        width: 312, height: 374,
                         title: { text: "Sydney and Central Coast", subtitle: "Close-up of the dashed box", anchor: "start" },
                         transform: viewTransforms,
                         projection: projection(INSET_BOX),
@@ -189,7 +189,7 @@ function buildSpec(rows, years) {
                 ]
             },
             {
-                width: 860,
+                width: 900,
                 height: { step: 17 },
                 title: {
                     text: "Top 15 council areas",

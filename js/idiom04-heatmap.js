@@ -105,7 +105,6 @@
         let best = null;
         for (const [k, v] of cells) if (!best || v > best.v) best = { k, v };
         const [reason, mn] = best.k.split("|");
-        const monthTotal = pool.filter(r => r.month_number === Number(mn)).reduce((s, r) => s + r.count, 0);
         const groupTotal = pool.reduce((s, r) => s + r.count, 0);
         document.getElementById("heatmap-summary").innerHTML =
             `Largest cell for <b>${group}</b>: <b>${reason}</b> in <b>${MONTHS[Number(mn) - 1]}</b>, ` +
