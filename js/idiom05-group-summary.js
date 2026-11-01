@@ -111,7 +111,7 @@
 
     try {
         chartEl.innerHTML = "";
-        await vegaEmbed(chartEl, spec, { actions: false, renderer: "svg" });
+        await vegaEmbed(chartEl, spec, { actions: false, renderer: "svg", config: window.CHART_TEXT });
         if (noteEl) noteEl.textContent =
             `Full-period summary (2013–14 to 2018–19) from Kwok et al. (2021), Table 8. ` +
             `Totals: Birds ${fmt(rows.find(r => r.animal_group === "Birds").total)}, Mammals ${fmt(rows.find(r => r.animal_group === "Mammals").total)}, ` +

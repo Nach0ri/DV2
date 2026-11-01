@@ -109,6 +109,11 @@
     // One panel per group, stacked vertically with a horizontal title. Each panel is its own chart so the
     // group label sits above it rather than to the side.
     function panel(g, width) {
+        // Annotation: label the peak month on each panel; anchor the label away from the chart edge.
+        const peak = stats.find(s => s.g === g).peak;
+        const m = peak.month_number;
+        const peakLabel = { month_number: m, mean_pct: peak.mean_pct, text: `Peak ${peak.month.slice(0, 3)} · ${peak.mean_pct.toFixed(0)}%` };
+        const align = m >= 10 ? "right" : m <= 2 ? "left" : "center";
         return {
             title: { text: g, anchor: "start", fontSize: 13, fontWeight: 600, color: "#25332F", offset: 6 },
             width,
@@ -119,7 +124,7 @@
                     mark: { type: "area", opacity: 0.2, color: COLOUR[g] },
                     encoding: {
                         x: { field: "month_number", type: "quantitative", scale: { domain: [1, 12] }, axis: { values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], labelExpr: `substring('${LETTERS}', datum.value - 1, datum.value)`, title: null, grid: false, ticks: false, domain: false, labelFontSize: 11, labelOverlap: false } },
-                        y: { field: "min_pct", type: "quantitative", scale: { domain: [0, yMax] }, title: "% of year", axis: { values: [0, 5, 10, 15].filter(v => v <= yMax), grid: true, gridColor: "#edf0f2", domain: false, ticks: false, labelFontSize: 10.5, titleFontSize: 10.5 } },
+                        y: { field: "min_pct", type: "quantitative", scale: { domain: [0, yMax] }, title: "% of year", axis: { values: [0, 5, 10, 15].filter(v => v <= yMax), grid: true, gridColor: "#edf0f2", domain: false, ticks: false, labelFontSize: 11, titleFontSize: 11 } },
                         y2: { field: "max_pct" }
                     }
                 },
@@ -142,6 +147,11 @@
                             { field: "years_n", type: "quantitative", title: "Years averaged" }
                         ]
                     }
+                },
+                {
+                    data: { values: [peakLabel] },
+                    mark: { type: "text", align, dx: align === "right" ? -6 : align === "left" ? 6 : 0, dy: -10, fontSize: 11, fontWeight: 700, color: COLOUR[g] === "#D49A38" ? "#8A611A" : COLOUR[g] },
+                    encoding: { x: { field: "month_number", type: "quantitative" }, y: { field: "mean_pct", type: "quantitative" }, text: { field: "text" } }
                 }
             ]
         };
@@ -159,7 +169,7 @@
 
     async function draw() {
         chartEl.innerHTML = "";
-        await vegaEmbed(chartEl, buildSpec(drawWidth()), { actions: false, renderer: "svg" });
+        await vegaEmbed(chartEl, buildSpec(drawWidth()), { actions: false, renderer: "svg", config: window.CHART_TEXT });
     }
 
     try {
@@ -170,7 +180,7 @@
             timer = setTimeout(() => draw().catch(err => console.error(err)), 200);
         });
         if (noteEl) noteEl.innerHTML =
-            `Source: Kwok, A. B. C., Haering, R., Travers, S. K., &amp; Stathis, P. (2021). <i>PLOS ONE</i>, supplementary file S7 ` +
+            `Source: Kwok et al. (2021), <i>PLOS ONE</i>, supplementary file S7 ` +
             `(<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), rescues 2013–14 to 2018–19. ` +
             `Transformation for this chart: sub-groups summed to each animal group, month and year; each month’s share = that month’s rescues ÷ the group’s rescues in that year. ` +
             `Line = mean of six years; band = lowest to highest year. Only Birds, Mammals and Reptiles appear in S7; not combined with Table 10 or S9.`;

@@ -66,6 +66,8 @@
     const data = rows.map(r => ({
         ...r,
         label: labelled.has(r) ? r.reason : "",
+        // Bubble area shows estimated deaths, so size adds a third variable instead of repeating the x-axis.
+        deaths: Math.round(r.cases * r.died / 100),
         definition: DEF
     }));
 
@@ -82,7 +84,7 @@
                     // Log scale: counts run from 2 to about 25,000, so a linear axis packs most bubbles against the left edge.
                     x: { field: "cases", type: "quantitative", title: "Total rescues for this reason and group (log scale)", scale: { type: "log", domain: [1, maxCases * 2.5] }, axis: { format: ",d", values: [1, 10, 100, 1000, 10000], grid: true, gridColor: "#edf0f2", labelFontSize: 11, titleFontSize: 12 } },
                     y: { field: "died", type: "quantitative", title: "Died (% of rescues)", scale: { domain: [0, 100] }, axis: { format: "d", grid: true, tickCount: 6, labelFontSize: 11, titleFontSize: 12 } },
-                    size: { field: "cases", type: "quantitative", title: "Rescues (bubble area)", scale: { type: "sqrt", range: [30, 1500], zero: true }, legend: { orient: "bottom", direction: "horizontal", titleFontSize: 11, labelFontSize: 10, format: ",d", values: [100, 1000, 10000] } },
+                    size: { field: "deaths", type: "quantitative", title: "Estimated deaths (bubble area)", scale: { type: "sqrt", range: [30, 1500], zero: true }, legend: { orient: "bottom", direction: "horizontal", titleFontSize: 11, labelFontSize: 11, format: ",d", values: [100, 1000, 10000] } },
                     color: {
                         field: "animal_group", type: "nominal", title: "Animal group",
                         scale: { domain: groupsShown, range: groupsShown.map(g => COLOUR[g]) },
@@ -94,6 +96,7 @@
                         { field: "cases", type: "quantitative", title: "Rescues (denominator)", format: ",d" },
                         { field: "died", type: "quantitative", title: "Died (%)", format: ".1f" },
                         { field: "survived", type: "quantitative", title: "Survived (%)", format: ".1f" },
+                        { field: "deaths", type: "quantitative", title: "Estimated deaths", format: ",d" },
                         { field: "definition", type: "nominal", title: "Outcome definitions" }
                     ]
                 }
@@ -120,13 +123,13 @@
         `Among causes with at least ${ADEQUATE} rescues, the highest died share is <b>${hi.reason}</b> (${hi.animal_group}, ${hi.died.toFixed(1)}%) ` +
         `and the lowest is <b>${lo.reason}</b> (${lo.animal_group}, ${lo.died.toFixed(1)}%). These are associated differences, not causes.`;
     document.getElementById("bubble-summary").hidden = false;
-    document.getElementById("bubble-note").textContent =
-        `Source: Kwok et al. (2021), Table 10 (${DATA_URL}), combined reporting period 2013–14 to 2018–19. ${DEF} ` +
-        `Denominator for each percentage: the total rescues shown for that reason and group. Unknown cause is not shown.`;
+    document.getElementById("bubble-note").innerHTML =
+        `Source: ${SRC.kwok("Table 10")}, combined reporting period 2013–14 to 2018–19. ${DEF} ` +
+        `Denominator for each percentage: the total rescues shown for that reason and group. Bubble area = estimated deaths (rescues × published died %, rounded). Unknown cause is not shown.`;
 
     try {
         chartEl.innerHTML = "";
-        await vegaEmbed(chartEl, spec, { actions: false, renderer: "svg" });
+        await vegaEmbed(chartEl, spec, { actions: false, renderer: "svg", config: window.CHART_TEXT });
     } catch (err) {
         console.error(err);
         chartEl.innerHTML = `<p class="status error">Could not draw the chart: ${err.message}</p>`;

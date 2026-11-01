@@ -219,7 +219,7 @@
             timer = setTimeout(draw, 200);
         });
         noteEl.innerHTML =
-            `Source: Kwok, A. B. C., Haering, R., Travers, S. K., &amp; Stathis, P. (2021). <i>PLOS ONE</i>, supplementary file S7 ` +
+            `Source: Kwok et al. (2021), <i>PLOS ONE</i>, supplementary file S7 ` +
             `(<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), rescues ${periodText}. ` +
             `Project aggregation for this chart: each sub-group’s monthly counts summed over all months and years; areas are proportional to those totals. ` +
             `Percentages use the ${fmt(total)} rescues with a named sub-group as the denominator. ${fmt(excluded)} rescues recorded as “Unknown” or “Unidentified” sub-groups are excluded. ` +

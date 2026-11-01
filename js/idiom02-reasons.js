@@ -85,16 +85,16 @@
         document.getElementById("reasons-summary").innerHTML =
             `In <b>${showYear(year)}</b>, the most common reason was <b>${top.reason}</b>, ` +
             `with ${fmt(top.rescue_count)} rescues.`;
-        document.getElementById("reasons-note").textContent =
+        document.getElementById("reasons-note").innerHTML =
             `Reporting period: ${showYear(years[0])}${years.length > 1 ? " to " + showYear(years[years.length - 1]) : ""}. ` +
-            `Source: ${REASONS_URL}. Rescues with an unknown reason are not included.`;
+            `Source: ${SRC.report2223}. Rescues with an unknown reason are not included.`;
     }
 
     try {
         document.getElementById("reasons-chart").innerHTML = "";
         document.getElementById("reasons-controls").hidden = false;
         document.getElementById("reasons-summary").hidden = false;
-        const { view } = await vegaEmbed("#reasons-chart", spec, { actions: false, renderer: "svg" });
+        const { view } = await vegaEmbed("#reasons-chart", spec, { actions: false, renderer: "svg", config: window.CHART_TEXT });
         updateSummary(view.signal("reason_year"));
         view.addSignalListener("reason_year", (_, year) => updateSummary(year));
     } catch (err) {

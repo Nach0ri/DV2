@@ -113,6 +113,36 @@
                         { field: "period", type: "nominal", title: "Financial year" }
                     ]
                 }
+            },
+            {
+                // White halo under the peak labels so they stay readable where lines cross.
+                transform: [
+                    { joinaggregate: [{ op: "max", field: "count", as: "group_max" }], groupby: ["animal_group"] },
+                    { filter: "datum.count === datum.group_max" },
+                    { calculate: "'Peak: ' + datum.month_short", as: "peak_label" }
+                ],
+                mark: { type: "text", dy: -12, fontSize: 11, fontWeight: 700, stroke: "#FFFFFF", strokeWidth: 4, strokeJoin: "round" },
+                encoding: {
+                    x: { field: "month_short", type: "ordinal", sort: SHORT },
+                    y: { field: "count", type: "quantitative" },
+                    text: { field: "peak_label" },
+                    color: { value: "#FFFFFF" }
+                }
+            },
+            {
+                // Annotation: each group’s peak month for the selected period.
+                transform: [
+                    { joinaggregate: [{ op: "max", field: "count", as: "group_max" }], groupby: ["animal_group"] },
+                    { filter: "datum.count === datum.group_max" },
+                    { calculate: "'Peak: ' + datum.month_short", as: "peak_label" }
+                ],
+                mark: { type: "text", dy: -12, fontSize: 11, fontWeight: 700 },
+                encoding: {
+                    x: { field: "month_short", type: "ordinal", sort: SHORT },
+                    y: { field: "count", type: "quantitative" },
+                    text: { field: "peak_label" },
+                    color: { field: "animal_group", type: "nominal", scale: { domain: GROUPS, range: COLOURS }, legend: null }
+                }
             }
         ],
         config: { view: { stroke: null }, font: "Atkinson Hyperlegible, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F", gridColor: "#edf0f2" } }
@@ -160,11 +190,11 @@
         chartEl.innerHTML = "";
         document.getElementById("season-controls").hidden = false;
         document.getElementById("season-summary").hidden = false;
-        const { view } = await vegaEmbed("#seasonality-chart", spec, { actions: false, renderer: "svg" });
+        const { view } = await vegaEmbed("#seasonality-chart", spec, { actions: false, renderer: "svg", config: window.CHART_TEXT });
         summarise(view.signal("season_year"));
         view.addSignalListener("season_year", (_, y) => summarise(y));
-        document.getElementById("season-note").textContent =
-            `Source: ${DATA_URL}. Counts are sums of sub-groups within each animal group. "Not recorded" months are excluded.`;
+        document.getElementById("season-note").innerHTML =
+            `Source: ${SRC.kwok("supplementary file S7")}, 2013–14 to 2018–19. Counts are sums of sub-groups within each animal group. Months marked “Not recorded” are excluded.`;
     } catch (err) {
         console.error(err);
         chartEl.innerHTML = `<p class="status error">Could not draw the chart: ${err.message}</p>`;

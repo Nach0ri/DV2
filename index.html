@@ -16,6 +16,7 @@
         <header class="story-header">
             <h1 class="story-title">Wildlife Rescue &amp; Rehabilitation in NSW</h1>
             <p class="story-subtitle">Where wildlife is rescued, why, and what happens next.</p>
+            <p class="story-byline">By Nachanok · FIT3179 Data Visualisation 2, Monash University · Updated 1 November 2026</p>
             <p class="story-intro">
                 What NSW rescue records show, and where the gaps are.
             </p>
@@ -47,6 +48,18 @@
                     <span class="hl-ref">See Idiom 12 →</span>
                 </a>
             </div>
+
+            <!-- Story outline: the order the sections are meant to be read in. -->
+            <nav class="story-path" aria-label="Story outline">
+                <span class="story-path-label">The story</span>
+                <ol>
+                    <li><a href="#section-1-title"><b>1</b> Where rescues happen</a></li>
+                    <li><a href="#section-2-title"><b>2</b> Why animals need help</a></li>
+                    <li><a href="#section-3-title"><b>3</b> When, and what happens next</a></li>
+                    <li><a href="#section-4-title"><b>4</b> Species and outcomes</a></li>
+                    <li><a href="#findings-title"><b>★</b> Key findings</a></li>
+                </ol>
+            </nav>
         </header>
 
         <!-- ============ Section 1 ============ -->
@@ -192,19 +205,19 @@
             </header>
 
             <!-- Idiom 07 · text beside chart -->
-            <article class="idiom idiom--split" aria-labelledby="idiom-07-title">
+            <article class="idiom idiom--wide-chart" aria-labelledby="idiom-07-title">
                 <h3 class="idiom-title" id="idiom-07-title"><span class="idiom-num">07</span>Which regions record the most rescues?</h3>
                 <div class="idiom-body">
+                    <figure class="chart-card">
+                        <div class="chart-area" id="vis-07-connected-dot"></div>
+                        <p class="legend-note" id="dot-source"></p>
+                    </figure>
                     <div class="text-card">
                         <h4 class="card-heading">Regional change between two periods</h4>
                         <p>See where rescues rose or fell between two years.</p>
                         <p class="card-note">Counts are not adjusted for population size.</p>
                         <p class="card-note" id="dot-note"></p>
                     </div>
-                    <figure class="chart-card">
-                        <div class="chart-area" id="vis-07-connected-dot"></div>
-                        <p class="legend-note" id="dot-source"></p>
-                    </figure>
                 </div>
             </article>
 
@@ -228,7 +241,6 @@
             <article class="idiom idiom--stacked" aria-labelledby="idiom-09-title">
                 <h3 class="idiom-title" id="idiom-09-title"><span class="idiom-num">09</span>What happens after rescue?</h3>
                 <div class="idiom-text">
-                    <p class="card-kicker">Sankey diagram</p>
                     <h4 class="card-heading">How do outcomes differ by group and reason?</h4>
                     <p>Survival and death shares by rescue reason and group.</p>
                     <p class="card-note">Flows are estimated from rounded percentages, 2013–14 to 2018–19.</p>
@@ -348,7 +360,13 @@
 
         <!-- ============ Footer ============ -->
         <footer class="story-footer" aria-labelledby="sources-title">
-            <p class="footer-meta">FIT3179 · Data Visualisation 2 &nbsp;|&nbsp; Wildlife Rescue &amp; Rehabilitation in NSW</p>
+            <dl class="meta-list" aria-label="About this visualisation">
+                <div><dt>Title</dt><dd>Wildlife Rescue &amp; Rehabilitation in NSW</dd></div>
+                <div><dt>Author</dt><dd>Nachanok</dd></div>
+                <div><dt>Unit</dt><dd>FIT3179 Data Visualisation 2, Monash University</dd></div>
+                <div><dt>Last updated</dt><dd><time datetime="2026-11-01">1 November 2026</time></dd></div>
+                <div><dt>Data period</dt><dd>2013–14 to 2024–25 (varies by chart; each chart states its period)</dd></div>
+            </dl>
 
             <h2 class="footer-heading" id="sources-title">Data Sources &amp; Acknowledgements</h2>
 
@@ -362,7 +380,7 @@
                 <li>
                     <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/native-animals/rehabilitating-native-animals/wildlife-rehabilitation-data-and-reporting/wildlife-rehabilitation-data-dashboard">NSW Wildlife Rehabilitation Data Dashboard</a>
                     <span class="src-meta">NSW Department of Climate Change, Energy, the Environment and Water (DCCEEW). Number of rescues by council area and financial year, 2013–14 to 2024–25 (dashboard last updated 26 May 2026; accessed 15 October 2026).</span>
-                    <span class="src-use">Used in: 01 (council-area map and top 3), 07 (2018–19 and 2024–25 comparison).</span>
+                    <span class="src-use">Used in: 01 (council-area map and top 5), 07 (2018–19 and 2024–25 comparison).</span>
                 </li>
                 <li>
                     <a href="https://www2.environment.nsw.gov.au/sites/default/files/wildlife-rehabilitaton-annual-report-2022-23-240222.pdf">NSW Wildlife Rehabilitation Annual Report 2022–23</a>
@@ -370,21 +388,18 @@
                     <span class="src-use">Used in: 02 (reasons for rescue, 2022–23). Values checked against the report text.</span>
                 </li>
                 <li>
-                    <a href="https://www.environment.nsw.gov.au/publications/nsw-wildlife-rehabilitation-annual-report-2023-25">NSW Wildlife Rehabilitation Annual Report 2023–25</a>
-                    <span class="src-meta">DCCEEW. Reports 2023–24 and 2024–25 statewide totals and highest-LGA figures.</span>
-                    <span class="src-use">Used in: 02 (reasons for rescue, 2023–24 and 2024–25). Values checked against the report text.</span>
-                </li>
-                <li>
                     <a href="https://portal.spatial.nsw.gov.au/server/rest/services/NSW_Administrative_Boundaries_Theme/FeatureServer/8">NSW Administrative Boundaries: Local Government Area</a>
                     <span class="src-meta">NSW Spatial Services, ArcGIS REST service (layer 8). 132 LGAs, simplified for web display. Accessed 15 October 2026.</span>
                     <span class="src-use">Used in: 01 (council boundaries).</span>
                 </li>
             </ol>
+            <p class="footer-credits">Typefaces: Newsreader (Production Type) for headings and Atkinson Hyperlegible (Braille Institute) for text, via Google Fonts. Charts built with Vega-Lite.</p>
         </footer>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+    <script src="js/chart-defaults.js"></script>
     <script src="js/headline-stats.js"></script>
     <script src="js/idiom01-map.js"></script>
     <script src="js/idiom02-reasons.js"></script>

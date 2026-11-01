@@ -191,8 +191,8 @@
             `<svg viewBox="30 0 950 ${H}" width="100%" role="img" aria-label="Sankey diagram: rescue reasons to Survived and Died, ${group}">` +
             `<g>${paths}</g><g>${nodes}</g></svg>` +
             `<p class="legend-note">Estimated flows: each count is calculated from the published percentage (rounded to 0.1%) and the total rescues for that reason. ` +
-            `Data are aggregated across 2013–14 to 2018–19 and do not show year-by-year change. Only the ${leftNodes.length} most common reasons are shown; smaller reasons and rescues with an unknown reason are left out, and percentages use the reasons shown. Source: Kwok et al. (2021), Table 10 (${DATA_URL}). ` +
-            `Survived = released, left and observed, relocated, or permanent care. Died = dead, died, or euthanased.</p>`;
+            `Data are aggregated across 2013–14 to 2018–19 and do not show year-by-year change. Only the ${leftNodes.length} most common reasons are shown; smaller reasons and rescues with an unknown reason are left out, and percentages use the reasons shown. Source: ${SRC.kwok("Table 10")}. ` +
+            `Survived = released, left and observed, relocated, or permanent care. Died = dead, died or euthanased.</p>`;
         attachHover(holder, tips);
     }
 

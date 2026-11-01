@@ -66,9 +66,12 @@
         transform: [
             { filter: "heat_group === '" + ALL + "' || datum.animal_group === heat_group" },
             { aggregate: [{ op: "sum", field: "count", as: "rescues" }], groupby: ["reason", "month", "month_number", "month_short"] },
-            { calculate: "heat_group", as: "group_label" }
+            { calculate: "heat_group", as: "group_label" },
+            // Colour each cell by its share of that reason’s year, so small reasons show their own seasonal peak
+            // instead of being washed out by the three largest reasons.
+            { joinaggregate: [{ op: "sum", field: "rescues", as: "reason_total" }], groupby: ["reason"] },
+            { calculate: "datum.rescues / datum.reason_total", as: "share" }
         ],
-        mark: { type: "rect", stroke: "#ffffff", strokeWidth: 1 },
         encoding: {
             x: {
                 field: "month_short", type: "ordinal", sort: SHORT, title: null,
@@ -80,17 +83,29 @@
                 axis: { labelLimit: 240, labelFontSize: 11, domain: false, ticks: false }
             },
             color: {
-                field: "rescues", type: "quantitative", title: "Rescues",
-                scale: { range: ["#F3F6F1", "#176B60"] },
-                legend: { orient: "bottom", direction: "horizontal", gradientLength: 260, titleFontSize: 11, labelFontSize: 10, format: ",d" }
+                field: "share", type: "quantitative", title: "Share of reason’s rescues",
+                // Capped at 20%: a typical month is about 8%, and only 5 of 227 cells exceed 20% (exact values in the tooltip).
+                scale: { range: ["#F3F6F1", "#176B60"], domain: [0, 0.2], clamp: true },
+                legend: { orient: "bottom", direction: "horizontal", gradientLength: 260, titleFontSize: 11, labelFontSize: 11, format: ".0%", values: [0, 0.05, 0.1, 0.15, 0.2], labelExpr: "datum.value >= 0.2 ? '20%+' : datum.label" }
             },
             tooltip: [
                 { field: "reason", type: "nominal", title: "Reason" },
                 { field: "month", type: "nominal", title: "Month" },
                 { field: "rescues", type: "quantitative", title: "Rescues", format: ",d" },
+                { field: "share", type: "quantitative", title: "Share of this reason’s year", format: ".1%" },
+                { field: "reason_total", type: "quantitative", title: "Reason total (all months)", format: ",d" },
                 { field: "group_label", type: "nominal", title: "Animal group" }
             ]
         },
+        layer: [
+            { mark: { type: "rect", stroke: "#ffffff", strokeWidth: 1 } },
+            {
+                // Annotation: print the share in the strongest cells (20% or more of a reason’s year).
+                transform: [{ filter: "datum.share >= 0.2" }],
+                mark: { type: "text", fontSize: 11, fontWeight: 700 },
+                encoding: { text: { field: "share", type: "quantitative", format: ".0%" }, color: { value: "#FFFFFF" } }
+            }
+        ],
         config: { view: { stroke: null }, font: "Atkinson Hyperlegible, system-ui, sans-serif", axis: { labelColor: "#25332F", titleColor: "#25332F" } }
     };
 
@@ -115,11 +130,11 @@
         chartEl.innerHTML = "";
         document.getElementById("heatmap-controls").hidden = false;
         document.getElementById("heatmap-summary").hidden = false;
-        const { view } = await vegaEmbed("#heatmap-chart", spec, { actions: false, renderer: "svg" });
+        const { view } = await vegaEmbed("#heatmap-chart", spec, { actions: false, renderer: "svg", config: window.CHART_TEXT });
         summarise(view.signal("heat_group"));
         view.addSignalListener("heat_group", (_, g) => summarise(g));
-        document.getElementById("heatmap-note").textContent =
-            `Source: ${DATA_URL}. Counts are summed over the source period (no year column). Causes marked “Unknown” and rescues with no month are not included.`;
+        document.getElementById("heatmap-note").innerHTML =
+            `Source: ${SRC.kwok("supplementary file S8")}, 2013–14 to 2018–19. Counts are summed over the source period (no year column). Colour = each month’s share of that reason’s rescues (20% or more in the darkest shade); rows are ordered by total rescues. A blank cell has no records. Causes marked “Unknown” and rescues with no month are not included.`;
     } catch (err) {
         console.error(err);
         chartEl.innerHTML = `<p class="status error">Could not draw the heatmap: ${err.message}</p>`;

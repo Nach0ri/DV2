@@ -62,7 +62,14 @@
     const order = top.map(d => d.name);
     const fmt = n => n.toLocaleString("en-AU");
 
-    const pairs = top.map(d => ({ lga: d.name, lo: Math.min(d.a, d.b), hi: Math.max(d.a, d.b) }));
+    const maxRise = Math.max(...top.map(d => d.b - d.a));
+    const pairs = top.map(d => ({
+        lga: d.name, lo: Math.min(d.a, d.b), hi: Math.max(d.a, d.b),
+        // Annotation: change between the two years, shown beside each row.
+        change_label: (d.b - d.a > 0 ? "+" : "") + fmt(d.b - d.a) + (d.b - d.a === maxRise && maxRise > 0 ? "  largest rise" : ""),
+        is_max: d.b - d.a === maxRise && maxRise > 0
+    }));
+    const maxHi = Math.max(...pairs.map(p => p.hi));
     const points = [];
     for (const d of top) {
         points.push({ lga: d.name, period: L1, count: d.a, change: d.b - d.a });
@@ -87,8 +94,18 @@
                 mark: { type: "rule", strokeWidth: 2.5, color: RULE },
                 encoding: {
                     y: { field: "lga", type: "nominal", sort: order, title: null, axis: { labelLimit: 190, labelFontSize: 12 } },
-                    x: { field: "lo", type: "quantitative", title: "Recorded rescues (count)", axis: { format: ",d", labelFontSize: 11, titleFontSize: 12, tickCount: 6 }, scale: { zero: true } },
+                    x: { field: "lo", type: "quantitative", title: "Recorded rescues (count)", axis: { format: ",d", labelFontSize: 11, titleFontSize: 12, tickCount: 6 }, scale: { zero: true, domainMax: maxHi * 1.18 } },
                     x2: { field: "hi" }
+                }
+            },
+            {
+                data: { values: pairs },
+                mark: { type: "text", align: "left", baseline: "middle", dx: 10, fontSize: 11 },
+                encoding: {
+                    y: { field: "lga", type: "nominal", sort: order },
+                    x: { field: "hi", type: "quantitative" },
+                    text: { field: "change_label" },
+                    color: { condition: { test: "datum.is_max", value: "#176B60" }, value: "#5E6B63" }
                 }
             },
             {
@@ -111,7 +128,7 @@
 
     try {
         chartEl.innerHTML = "";
-        await vegaEmbed("#vis-07-connected-dot", spec, { actions: false, renderer: "svg" });
+        await vegaEmbed("#vis-07-connected-dot", spec, { actions: false, renderer: "svg", config: window.CHART_TEXT });
         const note = document.getElementById("dot-note");
         if (note) note.innerHTML =
             `<b>${rose}</b> of ${both.length} LGAs recorded more rescues in ${L2} than in ${L1}, ${fell} recorded fewer, and ${same} the same. ` +
@@ -119,7 +136,7 @@
             (fallers.length ? `Largest fall among the ${TOP_N} shown: <b>${fallers[0].name}</b> (${fmt(fallers[0].a)} to ${fmt(fallers[0].b)}). ` : `None of the ${TOP_N} LGAs shown recorded a fall. `) +
             `Counts are not population-adjusted and reflect where animals were found and reported.`;
         const source = document.getElementById("dot-source");
-        if (source) source.textContent = `Source: ${DATA_URL}, NSW wildlife rehabilitation data dashboard. The ${TOP_N} LGAs were chosen by their ${L2} count.`;
+        if (source) source.innerHTML = `Source: ${SRC.dashboard}, rescues by council area (LGA). The ${TOP_N} LGAs shown had the most rescues in ${L2}.`;
     } catch (err) {
         console.error(err);
         chartEl.innerHTML = `<p class="status error">Could not draw the chart: ${err.message}</p>`;

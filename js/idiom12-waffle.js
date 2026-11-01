@@ -121,10 +121,10 @@
     insightEl.hidden = false;
 
     noteEl.innerHTML =
-        `Source: Kwok, A. B. C., Haering, R., Travers, S. K., &amp; Stathis, P. (2021). <i>PLOS ONE</i>, Table 8 ` +
+        `Source: Kwok et al. (2021), <i>PLOS ONE</i>, Table 8 ` +
         `(<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), rescues 2013–14 to 2018–19. ` +
         `Percentages use ${fmt(denom)} recorded rescues across Birds (${fmt(groupTotal.Birds)}), Mammals (${fmt(groupTotal.Mammals)}) and Reptiles (${fmt(groupTotal.Reptiles)}), ` +
         `the group totals in Table 8. Calculated for this chart: each category’s count ÷ ${fmt(denom)}, shown to one decimal place; ` +
         `the 100 squares use largest-remainder rounding, so a category under 0.5% can show no square. ` +
-        `“Died” is the source’s category (dead, died or euthanised). Not combined with Table 10 or S9.`;
+        `“Died” is the source’s category (dead, died or euthanased). Not combined with Table 10 or S9.`;
 })();

@@ -167,7 +167,7 @@ function buildSpec(rows, years) {
             {
                 hconcat: [
                     {
-                        width: 668, height: 470,
+                        width: 640, height: 450,
                         title: { text: "Wildlife rescues by council area", subtitle: "Darker areas had more rescues. Numbers 1 to 5 mark the top five.", anchor: "start" },
                         transform: viewTransforms,
                         projection: projection(NSW_BOX),
@@ -180,7 +180,7 @@ function buildSpec(rows, years) {
                         ]
                     },
                     {
-                        width: 312, height: 374,
+                        width: 300, height: 360,
                         title: { text: "Sydney and Central Coast", subtitle: "Close-up of the dashed box", anchor: "start" },
                         transform: viewTransforms,
                         projection: projection(INSET_BOX),
@@ -189,19 +189,19 @@ function buildSpec(rows, years) {
                 ]
             },
             {
-                width: 900,
+                width: 860,
                 height: { step: 26 },
                 title: {
-                    text: "Top 3 council areas",
+                    text: "Top 5 council areas",
                     subtitle: "Click a bar to find the area on the map.",
                     anchor: "start"
                 },
-                transform: [...viewTransforms, { filter: "datum.count !== null && datum.rank <= 3" }],
+                transform: [...viewTransforms, { filter: "datum.count !== null && datum.rank <= 5" }],
                 encoding: {
                     y: { field: "lga_name", type: "nominal", sort: { field: "count", op: "max", order: "descending" }, axis: null },
                     x: {
                         field: "count", type: "quantitative", title: "Number of rescues",
-                        scale: { domain: [0, 11000] },
+                        scale: { domain: [0, 8000] },   // fixed across years (largest council in any year: 7,199) so bars compare between years
                         axis: { format: ",d", values: [0, 2000, 4000, 6000, 8000], grid: true, domain: false }
                     },
                     tooltip
@@ -224,7 +224,7 @@ function buildSpec(rows, years) {
             view: { stroke: null },
             font: "Atkinson Hyperlegible, system-ui, sans-serif",
             title: { fontSize: 14, fontWeight: 600, color: "#25332F", subtitleFontSize: 11.5, subtitleColor: "#5E6B63", offset: 8 },
-            axis: { labelFontSize: 10.5, titleFontSize: 11, labelColor: "#25332F", titleColor: "#25332F", gridColor: "#edf0f2" },
+            axis: { labelFontSize: 11, titleFontSize: 11, labelColor: "#25332F", titleColor: "#25332F", gridColor: "#edf0f2" },
             concat: { spacing: 28 }
         }
     };
@@ -289,7 +289,7 @@ async function init() {
         // vegaEmbed replaces the contents of #map, so render into a child and keep the status element until it succeeds.
         const target = document.createElement("div");
         document.getElementById("map").appendChild(target);
-        const { view } = await vegaEmbed(target, buildSpec(rows, years), { actions: { export: true, source: false, compiled: false, editor: false }, renderer: "svg" });
+        const { view } = await vegaEmbed(target, buildSpec(rows, years), { actions: { export: true, source: false, compiled: false, editor: false }, renderer: "svg", config: window.CHART_TEXT });
         statusEl.remove();
         renderLegend();
         updateNotes(rows, notRecorded, view.signal("selected_year"));

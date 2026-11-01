@@ -134,9 +134,9 @@
 
     try {
         chartEl.innerHTML = "";
-        await vegaEmbed(chartEl, spec, { actions: false, renderer: "svg" });
+        await vegaEmbed(chartEl, spec, { actions: false, renderer: "svg", config: window.CHART_TEXT });
         if (noteEl) noteEl.innerHTML =
-            `Source: Kwok, A. B. C., Haering, R., Travers, S. K., &amp; Stathis, P. (2021). <i>PLOS ONE</i>, supplementary file S7 ` +
+            `Source: Kwok et al. (2021), <i>PLOS ONE</i>, supplementary file S7 ` +
             `(<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), rescues ${periodText}. ` +
             `Transformation for this chart: sub-groups summed across all months and years; the ${TOP_N} lowest counts shown (terracotta = the lowest ${HIGHLIGHT_N}), after excluding ` +
             `${skipped} “Unknown” or “Unidentified” sub-group${skipped === 1 ? "" : "s"}. Sub-groups are not all single species. Not combined with Table 10 or S9.`;
