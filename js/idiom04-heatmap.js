@@ -79,7 +79,7 @@
             },
             y: {
                 field: "reason", type: "nominal", title: null,
-                sort: { op: "sum", field: "rescues", order: "descending" },
+                sort: { field: "reason_total", op: "max", order: "descending" },
                 axis: { labelLimit: 240, labelFontSize: 11, domain: false, ticks: false }
             },
             color: {
@@ -99,6 +99,14 @@
         },
         layer: [
             { mark: { type: "rect", stroke: "#ffffff", strokeWidth: 1 } },
+            {
+                // Annotation: outline each reason’s peak month.
+                transform: [
+                    { joinaggregate: [{ op: "max", field: "share", as: "row_max" }], groupby: ["reason"] },
+                    { filter: "datum.share === datum.row_max" }
+                ],
+                mark: { type: "rect", fillOpacity: 0, stroke: "#25332F", strokeWidth: 2 }
+            },
             {
                 // Annotation: print the share in the strongest cells (20% or more of a reason’s year).
                 transform: [{ filter: "datum.share >= 0.2" }],
@@ -124,6 +132,33 @@
         document.getElementById("heatmap-summary").innerHTML =
             `Largest cell for <b>${group}</b>: <b>${reason}</b> in <b>${MONTHS[Number(mn) - 1]}</b>, ` +
             `with ${best.v.toLocaleString("en-AU")} rescues (${(100 * best.v / groupTotal).toFixed(1)}% of this group’s known-reason rescues).`;
+
+        // Key findings: computed from the same cells as the chart (shares within each reason).
+        const reasons = new Map();
+        for (const [k, v] of cells) {
+            const [rs, m] = k.split("|");
+            if (!reasons.has(rs)) reasons.set(rs, { total: 0, months: new Map() });
+            const o = reasons.get(rs); o.total += v; o.months.set(Number(m), v);
+        }
+        const peaks = [...reasons.entries()].map(([rs, o]) => {
+            let pm = 0, pv = -1;
+            for (const [m, v] of o.months) if (v > pv) { pv = v; pm = m; }
+            return { reason: rs, month: pm, share: pv / o.total };
+        });
+        const spring = peaks.filter(p => p.month >= 9 && p.month <= 11).length;
+        const peaked = [...peaks].sort((a, b) => b.share - a.share);
+        const most = peaked[0], least = peaked[peaked.length - 1];
+        const monthTotals = new Map();
+        for (const [k, v] of cells) { const m = Number(k.split("|")[1]); monthTotals.set(m, (monthTotals.get(m) || 0) + v); }
+        const [busyM, busyV] = [...monthTotals.entries()].sort((a, b) => b[1] - a[1])[0];
+        const pct = v => `${(100 * v).toFixed(0)}%`;
+        const findings = document.getElementById("heatmap-findings");
+        if (findings) findings.innerHTML =
+            `<p class="dot-ov-title">Key findings · ${group}</p><ul class="insight-list heat-findings">` +
+            `<li><b>${spring} of ${peaks.length}</b> reasons peak in spring (September to November).</li>` +
+            `<li>Most concentrated: <b>${most.reason}</b>, ${pct(most.share)} of its rescues in ${MONTHS[most.month - 1]}.</li>` +
+            `<li>Most even: <b>${least.reason}</b>; its busiest month (${MONTHS[least.month - 1]}) holds only ${pct(least.share)}.</li>` +
+            `<li>Busiest month overall: <b>${MONTHS[busyM - 1]}</b>, with ${pct(busyV / groupTotal)} of known-reason rescues.</li></ul>`;
     }
 
     try {
@@ -134,7 +169,7 @@
         summarise(view.signal("heat_group"));
         view.addSignalListener("heat_group", (_, g) => summarise(g));
         document.getElementById("heatmap-note").innerHTML =
-            `Source: ${SRC.kwok("supplementary file S8")}, 2013–14 to 2018–19. Counts are summed over the source period (no year column). Colour = each month’s share of that reason’s rescues (20% or more in the darkest shade); rows are ordered by total rescues. A blank cell has no records. Causes marked “Unknown” and rescues with no month are not included.`;
+            `Source: ${SRC.kwok("supplementary file S8")}, 2013–14 to 2018–19. Counts are summed over the source period (no year column). Colour = each month’s share of that reason’s rescues (20% or more in the darkest shade); the outlined cell is each reason’s peak month; rows are ordered by total rescues. A blank cell has no records. Causes marked “Unknown” and rescues with no month are not included.`;
     } catch (err) {
         console.error(err);
         chartEl.innerHTML = `<p class="status error">Could not draw the heatmap: ${err.message}</p>`;
