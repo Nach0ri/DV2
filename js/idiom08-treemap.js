@@ -161,12 +161,20 @@
                 });
                 svg.appendChild(r);
                 const label = fit(l.name, l.w, 12);
-                const countLabel = fit(fmt(l.value), l.w, 11);
+                // Count plus share of all rescues where the tile is wide enough; otherwise the count alone.
+                const withShare = `${fmt(l.value)} · ${pct(l.value)}`;
+                const countLabel = fit(withShare, l.w, 11).endsWith("…") ? fit(fmt(l.value), l.w, 11) : fit(withShare, l.w, 11);
                 if (l.w >= 70 && l.h >= 40 && label) {
                     svg.appendChild(el("text", { x: l.x + 7, y: l.y + 17, "font-size": 12, "font-weight": 600, fill: textFill, "font-family": "Atkinson Hyperlegible, system-ui, sans-serif", "pointer-events": "none" }, label));
                     svg.appendChild(el("text", { x: l.x + 7, y: l.y + 31, "font-size": 11, fill: textFill, "font-family": "Atkinson Hyperlegible, system-ui, sans-serif", "pointer-events": "none" }, countLabel));
                 } else if (l.w >= 44 && l.h >= 18 && countLabel) {
                     svg.appendChild(el("text", { x: l.x + 5, y: l.y + 14, "font-size": 11, fill: textFill, "font-family": "Atkinson Hyperlegible, system-ui, sans-serif", "pointer-events": "none" }, countLabel));
+                }
+                // Annotation: rank badge on the three largest sub-groups.
+                const rank = ranked.findIndex(d => d.group === l.group && d.name === l.name) + 1;
+                if (rank >= 1 && rank <= 3 && l.w >= 40 && l.h >= 40) {
+                    svg.appendChild(el("circle", { cx: l.x + l.w - 17, cy: l.y + 17, r: 11, fill: "#FFFFFF", "pointer-events": "none" }));
+                    svg.appendChild(el("text", { x: l.x + l.w - 17, y: l.y + 21, "text-anchor": "middle", "font-size": 12, "font-weight": 700, fill: "#25332F", "font-family": "Atkinson Hyperlegible, system-ui, sans-serif", "pointer-events": "none" }, String(rank)));
                 }
                 r.addEventListener("mousemove", e => showTip(l, e));
                 r.addEventListener("mouseleave", hideTip);
@@ -210,6 +218,18 @@
         `<b>${a.name}</b> (${a.group}) is the largest sub-group, with ${pct(a.v)} of ${fmt(total)} recorded rescues, ` +
         `followed by <b>${b.name}</b> (${b.group}, ${pct(b.v)}). The ten largest sub-groups together account for ${pct(top10)}.`;
     insightEl.hidden = false;
+
+    // Key findings beside the summary, from the same totals as the treemap.
+    let cum = 0, half = 0;
+    for (const d of ranked) { cum += d.v; half++; if (cum >= total / 2) break; }
+    const top3 = ranked.slice(0, 3).reduce((t, d) => t + d.v, 0);
+    const leaders = groups.map(g => { const c = g.children[0]; return `<b>${g.name}</b>: ${c.name} (${(100 * c.value / g.value).toFixed(0)}% of ${g.name.toLowerCase()})`; });
+    const findingsEl = document.getElementById("tm-findings");
+    if (findingsEl) findingsEl.innerHTML =
+        `<p class="dot-ov-title">Key findings</p><ul class="insight-list heat-findings bubble-findings-list">` +
+        `<li>Just <b>${half} of ${ranked.length}</b> sub-groups make up half of all rescues.</li>` +
+        `<li>The top three (numbered 1–3 on the chart) account for <b>${pct(top3)}</b>.</li>` +
+        `<li>Largest in each group: ${leaders.join("; ")}.</li></ul>`;
 
     try {
         draw();

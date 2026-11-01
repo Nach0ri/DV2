@@ -236,7 +236,10 @@
                 </div>
                 <figure class="chart-card chart-card--full">
                     <div class="chart-area" id="vis-08-treemap">
-                        <p class="summary" id="tm-insight" hidden></p>
+                        <div class="summary-row">
+                            <p class="summary" id="tm-insight" hidden></p>
+                            <div id="tm-findings" aria-live="polite"></div>
+                        </div>
                         <div id="treemap-chart"><p class="status">Loading chart…</p></div>
                         <div class="tm-tooltip" id="tm-tooltip" hidden></div>
                         <p class="legend-note" id="tm-note"></p>
