@@ -686,9 +686,9 @@ body { margin: 0; }
 /* Figures in running text and summaries line up as tabular numbers. */
 .summary, .legend-note, .hl-num, .wf-label, .insight-list li { font-variant-numeric: tabular-nums; }
 /* Footer source entries: comfortable reading width. */
-.source-list li { max-width: 44em; }
+.source-list li { max-width: none; }   /* source entries span the full width */
 .section-subtitle { max-width: 36em; }
-.footer-credits { margin: 18px 0 0; font-size: 13.5px; color: var(--muted); max-width: 44em; }
+.footer-credits { margin: 18px 0 0; font-size: 13.5px; color: var(--muted); max-width: none; }
 
 /* ---------- Byline, story outline and footer metadata ---------- */
 .story-byline { margin: -10px 0 18px; font-size: 14px; color: var(--muted); }
