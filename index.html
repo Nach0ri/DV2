@@ -22,6 +22,34 @@
                 differences and rehabilitation outcomes, this visualisation investigates what the available data can tell
                 us about wildlife rescue in NSW, and where important gaps remain.
             </p>
+
+            <!-- Headline figures: final values are in the markup; js/headline-stats.js animates them. -->
+            <div class="headline-stats" aria-label="Headline figures from the data">
+                <a class="hl-stat hl-stat--blue" href="#idiom-03-title">
+                    <span class="hl-num" data-value="469302">469,302</span>
+                    <span class="hl-bar" aria-hidden="true"></span>
+                    <span class="hl-label">recorded rescues of birds, mammals and reptiles, 2013–14 to 2018–19</span>
+                    <span class="hl-ref">See Idiom 03 →</span>
+                </a>
+                <a class="hl-stat hl-stat--teal" href="#idiom-01-title">
+                    <span class="hl-num" data-value="119582">119,582</span>
+                    <span class="hl-bar" aria-hidden="true"></span>
+                    <span class="hl-label">rescues linked to a council area in 2024–25</span>
+                    <span class="hl-ref">See Idiom 01 →</span>
+                </a>
+                <a class="hl-stat hl-stat--ochre" href="#idiom-02-title">
+                    <span class="hl-num" data-value="15639">15,639</span>
+                    <span class="hl-bar" aria-hidden="true"></span>
+                    <span class="hl-label">vehicle-collision rescues in 2022–23, the most common recorded reason</span>
+                    <span class="hl-ref">See Idiom 02 →</span>
+                </a>
+                <a class="hl-stat hl-stat--terracotta" href="#idiom-12-title">
+                    <span class="hl-num" data-value="54.8" data-decimals="1" data-suffix="%">54.8%</span>
+                    <span class="hl-bar" aria-hidden="true"></span>
+                    <span class="hl-label">of 364,461 recorded rescues ended as “Died”, 2013–14 to 2018–19</span>
+                    <span class="hl-ref">See Idiom 12 →</span>
+                </a>
+            </div>
         </header>
 
         <!-- ============ Section 1 ============ -->
@@ -374,6 +402,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+    <script src="js/headline-stats.js"></script>
     <script src="js/idiom01-map.js"></script>
     <script src="js/idiom02-reasons.js"></script>
     <script src="js/idiom03-seasonality.js"></script>
