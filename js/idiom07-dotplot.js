@@ -70,6 +70,8 @@
         is_max: d.b - d.a === maxRise && maxRise > 0
     }));
     const maxHi = Math.max(...pairs.map(p => p.hi));
+    // Dots encode position, not length, so the axis starts just below the smallest value instead of at zero.
+    const minLo = Math.floor(Math.min(...pairs.map(p => p.lo)) / 500) * 500;
     const points = [];
     for (const d of top) {
         points.push({ lga: d.name, period: L1, count: d.a, change: d.b - d.a });
@@ -94,7 +96,7 @@
                 mark: { type: "rule", strokeWidth: 2.5, color: RULE },
                 encoding: {
                     y: { field: "lga", type: "nominal", sort: order, title: null, axis: { labelLimit: 190, labelFontSize: 12 } },
-                    x: { field: "lo", type: "quantitative", title: "Recorded rescues (count)", axis: { format: ",d", labelFontSize: 11, titleFontSize: 12, tickCount: 6 }, scale: { zero: true, domainMax: maxHi * 1.18 } },
+                    x: { field: "lo", type: "quantitative", title: "Recorded rescues (count)", axis: { format: ",d", labelFontSize: 11, titleFontSize: 12, tickCount: 6 }, scale: { zero: false, domainMin: minLo, domainMax: maxHi * 1.15 } },
                     x2: { field: "hi" }
                 }
             },
@@ -130,8 +132,22 @@
         chartEl.innerHTML = "";
         await vegaEmbed("#vis-07-connected-dot", spec, { actions: false, renderer: "svg", config: window.CHART_TEXT });
         const note = document.getElementById("dot-note");
+        // Overview of all council areas: share that rose, stayed the same or fell, and the three largest rises.
+        const overview = document.getElementById("dot-overview");
+        if (overview) {
+            const pc = n => (100 * n / both.length).toFixed(1);
+            const rises = both.map(([name, v]) => ({ name, a: v[Y1], b: v[Y2], d: v[Y2] - v[Y1] })).sort((x, y) => y.d - x.d).slice(0, 3);
+            overview.innerHTML =
+                `<p class="dot-ov-title">All ${both.length} council areas, ${L1} to ${L2}</p>` +
+                `<div class="dot-ov-bar" role="img" aria-label="${rose} rose, ${same} stayed the same, ${fell} fell">` +
+                `<span style="width:${pc(rose)}%;background:#176B60" title="Rose: ${rose}"></span>` +
+                `<span style="width:${pc(same)}%;background:#B9C2BC" title="Same: ${same}"></span>` +
+                `<span style="width:${pc(fell)}%;background:#D49A38" title="Fell: ${fell}"></span></div>` +
+                `<p class="dot-ov-key"><b style="color:#176B60">${rose} rose</b> · ${same} same · <b style="color:#8A611A">${fell} fell</b></p>` +
+                `<p class="dot-ov-title">Largest rises</p>` +
+                `<ol class="dot-ov-list">` + rises.map(r => `<li><span>${r.name}</span><b>+${fmt(r.d)}</b></li>`).join("") + `</ol>`;
+        }
         if (note) note.innerHTML =
-            `<b>${rose}</b> of ${both.length} LGAs recorded more rescues in ${L2} than in ${L1}, ${fell} recorded fewer, and ${same} the same. ` +
             `Largest rise among the ${TOP_N} shown: <b>${biggestRise.name}</b> (${fmt(biggestRise.a)} to ${fmt(biggestRise.b)}). ` +
             (fallers.length ? `Largest fall among the ${TOP_N} shown: <b>${fallers[0].name}</b> (${fmt(fallers[0].a)} to ${fmt(fallers[0].b)}). ` : `None of the ${TOP_N} LGAs shown recorded a fall. `) +
             `Counts are not population-adjusted and reflect where animals were found and reported.`;
