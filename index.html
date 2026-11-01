@@ -15,12 +15,9 @@
         <!-- ============ Page header ============ -->
         <header class="story-header">
             <h1 class="story-title">Wildlife Rescue &amp; Rehabilitation in NSW</h1>
-            <p class="story-subtitle">Understanding where wildlife is rescued, why animals need help, and what happens next.</p>
+            <p class="story-subtitle">Where wildlife is rescued, why, and what happens next.</p>
             <p class="story-intro">
-                Wildlife rescue and rehabilitation services play an important role in protecting native animals across
-                New South Wales. By exploring recorded rescue locations, reported reasons, seasonal patterns, species
-                differences and rehabilitation outcomes, this visualisation investigates what the available data can tell
-                us about wildlife rescue in NSW, and where important gaps remain.
+                What NSW rescue records show, and where the gaps are.
             </p>
 
             <!-- Headline figures: final values are in the markup; js/headline-stats.js animates them. -->
@@ -58,7 +55,7 @@
                 <span class="section-number" aria-hidden="true">1</span>
                 <div>
                     <h2 class="section-title" id="section-1-title">Where are rescues happening?</h2>
-                    <p class="section-subtitle">Understanding where rescues happen, what brings animals into care, and when demand rises</p>
+                    <p class="section-subtitle">Where rescues happen, why, and when demand rises</p>
                 </div>
             </header>
 
@@ -68,10 +65,8 @@
                 
                     <div class="idiom-text">
                         <h4 class="card-heading">Mapping recorded rescues across NSW</h4>
-                        <p>Explore how recorded wildlife rescues are distributed across NSW. Geographic differences may reflect animal populations, reporting practices and access to rescue services, rather than differences in
-                            wildlife risk alone.</p>
-                        <p class="card-note">Counts depend on where animals are found and reported, so a busy area is not
-                            necessarily a dangerous one.</p>
+                        <p>See where rescues were recorded across NSW council areas.</p>
+                        <p class="card-note">A busy area is not necessarily a dangerous one.</p>
                     </div>
                     <figure class="chart-card chart-card--full">
                         <div class="chart-area" id="vis-01-choropleth">
@@ -88,10 +83,8 @@
             <article class="idiom idiom--stacked" aria-labelledby="idiom-02-title">
                 <h3 class="idiom-title" id="idiom-02-title"><span class="idiom-num">02</span>What brings animals into care?</h3>
                 <div class="idiom-text">
-                    <p>Compare the reported reasons animals enter rescue and rehabilitation services, highlighting the
-                        categories that account for the largest number of recorded cases.</p>
-                    <p class="card-note">Where a record has no reported reason, it cannot be ranked. Note how many cases
-                        fall outside the categories shown.</p>
+                    <p>The reasons that bring the most animals into care.</p>
+                    <p class="card-note">Records with no reported reason are not ranked.</p>
                 </div>
                 <figure class="chart-card chart-card--full">
                     <div class="chart-area" id="vis-02-ranked-bar">
@@ -115,8 +108,7 @@
                     </figure>
                     <div class="text-card">
                         <h4 class="card-heading">Following rescue demand through the year</h4>
-                        <p>Compare rescue trends across selected animal groups to investigate when recorded rescue activity
-                            rises or falls throughout the year.</p>
+                        <p>See when rescues rise and fall through the year.</p>
                         <div class="controls" id="season-controls" hidden><div id="season-year"></div><span class="hint">Hover over a point to see its month, group and count.</span></div>
                         <p class="summary" id="season-summary" hidden></p>
                         <ul class="insight-list" id="season-insights" aria-label="Key patterns in the selected period"></ul>
@@ -131,7 +123,7 @@
                 <span class="section-number" aria-hidden="true">2</span>
                 <div>
                     <h2 class="section-title" id="section-2-title">Why do animals need rescuing?</h2>
-                    <p class="section-subtitle">Understanding reported threats and reasons, and how they change across the year</p>
+                    <p class="section-subtitle">Reported threats, and how they change through the year</p>
                 </div>
             </header>
 
@@ -139,10 +131,8 @@
             <article class="idiom idiom--stacked" aria-labelledby="idiom-04-title">
                 <h3 class="idiom-title" id="idiom-04-title"><span class="idiom-num">04</span>Which threats peak when?</h3>
                 <div class="idiom-text">
-                    <p>Compare monthly rescue patterns across reported reasons to identify periods when particular
-                        categories become more common.</p>
-                    <p class="card-note">Interpret apparent seasonal patterns carefully, especially where reporting is
-                        incomplete.</p>
+                    <p>See which reasons peak in which months.</p>
+                    <p class="card-note">Read seasonal patterns carefully; reporting can be incomplete.</p>
                 </div>
                 <figure class="chart-card chart-card--full">
                     <div class="chart-area" id="vis-04-heatmap">
@@ -159,8 +149,8 @@
                 <h3 class="idiom-title" id="idiom-05-title"><span class="idiom-num">05</span>Which reasons have different outcomes?</h3>
                 <div class="idiom-text">
                         <h4 class="card-heading">Volume and outcome, reason by reason</h4>
-                        <p>Compare how rescue volume and the share of animals that died differ between rescue reasons, for birds, mammals and reptiles across the full period, 2013–14 to 2018–19. Differences are associated with the reasons, not caused by them.</p>
-                        <p class="card-note">“Died” and “survived” follow the definitions in Kwok et al. (2021). Survived is not the same as released.</p>
+                        <p>Rescue volume and death share by reason, 2013–14 to 2018–19.</p>
+                        <p class="card-note">Survived is not the same as released.</p>
                 </div>
                 <figure class="chart-card chart-card--full">
                         <div class="chart-area" id="vis-05-bubble">
@@ -182,8 +172,7 @@
                 <h3 class="idiom-title" id="idiom-06-title"><span class="idiom-num">06</span>How are rescue reason rankings changing?</h3>
                 <div class="idiom-text">
                         <h4 class="card-heading">Which reasons are rising or falling?</h4>
-                        <p>Follow the ranking of major rescue reasons across reporting years to identify categories that
-                            become more or less prominent in the recorded data.</p>
+                        <p>Follow how rescue reasons move up or down each year.</p>
                 </div>
                 <figure class="chart-card chart-card--full">
                     <div class="chart-area" id="vis-06-bump"></div>
@@ -198,7 +187,7 @@
                 <span class="section-number" aria-hidden="true">3</span>
                 <div>
                     <h2 class="section-title" id="section-3-title">When do rescues happen, and how do outcomes differ?</h2>
-                    <p class="section-subtitle">Comparing regions and species, and following cases after rescue</p>
+                    <p class="section-subtitle">Regions, species, and what happens after rescue</p>
                 </div>
             </header>
 
@@ -208,9 +197,8 @@
                 <div class="idiom-body">
                     <div class="text-card">
                         <h4 class="card-heading">Regional change between two periods</h4>
-                        <p>Compare regional rescue figures across selected years to identify where recorded rescue activity
-                            has increased or decreased.</p>
-                        <p class="card-note">Rate comparisons require an appropriate and consistent population denominator.</p>
+                        <p>See where rescues rose or fell between two years.</p>
+                        <p class="card-note">Counts are not adjusted for population size.</p>
                         <p class="card-note" id="dot-note"></p>
                     </div>
                     <figure class="chart-card">
@@ -224,9 +212,7 @@
             <article class="idiom idiom--stacked" aria-labelledby="idiom-08-title">
                 <h3 class="idiom-title" id="idiom-08-title"><span class="idiom-num">08</span>Which animal sub-groups are rescued most often?</h3>
                 <div class="idiom-text">
-                    <p>Compare how recorded rescues are spread across animal sub-groups within Birds, Mammals and Reptiles,
-                        from 2013–14 to 2018–19. Larger rectangles represent sub-groups with more recorded rescues. Sub-groups
-                        are not all single species.</p>
+                    <p>Bigger boxes mean more rescues, 2013–14 to 2018–19.</p>
                 </div>
                 <figure class="chart-card chart-card--full">
                     <div class="chart-area" id="vis-08-treemap">
@@ -243,9 +229,9 @@
                 <h3 class="idiom-title" id="idiom-09-title"><span class="idiom-num">09</span>What happens after rescue?</h3>
                 <div class="idiom-text">
                     <p class="card-kicker">Sankey diagram</p>
-                    <h4 class="card-heading">How do outcomes differ across animal groups and rescue reasons?</h4>
-                    <p>Compare documented survival and death percentages across rescue reasons for birds, mammals, and reptiles over the study period.</p>
-                    <p class="card-note">Data are aggregated across the study period (2013–14 to 2018–19) and do not show year-by-year changes. Flow widths are estimated from the published survival and death percentages and rescue totals, because the percentages are rounded.</p>
+                    <h4 class="card-heading">How do outcomes differ by group and reason?</h4>
+                    <p>Survival and death shares by rescue reason and group.</p>
+                    <p class="card-note">Flows are estimated from rounded percentages, 2013–14 to 2018–19.</p>
                 </div>
                 <figure class="chart-card chart-card--full">
                     <div class="chart-area" id="vis-09-sankey"></div>
@@ -259,7 +245,7 @@
                 <span class="section-number" aria-hidden="true">4</span>
                 <div>
                     <h2 class="section-title" id="section-4-title">What does the data reveal about species and rehabilitation outcomes?</h2>
-                    <p class="section-subtitle">Exploring trends by species group, less common species and documented outcomes</p>
+                    <p class="section-subtitle">Trends by group, rarer sub-groups, and outcomes</p>
                 </div>
             </header>
 
@@ -268,8 +254,7 @@
                 <article class="idiom idiom--pair-item" aria-labelledby="idiom-10-title">
                     <h3 class="idiom-title" id="idiom-10-title"><span class="idiom-num">10</span>Do rescue patterns differ by species group?</h3>
                     <div class="idiom-text">
-                        <p>Display separate, consistently formatted trend charts for selected species groups to make
-                            similarities and differences in recorded rescue patterns easier to identify.</p>
+                        <p>Same chart for each group, so patterns compare easily.</p>
                     </div>
                     <figure class="chart-card">
                         <div class="chart-area" id="vis-10-small-multiples">
@@ -283,9 +268,8 @@
                 <article class="idiom idiom--pair-item" aria-labelledby="idiom-11-title">
                     <h3 class="idiom-title" id="idiom-11-title"><span class="idiom-num">11</span>Which animal sub-groups have the lowest rescue counts?</h3>
                     <div class="idiom-text">
-                        <p>Rank the least frequently recorded animal sub-groups, from 2013–14 to 2018–19, to show how recorded counts differ.</p>
-                        <p class="card-note">Low counts do not necessarily mean low conservation risk. Rare records may reflect
-                            reporting or data-availability limitations.</p>
+                        <p>The least recorded sub-groups, 2013–14 to 2018–19.</p>
+                        <p class="card-note">Low counts do not mean low conservation risk.</p>
                     </div>
                     <figure class="chart-card">
                         <div class="chart-area" id="vis-11-lollipop">
@@ -301,9 +285,8 @@
             <article class="idiom idiom--stacked" aria-labelledby="idiom-12-title">
                 <h3 class="idiom-title" id="idiom-12-title"><span class="idiom-num">12</span>What proportion of rescued animals reach each outcome?</h3>
                 <div class="idiom-text">
-                    <p>Share of recorded rescues in each outcome category, for Birds, Mammals and Reptiles combined, 2013–14 to 2018–19.</p>
-                    <p class="card-note">Categories are the source’s own. “Released” is not the same as surviving: “Left and observed”
-                        and “Permanent/long term care” are separate categories in the source.</p>
+                    <p>Outcome shares for birds, mammals and reptiles, 2013–14 to 2018–19.</p>
+                    <p class="card-note">“Released” is not the same as surviving.</p>
                 </div>
                 <figure class="chart-card chart-card--full">
                     <div class="chart-area" id="vis-12-waffle">
@@ -320,7 +303,7 @@
             <header class="section-head">
                 <div>
                     <h2 class="section-title" id="findings-title">4 Key Findings from Our Data</h2>
-                    <p class="section-subtitle">What the recorded rescue data reveal about wildlife rehabilitation in NSW.</p>
+                    <p class="section-subtitle">What the rescue data reveal about NSW wildlife.</p>
                 </div>
             </header>
 
@@ -330,7 +313,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>
                     </span>
                     <h3 class="finding-heading">Rescues cluster in a few councils</h3>
-                    <p>In 2024–25, the top five council areas accounted for 18.8% of the 119,582 rescues linked to a council; the bottom 65 areas had 7.1%. Counts show where rescues were recorded, not where wildlife is most at risk.</p>
+                    <p>Top five councils had 18.8% of 2024–25 rescues.</p>
                     <a class="finding-ref" href="#idiom-01-title">See Idiom 01</a>
                 </article>
 
@@ -339,7 +322,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15l1.5-5a2 2 0 0 1 1.9-1.4h9.2A2 2 0 0 1 18.5 10L20 15v3h-2v-1.5H6V18H4z"/><circle cx="7.5" cy="15.5" r="1"/><circle cx="16.5" cy="15.5" r="1"/></svg>
                     </span>
                     <h3 class="finding-heading">Vehicle collisions are the top reason</h3>
-                    <p>In 2022–23, collision with a motor vehicle was the most common recorded reason for rescue: 15,639 rescues, 2.4 times the next reason (unsuitable environment, 6,530). This is a count of reasons, not of causes of later outcomes.</p>
+                    <p>15,639 rescues in 2022–23, 2.4 times the next reason.</p>
                     <a class="finding-ref" href="#idiom-02-title">See Idiom 02</a>
                 </article>
 
@@ -348,7 +331,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M9 3.5v4M15 3.5v4"/></svg>
                     </span>
                     <h3 class="finding-heading">Reptile rescues are the most seasonal</h3>
-                    <p>From 2013–14 to 2018–19, 13% of reptile rescues fell in January and 2% in July. Birds peak in November, with 14% of their rescues.</p>
+                    <p>13% of reptile rescues in January, only 2% in July.</p>
                     <a class="finding-ref" href="#idiom-10-title">See Idiom 10</a>
                 </article>
 
@@ -357,7 +340,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v8.5h8.5"/></svg>
                     </span>
                     <h3 class="finding-heading">Died is the largest recorded outcome</h3>
-                    <p>Of 364,461 recorded rescues (2013–14 to 2018–19), 54.8% were recorded as Died and 37.1% as Released. The mix differs by group: 64.6% of mammal rescues were Died, and 57.7% of reptile rescues were Released.</p>
+                    <p>54.8% recorded as Died, 37.1% as Released (2013–14 to 2018–19).</p>
                     <a class="finding-ref" href="#idiom-12-title">See Idiom 12</a>
                 </article>
             </div>
