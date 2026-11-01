@@ -759,3 +759,9 @@ body { margin: 0; }
 .heat-findings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 28px; margin: 0; padding: 0; border-top: 0; }
 .heat-findings li { margin: 0; }
 @media (max-width: 680px) { .heat-findings { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Summary beside key findings (Idiom 05) ---------- */
+.summary-row { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.summary-row .summary { max-width: none; }
+.bubble-findings-list { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+@media (max-width: 960px) { .summary-row { grid-template-columns: minmax(0, 1fr); gap: 14px; } }
