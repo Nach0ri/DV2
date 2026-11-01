@@ -161,7 +161,10 @@
             });
             const peak = perMonth.indexOf(Math.max(...perMonth));
             const low = perMonth.indexOf(Math.min(...perMonth));
-            return { g, peak, low, peakV: perMonth[peak], lowV: perMonth[low] };
+            // Share of the year falling in spring (September to November: month numbers 9–11).
+            const yearTotal = perMonth.reduce((s, v) => s + v, 0);
+            const spring = yearTotal ? (perMonth[8] + perMonth[9] + perMonth[10]) / yearTotal : 0;
+            return { g, peak, low, peakV: perMonth[peak], lowV: perMonth[low], spring };
         });
         const byVolume = [...stats].sort((a, b) => b.peakV - a.peakV);
         const top = byVolume[0], second = byVolume[1];
@@ -170,6 +173,22 @@
             `${(top.peakV / second.peakV).toFixed(1)}× the ${second.g.toLowerCase()} peak (${MONTHS[second.peak]}, ${fmtN(second.peakV)}).`
         ];
         list.innerHTML = items.map(x => `<li>${x}</li>`).join("");
+
+        // Spring share per group, with a marker at 25% (what an even spread over 12 months would give).
+        const spring = document.getElementById("season-spring");
+        if (spring) {
+            const scaleMax = 0.5;
+            const pos = v => `${(100 * Math.min(v, scaleMax) / scaleMax).toFixed(1)}%`;
+            spring.innerHTML =
+                `<p class="spring-title">Share of the year in spring (Sep–Nov)</p>` +
+                stats.map((s, i) =>
+                    `<div class="spring-row"><span class="spring-name">${s.g}</span>` +
+                    `<span class="spring-track"><span class="spring-fill" style="width:${pos(s.spring)};background:${COLOURS[GROUPS.indexOf(s.g)]}"></span>` +
+                    `<span class="spring-even" style="left:${pos(0.25)}"></span></span>` +
+                    `<b class="spring-val">${(100 * s.spring).toFixed(0)}%</b></div>`
+                ).join("") +
+                `<p class="spring-key"><span class="spring-even-key"></span> 25% = rescues spread evenly across the year</p>`;
+        }
     }
     function summarise(selected) {
         const useYears = selected === ALL ? years : years.filter(y => showYear(y) === selected);
