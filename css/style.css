@@ -140,10 +140,22 @@ body { margin: 0; }
 
 /* ---------- Header ---------- */
 .story-header {
+    position: relative;
     margin-bottom: 48px;
     padding-bottom: 32px;
     border-bottom: 1px solid var(--rule);
 }
+/* Interactive wildlife background (js/header-wildlife.js): behind all header content,
+   faded out on the left where the title and intro text sit. */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.6) 35%, #000 65%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.6) 35%, #000 65%);
+}
+.story-header > :not(.hero-bg) { position: relative; z-index: 1; }
 
 .story-title {
     margin: 0;
