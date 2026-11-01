@@ -8,7 +8,7 @@
     const DATA_URL = "data/rescue_outcomes_by_group.csv";
     const chartEl = document.getElementById("vis-09-sankey");
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
-    const TOP_N = 8;                     // largest reasons get their own node; the rest are combined
+    const TOP_N = 8;                     // only the largest reasons are shown; smaller reasons are left out
     const UNKNOWN = "Unknown";           // rescues with an unknown reason are left out of the diagram
     const COLOUR = { Survived: "#397DA5", Died: "#C66B4E" }; // project palette, same as the outcome chart
     const NODE = "#176B60";
@@ -111,13 +111,11 @@
         const pool = rows.filter(r => r.group === group);
         if (pool.length === 0) { holder.innerHTML = `<p class="status">The source has no rows for ${group}.</p>`; return; }
 
-        // Reasons: Unknown is excluded; the largest reasons get nodes; the rest are combined.
+        // Reasons: Unknown is excluded; only the largest TOP_N reasons are shown.
         const reasonsSorted = pool.filter(r => r.reason !== UNKNOWN).sort((a, b) => b.n - a.n);
         const top = reasonsSorted.slice(0, TOP_N);
-        const others = reasonsSorted.slice(TOP_N);
 
         const leftNodes = top.map(r => ({ name: r.reason, rows: [r] }));
-        if (others.length) leftNodes.push({ name: `Other reasons (${others.length})`, rows: others });
 
         // Estimated flows and source totals per left node.
         const links = new Map(); // "node|outcome" -> estimated count
@@ -183,7 +181,7 @@
             const { y0, y1 } = rightY.get(n);
             const total = rightTotal.get(n);
             const pct = (100 * total / T).toFixed(1);
-            tips.push(`<b>${n}</b><br>Estimated: ${fmt(total)} cases (${pct}% of ${group} rescues with a known reason)`);
+            tips.push(`<b>${n}</b><br>Estimated: ${fmt(total)} cases (${pct}% of ${group} rescues in the ${leftNodes.length} reasons shown)`);
             nodes += `<rect class="node" data-n="${n}" data-i="${tips.length - 1}" x="${x1}" y="${y0}" width="${NODE_W}" height="${Math.max(1, y1 - y0)}" fill="${COLOUR[n]}"></rect>`;
             nodes += `<text x="${x1 + NODE_W + 10}" y="${(y0 + y1) / 2}" dominant-baseline="middle" font-size="14" font-weight="600" fill="#25332F">${n}</text>`;
             nodes += `<text x="${x1 + NODE_W + 10}" y="${(y0 + y1) / 2 + 18}" dominant-baseline="middle" font-size="12" fill="#5E6B63">≈${fmt(total)} cases · ${pct}%</text>`;
@@ -193,7 +191,7 @@
             `<svg viewBox="30 0 950 ${H}" width="100%" role="img" aria-label="Sankey diagram: rescue reasons to Survived and Died, ${group}">` +
             `<g>${paths}</g><g>${nodes}</g></svg>` +
             `<p class="legend-note">Estimated flows: each count is calculated from the published percentage (rounded to 0.1%) and the total rescues for that reason. ` +
-            `Data are aggregated across 2013–14 to 2018–19 and do not show year-by-year change. Rescues with an unknown reason are not shown. Source: Kwok et al. (2021), Table 10 (${DATA_URL}). ` +
+            `Data are aggregated across 2013–14 to 2018–19 and do not show year-by-year change. Only the ${leftNodes.length} most common reasons are shown; smaller reasons and rescues with an unknown reason are left out, and percentages use the reasons shown. Source: Kwok et al. (2021), Table 10 (${DATA_URL}). ` +
             `Survived = released, left and observed, relocated, or permanent care. Died = dead, died, or euthanased.</p>`;
         attachHover(holder, tips);
     }
