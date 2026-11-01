@@ -61,7 +61,7 @@
     const adequate = rows.filter(r => r.cases >= ADEQUATE);
     labelled.add(adequate.reduce((a, b) => (b.died > a.died ? b : a)));
     labelled.add(adequate.reduce((a, b) => (b.died < a.died ? b : a)));
-    // The x-axis starts at zero (counts cannot be negative) and leaves room for the labels on the right.
+    // The x-axis uses a log scale (set in the spec) and extends past the largest count to leave room for its label.
     const maxCases = Math.max(...rows.map(r => r.cases));
     const data = rows.map(r => ({
         ...r,
@@ -79,7 +79,8 @@
             {
                 mark: { type: "circle", stroke: "#25332F", strokeWidth: 0.6, opacity: 0.8 },
                 encoding: {
-                    x: { field: "cases", type: "quantitative", title: "Total rescues for this reason and group (denominator)", scale: { zero: true, domainMin: 0, domainMax: maxCases * 1.12 }, axis: { format: ",d", grid: false, labelFontSize: 11, titleFontSize: 12 } },
+                    // Log scale: counts run from 2 to about 25,000, so a linear axis packs most bubbles against the left edge.
+                    x: { field: "cases", type: "quantitative", title: "Total rescues for this reason and group (log scale)", scale: { type: "log", domain: [1, maxCases * 2.5] }, axis: { format: ",d", values: [1, 10, 100, 1000, 10000], grid: true, gridColor: "#edf0f2", labelFontSize: 11, titleFontSize: 12 } },
                     y: { field: "died", type: "quantitative", title: "Died (% of rescues)", scale: { domain: [0, 100] }, axis: { format: "d", grid: true, tickCount: 6, labelFontSize: 11, titleFontSize: 12 } },
                     size: { field: "cases", type: "quantitative", title: "Rescues (bubble area)", scale: { type: "sqrt", range: [30, 1500], zero: true }, legend: { orient: "bottom", direction: "horizontal", titleFontSize: 11, labelFontSize: 10, format: ",d", values: [100, 1000, 10000] } },
                     color: {
