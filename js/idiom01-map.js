@@ -190,13 +190,13 @@ function buildSpec(rows, years) {
             },
             {
                 width: 900,
-                height: { step: 17 },
+                height: { step: 26 },
                 title: {
-                    text: "Top 15 council areas",
+                    text: "Top 3 council areas",
                     subtitle: "Click a bar to find the area on the map.",
                     anchor: "start"
                 },
-                transform: [...viewTransforms, { filter: "datum.count !== null && datum.rank <= 15" }],
+                transform: [...viewTransforms, { filter: "datum.count !== null && datum.rank <= 3" }],
                 encoding: {
                     y: { field: "lga_name", type: "nominal", sort: { field: "count", op: "max", order: "descending" }, axis: null },
                     x: {
