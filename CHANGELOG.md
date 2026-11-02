@@ -56,3 +56,33 @@ Please also confirm visually in Color Oracle.
 **Idiom (for the interview):** bubble chart (a scatterplot plus a size channel). x = total rescues on a log scale
 (position; counts span 2 to ~25,000), y = died % (position), area = estimated deaths (size, linear in area), hue =
 animal group. It answers "which reasons are both common and deadly?" with three quantitative variables at once.
+
+---
+
+## Fix: every chart is now built in Vega-Lite (08 treemap, 09 Sankey, 12 waffle, 07 overview bar)
+**Rubric:** Idioms & complexity, and the DV2 brief's requirement that the visualisation is built with Vega-Lite.
+**Problem:** 08, 09 and 12 were drawn with hand-written SVG/HTML, and the small "rose / same / fell" bar beside 07 was
+coloured HTML spans. Data, colours, annotations and text are unchanged; only the rendering moved to Vega-Lite.
+
+| Chart | Before | After (Vega-Lite) |
+|---|---|---|
+| 08 treemap | SVG `<rect>`/`<text>` built in JS, custom tooltip | Layout (squarified) is a data-prep step; `rect` marks with `x`/`x2`/`y`/`y2`, `text` marks for labels, `circle` + `text` for rank badges 1–3; Vega-Lite tooltip; hover `param` outlines the tile |
+| 09 Sankey | SVG `<path>` Bézier bands, custom hover and dropdown | Each band is sampled into 41 points along the same S-curve and drawn as an `area` mark (`y` = upper edge, `y2` = lower edge, `detail` = flow); nodes are `rect` marks; group dropdown is a `param` bound to a select and every layer is filtered by it; hovering a flow or node highlights the connected flows (point selections + `fillOpacity` conditions) |
+| 12 waffle | HTML `<span>` grid | One record per square; Vega-Lite `window` (`row_number`) numbers the squares and `calculate` gives `col = (k−1) % 10` and `row = floor((k−1)/10)`; `rect` marks on ordinal x/y; four views in `hconcat`; legend is a Vega-Lite legend with counts and shares; hovering a square highlights that outcome in all four waffles (one `param` shared across views) |
+| 07 overview bar | HTML spans with % widths | Normalised stacked `bar` (`stack: "normalize"`) with tooltips |
+
+- Narrow screens: the waffle stacks the groups under "All groups" with a one-column legend; the Sankey widens its label
+  column and drops the counts from labels (they stay in the tooltips).
+- Labels added to the notes: Sankey flows and waffle rounding are **author-calculated**; treemap shares use an
+  author-calculated denominator.
+- Removed the now-unused CSS (`.tm-tooltip`, `.tm-leaf`, `.wf-*`, `.dot-ov-bar span`).
+- Only the header leaf animation and the headline number tiles remain plain HTML/JS: they are page decoration and
+  text, not charts.
+
+**Idioms (for the interview):**
+- **Treemap:** containment shows the group → sub-group hierarchy; area ∝ rescues. Vega-Lite has no treemap transform,
+  so the squarified layout is computed as data preparation and Vega-Lite draws it.
+- **Sankey:** band width ∝ estimated cases from reason to outcome. The layout and curves are computed as data, and
+  Vega-Lite draws them as area marks.
+- **Waffle:** 100 countable squares give a part-to-whole reading that is more precise than pie angles. Vega-Lite's own
+  window and calculate transforms lay out the grid.

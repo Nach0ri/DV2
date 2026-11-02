@@ -135,17 +135,38 @@
         // Overview of all council areas: share that rose, stayed the same or fell, and the three largest rises.
         const overview = document.getElementById("dot-overview");
         if (overview) {
-            const pc = n => (100 * n / both.length).toFixed(1);
             const rises = both.map(([name, v]) => ({ name, a: v[Y1], b: v[Y2], d: v[Y2] - v[Y1] })).sort((x, y) => y.d - x.d).slice(0, 3);
             overview.innerHTML =
                 `<p class="dot-ov-title">All ${both.length} council areas, ${L1} to ${L2}</p>` +
-                `<div class="dot-ov-bar" role="img" aria-label="${rose} rose, ${same} stayed the same, ${fell} fell">` +
-                `<span style="width:${pc(rose)}%;background:${PALETTE.change.rose}" title="Rose: ${rose}"></span>` +
-                `<span style="width:${pc(same)}%;background:${PALETTE.change.same}" title="Same: ${same}"></span>` +
-                `<span style="width:${pc(fell)}%;background:${PALETTE.change.fell}" title="Fell: ${fell}"></span></div>` +
+                `<div class="dot-ov-bar" id="dot-ov-bar"></div>` +
                 `<p class="dot-ov-key"><b style="color:${PALETTE.change.rose}">${rose} rose</b> · ${same} same · <b style="color:${PALETTE.change.fellText}">${fell} fell</b></p>` +
                 `<p class="dot-ov-title">Largest rises</p>` +
                 `<ol class="dot-ov-list">` + rises.map(r => `<li><span>${r.name}</span><b>+${fmt(r.d)}</b></li>`).join("") + `</ol>`;
+            // Normalised stacked bar (Vega-Lite): share of council areas that rose, stayed the same or fell.
+            const DIRS = ["Rose", "Same", "Fell"];
+            const barEl = document.getElementById("dot-ov-bar");
+            await vegaEmbed(barEl, {
+                $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+                description: `${rose} rose, ${same} stayed the same, ${fell} fell`,
+                width: Math.max(120, Math.floor(barEl.getBoundingClientRect().width)),
+                height: 14,
+                padding: 0,
+                autosize: { type: "none" },
+                data: { values: [{ dir: "Rose", n: rose, o: 0 }, { dir: "Same", n: same, o: 1 }, { dir: "Fell", n: fell, o: 2 }] },
+                transform: [{ joinaggregate: [{ op: "sum", field: "n", as: "all" }] }, { calculate: "100 * datum.n / datum.all", as: "pct" }],
+                mark: { type: "bar", stroke: "#FFFFFF", strokeWidth: 2 },
+                encoding: {
+                    x: { field: "n", type: "quantitative", stack: "normalize", axis: null },
+                    order: { field: "o" },
+                    color: { field: "dir", type: "nominal", scale: { domain: DIRS, range: [PALETTE.change.rose, PALETTE.change.same, PALETTE.change.fell] }, legend: null },
+                    tooltip: [
+                        { field: "dir", type: "nominal", title: "Direction" },
+                        { field: "n", type: "quantitative", title: "Council areas" },
+                        { field: "pct", type: "quantitative", title: "Share (%)", format: ".1f" }
+                    ]
+                },
+                config: { view: { stroke: null } }
+            }, { actions: false, renderer: "svg" });
         }
         if (note) note.innerHTML =
             `Largest rise among the ${TOP_N} shown: <b>${biggestRise.name}</b> (${fmt(biggestRise.a)} to ${fmt(biggestRise.b)}). ` +

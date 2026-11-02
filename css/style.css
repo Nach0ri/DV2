@@ -70,7 +70,8 @@ body { margin: 0; }
 #treemap-chart,
 #small-multiples-chart,
 #lollipop-chart,
-#waffle-chart { width: 100%; }
+#waffle-chart,
+#sankey-chart { width: 100%; }
 
 /* "Data unavailable" message shown when a chart's data file cannot be read. */
 .placeholder {
@@ -101,7 +102,6 @@ body { margin: 0; }
 @media (max-width: 600px) {
     .placeholder { padding: 16px; }
 }
-
 
 /* ==========================================================================
    Story layout (index.html). Palette and fonts are set once in :root.
@@ -336,7 +336,6 @@ body { margin: 0; }
     color: var(--muted);
 }
 
-
 .footer-heading {
     margin: 0 0 8px;
     font-family: var(--font-title);
@@ -459,58 +458,6 @@ body { margin: 0; }
 .group-summary .card-kicker { margin-bottom: 4px; }
 .group-summary .legend-note { margin-top: 8px; }
 
-/* ---------- Idiom 12: waffle charts (all groups, then one per animal group) ---------- */
-.wf-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
-    gap: 36px;
-    align-items: start;
-}
-.wf-groups {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
-    padding-left: 32px;
-    border-left: 1px solid var(--rule);
-}
-.wf-group { margin: 0; min-width: 0; }
-.wf-group figcaption { margin: 0 0 8px; font-size: 13.5px; color: var(--ink); }
-.wf-group--all figcaption { font-size: 14.5px; }
-.wf-total::before { content: "· "; }
-.wf-grid {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 3px;
-    width: 100%;
-    max-width: 300px;
-}
-.wf-grid--small { gap: 2px; max-width: 200px; }
-.wf-cell { display: block; aspect-ratio: 1 / 1; border-radius: 2px; }
-.wf-group-note { margin: 8px 0 0; font-size: 13px; font-weight: 700; }
-.wf-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 24px;
-    margin: 18px 0 0;
-    padding: 14px 0 0;
-    list-style: none;
-    border-top: 1px solid var(--rule);
-}
-.wf-legend li { display: flex; gap: 8px; align-items: center; font-size: 13.5px; color: var(--ink); }
-.wf-swatch { flex: 0 0 13px; height: 13px; border-radius: 2px; }
-.wf-label b { font-weight: 700; }
-@media (max-width: 960px) {
-    .wf-layout { grid-template-columns: minmax(0, 1fr); gap: 22px; }
-    .wf-groups { padding-left: 0; border-left: 0; }
-}
-@media (max-width: 680px) {
-    .wf-groups { gap: 12px; }
-    .wf-grid { max-width: 260px; }
-    .wf-group figcaption, .wf-group-note { font-size: 12px; }
-    .wf-groups .wf-total { display: block; }
-    .wf-groups .wf-total::before { content: none; }
-}
-
 /* ---------- Key findings (end of page) ---------- */
 .findings-section .section-head { margin-bottom: 24px; }
 .findings-grid {
@@ -570,26 +517,6 @@ body { margin: 0; }
 @media (max-width: 680px) {
     .findings-grid { grid-template-columns: minmax(0, 1fr); }
 }
-
-/* ---------- Idiom 08: treemap ---------- */
-.tm-tooltip {
-    position: absolute;
-    z-index: 5;
-    max-width: 240px;
-    padding: 8px 10px;
-    background: #25332F;
-    color: #F5F7F2;
-    border-radius: 6px;
-    font-size: 13px;
-    line-height: 1.45;
-    pointer-events: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-}
-.tm-tooltip[hidden] { display: none; }
-.tm-tip-muted { opacity: 0.8; font-size: 12px; }
-.tm-leaf { cursor: default; outline: none; }
-.tm-leaf:hover,
-.tm-leaf:focus { stroke: #25332F; stroke-width: 2; }
 
 /* ---------- Header: animated headline figures (js/headline-stats.js) ---------- */
 .headline-stats {
@@ -686,7 +613,7 @@ body { margin: 0; }
 /* Body text: avoid short orphan words at the end of paragraphs. */
 .story-intro, .idiom-text p, .text-card p, .card-note, .summary, .legend-note, .finding-card p, .hl-label { text-wrap: pretty; }
 /* Figures in running text and summaries line up as tabular numbers. */
-.summary, .legend-note, .hl-num, .wf-label, .insight-list li { font-variant-numeric: tabular-nums; }
+.summary, .legend-note, .hl-num, .insight-list li { font-variant-numeric: tabular-nums; }
 /* Footer source entries: comfortable reading width. */
 .source-list li { max-width: none; }   /* source entries span the full width */
 .section-subtitle { max-width: 36em; }
@@ -729,7 +656,6 @@ body { margin: 0; }
 .dot-overview { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule); }
 .dot-ov-title { margin: 0 0 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--forest); }
 .dot-ov-bar { display: flex; height: 14px; border-radius: 3px; overflow: hidden; gap: 2px; }
-.dot-ov-bar span { display: block; height: 100%; }
 .dot-ov-key { margin: 6px 0 16px; font-size: 13.5px; color: var(--ink); }
 .dot-ov-list { margin: 0; padding: 0; list-style: none; counter-reset: rise; }
 .dot-ov-list li {

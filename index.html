@@ -241,7 +241,6 @@
                             <div id="tm-findings" aria-live="polite"></div>
                         </div>
                         <div id="treemap-chart"><p class="status">Loading chart…</p></div>
-                        <div class="tm-tooltip" id="tm-tooltip" hidden></div>
                         <p class="legend-note" id="tm-note"></p>
                     </div>
                 </figure>
@@ -256,7 +255,11 @@
                     <p class="card-note">Flows are estimated from rounded percentages, 2013–14 to 2018–19.</p>
                 </div>
                 <figure class="chart-card chart-card--full">
-                    <div class="chart-area" id="vis-09-sankey"></div>
+                    <div class="chart-area" id="vis-09-sankey">
+                        <div class="controls"><span id="sankey-group"></span><span class="hint">Hover over a flow or node for the numbers.</span></div>
+                        <div id="sankey-chart"><p class="status">Loading chart…</p></div>
+                        <p class="legend-note" id="sankey-note"></p>
+                    </div>
                 </figure>
             </article>
         </section>

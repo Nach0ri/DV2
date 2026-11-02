@@ -1,18 +1,21 @@
 // Idiom 09: What happens after rescue?
-// Sankey diagram drawn with plain SVG (no library). Left: rescue reasons. Right: Survived and Died.
+// Sankey diagram in Vega-Lite. Left: rescue reasons. Right: Survived and Died.
 // Data: data/rescue_outcomes_by_group.csv = Kwok et al. (2021), Table 10 (aggregated over 2013–14 to 2018–19, no years).
 // Source values (died_pct, survived_pct, total_rescues) are shown in tooltips unchanged.
-// Flow counts are ESTIMATES: died = round(total_rescues x died_pct / 100), survived = total_rescues - died,
+// Flow counts are ESTIMATES (author-calculated): died = round(total_rescues x died_pct / 100), survived = total_rescues - died,
 // because the source percentages are rounded to 0.1%.
+// Vega-Lite has no Sankey layout, so node positions and each band's curved edges are computed here (data preparation).
+// Vega-Lite draws the bands as area marks (x, y = upper edge, y2 = lower edge), the nodes as rect marks and the labels as text.
 (async function () {
     const DATA_URL = "data/rescue_outcomes_by_group.csv";
-    const chartEl = document.getElementById("vis-09-sankey");
+    const chartEl = document.getElementById("sankey-chart");
+    const noteEl = document.getElementById("sankey-note");
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
+    const OUTCOMES = ["Survived", "Died"];
     const TOP_N = 8;                     // only the largest reasons are shown; smaller reasons are left out
     const UNKNOWN = "Unknown";           // rescues with an unknown reason are left out of the diagram
-    const COLOUR = { Survived: PALETTE.outcome.Survived, Died: PALETTE.outcome.Died };   // shared outcome colours
-    const NODE = "#5B6770";   // reasons are neutral nodes
-    const W = 1000, PAD_L = 250, PAD_R = 230, NODE_W = 14, GAP = 6;
+    const NODE = "#5B6770";              // reasons are neutral nodes
+    const H = 420, NODE_W = 14, GAP = 6, RIGHT_GAP = 28, SAMPLES = 40;
 
     function showUnavailable(message) {
         chartEl.innerHTML =
@@ -54,149 +57,178 @@
         .map(r => {
             const n = Number(r[iN]), died = Number(r[iD]), survived = Number(r[iS]);
             const estDied = Math.round(n * died / 100);
-            return { group: r[iG], reason: r[iR], n, died_pct: died, survived_pct: survived, est_died: estDied, est_survived: n - estDied };
+            return { group: r[iG], reason: r[iR], n, died_pct: died, survived_pct: survived, Died: estDied, Survived: n - estDied };
         });
     if (rows.length === 0) { showUnavailable(`The file <code>${DATA_URL}</code> has no usable rows. No diagram is shown and no values have been filled in.`); return; }
 
     const fmt = v => Number(v).toLocaleString("en-AU");
+    const groupsWithData = GROUPS.filter(g => rows.some(r => r.group === g));
 
-    // Controls: animal group only (Table 10 is not split by year).
-    const controls = document.createElement("div");
-    controls.className = "controls";
-    controls.innerHTML = `<label>Animal group <select id="sankey-group">` +
-        GROUPS.map(g => `<option value="${g}">${g}</option>`).join("") +
-        `</select></label><span class="hint">Hover over a flow or node for the numbers.</span>`;
-    const holder = document.createElement("div");
-    chartEl.innerHTML = "";
-    chartEl.appendChild(controls);
-    chartEl.appendChild(holder);
+    // Position along a band at step t (0 to 1): the same cubic Bézier S-curve as a classic Sankey link.
+    // x(t) is shared by the upper and lower edge, so each sample gives one x with an upper and a lower y.
+    const ease = t => 3 * t * t - 2 * t * t * t;
+    const xAt = (t, x0, x1) => { const xm = (x0 + x1) / 2; return (1 - t) ** 3 * x0 + 3 * t * (1 - t) * xm + t ** 3 * x1; };
 
-    // Tooltip text is kept in an array and referenced by index, so it never goes into an HTML attribute.
-    function attachHover(root, tips) {
-        const svg = root.querySelector("svg");
-        if (!svg) return;
-        root.style.position = "relative";
-        const tip = document.createElement("div");
-        tip.style.cssText = "position:absolute;pointer-events:none;display:none;background:#FFFFFF;border:1px solid #D6DFD7;border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.45;color:#25332F;max-width:300px;z-index:2";
-        root.appendChild(tip);
-        const flows = [...svg.querySelectorAll(".flow")];
-        const nodes = [...svg.querySelectorAll(".node")];
-        const place = e => {
-            const r = root.getBoundingClientRect();
-            tip.style.left = (e.clientX - r.left + 14) + "px";
-            tip.style.top = (e.clientY - r.top + 14) + "px";
+    // Layout for every group at a given width. Returns flat records for the area, rect and text layers.
+    function layout(W) {
+        // Narrow screens: wider label column, shorter labels (the counts stay in the tooltips).
+        const narrow = W < 560;
+        const PAD_L = Math.round(narrow ? W * 0.38 : Math.min(250, Math.max(130, W * 0.28)));
+        const PAD_R = narrow ? 124 : Math.round(Math.min(210, Math.max(118, W * 0.21)));
+        const x0 = PAD_L + NODE_W, x1 = W - PAD_R;
+        const flows = [], nodes = [], labels = [];
+
+        for (const group of groupsWithData) {
+            const top = rows.filter(r => r.group === group && r.reason !== UNKNOWN).sort((a, b) => b.n - a.n).slice(0, TOP_N);
+            const T = top.reduce((s, r) => s + r.n, 0);
+            if (T === 0) continue;
+            const outTotal = { Survived: top.reduce((s, r) => s + r.Survived, 0), Died: top.reduce((s, r) => s + r.Died, 0) };
+
+            // One scale for both sides, so flow widths are comparable within a group.
+            const k = (H - GAP * (top.length - 1)) / T;
+            const leftY = new Map(); let y = 0;
+            for (const r of top) { leftY.set(r.reason, { y0: y, y1: y + r.n * k }); y += r.n * k + GAP; }
+            const rightY = new Map(); let ry = (H - (T * k + RIGHT_GAP)) / 2;
+            for (const o of OUTCOMES) { rightY.set(o, { y0: ry, y1: ry + outTotal[o] * k }); ry += outTotal[o] * k + RIGHT_GAP; }
+
+            // Flows: each band is sampled along its length into SAMPLES + 1 points.
+            const srcOff = new Map(top.map(r => [r.reason, leftY.get(r.reason).y0]));
+            const tgtOff = new Map(OUTCOMES.map(o => [o, rightY.get(o).y0]));
+            for (const r of top) {
+                for (const o of OUTCOMES) {
+                    const v = r[o];
+                    if (v === 0) continue;
+                    const h = v * k;
+                    const sy = srcOff.get(r.reason), ty = tgtOff.get(o);
+                    srcOff.set(r.reason, sy + h); tgtOff.set(o, ty + h);
+                    const base = {
+                        group, flow: `${group}|${r.reason}|${o}`, src: r.reason, tgt: o,
+                        est: v, share: +(100 * v / r.n).toFixed(1), published: o === "Died" ? r.died_pct : r.survived_pct, total: r.n
+                    };
+                    for (let i = 0; i <= SAMPLES; i++) {
+                        const t = i / SAMPLES, yTop = sy + (ty - sy) * ease(t);
+                        flows.push({ ...base, x: xAt(t, x0, x1), y_top: yTop, y_bot: yTop + h });
+                    }
+                }
+            }
+
+            // Nodes and labels.
+            for (const r of top) {
+                const { y0, y1 } = leftY.get(r.reason);
+                nodes.push({ group, node: r.reason, x0: PAD_L, x1: PAD_L + NODE_W, y0, y1: Math.max(y0 + 1, y1), colour: NODE, detail: `${fmt(r.n)} rescues (source)` });
+                labels.push({ group, kind: "reason", x: PAD_L - 10, y: (y0 + y1) / 2, text: narrow ? r.reason : `${r.reason} · ${fmt(r.n)}` });
+            }
+            for (const o of OUTCOMES) {
+                const { y0, y1 } = rightY.get(o);
+                const p = (100 * outTotal[o] / T).toFixed(1);
+                nodes.push({ group, node: o, x0: x1, x1: x1 + NODE_W, y0, y1: Math.max(y0 + 1, y1), colour: PALETTE.outcome[o], detail: `≈${fmt(outTotal[o])} estimated (${p}% of the ${top.length} reasons shown)` });
+                labels.push({ group, kind: "outcome", x: x1 + NODE_W + 10, y: (y0 + y1) / 2 - 8, text: o });
+                labels.push({ group, kind: "estimate", x: x1 + NODE_W + 10, y: (y0 + y1) / 2 + 10, text: narrow ? `≈${fmt(outTotal[o])} · ${p}%` : `≈${fmt(outTotal[o])} cases · ${p}%` });
+            }
+        }
+        return { flows, nodes, labels, PAD_L, narrow };
+    }
+
+    function buildSpec(W, group) {
+        const { flows, nodes, labels, PAD_L, narrow } = layout(W);
+        // One pixel scale shared by every layer: x runs left to right, y top to bottom.
+        const X = f => ({ field: f, type: "quantitative", scale: { domain: [0, W], nice: false, zero: false }, axis: null });
+        const Y = f => ({ field: f, type: "quantitative", scale: { domain: [0, H], nice: false, zero: false, reverse: true }, axis: null });
+        const byGroup = { filter: "datum.group === sankey_group" };
+        // A flow is bright when it is hovered, or when the node it starts or ends at is hovered; the rest fade.
+        const nodeHit = "vlSelectionTest('sk_node_store', {node: datum.src}) || vlSelectionTest('sk_node_store', {node: datum.tgt})";
+        const anyHover = "length(data('sk_flow_store')) > 0 || length(data('sk_node_store')) > 0";
+        const labelLayer = (kind, mark) => ({
+            data: { values: labels },
+            transform: [byGroup, { filter: `datum.kind === "${kind}"` }],
+            mark: { type: "text", baseline: "middle", ...mark },
+            encoding: { x: X("x"), y: Y("y"), text: { field: "text" } }
+        });
+        return {
+            $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+            width: W,
+            height: H,
+            padding: { top: 6, bottom: 6, left: 0, right: 0 },
+            autosize: { type: "none" },
+            params: [{ name: "sankey_group", value: group, bind: { input: "select", options: groupsWithData, name: "Animal group ", element: "#sankey-group" } }],
+            layer: [
+                {
+                    data: { values: flows },
+                    transform: [byGroup],
+                    params: [{ name: "sk_flow", select: { type: "point", fields: ["flow"], on: "mouseover", clear: "mouseout" } }],
+                    mark: { type: "area", interpolate: "linear", cursor: "default" },
+                    encoding: {
+                        x: X("x"), y: Y("y_top"), y2: { field: "y_bot" },
+                        detail: { field: "flow", type: "nominal" },
+                        color: { field: "tgt", type: "nominal", scale: { domain: OUTCOMES, range: OUTCOMES.map(o => PALETTE.outcome[o]) }, legend: null },
+                        fillOpacity: {
+                            condition: [
+                                { param: "sk_flow", empty: false, value: 0.62 },
+                                { test: `length(data('sk_node_store')) > 0 && (${nodeHit})`, value: 0.62 },
+                                { test: anyHover, value: 0.06 }
+                            ],
+                            value: 0.32
+                        },
+                        tooltip: [
+                            { field: "src", type: "nominal", title: "Reason" },
+                            { field: "tgt", type: "nominal", title: "Outcome" },
+                            { field: "est", type: "quantitative", title: "Estimated cases (author-calculated)", format: "," },
+                            { field: "share", type: "quantitative", title: "Share of this reason (%)", format: ".1f" },
+                            { field: "published", type: "quantitative", title: "Published % (source)", format: ".1f" },
+                            { field: "total", type: "quantitative", title: "Total rescues for reason (source)", format: "," }
+                        ]
+                    }
+                },
+                {
+                    data: { values: nodes },
+                    transform: [byGroup],
+                    params: [{ name: "sk_node", select: { type: "point", fields: ["node"], on: "mouseover", clear: "mouseout" } }],
+                    mark: { type: "rect", cursor: "default" },
+                    encoding: {
+                        x: X("x0"), x2: { field: "x1" }, y: Y("y0"), y2: { field: "y1" },
+                        color: { field: "colour", type: "nominal", scale: null },
+                        tooltip: [
+                            { field: "node", type: "nominal", title: "Node" },
+                            { field: "detail", type: "nominal", title: "Rescues" }
+                        ]
+                    }
+                },
+                // Labels: reason names and totals on the left, outcome name and estimate on the right.
+                labelLayer("reason", { align: "right", fontSize: narrow ? 11 : 13, color: PALETTE.neutral.ink, limit: PAD_L - 16 }),
+                labelLayer("outcome", { align: "left", fontSize: narrow ? 13 : 14, fontWeight: 700, color: PALETTE.neutral.ink }),
+                labelLayer("estimate", { align: "left", fontSize: narrow ? 11 : 12, color: PALETTE.neutral.muted })
+            ],
+            config: { view: { stroke: null } }
         };
-        const show = html => { tip.innerHTML = html; tip.style.display = "block"; };
-        const reset = () => { tip.style.display = "none"; flows.forEach(p => p.setAttribute("fill-opacity", "0.32")); };
-        const highlight = pred => flows.forEach(p => p.setAttribute("fill-opacity", pred(p) ? "0.6" : "0.06"));
-        flows.forEach(p => {
-            p.addEventListener("mouseenter", e => { highlight(q => q === p); show(tips[Number(p.dataset.i)]); place(e); });
-            p.addEventListener("mousemove", place);
-            p.addEventListener("mouseleave", reset);
-        });
-        nodes.forEach(n => {
-            n.addEventListener("mouseenter", e => {
-                const name = n.dataset.n;
-                const isOutcome = name === "Survived" || name === "Died";
-                highlight(q => (isOutcome ? q.dataset.t === name : q.dataset.s === name));
-                show(tips[Number(n.dataset.i)]);
-                place(e);
-            });
-            n.addEventListener("mousemove", place);
-            n.addEventListener("mouseleave", reset);
-        });
     }
 
-    function draw(group) {
-        const pool = rows.filter(r => r.group === group);
-        if (pool.length === 0) { holder.innerHTML = `<p class="status">The source has no rows for ${group}.</p>`; return; }
-
-        // Reasons: Unknown is excluded; only the largest TOP_N reasons are shown.
-        const reasonsSorted = pool.filter(r => r.reason !== UNKNOWN).sort((a, b) => b.n - a.n);
-        const top = reasonsSorted.slice(0, TOP_N);
-
-        const leftNodes = top.map(r => ({ name: r.reason, rows: [r] }));
-
-        // Estimated flows and source totals per left node.
-        const links = new Map(); // "node|outcome" -> estimated count
-        const leftTotal = new Map();
-        for (const node of leftNodes) {
-            let total = 0;
-            for (const r of node.rows) {
-                total += r.n;
-                links.set(node.name + "|Survived", (links.get(node.name + "|Survived") || 0) + r.est_survived);
-                links.set(node.name + "|Died", (links.get(node.name + "|Died") || 0) + r.est_died);
-            }
-            leftTotal.set(node.name, total);
-        }
-        const rightTotal = new Map([["Survived", 0], ["Died", 0]]);
-        for (const [k, v] of links) { const t = k.split("|")[1]; rightTotal.set(t, rightTotal.get(t) + v); }
-        const T = leftNodes.reduce((s, n) => s + leftTotal.get(n.name), 0);
-        if (T === 0) { holder.innerHTML = `<p class="status">No rescues for ${group}.</p>`; return; }
-
-        // Layout: one scale for both sides, so flow widths are comparable within a group.
-        const H = Math.max(420, leftNodes.length * 46);
-        const k = (H - GAP * (leftNodes.length - 1)) / T;
-        const leftY = new Map(); let y = 0;
-        for (const n of leftNodes) { const h = leftTotal.get(n.name) * k; leftY.set(n.name, { y0: y, y1: y + h }); y += h + GAP; }
-        const rightGap = 28;
-        const rightH = T * k;
-        const rightStart = (H - (rightH + rightGap)) / 2;
-        const rightY = new Map(); let ry = rightStart;
-        for (const n of ["Survived", "Died"]) { const h = rightTotal.get(n) * k; rightY.set(n, { y0: ry, y1: ry + h }); ry += h + rightGap; }
-
-        const srcOff = new Map(); const tgtOff = new Map();
-        for (const n of leftNodes) srcOff.set(n.name, leftY.get(n.name).y0);
-        for (const n of ["Survived", "Died"]) tgtOff.set(n, rightY.get(n).y0);
-
-        const tips = [];
-        const x0 = PAD_L + NODE_W, x1 = W - PAD_R, xm = (x0 + x1) / 2;
-        let paths = "";
-        for (const n of leftNodes) {
-            for (const t of ["Survived", "Died"]) {
-                const v = links.get(n.name + "|" + t) || 0;
-                if (v === 0) continue;
-                const h = v * k;
-                const sy0 = srcOff.get(n.name), sy1 = sy0 + h;
-                const ty0 = tgtOff.get(t), ty1 = ty0 + h;
-                srcOff.set(n.name, sy1); tgtOff.set(t, ty1);
-                const share = (100 * v / leftTotal.get(n.name)).toFixed(1);
-                const sourceLine = n.rows.length === 1
-                    ? `Source: ${fmt(n.rows[0].n)} rescues; ${t === "Died" ? n.rows[0].died_pct : n.rows[0].survived_pct}% ${t.toLowerCase()} (published)`
-                    : `Combined from ${n.rows.length} reasons`;
-                tips.push(`<b>${n.name}</b> → <b>${t}</b><br>Estimated: <b>${fmt(v)}</b> cases (${share}% of this reason)<br>${sourceLine}<br>Total rescues for ${n.name}: ${fmt(leftTotal.get(n.name))} · ${group}`);
-                paths += `<path class="flow" data-s="${n.name}" data-t="${t}" data-i="${tips.length - 1}" d="M${x0},${sy0} C${xm},${sy0} ${xm},${ty0} ${x1},${ty0} L${x1},${ty1} C${xm},${ty1} ${xm},${sy1} ${x0},${sy1} Z" fill="${COLOUR[t]}" fill-opacity="0.32" stroke="none"></path>`;
-            }
-        }
-
-        let nodes = "";
-        for (const n of leftNodes) {
-            const { y0, y1 } = leftY.get(n.name);
-            const total = leftTotal.get(n.name);
-            tips.push(`<b>${n.name}</b><br>Total rescues: ${fmt(total)} (${group})`);
-            nodes += `<rect class="node" data-n="${n.name}" data-i="${tips.length - 1}" x="${PAD_L}" y="${y0}" width="${NODE_W}" height="${Math.max(1, y1 - y0)}" fill="${NODE}"></rect>`;
-            nodes += `<text x="${PAD_L - 10}" y="${(y0 + y1) / 2}" text-anchor="end" dominant-baseline="middle" font-size="13" fill="#25332F">${n.name} <tspan fill="#5E6B63">${fmt(total)}</tspan></text>`;
-        }
-        for (const n of ["Survived", "Died"]) {
-            const { y0, y1 } = rightY.get(n);
-            const total = rightTotal.get(n);
-            const pct = (100 * total / T).toFixed(1);
-            tips.push(`<b>${n}</b><br>Estimated: ${fmt(total)} cases (${pct}% of ${group} rescues in the ${leftNodes.length} reasons shown)`);
-            nodes += `<rect class="node" data-n="${n}" data-i="${tips.length - 1}" x="${x1}" y="${y0}" width="${NODE_W}" height="${Math.max(1, y1 - y0)}" fill="${COLOUR[n]}"></rect>`;
-            nodes += `<text x="${x1 + NODE_W + 10}" y="${(y0 + y1) / 2}" dominant-baseline="middle" font-size="14" font-weight="600" fill="#25332F">${n}</text>`;
-            nodes += `<text x="${x1 + NODE_W + 10}" y="${(y0 + y1) / 2 + 18}" dominant-baseline="middle" font-size="12" fill="#5E6B63">≈${fmt(total)} cases · ${pct}%</text>`;
-        }
-
-        holder.innerHTML =
-            `<svg viewBox="30 0 950 ${H}" width="100%" role="img" aria-label="Sankey diagram: rescue reasons to Survived and Died, ${group}">` +
-            `<g>${paths}</g><g>${nodes}</g></svg>` +
-            `<p class="legend-note">Estimated flows: each count is calculated from the published percentage (rounded to 0.1%) and the total rescues for that reason. ` +
-            `Data are aggregated across 2013–14 to 2018–19 and do not show year-by-year change. Only the ${leftNodes.length} most common reasons are shown; smaller reasons and rescues with an unknown reason are left out, and percentages use the reasons shown. Source: ${SRC.kwok("Table 10")}. ` +
-            `Survived = released, left and observed, relocated, or permanent care. Died = dead, died or euthanased.</p>`;
-        attachHover(holder, tips);
+    // Vega-Lite does not size this chart to its container, so the width is measured and the layout redrawn on resize.
+    const drawWidth = () => Math.max(320, Math.floor(chartEl.getBoundingClientRect().width));
+    let current = groupsWithData[0];
+    async function draw() {
+        chartEl.innerHTML = "";
+        document.getElementById("sankey-group").innerHTML = "";
+        const result = await vegaEmbed(chartEl, buildSpec(drawWidth(), current), { actions: false, renderer: "svg", config: window.CHART_TEXT });
+        result.view.addSignalListener("sankey_group", (_, v) => { current = v; });   // keep the chosen group after a resize
     }
 
-    const grpSel = controls.querySelector("#sankey-group");
-    grpSel.addEventListener("change", () => draw(grpSel.value));
-    draw(GROUPS[0]);
+    try {
+        await draw();
+        let timer, lastWidth = drawWidth();
+        window.addEventListener("resize", () => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                if (drawWidth() === lastWidth) return;
+                lastWidth = drawWidth();
+                draw().catch(err => console.error(err));
+            }, 200);
+        });
+        noteEl.innerHTML =
+            `Estimated flows (author-calculated): each count is calculated from the published percentage (rounded to 0.1%) and the total rescues for that reason. ` +
+            `Data are aggregated across 2013–14 to 2018–19 and do not show year-by-year change. Only the ${TOP_N} most common reasons are shown; smaller reasons and rescues with an unknown reason are left out, and percentages use the reasons shown. Source: ${SRC.kwok("Table 10")}. ` +
+            `Survived = released, left and observed, relocated, or permanent care. Died = dead, died or euthanased.`;
+    } catch (err) {
+        console.error(err);
+        chartEl.innerHTML = `<p class="status error">Could not draw the diagram: ${err.message}</p>`;
+    }
 })();

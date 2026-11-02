@@ -1,17 +1,16 @@
 // Idiom 08: Which animal sub-groups are rescued most often?
-// Two-level treemap: animal group (Birds, Mammals, Reptiles) containing its sub-groups.
+// Two-level treemap in Vega-Lite: animal group (Birds, Mammals, Reptiles) containing its sub-groups.
 // Data: data/rescue_monthly_by_group.csv = Kwok et al. (2021), supplementary file S7, 2013–14 to 2018–19.
 // Each rectangle's area is proportional to its rescue count. "Unknown" and "Unidentified" sub-groups are excluded
 // before the total is taken. Sub-groups are not individual species.
+// Vega-Lite has no treemap layout, so the rectangles' corners are computed here (squarified layout, a data-preparation
+// step) and Vega-Lite draws them as rect marks with x, x2, y and y2, plus text marks for labels and rank badges.
 (async function () {
     const DATA_URL = "data/rescue_monthly_by_group.csv";
     const chartEl = document.getElementById("treemap-chart");
     const insightEl = document.getElementById("tm-insight");
     const noteEl = document.getElementById("tm-note");
-    const tooltip = document.getElementById("tm-tooltip");
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
-    const COLOUR = PALETTE.group;   // shared animal-group colours
-    const TEXT_ON = PALETTE.groupOn;   // white on dark blue, dark text on gold and green
     const BAND = 24;   // height of the group label band
     const GAP = 1.5;   // white gap between rectangles
     const UNKNOWN = /unknown|unidentified/i;
@@ -74,8 +73,9 @@
         return { name: g, value: leaves.reduce((s, l) => s + l.value, 0), children: leaves };
     }).filter(g => g.children.length > 0);
     if (groups.length === 0) { showUnavailable(`The file <code>${DATA_URL}</code> has no usable rows. No chart is shown and no values have been filled in.`); return; }
+    const ranked = [...sub.entries()].map(([k, v]) => ({ group: k.split("|")[0], name: k.split("|")[1], v })).sort((a, b) => b.v - a.v);
 
-    // Squarified treemap (Bruls, Huizing & van Wijk). Returns rectangles inside (x, y, w, h).
+    // Squarified treemap layout (Bruls, Huizing & van Wijk). Returns rectangles inside (x, y, w, h).
     function squarify(items, x, y, w, h) {
         const out = [];
         const sum = a => a.reduce((s, n) => s + n.area, 0);
@@ -116,102 +116,110 @@
         return text.length <= max ? text : (max > 2 ? text.slice(0, max - 1) + "…" : "");
     }
 
-    function draw() {
-        const W = Math.max(280, Math.floor(chartEl.getBoundingClientRect().width));
-        const H = W < 680 ? 440 : 480;
-        const totalArea = W * H;
-        const top = squarify(groups.map(g => ({ ...g, area: (g.value / total) * totalArea })).sort((a, b) => b.value - a.value), 0, 0, W, H);
-
-        const svgNS = "http://www.w3.org/2000/svg";
-        const svg = document.createElementNS(svgNS, "svg");
-        svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
-        svg.setAttribute("width", W);
-        svg.setAttribute("height", H);
-        svg.setAttribute("role", "img");
-        svg.setAttribute("aria-label", `Treemap of ${fmt(total)} recorded rescues by animal group and sub-group, ${periodText}`);
-        svg.style.display = "block";
-        svg.style.maxWidth = "100%";
-
-        const el = (name, attrs, text) => {
-            const n = document.createElementNS(svgNS, name);
-            for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
-            if (text !== undefined) n.textContent = text;
-            return n;
-        };
-
+    // Layout in pixels for a given width: one record per group band and one per sub-group tile.
+    function layout(W, H) {
+        const bands = [], tiles = [];
+        const top = squarify(groups.map(g => ({ ...g, area: (g.value / total) * W * H })).sort((a, b) => b.value - a.value), 0, 0, W, H);
         for (const g of top) {
-            const gx = g.x, gy = g.y, gw = g.w, gh = g.h;
-            const inner = { x: gx + GAP, y: gy + BAND, w: Math.max(0, gw - 2 * GAP), h: Math.max(0, gh - BAND - GAP) };
-            // Group label band.
-            svg.appendChild(el("rect", { x: gx, y: gy, width: gw, height: Math.min(BAND, gh), fill: COLOUR[g.name] }));
             const fullBand = `${g.name} · ${fmt(g.value)} (${pct(g.value)})`;
-            const bandLabel = fit(fullBand, gw, 12.5).endsWith("…") ? fit(g.name, gw, 12.5) : fit(fullBand, gw, 12.5);
-            if (bandLabel) svg.appendChild(el("text", { x: gx + 7, y: gy + BAND / 2 + 4.5, "font-size": 12.5, "font-weight": 700, fill: TEXT_ON[g.name], "font-family": "Atkinson Hyperlegible, system-ui, sans-serif" }, bandLabel));
-
-            // Sub-group rectangles inside the group, sized by their share of the group.
-            const leafArea = inner.w * inner.h;
-            const leaves = squarify(g.children.map(c => ({ ...c, area: (c.value / g.value) * leafArea })), inner.x, inner.y, inner.w, inner.h);
+            const bandLabel = fit(fullBand, g.w, 12.5).endsWith("…") ? fit(g.name, g.w, 12.5) : fit(fullBand, g.w, 12.5);
+            bands.push({ group: g.name, x0: g.x, x1: g.x + g.w, y0: g.y, y1: g.y + Math.min(BAND, g.h), label: bandLabel, labelY: g.y + BAND / 2, ink: PALETTE.groupOn[g.name] });
+            const inner = { x: g.x + GAP, y: g.y + BAND, w: Math.max(0, g.w - 2 * GAP), h: Math.max(0, g.h - BAND - GAP) };
+            const leaves = squarify(g.children.map(c => ({ ...c, area: (c.value / g.value) * inner.w * inner.h })), inner.x, inner.y, inner.w, inner.h);
             for (const l of leaves) {
-                const fill = COLOUR[g.name];
-                const textFill = TEXT_ON[g.name];
-                const r = el("rect", {
-                    x: l.x + GAP / 2, y: l.y + GAP / 2,
-                    width: Math.max(0, l.w - GAP), height: Math.max(0, l.h - GAP),
-                    fill, "data-index": leaves.indexOf(l), class: "tm-leaf"
-                });
-                svg.appendChild(r);
-                const label = fit(l.name, l.w, 12);
-                // Count plus share of all rescues where the tile is wide enough; otherwise the count alone.
+                const name = fit(l.name, l.w, 12);
                 const withShare = `${fmt(l.value)} · ${pct(l.value)}`;
                 const countLabel = fit(withShare, l.w, 11).endsWith("…") ? fit(fmt(l.value), l.w, 11) : fit(withShare, l.w, 11);
-                if (l.w >= 70 && l.h >= 40 && label) {
-                    svg.appendChild(el("text", { x: l.x + 7, y: l.y + 17, "font-size": 12, "font-weight": 600, fill: textFill, "font-family": "Atkinson Hyperlegible, system-ui, sans-serif", "pointer-events": "none" }, label));
-                    svg.appendChild(el("text", { x: l.x + 7, y: l.y + 31, "font-size": 11, fill: textFill, "font-family": "Atkinson Hyperlegible, system-ui, sans-serif", "pointer-events": "none" }, countLabel));
-                } else if (l.w >= 44 && l.h >= 18 && countLabel) {
-                    svg.appendChild(el("text", { x: l.x + 5, y: l.y + 14, "font-size": 11, fill: textFill, "font-family": "Atkinson Hyperlegible, system-ui, sans-serif", "pointer-events": "none" }, countLabel));
-                }
-                // Annotation: rank badge on the three largest sub-groups.
+                const big = l.w >= 70 && l.h >= 40 && name;
                 const rank = ranked.findIndex(d => d.group === l.group && d.name === l.name) + 1;
-                if (rank >= 1 && rank <= 3 && l.w >= 40 && l.h >= 40) {
-                    svg.appendChild(el("circle", { cx: l.x + l.w - 17, cy: l.y + 17, r: 11, fill: "#FFFFFF", "pointer-events": "none" }));
-                    svg.appendChild(el("text", { x: l.x + l.w - 17, y: l.y + 21, "text-anchor": "middle", "font-size": 12, "font-weight": 700, fill: "#25332F", "font-family": "Atkinson Hyperlegible, system-ui, sans-serif", "pointer-events": "none" }, String(rank)));
-                }
-                r.addEventListener("mousemove", e => showTip(l, e));
-                r.addEventListener("mouseleave", hideTip);
-                r.addEventListener("focus", () => showTipAt(l));
-                r.addEventListener("blur", hideTip);
-                r.setAttribute("tabindex", "0");
+                tiles.push({
+                    name: l.name, group: l.group, value: l.value, share: +(100 * l.value / total).toFixed(1),
+                    x0: l.x + GAP / 2, x1: l.x + l.w - GAP / 2, y0: l.y + GAP / 2, y1: l.y + l.h - GAP / 2,
+                    ink: PALETTE.groupOn[l.group],
+                    // Labels only where they fit: name and count on large tiles, the count alone on medium ones.
+                    nameLabel: big ? name : "",
+                    countLabel: big ? countLabel : (l.w >= 44 && l.h >= 18 ? countLabel : ""),
+                    countY: big ? l.y + 31 : l.y + 14,
+                    labelX: l.x + (big ? 7 : 5),
+                    nameY: l.y + 17,
+                    // Annotation: rank badge on the three largest sub-groups.
+                    rank: rank >= 1 && rank <= 3 && l.w >= 40 && l.h >= 40 ? rank : 0,
+                    badgeX: l.x + l.w - 17, badgeY: l.y + 17
+                });
             }
         }
+        return { bands, tiles };
+    }
 
-        chartEl.innerHTML = "";
-        chartEl.appendChild(svg);
-        chartEl.style.position = "relative";
-        chartEl.appendChild(tooltip);
-
-        function tipHtml(l) {
-            return `<b>${l.name}</b><br>${l.group}<br>${fmt(l.value)} rescues · ${pct(l.value)} of ${fmt(total)}` +
-                `<br><span class="tm-tip-muted">${periodText}</span>`;
-        }
-        function showTip(l, e) {
-            const box = chartEl.getBoundingClientRect();
-            tooltip.innerHTML = tipHtml(l);
-            tooltip.hidden = false;
-            const x = Math.min(e.clientX - box.left + 14, box.width - tooltip.offsetWidth - 4);
-            tooltip.style.left = `${Math.max(4, x)}px`;
-            tooltip.style.top = `${e.clientY - box.top + 14}px`;
-        }
-        function showTipAt(l) {
-            tooltip.innerHTML = tipHtml(l);
-            tooltip.hidden = false;
-            tooltip.style.left = `${l.x + 6}px`;
-            tooltip.style.top = `${l.y + 6}px`;
-        }
-        function hideTip() { tooltip.hidden = true; }
+    function buildSpec(W, H) {
+        const { bands, tiles } = layout(W, H);
+        // One pixel scale shared by every layer: x runs left to right, y top to bottom.
+        const X = f => ({ field: f, type: "quantitative", scale: { domain: [0, W], nice: false, zero: false }, axis: null });
+        const Y = f => ({ field: f, type: "quantitative", scale: { domain: [0, H], nice: false, zero: false, reverse: true }, axis: null });
+        const groupColour = { field: "group", type: "nominal", scale: { domain: GROUPS, range: GROUPS.map(g => PALETTE.group[g]) }, legend: null };
+        const textCommon = { type: "text", align: "left", baseline: "alphabetic" };
+        return {
+            $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+            width: W,
+            height: H,
+            padding: 0,
+            autosize: { type: "none" },
+            description: `Treemap of ${fmt(total)} recorded rescues by animal group and sub-group, ${periodText}`,
+            layer: [
+                // Group label bands.
+                { data: { values: bands }, mark: { type: "rect" }, encoding: { x: X("x0"), x2: { field: "x1" }, y: Y("y0"), y2: { field: "y1" }, color: groupColour } },
+                // Sub-group tiles: area proportional to rescues. Hover outlines the tile.
+                {
+                    data: { values: tiles },
+                    params: [{ name: "tm_hover", select: { type: "point", fields: ["group", "name"], on: "mouseover", clear: "mouseout" } }],
+                    mark: { type: "rect", stroke: PALETTE.neutral.ink, cursor: "default" },
+                    encoding: {
+                        x: X("x0"), x2: { field: "x1" }, y: Y("y0"), y2: { field: "y1" },
+                        color: groupColour,
+                        strokeWidth: { condition: { param: "tm_hover", empty: false, value: 2.5 }, value: 0 },
+                        tooltip: [
+                            { field: "name", type: "nominal", title: "Sub-group" },
+                            { field: "group", type: "nominal", title: "Animal group" },
+                            { field: "value", type: "quantitative", title: "Recorded rescues", format: "," },
+                            { field: "share", type: "quantitative", title: `Share of ${fmt(total)} (%)`, format: ".1f" }
+                        ]
+                    }
+                },
+                // Group band labels.
+                {
+                    data: { values: bands },
+                    mark: { ...textCommon, baseline: "middle", dx: 7, fontSize: 12.5, fontWeight: 700 },
+                    encoding: { x: X("x0"), y: Y("labelY"), text: { field: "label" }, color: { field: "ink", type: "nominal", scale: null } }
+                },
+                // Tile names.
+                {
+                    data: { values: tiles.filter(t => t.nameLabel) },
+                    mark: { ...textCommon, fontSize: 12, fontWeight: 600 },
+                    encoding: { x: X("labelX"), y: Y("nameY"), text: { field: "nameLabel" }, color: { field: "ink", type: "nominal", scale: null } }
+                },
+                // Tile counts and shares.
+                {
+                    data: { values: tiles.filter(t => t.countLabel) },
+                    mark: { ...textCommon, fontSize: 11 },
+                    encoding: { x: X("labelX"), y: Y("countY"), text: { field: "countLabel" }, color: { field: "ink", type: "nominal", scale: null } }
+                },
+                // Rank badges 1–3 (annotation for the three largest sub-groups).
+                {
+                    data: { values: tiles.filter(t => t.rank) },
+                    mark: { type: "circle", size: 400, color: "#FFFFFF", opacity: 1 },
+                    encoding: { x: X("badgeX"), y: Y("badgeY") }
+                },
+                {
+                    data: { values: tiles.filter(t => t.rank) },
+                    mark: { type: "text", align: "center", baseline: "middle", fontSize: 12, fontWeight: 700, color: PALETTE.neutral.ink },
+                    encoding: { x: X("badgeX"), y: Y("badgeY"), text: { field: "rank" } }
+                }
+            ],
+            config: { view: { stroke: null } }
+        };
     }
 
     // Insight: the largest sub-groups and how much of the total the top ten make up.
-    const ranked = [...sub.entries()].map(([k, v]) => ({ group: k.split("|")[0], name: k.split("|")[1], v })).sort((a, b) => b.v - a.v);
     const top10 = ranked.slice(0, 10).reduce((s, d) => s + d.v, 0);
     const [a, b] = ranked;
     insightEl.innerHTML =
@@ -231,18 +239,30 @@
         `<li>The top three (numbered 1–3 on the chart) account for <b>${pct(top3)}</b>.</li>` +
         `<li>Largest in each group: ${leaders.join("; ")}.</li></ul>`;
 
+    // Vega-Lite does not size this chart to its container, so the width is measured and the layout redrawn on resize.
+    const drawWidth = () => Math.max(280, Math.floor(chartEl.getBoundingClientRect().width));
+    async function draw() {
+        const W = drawWidth();
+        chartEl.innerHTML = "";
+        await vegaEmbed(chartEl, buildSpec(W, W < 680 ? 440 : 480), { actions: false, renderer: "svg", config: window.CHART_TEXT });
+    }
+
     try {
-        draw();
-        let timer;
+        await draw();
+        let timer, lastWidth = drawWidth();
         window.addEventListener("resize", () => {
             clearTimeout(timer);
-            timer = setTimeout(draw, 200);
+            timer = setTimeout(() => {
+                if (drawWidth() === lastWidth) return;
+                lastWidth = drawWidth();
+                draw().catch(err => console.error(err));
+            }, 200);
         });
         noteEl.innerHTML =
             `Source: Kwok et al. (2021), <i>PLOS ONE</i>, supplementary file S7 ` +
             `(<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), rescues ${periodText}. ` +
             `Project aggregation for this chart: each sub-group’s monthly counts summed over all months and years; areas are proportional to those totals. ` +
-            `Percentages use the ${fmt(total)} rescues with a named sub-group as the denominator. ${fmt(excluded)} rescues recorded as “Unknown” or “Unidentified” sub-groups are excluded. ` +
+            `Percentages use the ${fmt(total)} rescues with a named sub-group as the denominator (author-calculated). ${fmt(excluded)} rescues recorded as “Unknown” or “Unidentified” sub-groups are excluded. ` +
             `Sub-groups are not all single species. Not combined with Table 10 or S9.`;
     } catch (err) {
         console.error(err);
