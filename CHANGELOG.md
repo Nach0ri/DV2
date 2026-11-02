@@ -91,3 +91,6 @@ coloured HTML spans. Data, colours, annotations and text are unchanged; only the
   because it draws a threshold scale as a squashed gradient. Classes, colours and labels are unchanged.
 - Known issue, not caused by this change: on phone width the 01 map is wider than its card. It will be fixed in
   Step 2, when the map is rebuilt.
+- **03 spring-share bars** (text column beside 03): these were HTML bars. They are now a Vega-Lite layered bar chart:
+  a grey track, a bar per animal group (group colours), a `rule` at 25% (an even spread across the year) and value
+  labels, with tooltips. Values are unchanged (author-calculated share of each group's year falling in Sep–Nov).

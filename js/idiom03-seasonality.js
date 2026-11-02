@@ -174,20 +174,36 @@
         ];
         list.innerHTML = items.map(x => `<li>${x}</li>`).join("");
 
-        // Spring share per group, with a marker at 25% (what an even spread over 12 months would give).
+        // Spring share per group (Vega-Lite bar chart), with a rule at 25% (what an even spread over 12 months would give).
         const spring = document.getElementById("season-spring");
         if (spring) {
-            const scaleMax = 0.5;
-            const pos = v => `${(100 * Math.min(v, scaleMax) / scaleMax).toFixed(1)}%`;
-            spring.innerHTML =
-                `<p class="spring-title">Share of the year in spring (Sep–Nov)</p>` +
-                stats.map((s, i) =>
-                    `<div class="spring-row"><span class="spring-name">${s.g}</span>` +
-                    `<span class="spring-track"><span class="spring-fill" style="width:${pos(s.spring)};background:${COLOURS[GROUPS.indexOf(s.g)]}"></span>` +
-                    `<span class="spring-even" style="left:${pos(0.25)}"></span></span>` +
-                    `<b class="spring-val">${(100 * s.spring).toFixed(0)}%</b></div>`
-                ).join("") +
-                `<p class="spring-key"><span class="spring-even-key"></span> 25% = rescues spread evenly across the year</p>`;
+            spring.innerHTML = `<p class="spring-title">Share of the year in spring (Sep–Nov)</p><div id="season-spring-chart"></div>`;
+            const springEl = document.getElementById("season-spring-chart");
+            vegaEmbed(springEl, {
+                $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+                width: Math.max(160, Math.floor(springEl.getBoundingClientRect().width) - 120),
+                height: { step: 24 },
+                background: null,
+                data: { values: stats.map(s => ({ group: s.g, share: +(100 * s.spring).toFixed(1) })) },
+                encoding: {
+                    y: { field: "group", type: "nominal", sort: GROUPS, title: null, axis: { domain: false, ticks: false, labelFontSize: 13, labelColor: "#25332F", labelPadding: 8 } },
+                    x: { field: "share", type: "quantitative", scale: { domain: [0, 50] }, title: null, axis: null }
+                },
+                layer: [
+                    { mark: { type: "bar", height: 12, cornerRadiusEnd: 3, color: "#ECE8DF" }, encoding: { x: { datum: 50 } } },
+                    {
+                        mark: { type: "bar", height: 12, cornerRadiusEnd: 3 },
+                        encoding: {
+                            color: { field: "group", type: "nominal", scale: { domain: GROUPS, range: COLOURS }, legend: null },
+                            tooltip: [{ field: "group", title: "Animal group" }, { field: "share", type: "quantitative", title: "Share in Sep–Nov (%)", format: ".1f" }]
+                        }
+                    },
+                    { mark: { type: "rule", color: "#25332F", strokeWidth: 2, yOffset: 0 }, encoding: { x: { datum: 25 }, y: null } },
+                    { mark: { type: "text", align: "left", dx: 6, fontSize: 13, fontWeight: 700, color: "#25332F" }, encoding: { x: { datum: 50 }, text: { field: "share", type: "quantitative", format: ".0f" } } }
+                ],
+                config: { view: { stroke: null } }
+            }, { actions: false, renderer: "svg", config: window.CHART_TEXT }).catch(err => console.error(err));
+            spring.insertAdjacentHTML("beforeend", `<p class="spring-key"><span class="spring-even-key"></span> 25% = rescues spread evenly across the year</p>`);
         }
     }
     function summarise(selected) {
