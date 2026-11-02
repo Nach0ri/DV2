@@ -282,3 +282,7 @@ Updated together: visible numbers, `idiom-NN-title` anchors, headline and key-fi
 chart container ids (`vis-NN-…`), source "Used in" lists, the 01 note, footer credits, spec file names, spec
 descriptions and `js/vega_lite_vis.js`. Earlier entries in this changelog keep the old numbers. All 17 charts
 were re-rendered after the change. The "b" files (04-spring, 06b, 08-overview) are companion views of their chart.
+
+## AI acknowledgement in the footer
+Added an "AI acknowledgement" heading and paragraph at the bottom of the footer, after the credits, using the
+user's own wording. It uses the existing `sources-sub` heading and `footer-credits` text styles, so no new CSS.
