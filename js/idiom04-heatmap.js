@@ -85,7 +85,7 @@
             color: {
                 field: "share", type: "quantitative", title: "Share of reason’s rescues",
                 // Capped at 20%: a typical month is about 8%, and only 5 of 227 cells exceed 20% (exact values in the tooltip).
-                scale: { range: ["#F3F6F1", "#176B60"], domain: [0, 0.2], clamp: true },
+                scale: { range: [PALETTE.sequential[0], PALETTE.sequential[5]], domain: [0, 0.2], clamp: true },
                 legend: { orient: "bottom", direction: "horizontal", gradientLength: 260, titleFontSize: 11, labelFontSize: 11, format: ".0%", values: [0, 0.05, 0.1, 0.15, 0.2], labelExpr: "datum.value >= 0.2 ? '20%+' : datum.label" }
             },
             tooltip: [

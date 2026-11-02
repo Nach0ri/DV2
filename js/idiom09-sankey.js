@@ -10,8 +10,8 @@
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
     const TOP_N = 8;                     // only the largest reasons are shown; smaller reasons are left out
     const UNKNOWN = "Unknown";           // rescues with an unknown reason are left out of the diagram
-    const COLOUR = { Survived: "#397DA5", Died: "#C66B4E" }; // project palette, same as the outcome chart
-    const NODE = "#176B60";
+    const COLOUR = { Survived: PALETTE.outcome.Survived, Died: PALETTE.outcome.Died };   // shared outcome colours
+    const NODE = "#5B6770";   // reasons are neutral nodes
     const W = 1000, PAD_L = 250, PAD_R = 230, NODE_W = 14, GAP = 6;
 
     function showUnavailable(message) {

@@ -10,11 +10,11 @@
     const noteEl = document.getElementById("wf-note");
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
     const CATEGORIES = [
-        { name: "Died", colour: "#C66B4E" },                         // Terracotta
-        { name: "Released", colour: "#397DA5" },                     // River Blue
-        { name: "Left and observed", colour: "#D49A38" },            // Golden Ochre
-        { name: "Permanent/long term care", colour: "#176B60" },     // Forest Teal
-        { name: "Escaped rescuer or from care", colour: "#8A968F" }  // grey-green, as in Idiom 05
+        { name: "Died", colour: PALETTE.outcome["Died"] },
+        { name: "Released", colour: PALETTE.outcome["Released"] },
+        { name: "Left and observed", colour: PALETTE.outcome["Left and observed"] },
+        { name: "Permanent/long term care", colour: PALETTE.outcome["Permanent/long term care"] },
+        { name: "Escaped rescuer or from care", colour: PALETTE.outcome["Escaped rescuer or from care"] }
     ];
     const SQUARES = 100;
 
@@ -118,7 +118,7 @@
         return `<figure class="wf-group">` +
             `<figcaption><b>${g}</b> <span class="wf-total">${fmt(groupTotal[g])}</span></figcaption>` +
             waffle(gSq, "wf-grid--small", `${g}: 100 squares, each 1% of ${fmt(groupTotal[g])} recorded rescues`) +
-            `<p class="wf-group-note"><span style="color:#C66B4E">Died ${share(g, "Died")}%</span> · <span style="color:#397DA5">Released ${share(g, "Released")}%</span></p>` +
+            `<p class="wf-group-note"><span style="color:${PALETTE.outcome.Died}">Died ${share(g, "Died")}%</span> · <span style="color:${PALETTE.outcome.Released}">Released ${share(g, "Released")}%</span></p>` +
             `</figure>`;
     }).join("");
 

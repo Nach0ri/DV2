@@ -9,7 +9,7 @@
     const insightEl = document.getElementById("sm-insight");
     const noteEl = document.getElementById("sm-note");
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
-    const COLOUR = { Birds: "#397DA5", Mammals: "#D49A38", Reptiles: "#176B60" }; // project palette, same as Idiom 05
+    const COLOUR = PALETTE.group;   // shared animal-group colours
     const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const LETTERS = "JFMAMJJASOND";
 
@@ -150,7 +150,7 @@
                 },
                 {
                     data: { values: [peakLabel] },
-                    mark: { type: "text", align, dx: align === "right" ? -6 : align === "left" ? 6 : 0, dy: -10, fontSize: 11, fontWeight: 700, color: COLOUR[g] === "#D49A38" ? "#8A611A" : COLOUR[g] },
+                    mark: { type: "text", align, dx: align === "right" ? -6 : align === "left" ? 6 : 0, dy: -10, fontSize: 11, fontWeight: 700, color: PALETTE.groupText[g] },
                     encoding: { x: { field: "month_number", type: "quantitative" }, y: { field: "mean_pct", type: "quantitative" }, text: { field: "text" } }
                 }
             ]

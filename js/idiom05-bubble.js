@@ -8,7 +8,7 @@
     const DATA_URL = "data/rescue_outcomes_by_group.csv";
     const chartEl = document.getElementById("bubble-chart");
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
-    const COLOUR = { Birds: "#397DA5", Mammals: "#D49A38", Reptiles: "#176B60" }; // River Blue, Golden Ochre, Forest Teal
+    const COLOUR = PALETTE.group;   // shared animal-group colours
     const ADEQUATE = 100;  // minimum rescues for a cause to be used in highlights and labels
     const DEF = "Died = dead, died or euthanased. Survived = released, left and observed, relocated, or permanent care.";
 

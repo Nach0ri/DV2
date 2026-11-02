@@ -9,11 +9,11 @@
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
     // Stack order (left to right) and colours, using the project palette.
     const OUTCOMES = [
-        { name: "Died", colour: "#C66B4E" },
-        { name: "Left and observed", colour: "#D49A38" },
-        { name: "Released", colour: "#397DA5" },
-        { name: "Permanent/long term care", colour: "#176B60" },
-        { name: "Escaped rescuer or from care", colour: "#8A968F" }
+        { name: "Died", colour: PALETTE.outcome["Died"] },
+        { name: "Left and observed", colour: PALETTE.outcome["Left and observed"] },
+        { name: "Released", colour: PALETTE.outcome["Released"] },
+        { name: "Permanent/long term care", colour: PALETTE.outcome["Permanent/long term care"] },
+        { name: "Escaped rescuer or from care", colour: PALETTE.outcome["Escaped rescuer or from care"] }
     ];
     const LABEL_MIN_SHARE = 0.05; // only segments of 5% or more get a label
 
@@ -98,8 +98,9 @@
             },
             {
                 transform: [{ filter: "datum.label !== ''" }],
-                mark: { type: "text", fontSize: 11, fontWeight: 600, color: "#FFFFFF" },
+                mark: { type: "text", fontSize: 11, fontWeight: 600 },
                 encoding: {
+                    color: { condition: { test: "datum.outcome === 'Left and observed'", value: PALETTE.neutral.ink }, value: "#FFFFFF" },
                     y: { field: "animal_group", type: "nominal", sort: GROUPS },
                     x: { field: "center", type: "quantitative" },
                     text: { field: "label", type: "nominal" }

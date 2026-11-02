@@ -6,7 +6,8 @@
 (async function () {
     const DATA_URL = "data/rescue_reasons_by_group_year.csv";
     const chartEl = document.getElementById("vis-06-bump");
-    const COLOURS = ["#397DA5", "#D49A38", "#176B60", "#C66B4E", "#8A8175"]; // project palette (colour-blind considered)
+    const COLOURS = ["#25332F", "#4A5752", "#6B7872", "#8A9690", "#A3ADA8"];   // neutral greys: reasons are not a colour category elsewhere on the page
+    const DASHES = [[1, 0], [7, 3], [2, 3], [9, 3, 2, 3], [4, 4]];         // line style tells the five reasons apart without hue
     const EXCLUDE = new Set(["Unknown"]);
 
     function showUnavailable(message) {
@@ -96,6 +97,7 @@
                     x: { field: "year_label", type: "ordinal", sort: yearList.map(y => y.replace("-", "–")), title: "Reporting year (financial year)", scale: { paddingOuter: 1.0 }, axis: { labelAngle: 0, labelFontSize: 12, titleFontSize: 12, domain: false, ticks: false } },
                     y: { field: "rank", type: "quantitative", title: "Rank among reasons (1 = most rescues)", scale: { domain: [0.5, maxRank + 0.5], reverse: true }, axis: { values: Array.from({ length: maxRank }, (_, i) => i + 1), format: "d", grid: true, labelFontSize: 12, titleFontSize: 12, domain: false, ticks: false } },
                     color: { field: "reason", type: "nominal", scale: { domain: top5, range: top5.map(rn => colourOf[rn]) }, legend: null },
+                    strokeDash: { field: "reason", type: "nominal", scale: { domain: top5, range: top5.map((rn, i) => DASHES[i]) }, legend: null },
                     opacity: { condition: { param: "hl", empty: true, value: 1 }, value: 0.18 },
                     detail: { field: "reason" },
                     tooltip: [
@@ -129,7 +131,7 @@
                     opacity: { condition: { param: "hl", empty: true, value: 1 }, value: 0.25 },
                     x: { field: "year_label", type: "ordinal", sort: yearList.map(y => y.replace("-", "–")) },
                     y: { field: "rank", type: "quantitative" },
-                    color: { field: "reason", type: "nominal", scale: { domain: top5, range: top5.map(rn => colourOf[rn]) }, legend: null },
+                    color: { value: PALETTE.neutral.ink },
                     text: { field: "reason", type: "nominal" }
                 }
             },

@@ -10,8 +10,8 @@
     const noteEl = document.getElementById("tm-note");
     const tooltip = document.getElementById("tm-tooltip");
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
-    const COLOUR = { Birds: "#397DA5", Mammals: "#D49A38", Reptiles: "#176B60" }; // project palette
-    const TEXT_ON = { Birds: "#FFFFFF", Mammals: "#25332F", Reptiles: "#FFFFFF" };
+    const COLOUR = PALETTE.group;   // shared animal-group colours
+    const TEXT_ON = PALETTE.groupOn;   // white on dark blue, dark text on gold and green
     const BAND = 24;   // height of the group label band
     const GAP = 1.5;   // white gap between rectangles
     const UNKNOWN = /unknown|unidentified/i;

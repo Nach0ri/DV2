@@ -9,8 +9,8 @@
     const Y1 = "2018/19", Y2 = "2024/25";
     const L1 = "2018–19", L2 = "2024–25";
     const TOP_N = 15;
-    const COLOUR = { [L1]: "#D49A38", [L2]: "#176B60" }; // Golden Ochre (earlier), Forest Teal (later)
-    const RULE = "#B9B2A3";
+    const COLOUR = { [L1]: PALETTE.neutral.earlier, [L2]: PALETTE.neutral.ink };   // earlier = light grey, later = ink
+    const RULE = "#CFC9BC";
 
     function showUnavailable(message) {
         chartEl.innerHTML =
@@ -107,7 +107,7 @@
                     y: { field: "lga", type: "nominal", sort: order },
                     x: { field: "hi", type: "quantitative" },
                     text: { field: "change_label" },
-                    color: { condition: { test: "datum.is_max", value: "#176B60" }, value: "#5E6B63" }
+                    color: { condition: { test: "datum.is_max", value: PALETTE.change.rose }, value: PALETTE.neutral.muted }
                 }
             },
             {
@@ -140,10 +140,10 @@
             overview.innerHTML =
                 `<p class="dot-ov-title">All ${both.length} council areas, ${L1} to ${L2}</p>` +
                 `<div class="dot-ov-bar" role="img" aria-label="${rose} rose, ${same} stayed the same, ${fell} fell">` +
-                `<span style="width:${pc(rose)}%;background:#176B60" title="Rose: ${rose}"></span>` +
-                `<span style="width:${pc(same)}%;background:#B9C2BC" title="Same: ${same}"></span>` +
-                `<span style="width:${pc(fell)}%;background:#D49A38" title="Fell: ${fell}"></span></div>` +
-                `<p class="dot-ov-key"><b style="color:#176B60">${rose} rose</b> · ${same} same · <b style="color:#8A611A">${fell} fell</b></p>` +
+                `<span style="width:${pc(rose)}%;background:${PALETTE.change.rose}" title="Rose: ${rose}"></span>` +
+                `<span style="width:${pc(same)}%;background:${PALETTE.change.same}" title="Same: ${same}"></span>` +
+                `<span style="width:${pc(fell)}%;background:${PALETTE.change.fell}" title="Fell: ${fell}"></span></div>` +
+                `<p class="dot-ov-key"><b style="color:${PALETTE.change.rose}">${rose} rose</b> · ${same} same · <b style="color:${PALETTE.change.fellText}">${fell} fell</b></p>` +
                 `<p class="dot-ov-title">Largest rises</p>` +
                 `<ol class="dot-ov-list">` + rises.map(r => `<li><span>${r.name}</span><b>+${fmt(r.d)}</b></li>`).join("") + `</ol>`;
         }

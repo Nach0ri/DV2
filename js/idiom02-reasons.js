@@ -65,7 +65,7 @@
         layer: [
             {
                 mark: { type: "bar", cornerRadiusEnd: 2, height: { band: 0.7 } },
-                encoding: { color: { condition: { test: "datum.rank === 1", value: "#C66B4E" }, value: "#397DA5" } }
+                encoding: { color: { condition: { test: "datum.rank === 1", value: PALETTE.neutral.ink }, value: PALETTE.neutral.context } }
             },
             {
                 mark: { type: "text", align: "left", baseline: "middle", dx: 4, fontSize: 11, color: "#25332F" },

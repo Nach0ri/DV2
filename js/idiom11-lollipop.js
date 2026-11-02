@@ -11,7 +11,7 @@
     const noteEl = document.getElementById("lp-note");
     const TOP_N = 15;          // lowest-count sub-groups shown
     const HIGHLIGHT_N = 3;     // restrained highlight for the lowest few
-    const COL = { highlight: "#C66B4E", other: "#397DA5", stem: "#B9C2BC", text: "#25332F" }; // Terracotta, River Blue, stem, Deep Charcoal
+    const COL = { highlight: PALETTE.neutral.ink, other: PALETTE.neutral.context, stem: PALETTE.neutral.stem, text: PALETTE.neutral.ink };   // neutral emphasis
     const EXCLUDE = /unknown|unidentified/i;
 
     function showUnavailable(message) {

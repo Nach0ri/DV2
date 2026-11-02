@@ -115,8 +115,8 @@ body { margin: 0; }
     --muted: #5E6B63;           /* notes and subtitles */
     --ochre: #8A611A;           /* ochre accent; darkened to 4.9:1 contrast on the page background */
     --rule: #D9D2C3;            /* dividers and card borders */
-    --accent: #397DA5;          /* River Blue: summary boxes */
-    --terracotta: #C66B4E;      /* link hover */
+    --accent: #176B60;          /* brand teal: summary boxes (not a data category) */
+    --terracotta: #0B4A42;      /* link hover: dark brand teal (red is reserved for "Died") */
 
     --font-title: "Newsreader", Georgia, "Times New Roman", serif;
     --font-text: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -537,10 +537,11 @@ body { margin: 0; }
     margin-bottom: 4px;
 }
 .finding-icon svg { width: 24px; height: 24px; }
-.finding-icon--teal { color: #176B60; background: #E3EEEA; }
-.finding-icon--blue { color: #397DA5; background: #E2EEF4; }
-.finding-icon--ochre { color: #B07C22; background: #F7EEDB; }
-.finding-icon--terracotta { color: #C66B4E; background: #F6E6DF; }
+/* Icons use the brand teal; only the outcome card uses the "Died" red, matching its meaning in the charts. */
+.finding-icon--teal,
+.finding-icon--blue,
+.finding-icon--ochre { color: #176B60; background: #E3EEEA; }
+.finding-icon--terracotta { color: #B83F35; background: #F6E3E0; }
 .finding-heading {
     margin: 0;
     font-size: 1.02rem;
@@ -614,10 +615,11 @@ body { margin: 0; }
 .hl-stat:nth-child(2) { animation-delay: 0.08s; }
 .hl-stat:nth-child(3) { animation-delay: 0.16s; }
 .hl-stat:nth-child(4) { animation-delay: 0.24s; }
-.hl-stat--blue { --hl-colour: #397DA5; }
-.hl-stat--teal { --hl-colour: #176B60; }
-.hl-stat--ochre { --hl-colour: #B07C22; }
-.hl-stat--terracotta { --hl-colour: #C66B4E; }
+/* Headline tiles: brand teal, except the "Died" figure, which uses the outcome red. */
+.hl-stat--blue,
+.hl-stat--teal,
+.hl-stat--ochre { --hl-colour: #176B60; }
+.hl-stat--terracotta { --hl-colour: #B83F35; }
 .hl-stat:hover,
 .hl-stat:focus-visible {
     transform: translateY(-3px);

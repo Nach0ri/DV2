@@ -8,7 +8,7 @@
     const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const SHORT = MONTHS.map(m => m.slice(0, 3));
     const GROUPS = ["Birds", "Mammals", "Reptiles"];
-    const COLOURS = ["#397DA5", "#D49A38", "#176B60"];
+    const COLOURS = GROUPS.map(g => PALETTE.group[g]);   // shared animal-group colours
     const ALL = "All years (average)";
 
     function showUnavailable(message) {
@@ -141,7 +141,7 @@
                     x: { field: "month_short", type: "ordinal", sort: SHORT },
                     y: { field: "count", type: "quantitative" },
                     text: { field: "peak_label" },
-                    color: { field: "animal_group", type: "nominal", scale: { domain: GROUPS, range: COLOURS }, legend: null }
+                    color: { condition: [{ test: "datum.animal_group === 'Birds'", value: PALETTE.groupText.Birds }, { test: "datum.animal_group === 'Mammals'", value: PALETTE.groupText.Mammals }], value: PALETTE.groupText.Reptiles }
                 }
             }
         ],

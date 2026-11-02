@@ -9,7 +9,7 @@ const LORD_HOWE = "Lord Howe Island (unincorporated)";
 
 // Sequential classes (rescue records per LGA per year). Fixed across years so colours are comparable between years.
 const CLASS_BREAKS = [100, 250, 500, 1000, 2000, 4000];
-const CLASS_COLOURS = ["#DCEBF5","#B5D5EA","#86BADA","#559CC6","#327DAA","#1F5F88","#103E5E"];
+const CLASS_COLOURS = window.PALETTE.sequential;   // magnitude: brand teal ramp (shared palette)
 const NO_DATA_COLOUR = "#E6E1D6";
 
 // Greater Sydney and Central Coast inset (small, high-count LGAs cluster here).

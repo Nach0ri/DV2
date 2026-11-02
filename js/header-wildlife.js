@@ -11,7 +11,7 @@
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // Project palette: eucalyptus, forest teal, river blue and ochre, kept faint so text stays readable.
-    const LEAF_COLOURS = ["#6F9A86", "#176B60", "#8FB3A1", "#D49A38"];
+    const LEAF_COLOURS = ["#6F9A86", "#176B60", "#8FB3A1", "#A8B98F"];   // greens and sage only: no category hues in decoration
     const BIRD_COLOUR = "#24493A";
     const REPEL = 110;           // pointer influence radius (px)
 
