@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Idiom 03: ranked bar chart of rescue reasons, 2022-23 (the only year in this file, so there is no year control). Source: NSW DCCEEW, NSW Wildlife Rehabilitation Annual Report 2022-23, p. 15.",
   "width": "container",
-  "height": { "step": 22 },
+  "height": 220,
   "autosize": { "type": "fit-x", "contains": "padding" },
   "data": {
     "url": "data/rescue_reasons_by_year.csv",

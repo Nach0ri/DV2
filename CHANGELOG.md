@@ -319,3 +319,46 @@ comes from `data/rescue_reasons_by_year.csv` and matches the earlier key finding
   causes and the busiest months", "Seasonal timing, survival and changing rank of each threat", "Council trends,
   most-rescued animals and how rescues end", "Seasonality, least-recorded animals and final outcomes by group";
   09 title "How big is each council if size means rescues?".
+
+## Final polish: verified findings, finding-led headings, readable charts on phones, clean console
+**Audit (before changes).**
+- No page overflow at 1440/1280/1024/768/390/360 px.
+- Six fixed-size charts (01, 02, 09, 10, 11, 14) and the small multiples (12) were scaled down to 3–4 px
+  text on phones.
+- Console: two "Conflicting legend" warnings (02) and four "Dropping fit-y" warnings.
+- Every number on the page was recomputed from `data/` with a script (`verify.mjs`, kept outside the repo).
+  All matched. The check also showed that vehicle collisions were *not* first in every year (Abandoned/Orphaned
+  led in 2016–17), so the new 07 text says "five of six years".
+
+**Storytelling.** Each chart now pairs its question title (h3) with a finding heading (h4, ≤10 words, 17 px),
+all checked against the data:
+- 01: "Five coastal councils record almost one in five rescues" (18.8%).
+- 02: "Rescues rose in 107 of 130 council areas".
+- 03: "…2.4 times the next cause".
+- 04: "Each animal group peaks in a different season".
+- 05: "Orphaned young peak in spring; heat rescues in summer" (Abandoned/Orphaned peaks in November; Drought/heat
+  77% in February).
+- 06: "Death rates range from 2.5% to 91% by cause".
+- 07: "Vehicle collisions led in five of six years".
+- 08: "All 15 busiest councils recorded more rescues than in 2018–19".
+- 09: "Five councils: 1% of the land, 18.8% of rescues".
+- 10: "Parrots and possums make up 30.5% of rescues" (16.5% + 14.0% of named sub-groups).
+- 11: "Survival varies sharply with the reason for rescue".
+- 12: "Reptile rescues are the most seasonal; mammals the least".
+- 13: "Platypus, geckoes and emus are the least recorded".
+- 14: "Most recorded rescues end in death, especially for mammals" (54.8%; mammals 64.6%).
+- 07 had no summary. It now has a verified one: 7,016 → 11,533 (+64%, author-calculated), first in every year
+  except 2016–17, and Abandoned/Orphaned above Unsuitable environment from 2014–15.
+
+**Phones and tablets.**
+- Below 900 px, the seven fixed-size charts keep a readable minimum width (`--vl-min` per chart, 440–820 px).
+  They scroll sideways inside their card, with a sticky "Scroll sideways…" hint.
+- Smallest chart text on phones is now about 7–9 px, up from about 3 px. The page itself still never scrolls
+  sideways.
+
+**Console and specs.**
+- 02: removed `legend: null` on scales shared with the main map, so the legends merge cleanly.
+- 03, 04-spring, 13: `height: {step}` replaced by the equivalent fixed height (rows × step: 220, 72, 360). The
+  render is the same and there is no warning.
+- The only console message left is the heatmap's "Dropping fit-y". It keeps a step height because its row
+  count changes with the group selector; the message is informational.

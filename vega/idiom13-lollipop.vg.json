@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Idiom 13: lollipop chart of the 15 sub-groups with the lowest recorded rescues, 2013-14 to 2018-19 (Unknown/Unidentified excluded). Source: Kwok et al. (2021), PLOS ONE, supplementary file S7.",
   "width": "container",
-  "height": { "step": 24 },
+  "height": 360,
   "autosize": { "type": "fit-x", "contains": "padding" },
   "data": {
     "url": "data/rescue_monthly_by_group.csv",

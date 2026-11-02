@@ -244,14 +244,12 @@
             "size": {
               "field": "now",
               "type": "quantitative",
-              "scale": { "type": "linear", "zero": true, "domain": [0, 5200], "range": [0, 1400] },
-              "legend": null
+              "scale": { "type": "linear", "zero": true, "domain": [0, 5200], "range": [0, 1400] }
             },
             "color": {
               "field": "direction",
               "type": "nominal",
-              "scale": { "domain": ["Rose", "Same", "Fell"], "range": ["#A0286C", "#C9D0CC", "#5F6F78"] },
-              "legend": null
+              "scale": { "domain": ["Rose", "Same", "Fell"], "range": ["#A0286C", "#C9D0CC", "#5F6F78"] }
             },
             "fillOpacity": { "condition": { "param": "dir_pick", "value": 0.62 }, "value": 0.06 },
             "strokeOpacity": { "condition": { "param": "dir_pick", "value": 1 }, "value": 0.1 },
