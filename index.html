@@ -87,9 +87,26 @@
                             <div class="controls"><div id="fy-control"></div><span class="hint">Hover over an area to see its numbers. Click an area or bar to highlight it, and double-click to clear.</span></div>
                             <p class="summary" id="fy-summary" aria-live="polite">In <b>2024–25</b>, 119,582 rescues were linked to a council area. The top five (Northern Beaches, Central Coast, Shoalhaven, Tweed, Sutherland Shire) had <b>18.8%</b> of them. The bottom 65 areas together had only 7.1%.</p>
                                                         <div id="map" class="vl-chart" role="img" aria-label="Choropleth map of rescues by NSW council area"><p class="status">Loading map…</p></div>
-                            <p class="legend-note" id="fy-gaps">64 rescues in 2024–25 had no location, so they are not on the map. Lord Howe Island is too far east to show (0 rescues). Grey areas have no data.</p>
+                            <p class="legend-note" id="fy-gaps">64 rescues in 2024–25 had no location, so they are not on the map. Lord Howe Island is too far east to show (0 rescues). Grey areas have no data. Colour shows raw counts, not rescues per person or per km², so large rural areas and small city areas are not directly comparable: maps 01b and 07b show the same counts as circles.</p>
                         </div>
                     </figure>
+            </article>
+
+            <!-- Idiom 01b · proportional symbol map -->
+            <article class="idiom idiom--stacked" aria-labelledby="idiom-01b-title">
+                <h3 class="idiom-title" id="idiom-01b-title"><span class="idiom-num">01b</span>Where are rescues rising or falling?</h3>
+                <div class="idiom-text">
+                    <h4 class="card-heading">Circle size for volume, colour for change</h4>
+                    <p>Bigger circles mean more rescues in 2024–25. Raspberry circles rose since 2018–19.</p>
+                    <p class="card-note">Click a colour in the key to show only areas that rose, stayed the same or fell; double-click to reset.</p>
+                </div>
+                <figure class="chart-card chart-card--full">
+                    <div class="chart-area" id="vis-01b-symbols">
+                        <p class="summary" id="sym-summary">Of 130 mapped council areas, <b>107 recorded more rescues</b> in 2024–25 than in 2018–19, 1 the same and 22 fewer. Mapped rescues rose <b>44.2%</b> overall (82,922 to 119,582). Biggest rise: <b>Shoalhaven</b> (+2,559). Biggest falls: <b>Lismore</b> (−872) and <b>Coffs Harbour</b> (−647).</p>
+                        <div id="symbol-map" class="vl-chart" role="img" aria-label="Proportional symbol map of rescues by NSW council area in 2024–25, coloured by change since 2018–19"><p class="status">Loading map…</p></div>
+                        <p class="legend-note">Source: NSW DCCEEW, <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/native-animals/rehabilitating-native-animals/wildlife-rehabilitation-data-and-reporting/wildlife-rehabilitation-data-dashboard">NSW Wildlife Rehabilitation Data Dashboard</a>, rescues by council area (LGA), 2018–19 and 2024–25. Circle area is proportional to 2024–25 rescues; each circle sits at the area’s label point, not at a rescue location. Change and change % are author-calculated (2024–25 minus 2018–19). Rescues with no council area recorded are not mapped; Lord Howe Island (0 rescues) is left off. Counts are not adjusted for population, and a change can reflect reporting as well as animals.</p>
+                    </div>
+                </figure>
             </article>
 
             <!-- Idiom 02 · explanation first, full-width chart area -->
@@ -235,6 +252,24 @@
                         <p class="card-note" id="dot-note">Largest rise among the 15 shown: <b>Shoalhaven</b> (2,342 to 4,901). None of the 15 LGAs shown recorded a fall. Counts are not population-adjusted and reflect where animals were found and reported.</p>
                     </div>
                 </div>
+            </article>
+
+            <!-- Idiom 07b · Dorling cartogram (Vega spec: Vega-Lite has no force layout) -->
+            <article class="idiom idiom--stacked" aria-labelledby="idiom-07b-title">
+                <h3 class="idiom-title" id="idiom-07b-title"><span class="idiom-num">07b</span>How big is each council if size means rescues, not land?</h3>
+                <div class="idiom-text">
+                    <h4 class="card-heading">A cartogram: one circle per council</h4>
+                    <p>Circle area = rescues. Small coastal councils become the biggest shapes.</p>
+                    <p class="card-note">Change the year to watch the circles grow or shrink.</p>
+                </div>
+                <figure class="chart-card chart-card--full">
+                    <div class="chart-area" id="vis-07b-dorling">
+                        <div class="controls"><div id="dorling-year"></div><span class="hint">Hover over a circle to see the council, its rescues and rank.</span></div>
+                        <p class="summary" id="dorling-summary">In <b>2024–25</b>, the five busiest councils (Northern Beaches, Central Coast, Shoalhaven, Tweed, Sutherland Shire) cover about <b>1% of NSW’s land</b> but recorded <b>18.8% of mapped rescues</b>. Northern Beaches alone is 0.03% of the land and 4.3% of rescues (author-calculated).</p>
+                        <div id="dorling-chart" class="vl-chart" role="img" aria-label="Dorling cartogram: one circle per NSW council area, sized by recorded rescues"><p class="status">Loading cartogram…</p></div>
+                        <p class="legend-note">Source: NSW DCCEEW, <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/native-animals/rehabilitating-native-animals/wildlife-rehabilitation-data-and-reporting/wildlife-rehabilitation-data-dashboard">NSW Wildlife Rehabilitation Data Dashboard</a>, rescues by council area, 2013–14 to 2024–25; boundaries: NSW Spatial Services. Circle area is proportional to rescues on one fixed scale for every year. A force layout (Vega) moves circles apart so none overlap, so positions are approximate. Land-area shares are author-calculated from the simplified boundary file. Rescues with no council area recorded are not mapped. Counts are not adjusted for population.</p>
+                    </div>
+                </figure>
             </article>
 
             <!-- Idiom 08 · explanation first, full-width treemap area -->

@@ -6,7 +6,10 @@ vegaEmbed("#map", vg_1, { actions: false, renderer: "svg" }).then(function (resu
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
 
-var vg_2 = "vega/idiom02-reasons.vg.json";
+var vg_1b = "vega/idiom01b-symbols.vg.json";
+vegaEmbed("#symbol-map", vg_1b, { actions: false, renderer: "svg" }).catch(console.error);
+
+var vg_2 ="vega/idiom02-reasons.vg.json";
 vegaEmbed("#reasons-chart", vg_2, { actions: false, renderer: "svg" }).catch(console.error);
 
 var vg_3 = "vega/idiom03-seasonality.vg.json";
@@ -33,7 +36,11 @@ vegaEmbed("#vis-07-connected-dot", vg_7, { actions: false, renderer: "svg" }).ca
 var vg_7b = "vega/idiom07-overview.vg.json";
 vegaEmbed("#dot-ov-bar", vg_7b, { actions: false, renderer: "svg" }).catch(console.error);
 
-var vg_8 = "vega/idiom08-treemap.vg.json";
+// 07b is a Vega spec (Vega-Lite has no force layout); vegaEmbed reads the "$schema" and renders it the same way.
+var vg_7c = "vega/idiom07b-dorling.vg.json";
+vegaEmbed("#dorling-chart", vg_7c, { actions: false, renderer: "svg" }).catch(console.error);
+
+var vg_8 ="vega/idiom08-treemap.vg.json";
 vegaEmbed("#treemap-chart", vg_8, { actions: false, renderer: "svg" }).catch(console.error);
 
 var vg_9 = "vega/idiom09-sankey.vg.json";

@@ -1,0 +1,243 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Idiom 07b: Dorling cartogram of recorded wildlife rescues by NSW council area (LGA). One circle per council, area proportional to rescues in the selected financial year, pushed apart by a force layout so that no circle overlaps another while each stays as close as possible to its council. Written in Vega (not Vega-Lite) because Vega-Lite has no force layout. Source: NSW DCCEEW, NSW Wildlife Rehabilitation Data Dashboard; boundaries: NSW Spatial Services.",
+  "width": 1030,
+  "height": 600,
+  "padding": 0,
+  "autosize": "none",
+
+  "signals": [
+    {
+      "name": "nsw_box",
+      "description": "Bounding box of mainland NSW: the projection is fitted to this box.",
+      "value": { "type": "Feature", "properties": {}, "geometry": { "type": "Polygon", "coordinates": [[[140.9, -28.1], [153.7, -28.1], [153.7, -37.6], [140.9, -37.6], [140.9, -28.1]]] } }
+    },
+    {
+      "name": "dorling_year",
+      "value": "2024/25",
+      "bind": {
+        "input": "select",
+        "name": "Financial year ",
+        "options": ["2013/14", "2014/15", "2015/16", "2016/17", "2017/18", "2018/19", "2019/20", "2020/21", "2021/22", "2022/23", "2023/24", "2024/25"],
+        "labels": ["2013–14", "2014–15", "2015–16", "2016–17", "2017–18", "2018–19", "2019–20", "2020–21", "2021–22", "2022–23", "2023–24", "2024–25"],
+        "element": "#dorling-year"
+      }
+    },
+    {
+      "name": "hovered",
+      "value": null,
+      "on": [
+        { "events": "@circles:mouseover", "update": "datum.properties.lga_name" },
+        { "events": "@circles:mouseout", "update": "null" }
+      ]
+    }
+  ],
+
+  "projections": [
+    {
+      "name": "nsw",
+      "type": "conicEqualArea",
+      "rotate": [-147, 0],
+      "parallels": [-29, -36],
+      "fit": { "signal": "nsw_box" },
+      "extent": [[20, 20], [790, 580]]
+    }
+  ],
+
+  "data": [
+    {
+      "name": "counts",
+      "url": "data/rescue_counts_by_lga.csv",
+      "format": { "type": "csv", "parse": { "rescue_count": "number" } },
+      "transform": [
+        { "type": "filter", "expr": "datum.financial_year === dorling_year && datum.lga_name !== 'LGA not recorded'" }
+      ]
+    },
+    {
+      "name": "outline",
+      "url": "data/nsw_lga.geojson",
+      "format": { "type": "json", "property": "features" },
+      "transform": [
+        { "type": "filter", "expr": "datum.properties.lga_name !== 'Lord Howe Island (unincorporated)'" }
+      ]
+    },
+    {
+      "name": "councils",
+      "source": "outline",
+      "transform": [
+        { "type": "lookup", "from": "counts", "key": "lga_name", "fields": ["properties.lga_name"], "values": ["rescue_count"], "as": ["n"], "default": 0 },
+        { "type": "geopoint", "projection": "nsw", "fields": ["properties.lx", "properties.ly"], "as": ["cx", "cy"] },
+        { "type": "formula", "as": "r", "expr": "sqrt(scale('area', datum.n) / PI)" },
+        { "type": "formula", "as": "x", "expr": "datum.cx" },
+        { "type": "formula", "as": "y", "expr": "datum.cy" },
+        {
+          "type": "force",
+          "static": true,
+          "iterations": 300,
+          "forces": [
+            { "force": "collide", "radius": { "expr": "datum.r + 1" }, "iterations": 3 },
+            { "force": "x", "x": "cx", "strength": 0.12 },
+            { "force": "y", "y": "cy", "strength": 0.12 }
+          ]
+        },
+        { "type": "window", "ops": ["row_number"], "as": ["rank"], "sort": { "field": "n", "order": "descending" } },
+        { "type": "joinaggregate", "ops": ["sum"], "fields": ["n"], "as": ["total"] }
+      ]
+    },
+    {
+      "name": "labelled",
+      "source": "councils",
+      "transform": [
+        { "type": "filter", "expr": "datum.rank <= 5" },
+        { "type": "formula", "as": "label", "expr": "replace(datum.properties.lga_name, ' Regional', '') + '  ' + format(datum.n, ',')" }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "area",
+      "type": "linear",
+      "domain": [0, 7200],
+      "range": [0, 2830],
+      "zero": true
+    },
+    {
+      "name": "colour",
+      "type": "threshold",
+      "domain": [100, 250, 500, 1000, 2000, 4000],
+      "range": ["#E6F2EF", "#C2E0D8", "#93C7B9", "#5FA897", "#2F8573", "#16604F", "#0B3F33"]
+    }
+  ],
+
+  "legends": [
+    {
+      "size": "area",
+      "title": "Rescues in the year (circle area)",
+      "values": [500, 2000, 5000],
+      "encode": { "labels": { "update": { "text": { "signal": "format(datum.value, ',')" } } } },
+      "orient": "none",
+      "legendX": 840,
+      "legendY": 30,
+      "symbolType": "circle",
+      "symbolFillColor": "#B9C1BD",
+      "symbolStrokeColor": "#5E6B63",
+      "symbolOpacity": 0.7,
+      "titleFontSize": 12,
+      "labelFontSize": 11,
+      "titleLimit": 190
+    },
+    {
+      "fill": "colour",
+      "type": "symbol",
+      "title": "Same colour classes as map 01",
+      "orient": "none",
+      "legendX": 840,
+      "legendY": 230,
+      "symbolType": "circle",
+      "symbolStrokeColor": "#9DAAA4",
+      "symbolStrokeWidth": 0.5,
+      "titleFontSize": 12,
+      "labelFontSize": 11,
+      "titleLimit": 190,
+      "encode": {
+        "labels": {
+          "update": {
+            "text": { "signal": "['Under 100', '100–249', '250–499', '500–999', '1,000–1,999', '2,000–3,999', '4,000 or more'][datum.index]" }
+          }
+        }
+      }
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "shape",
+      "from": { "data": "outline" },
+      "encode": {
+        "update": {
+          "fill": { "value": "#EDEFEA" },
+          "stroke": { "value": "#FFFFFF" },
+          "strokeWidth": { "value": 0.6 }
+        }
+      },
+      "transform": [{ "type": "geoshape", "projection": "nsw" }]
+    },
+    {
+      "name": "circles",
+      "type": "symbol",
+      "from": { "data": "councils" },
+      "encode": {
+        "enter": {
+          "shape": { "value": "circle" },
+          "cursor": { "value": "pointer" }
+        },
+        "update": {
+          "x": { "field": "x" },
+          "y": { "field": "y" },
+          "size": { "scale": "area", "field": "n" },
+          "fill": { "scale": "colour", "field": "n" },
+          "stroke": { "signal": "hovered === datum.properties.lga_name ? '#25332F' : '#FFFFFF'" },
+          "strokeWidth": { "signal": "hovered === datum.properties.lga_name ? 2.5 : 0.8" },
+          "tooltip": {
+            "signal": "{'Council area': datum.properties.lga_name, 'Year': replace(dorling_year, '/', '–'), 'Recorded rescues': format(datum.n, ','), 'Rank in the year': datum.rank + ' of ' + length(data('councils')), 'Share of mapped rescues (author-calculated)': format(datum.n / datum.total, '.1%')}"
+          }
+        }
+      }
+    },
+    {
+      "description": "Top-five labels, placed just right of each circle (the sea side), with a white halo drawn first.",
+      "type": "text",
+      "from": { "data": "labelled" },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": { "signal": "datum.x + datum.r + 4" },
+          "y": { "field": "y" },
+          "text": { "field": "label" },
+          "baseline": { "value": "middle" },
+          "fontSize": { "value": 11 },
+          "fontWeight": { "value": 700 },
+          "stroke": { "value": "#FFFFFF" },
+          "strokeWidth": { "value": 3 },
+          "strokeOpacity": { "value": 0.9 }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": { "data": "labelled" },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": { "signal": "datum.x + datum.r + 4" },
+          "y": { "field": "y" },
+          "text": { "field": "label" },
+          "baseline": { "value": "middle" },
+          "fontSize": { "value": 11 },
+          "fontWeight": { "value": 700 },
+          "fill": { "value": "#25332F" }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": { "value": 840 },
+          "y": { "value": 470 },
+          "text": { "value": ["Circles are pushed apart so", "none overlap: each sits as close", "as it can to its council, not on", "an exact rescue location."] },
+          "fontSize": { "value": 11 },
+          "fill": { "value": "#5E6B63" },
+          "lineHeight": { "value": 15 }
+        }
+      }
+    }
+  ],
+
+  "config": {
+    "font": "Atkinson Hyperlegible, system-ui, sans-serif",
+    "legend": { "titleColor": "#25332F", "labelColor": "#25332F" }
+  }
+}

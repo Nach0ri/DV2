@@ -223,3 +223,23 @@ CSS. They are page decoration, not charts: every chart is still a pure Vega-Lite
 - Audit: all 15 chart specs are Vega-Lite v5 and compile; removed two redundant `legend: null` settings (03, 05) that caused
   "conflicting legend" warnings. Remaining "Dropping fit-y" notes (02, 03 spring, 04, 11) are informational: those charts
   use a step height on purpose.
+
+## Audit fix: three map idioms (01 choropleth, 01b proportional symbol map, 07b Dorling cartogram)
+**Requirement:** at least three different map idioms. Before this change the site had one (01).
+- **01b Proportional symbol map** (`vega/idiom01b-symbols.vg.json`, Vega-Lite). Brought back from the deleted idiom 13
+  with one fix: the "Same" and "Fell" colours were almost identical greys (#9DAAA4 vs #8FA0A9); "Fell" is now dark
+  slate #5F6F78 and "Same" light grey #C9D0CC, matching the 07 overview key. Circle area = 2024–25 rescues, hue =
+  rose/same/fell since 2018–19 (author-calculated). Legend click filters by direction. Placed after 01 in "Where".
+- **07b Dorling cartogram** (`vega/idiom07b-dorling.vg.json`, **Vega**, not Vega-Lite). One circle per council, area ∝
+  rescues on one fixed scale for every year (0–7,200 → 0–2,830 px²), colour uses the same seven classes as 01. A Vega
+  `force` transform (collide + x/y pull to each council's label point, static, 300 iterations) pushes circles apart.
+  Vega-Lite has no force layout, so this one spec is Vega; it is embedded the same way (vegaEmbed reads `$schema`).
+  Year select (12 years), hover outline, tooltip, top-five labels. No offline layout step and no new data.
+- Summary figures checked against `data/rescue_counts_by_lga.csv` with a script: 130 mapped councils, 107 rose / 1
+  same / 22 fell; mapped total 82,922 → 119,582 (+44.2%). Land shares (top five ≈ 1.06% of NSW land, Northern Beaches
+  0.03%) are author-calculated from `data/nsw_lga.geojson` (total 802,170 km², close to the official ~801,150 km²).
+- 01 note now says the colour is raw counts (not per person or per km²) and points to 01b and 07b.
+
+**Idioms (for the interview):** a proportional symbol map keeps geography and shows magnitude by circle area, so
+small, busy councils are not hidden as they are on a choropleth. A Dorling cartogram gives up exact position to
+remove overlap: each council becomes a circle sized by its value, so the comparison is size against size.
