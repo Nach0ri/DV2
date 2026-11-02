@@ -16,95 +16,30 @@
     {
       "filter": "indexof(['Birds', 'Mammals', 'Reptiles'], datum.animal_group) >= 0 && isValid(datum.number_of_rescues)"
     },
+    { "calculate": "[datum.animal_group, 'All groups']", "as": "panels" },
+    { "flatten": ["panels"], "as": ["panel"] },
     {
-      "calculate": "[datum.animal_group, 'All groups']",
-      "as": "panels"
+      "aggregate": [{ "op": "sum", "field": "number_of_rescues", "as": "n" }],
+      "groupby": ["panel", "outcome_category"]
     },
-    {
-      "flatten": [
-        "panels"
-      ],
-      "as": [
-        "panel"
-      ]
-    },
-    {
-      "aggregate": [
-        {
-          "op": "sum",
-          "field": "number_of_rescues",
-          "as": "n"
-        }
-      ],
-      "groupby": [
-        "panel",
-        "outcome_category"
-      ]
-    },
-    {
-      "calculate": "datum.outcome_category",
-      "as": "outcome"
-    },
+    { "calculate": "datum.outcome_category", "as": "outcome" },
     {
       "calculate": "indexof(['Died', 'Released', 'Left and observed', 'Permanent/long term care', 'Escaped rescuer or from care'], datum.outcome)",
       "as": "order"
     },
+    { "joinaggregate": [{ "op": "sum", "field": "n", "as": "total" }], "groupby": ["panel"] },
+    { "calculate": "100 * datum.n / datum.total", "as": "exact" },
+    { "calculate": "round(datum.exact * 10) / 10", "as": "pct" },
+    { "calculate": "floor(datum.exact)", "as": "floor_sq" },
+    { "calculate": "datum.exact - datum.floor_sq", "as": "remainder" },
     {
-      "joinaggregate": [
-        {
-          "op": "sum",
-          "field": "n",
-          "as": "total"
-        }
-      ],
-      "groupby": [
-        "panel"
-      ]
+      "joinaggregate": [{ "op": "sum", "field": "floor_sq", "as": "floor_total" }],
+      "groupby": ["panel"]
     },
     {
-      "calculate": "100 * datum.n / datum.total",
-      "as": "exact"
-    },
-    {
-      "calculate": "round(datum.exact * 10) / 10",
-      "as": "pct"
-    },
-    {
-      "calculate": "floor(datum.exact)",
-      "as": "floor_sq"
-    },
-    {
-      "calculate": "datum.exact - datum.floor_sq",
-      "as": "remainder"
-    },
-    {
-      "joinaggregate": [
-        {
-          "op": "sum",
-          "field": "floor_sq",
-          "as": "floor_total"
-        }
-      ],
-      "groupby": [
-        "panel"
-      ]
-    },
-    {
-      "window": [
-        {
-          "op": "row_number",
-          "as": "remainder_rank"
-        }
-      ],
-      "groupby": [
-        "panel"
-      ],
-      "sort": [
-        {
-          "field": "remainder",
-          "order": "descending"
-        }
-      ]
+      "window": [{ "op": "row_number", "as": "remainder_rank" }],
+      "groupby": ["panel"],
+      "sort": [{ "field": "remainder", "order": "descending" }]
     },
     {
       "calculate": "datum.floor_sq + (datum.remainder_rank <= 100 - datum.floor_total ? 1 : 0)",
@@ -114,20 +49,8 @@
   "params": [
     {
       "name": "wf_hover",
-      "select": {
-        "type": "point",
-        "fields": [
-          "outcome"
-        ],
-        "on": "mouseover",
-        "clear": "mouseout"
-      },
-      "views": [
-        "wf_all",
-        "wf_birds",
-        "wf_mammals",
-        "wf_reptiles"
-      ]
+      "select": { "type": "point", "fields": ["outcome"], "on": "mouseover", "clear": "mouseout" },
+      "views": ["wf_all", "wf_birds", "wf_mammals", "wf_reptiles"]
     }
   ],
   "vconcat": [
@@ -144,110 +67,37 @@
           "width": 300,
           "height": 300,
           "transform": [
+            { "filter": "datum.panel === 'All groups'" },
+            { "calculate": "sequence(0, datum.squares)", "as": "cells" },
+            { "flatten": ["cells"] },
             {
-              "filter": "datum.panel === 'All groups'"
+              "window": [{ "op": "row_number", "as": "k" }],
+              "sort": [{ "field": "order" }, { "field": "cells" }]
             },
-            {
-              "calculate": "sequence(0, datum.squares)",
-              "as": "cells"
-            },
-            {
-              "flatten": [
-                "cells"
-              ]
-            },
-            {
-              "window": [
-                {
-                  "op": "row_number",
-                  "as": "k"
-                }
-              ],
-              "sort": [
-                {
-                  "field": "order"
-                },
-                {
-                  "field": "cells"
-                }
-              ]
-            },
-            {
-              "calculate": "(datum.k - 1) % 10",
-              "as": "col"
-            },
-            {
-              "calculate": "floor((datum.k - 1) / 10)",
-              "as": "row"
-            }
+            { "calculate": "(datum.k - 1) % 10", "as": "col" },
+            { "calculate": "floor((datum.k - 1) / 10)", "as": "row" }
           ],
-          "mark": {
-            "type": "rect",
-            "cornerRadius": 2
-          },
+          "mark": { "type": "rect", "cornerRadius": 2 },
           "encoding": {
-            "x": {
-              "field": "col",
-              "type": "ordinal",
-              "axis": null,
-              "scale": {
-                "paddingInner": 0.12
-              }
-            },
-            "y": {
-              "field": "row",
-              "type": "ordinal",
-              "axis": null,
-              "scale": {
-                "paddingInner": 0.12
-              }
-            },
+            "x": { "field": "col", "type": "ordinal", "axis": null, "scale": { "paddingInner": 0.12 } },
+            "y": { "field": "row", "type": "ordinal", "axis": null, "scale": { "paddingInner": 0.12 } },
             "color": {
               "field": "outcome",
               "type": "nominal",
               "scale": {
                 "domain": [
-                  "Died",
-                  "Released",
-                  "Left and observed",
-                  "Permanent/long term care",
+                  "Died", "Released", "Left and observed", "Permanent/long term care",
                   "Escaped rescuer or from care"
                 ],
-                "range": [
-                  "#B83F35",
-                  "#7A55B3",
-                  "#D2C2EC",
-                  "#341C57",
-                  "#8F9592"
-                ]
+                "range": ["#B83F35", "#7A55B3", "#D2C2EC", "#341C57", "#8F9592"]
               },
               "legend": null
             },
-            "opacity": {
-              "condition": {
-                "param": "wf_hover",
-                "empty": true,
-                "value": 1
-              },
-              "value": 0.22
-            },
+            "opacity": { "condition": { "param": "wf_hover", "empty": true, "value": 1 }, "value": 0.22 },
             "tooltip": [
-              {
-                "field": "panel",
-                "type": "nominal",
-                "title": "Group"
-              },
-              {
-                "field": "outcome",
-                "type": "nominal",
-                "title": "Outcome"
-              },
-              {
-                "field": "n",
-                "type": "quantitative",
-                "title": "Recorded rescues",
-                "format": ","
-              },
+              { "field": "panel", "type": "nominal", "title": "Group" },
+              { "field": "outcome", "type": "nominal", "title": "Outcome" },
+              { "field": "n", "type": "quantitative", "title": "Recorded rescues", "format": "," },
               {
                 "field": "pct",
                 "type": "quantitative",
@@ -268,95 +118,41 @@
               "name": "wf_birds",
               "title": {
                 "text": "Birds",
-                "subtitle": [
-                  "192,628 rescues",
-                  "Died 56.1% · Released 37.7%"
-                ],
+                "subtitle": ["192,628 rescues", "Died 56.1% · Released 37.7%"],
                 "anchor": "start"
               },
               "width": 160,
               "height": 160,
               "transform": [
+                { "filter": "datum.panel === 'Birds'" },
+                { "calculate": "sequence(0, datum.squares)", "as": "cells" },
+                { "flatten": ["cells"] },
                 {
-                  "filter": "datum.panel === 'Birds'"
+                  "window": [{ "op": "row_number", "as": "k" }],
+                  "sort": [{ "field": "order" }, { "field": "cells" }]
                 },
-                {
-                  "calculate": "sequence(0, datum.squares)",
-                  "as": "cells"
-                },
-                {
-                  "flatten": [
-                    "cells"
-                  ]
-                },
-                {
-                  "window": [
-                    {
-                      "op": "row_number",
-                      "as": "k"
-                    }
-                  ],
-                  "sort": [
-                    {
-                      "field": "order"
-                    },
-                    {
-                      "field": "cells"
-                    }
-                  ]
-                },
-                {
-                  "calculate": "(datum.k - 1) % 10",
-                  "as": "col"
-                },
-                {
-                  "calculate": "floor((datum.k - 1) / 10)",
-                  "as": "row"
-                }
+                { "calculate": "(datum.k - 1) % 10", "as": "col" },
+                { "calculate": "floor((datum.k - 1) / 10)", "as": "row" }
               ],
-              "mark": {
-                "type": "rect",
-                "cornerRadius": 2
-              },
+              "mark": { "type": "rect", "cornerRadius": 2 },
               "encoding": {
                 "x": {
                   "field": "col",
                   "type": "ordinal",
                   "axis": null,
-                  "scale": {
-                    "paddingInner": 0.14
-                  }
+                  "scale": { "paddingInner": 0.14 }
                 },
                 "y": {
                   "field": "row",
                   "type": "ordinal",
                   "axis": null,
-                  "scale": {
-                    "paddingInner": 0.14
-                  }
+                  "scale": { "paddingInner": 0.14 }
                 },
-                "color": {
-                  "field": "outcome",
-                  "type": "nominal",
-                  "legend": null
-                },
-                "opacity": {
-                  "condition": {
-                    "param": "wf_hover",
-                    "empty": true,
-                    "value": 1
-                  },
-                  "value": 0.22
-                },
+                "color": { "field": "outcome", "type": "nominal", "legend": null },
+                "opacity": { "condition": { "param": "wf_hover", "empty": true, "value": 1 }, "value": 0.22 },
                 "tooltip": [
-                  {
-                    "field": "panel",
-                    "title": "Group"
-                  },
-                  {
-                    "field": "outcome",
-                    "title": "Outcome"
-                  },
+                  { "field": "panel", "title": "Group" },
+                  { "field": "outcome", "title": "Outcome" },
                   {
                     "field": "n",
                     "type": "quantitative",
@@ -381,95 +177,41 @@
               "name": "wf_mammals",
               "title": {
                 "text": "Mammals",
-                "subtitle": [
-                  "124,517 rescues",
-                  "Died 64.6% · Released 28.4%"
-                ],
+                "subtitle": ["124,517 rescues", "Died 64.6% · Released 28.4%"],
                 "anchor": "start"
               },
               "width": 160,
               "height": 160,
               "transform": [
+                { "filter": "datum.panel === 'Mammals'" },
+                { "calculate": "sequence(0, datum.squares)", "as": "cells" },
+                { "flatten": ["cells"] },
                 {
-                  "filter": "datum.panel === 'Mammals'"
+                  "window": [{ "op": "row_number", "as": "k" }],
+                  "sort": [{ "field": "order" }, { "field": "cells" }]
                 },
-                {
-                  "calculate": "sequence(0, datum.squares)",
-                  "as": "cells"
-                },
-                {
-                  "flatten": [
-                    "cells"
-                  ]
-                },
-                {
-                  "window": [
-                    {
-                      "op": "row_number",
-                      "as": "k"
-                    }
-                  ],
-                  "sort": [
-                    {
-                      "field": "order"
-                    },
-                    {
-                      "field": "cells"
-                    }
-                  ]
-                },
-                {
-                  "calculate": "(datum.k - 1) % 10",
-                  "as": "col"
-                },
-                {
-                  "calculate": "floor((datum.k - 1) / 10)",
-                  "as": "row"
-                }
+                { "calculate": "(datum.k - 1) % 10", "as": "col" },
+                { "calculate": "floor((datum.k - 1) / 10)", "as": "row" }
               ],
-              "mark": {
-                "type": "rect",
-                "cornerRadius": 2
-              },
+              "mark": { "type": "rect", "cornerRadius": 2 },
               "encoding": {
                 "x": {
                   "field": "col",
                   "type": "ordinal",
                   "axis": null,
-                  "scale": {
-                    "paddingInner": 0.14
-                  }
+                  "scale": { "paddingInner": 0.14 }
                 },
                 "y": {
                   "field": "row",
                   "type": "ordinal",
                   "axis": null,
-                  "scale": {
-                    "paddingInner": 0.14
-                  }
+                  "scale": { "paddingInner": 0.14 }
                 },
-                "color": {
-                  "field": "outcome",
-                  "type": "nominal",
-                  "legend": null
-                },
-                "opacity": {
-                  "condition": {
-                    "param": "wf_hover",
-                    "empty": true,
-                    "value": 1
-                  },
-                  "value": 0.22
-                },
+                "color": { "field": "outcome", "type": "nominal", "legend": null },
+                "opacity": { "condition": { "param": "wf_hover", "empty": true, "value": 1 }, "value": 0.22 },
                 "tooltip": [
-                  {
-                    "field": "panel",
-                    "title": "Group"
-                  },
-                  {
-                    "field": "outcome",
-                    "title": "Outcome"
-                  },
+                  { "field": "panel", "title": "Group" },
+                  { "field": "outcome", "title": "Outcome" },
                   {
                     "field": "n",
                     "type": "quantitative",
@@ -494,95 +236,41 @@
               "name": "wf_reptiles",
               "title": {
                 "text": "Reptiles",
-                "subtitle": [
-                  "47,316 rescues",
-                  "Died 23.9% · Released 57.7%"
-                ],
+                "subtitle": ["47,316 rescues", "Died 23.9% · Released 57.7%"],
                 "anchor": "start"
               },
               "width": 160,
               "height": 160,
               "transform": [
+                { "filter": "datum.panel === 'Reptiles'" },
+                { "calculate": "sequence(0, datum.squares)", "as": "cells" },
+                { "flatten": ["cells"] },
                 {
-                  "filter": "datum.panel === 'Reptiles'"
+                  "window": [{ "op": "row_number", "as": "k" }],
+                  "sort": [{ "field": "order" }, { "field": "cells" }]
                 },
-                {
-                  "calculate": "sequence(0, datum.squares)",
-                  "as": "cells"
-                },
-                {
-                  "flatten": [
-                    "cells"
-                  ]
-                },
-                {
-                  "window": [
-                    {
-                      "op": "row_number",
-                      "as": "k"
-                    }
-                  ],
-                  "sort": [
-                    {
-                      "field": "order"
-                    },
-                    {
-                      "field": "cells"
-                    }
-                  ]
-                },
-                {
-                  "calculate": "(datum.k - 1) % 10",
-                  "as": "col"
-                },
-                {
-                  "calculate": "floor((datum.k - 1) / 10)",
-                  "as": "row"
-                }
+                { "calculate": "(datum.k - 1) % 10", "as": "col" },
+                { "calculate": "floor((datum.k - 1) / 10)", "as": "row" }
               ],
-              "mark": {
-                "type": "rect",
-                "cornerRadius": 2
-              },
+              "mark": { "type": "rect", "cornerRadius": 2 },
               "encoding": {
                 "x": {
                   "field": "col",
                   "type": "ordinal",
                   "axis": null,
-                  "scale": {
-                    "paddingInner": 0.14
-                  }
+                  "scale": { "paddingInner": 0.14 }
                 },
                 "y": {
                   "field": "row",
                   "type": "ordinal",
                   "axis": null,
-                  "scale": {
-                    "paddingInner": 0.14
-                  }
+                  "scale": { "paddingInner": 0.14 }
                 },
-                "color": {
-                  "field": "outcome",
-                  "type": "nominal",
-                  "legend": null
-                },
-                "opacity": {
-                  "condition": {
-                    "param": "wf_hover",
-                    "empty": true,
-                    "value": 1
-                  },
-                  "value": 0.22
-                },
+                "color": { "field": "outcome", "type": "nominal", "legend": null },
+                "opacity": { "condition": { "param": "wf_hover", "empty": true, "value": 1 }, "value": 0.22 },
                 "tooltip": [
-                  {
-                    "field": "panel",
-                    "title": "Group"
-                  },
-                  {
-                    "field": "outcome",
-                    "title": "Outcome"
-                  },
+                  { "field": "panel", "title": "Group" },
+                  { "field": "outcome", "title": "Outcome" },
                   {
                     "field": "n",
                     "type": "quantitative",
@@ -613,17 +301,9 @@
       "width": 880,
       "height": 78,
       "transform": [
-        {
-          "filter": "datum.panel === 'All groups'"
-        },
-        {
-          "calculate": "(datum.order % 2) * 440",
-          "as": "kx"
-        },
-        {
-          "calculate": "floor(datum.order / 2) * 26",
-          "as": "ky"
-        },
+        { "filter": "datum.panel === 'All groups'" },
+        { "calculate": "(datum.order % 2) * 440", "as": "kx" },
+        { "calculate": "floor(datum.order / 2) * 26", "as": "ky" },
         {
           "calculate": "datum.outcome + '  ' + format(datum.n, ',') + ' · ' + format(datum.pct, '.1f') + '%' + (datum.squares === 0 ? ' (under one square)' : '')",
           "as": "key_label"
@@ -633,47 +313,20 @@
         "x": {
           "field": "kx",
           "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              880
-            ],
-            "nice": false,
-            "zero": false
-          },
+          "scale": { "domain": [0, 880], "nice": false, "zero": false },
           "axis": null
         },
         "y": {
           "field": "ky",
           "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              78
-            ],
-            "nice": false,
-            "zero": false,
-            "reverse": true
-          },
+          "scale": { "domain": [0, 78], "nice": false, "zero": false, "reverse": true },
           "axis": null
         }
       },
       "layer": [
         {
-          "mark": {
-            "type": "square",
-            "size": 160,
-            "opacity": 1,
-            "xOffset": 7,
-            "yOffset": 8
-          },
-          "encoding": {
-            "color": {
-              "field": "outcome",
-              "type": "nominal",
-              "legend": null
-            }
-          }
+          "mark": { "type": "square", "size": 160, "opacity": 1, "xOffset": 7, "yOffset": 8 },
+          "encoding": { "color": { "field": "outcome", "type": "nominal", "legend": null } }
         },
         {
           "mark": {
@@ -685,20 +338,14 @@
             "fontSize": 13,
             "color": "#25332F"
           },
-          "encoding": {
-            "text": {
-              "field": "key_label"
-            }
-          }
+          "encoding": { "text": { "field": "key_label" } }
         }
       ]
     }
   ],
   "spacing": 22,
   "config": {
-    "view": {
-      "stroke": null
-    },
+    "view": { "stroke": null },
     "font": "Atkinson Hyperlegible, system-ui, sans-serif",
     "title": {
       "fontSize": 13,

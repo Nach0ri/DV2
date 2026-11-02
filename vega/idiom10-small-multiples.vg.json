@@ -1,43 +1,116 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Idiom 10: small multiples, one panel per animal group: each month's share of that group's annual rescues (mean of six years, band = lowest to highest year; author-calculated). Source: Kwok et al. (2021), PLOS ONE, supplementary file S7.",
-  "data": { "url": "data/rescue_monthly_by_group.csv", "format": { "type": "csv", "parse": { "month_number": "number", "rescue_count": "number" } } },
+  "data": {
+    "url": "data/rescue_monthly_by_group.csv",
+    "format": { "type": "csv", "parse": { "month_number": "number", "rescue_count": "number" } }
+  },
   "transform": [
-    { "filter": "isValid(datum.rescue_count) && indexof(['Birds', 'Mammals', 'Reptiles'], datum.animal_group) >= 0" },
-    { "aggregate": [{ "op": "sum", "field": "rescue_count", "as": "count" }], "groupby": ["animal_group", "financial_year", "month_number", "month"] },
-    { "joinaggregate": [{ "op": "sum", "field": "count", "as": "year_total" }], "groupby": ["animal_group", "financial_year"] },
+    {
+      "filter": "isValid(datum.rescue_count) && indexof(['Birds', 'Mammals', 'Reptiles'], datum.animal_group) >= 0"
+    },
+    {
+      "aggregate": [{ "op": "sum", "field": "rescue_count", "as": "count" }],
+      "groupby": ["animal_group", "financial_year", "month_number", "month"]
+    },
+    {
+      "joinaggregate": [{ "op": "sum", "field": "count", "as": "year_total" }],
+      "groupby": ["animal_group", "financial_year"]
+    },
     { "calculate": "100 * datum.count / datum.year_total", "as": "share" },
-    { "aggregate": [
+    {
+      "aggregate": [
         { "op": "mean", "field": "share", "as": "mean_pct" },
         { "op": "min", "field": "share", "as": "min_pct" },
         { "op": "max", "field": "share", "as": "max_pct" },
         { "op": "mean", "field": "count", "as": "avg_count" },
         { "op": "count", "as": "years_n" }
-    ], "groupby": ["animal_group", "month_number", "month"] },
-    { "joinaggregate": [{ "op": "max", "field": "mean_pct", "as": "peak_pct" }], "groupby": ["animal_group"] },
-    { "calculate": "datum.mean_pct === datum.peak_pct ? 'Peak ' + substring(datum.month, 0, 3) + ' · ' + format(datum.mean_pct, '.0f') + '%' : ''", "as": "peak_label" },
-    { "calculate": "datum.animal_group === 'Birds' ? '#23508F' : datum.animal_group === 'Mammals' ? '#8A6A12' : '#2E7A4A'", "as": "ink" }
+      ],
+      "groupby": ["animal_group", "month_number", "month"]
+    },
+    {
+      "joinaggregate": [{ "op": "max", "field": "mean_pct", "as": "peak_pct" }],
+      "groupby": ["animal_group"]
+    },
+    {
+      "calculate": "datum.mean_pct === datum.peak_pct ? 'Peak ' + substring(datum.month, 0, 3) + ' · ' + format(datum.mean_pct, '.0f') + '%' : ''",
+      "as": "peak_label"
+    },
+    {
+      "calculate": "datum.animal_group === 'Birds' ? '#23508F' : datum.animal_group === 'Mammals' ? '#8A6A12' : '#2E7A4A'",
+      "as": "ink"
+    }
   ],
   "facet": {
-    "row": { "field": "animal_group", "type": "nominal", "sort": ["Birds", "Mammals", "Reptiles"], "title": null, "header": { "labelOrient": "top", "labelAnchor": "start", "labelAngle": 0, "labelFontSize": 13, "labelFontWeight": 600, "labelColor": "#25332F", "labelPadding": 4 } }
+    "row": {
+      "field": "animal_group",
+      "type": "nominal",
+      "sort": ["Birds", "Mammals", "Reptiles"],
+      "title": null,
+      "header": {
+        "labelOrient": "top",
+        "labelAnchor": "start",
+        "labelAngle": 0,
+        "labelFontSize": 13,
+        "labelFontWeight": 600,
+        "labelColor": "#25332F",
+        "labelPadding": 4
+      }
+    }
   },
   "spacing": 14,
   "spec": {
     "width": 460,
     "height": 96,
     "encoding": {
-      "x": { "field": "month_number", "type": "quantitative", "scale": { "domain": [1, 12] }, "axis": { "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "labelExpr": "substring('JFMAMJJASOND', datum.value - 1, datum.value)", "title": null, "grid": false, "ticks": false, "domain": false, "labelFontSize": 11, "labelOverlap": false } },
-      "color": { "field": "animal_group", "type": "nominal", "scale": { "domain": ["Birds", "Mammals", "Reptiles"], "range": ["#23508F", "#E0AE2E", "#4CA36B"] }, "legend": null }
+      "x": {
+        "field": "month_number",
+        "type": "quantitative",
+        "scale": { "domain": [1, 12] },
+        "axis": {
+          "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "labelExpr": "substring('JFMAMJJASOND', datum.value - 1, datum.value)",
+          "title": null,
+          "grid": false,
+          "ticks": false,
+          "domain": false,
+          "labelFontSize": 11,
+          "labelOverlap": false
+        }
+      },
+      "color": {
+        "field": "animal_group",
+        "type": "nominal",
+        "scale": { "domain": ["Birds", "Mammals", "Reptiles"], "range": ["#23508F", "#E0AE2E", "#4CA36B"] },
+        "legend": null
+      }
     },
     "layer": [
       {
         "mark": { "type": "area", "opacity": 0.2 },
         "encoding": {
-          "y": { "field": "min_pct", "type": "quantitative", "scale": { "domain": [0, 15] }, "title": "% of year", "axis": { "values": [0, 5, 10, 15], "grid": true, "gridColor": "#edf0f2", "domain": false, "ticks": false, "labelFontSize": 11, "titleFontSize": 11 } },
+          "y": {
+            "field": "min_pct",
+            "type": "quantitative",
+            "scale": { "domain": [0, 15] },
+            "title": "% of year",
+            "axis": {
+              "values": [0, 5, 10, 15],
+              "grid": true,
+              "gridColor": "#edf0f2",
+              "domain": false,
+              "ticks": false,
+              "labelFontSize": 11,
+              "titleFontSize": 11
+            }
+          },
           "y2": { "field": "max_pct" }
         }
       },
-      { "mark": { "type": "line", "strokeWidth": 2 }, "encoding": { "y": { "field": "mean_pct", "type": "quantitative" } } },
+      {
+        "mark": { "type": "line", "strokeWidth": 2 },
+        "encoding": { "y": { "field": "mean_pct", "type": "quantitative" } }
+      },
       {
         "mark": { "type": "point", "filled": true, "size": 26, "opacity": 1 },
         "encoding": {
@@ -45,28 +118,64 @@
           "tooltip": [
             { "field": "animal_group", "type": "nominal", "title": "Animal group" },
             { "field": "month", "type": "nominal", "title": "Month" },
-            { "field": "mean_pct", "type": "quantitative", "title": "Mean share of year (%)", "format": ".1f" },
-            { "field": "min_pct", "type": "quantitative", "title": "Lowest year (%)", "format": ".1f" },
-            { "field": "max_pct", "type": "quantitative", "title": "Highest year (%)", "format": ".1f" },
-            { "field": "avg_count", "type": "quantitative", "title": "Average rescues in this month", "format": ",.0f" },
+            {
+              "field": "mean_pct",
+              "type": "quantitative",
+              "title": "Mean share of year (%)",
+              "format": ".1f"
+            },
+            {
+              "field": "min_pct",
+              "type": "quantitative",
+              "title": "Lowest year (%)",
+              "format": ".1f"
+            },
+            {
+              "field": "max_pct",
+              "type": "quantitative",
+              "title": "Highest year (%)",
+              "format": ".1f"
+            },
+            {
+              "field": "avg_count",
+              "type": "quantitative",
+              "title": "Average rescues in this month",
+              "format": ",.0f"
+            },
             { "field": "years_n", "type": "quantitative", "title": "Years averaged" }
           ]
         }
       },
       {
-        "transform": [{ "filter": "datum.peak_label !== '' && datum.month_number >= 3 && datum.month_number <= 9" }],
+        "transform": [
+          {
+            "filter": "datum.peak_label !== '' && datum.month_number >= 3 && datum.month_number <= 9"
+          }
+        ],
         "mark": { "type": "text", "align": "center", "dy": -10, "fontSize": 11, "fontWeight": 700 },
-        "encoding": { "y": { "field": "mean_pct", "type": "quantitative" }, "text": { "field": "peak_label" }, "color": { "field": "ink", "type": "nominal", "scale": null } }
+        "encoding": {
+          "y": { "field": "mean_pct", "type": "quantitative" },
+          "text": { "field": "peak_label" },
+          "color": { "field": "ink", "type": "nominal", "scale": null }
+        }
       },
       {
         "transform": [{ "filter": "datum.peak_label !== '' && datum.month_number <= 2" }],
         "mark": { "type": "text", "align": "left", "dx": 6, "dy": -10, "fontSize": 11, "fontWeight": 700 },
-        "encoding": { "y": { "field": "mean_pct", "type": "quantitative" }, "text": { "field": "peak_label" }, "color": { "field": "ink", "type": "nominal", "scale": null } }
+        "encoding": {
+          "y": { "field": "mean_pct", "type": "quantitative" },
+          "text": { "field": "peak_label" },
+          "color": { "field": "ink", "type": "nominal", "scale": null }
+        }
       },
       {
         "transform": [{ "filter": "datum.peak_label !== '' && datum.month_number >= 10" }],
         "mark": { "type": "text", "align": "right", "dx": -6, "dy": -10, "fontSize": 11, "fontWeight": 700 },
-        "encoding": { "y": { "field": "mean_pct", "type": "quantitative" }, "text": { "field": "peak_label" }, "color": { "field": "ink", "type": "nominal", "scale": null } }
+        "encoding": {
+          "y": { "field": "mean_pct", "type": "quantitative" },
+          "text": { "field": "peak_label" },
+          "color": { "field": "ink", "type": "nominal", "scale": null }
+        }
       }
     ]
   },

@@ -3,13 +3,7 @@
   "description": "Idiom 01: choropleth of recorded wildlife rescues by NSW council area (LGA) and financial year, with a Sydney and Central Coast close-up and a linked top-5 bar chart. Fixed classes so colours compare between years. Source: NSW DCCEEW, NSW Wildlife Rehabilitation Data Dashboard; boundaries: NSW Spatial Services.",
   "data": {
     "url": "data/rescue_counts_by_lga.csv",
-    "format": {
-      "type": "csv",
-      "parse": {
-        "financial_year": "string",
-        "rescue_count": "number"
-      }
-    }
+    "format": { "type": "csv", "parse": { "financial_year": "string", "rescue_count": "number" } }
   },
   "params": [
     {
@@ -18,32 +12,12 @@
       "bind": {
         "input": "select",
         "options": [
-          "2013/14",
-          "2014/15",
-          "2015/16",
-          "2016/17",
-          "2017/18",
-          "2018/19",
-          "2019/20",
-          "2020/21",
-          "2021/22",
-          "2022/23",
-          "2023/24",
-          "2024/25"
+          "2013/14", "2014/15", "2015/16", "2016/17", "2017/18", "2018/19", "2019/20", "2020/21",
+          "2021/22", "2022/23", "2023/24", "2024/25"
         ],
         "labels": [
-          "2013–14",
-          "2014–15",
-          "2015–16",
-          "2016–17",
-          "2017–18",
-          "2018–19",
-          "2019–20",
-          "2020–21",
-          "2021–22",
-          "2022–23",
-          "2023–24",
-          "2024–25"
+          "2013–14", "2014–15", "2015–16", "2016–17", "2017–18", "2018–19", "2019–20", "2020–21",
+          "2021–22", "2022–23", "2023–24", "2024–25"
         ],
         "name": "Financial year ",
         "element": "#fy-control"
@@ -51,34 +25,13 @@
     },
     {
       "name": "hover",
-      "select": {
-        "type": "point",
-        "fields": [
-          "lga_name"
-        ],
-        "on": "mouseover",
-        "clear": "mouseout"
-      },
-      "views": [
-        "lgaMain",
-        "lgaInset"
-      ]
+      "select": { "type": "point", "fields": ["lga_name"], "on": "mouseover", "clear": "mouseout" },
+      "views": ["lgaMain", "lgaInset"]
     },
     {
       "name": "pick",
-      "select": {
-        "type": "point",
-        "fields": [
-          "lga_name"
-        ],
-        "on": "click",
-        "clear": "dblclick"
-      },
-      "views": [
-        "lgaMain",
-        "lgaInset",
-        "topBars"
-      ]
+      "select": { "type": "point", "fields": ["lga_name"], "on": "click", "clear": "dblclick" },
+      "views": ["lgaMain", "lgaInset", "topBars"]
     }
   ],
   "align": "none",
@@ -97,79 +50,25 @@
       },
       "data": {
         "values": [
-          {
-            "label": "Under 100",
-            "colour": "#E6F2EF",
-            "i": 0
-          },
-          {
-            "label": "100–249",
-            "colour": "#C2E0D8",
-            "i": 1
-          },
-          {
-            "label": "250–499",
-            "colour": "#93C7B9",
-            "i": 2
-          },
-          {
-            "label": "500–999",
-            "colour": "#5FA897",
-            "i": 3
-          },
-          {
-            "label": "1,000–1,999",
-            "colour": "#348676",
-            "i": 4
-          },
-          {
-            "label": "2,000–3,999",
-            "colour": "#176B60",
-            "i": 5
-          },
-          {
-            "label": "4,000+",
-            "colour": "#0B4A42",
-            "i": 6
-          },
-          {
-            "label": "No records",
-            "colour": "#E6E1D6",
-            "i": 7
-          }
+          { "label": "Under 100", "colour": "#E6F2EF", "i": 0 },
+          { "label": "100–249", "colour": "#C2E0D8", "i": 1 },
+          { "label": "250–499", "colour": "#93C7B9", "i": 2 },
+          { "label": "500–999", "colour": "#5FA897", "i": 3 },
+          { "label": "1,000–1,999", "colour": "#348676", "i": 4 },
+          { "label": "2,000–3,999", "colour": "#176B60", "i": 5 },
+          { "label": "4,000+", "colour": "#0B4A42", "i": 6 },
+          { "label": "No records", "colour": "#E6E1D6", "i": 7 }
         ]
       },
-      "transform": [
-        {
-          "calculate": "datum.i * 120",
-          "as": "x"
-        }
-      ],
+      "transform": [{ "calculate": "datum.i * 120", "as": "x" }],
       "encoding": {
         "x": {
           "field": "x",
           "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              960
-            ],
-            "nice": false,
-            "zero": false
-          },
+          "scale": { "domain": [0, 960], "nice": false, "zero": false },
           "axis": null
         },
-        "y": {
-          "datum": 0.5,
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              1
-            ]
-          },
-          "axis": null
-        }
+        "y": { "datum": 0.5, "type": "quantitative", "scale": { "domain": [0, 1] }, "axis": null }
       },
       "layer": [
         {
@@ -181,13 +80,7 @@
             "strokeWidth": 1,
             "xOffset": 7
           },
-          "encoding": {
-            "color": {
-              "field": "colour",
-              "type": "nominal",
-              "scale": null
-            }
-          }
+          "encoding": { "color": { "field": "colour", "type": "nominal", "scale": null } }
         },
         {
           "mark": {
@@ -198,11 +91,7 @@
             "fontSize": 12,
             "color": "#25332F"
           },
-          "encoding": {
-            "text": {
-              "field": "label"
-            }
-          }
+          "encoding": { "text": { "field": "label" } }
         }
       ]
     },
@@ -217,46 +106,21 @@
             "anchor": "start"
           },
           "transform": [
-            {
-              "filter": "datum.lga_name !== 'LGA not recorded'"
-            },
-            {
-              "filter": "datum.financial_year === selected_year"
-            },
+            { "filter": "datum.lga_name !== 'LGA not recorded'" },
+            { "filter": "datum.financial_year === selected_year" },
             {
               "calculate": "isValid(datum.rescue_count) ? datum.rescue_count : null",
               "as": "count"
             },
+            { "calculate": "datum.count === null ? -1 : datum.count", "as": "count_sort" },
             {
-              "calculate": "datum.count === null ? -1 : datum.count",
-              "as": "count_sort"
-            },
-            {
-              "window": [
-                {
-                  "op": "rank",
-                  "as": "rank"
-                }
-              ],
-              "sort": [
-                {
-                  "field": "count_sort",
-                  "order": "descending"
-                }
-              ]
+              "window": [{ "op": "rank", "as": "rank" }],
+              "sort": [{ "field": "count_sort", "order": "descending" }]
             },
             {
               "joinaggregate": [
-                {
-                  "op": "sum",
-                  "field": "count",
-                  "as": "mapped_total"
-                },
-                {
-                  "op": "valid",
-                  "field": "count",
-                  "as": "lgas_with_data"
-                }
+                { "op": "sum", "field": "count", "as": "mapped_total" },
+                { "op": "valid", "field": "count", "as": "lgas_with_data" }
               ]
             },
             {
@@ -271,79 +135,33 @@
               "calculate": "datum.count === null ? '–' : datum.rank + ' of ' + datum.lgas_with_data",
               "as": "rank_label"
             },
-            {
-              "calculate": "replace(datum.financial_year, '/', '–')",
-              "as": "fy_label"
-            },
-            {
-              "calculate": "datum.lga_name + '  ' + format(datum.count, ',')",
-              "as": "short_label"
-            },
+            { "calculate": "replace(datum.financial_year, '/', '–')", "as": "fy_label" },
+            { "calculate": "datum.lga_name + '  ' + format(datum.count, ',')", "as": "short_label" },
             {
               "lookup": "lga_name",
               "from": {
                 "data": {
                   "url": "data/nsw_lga.geojson",
-                  "format": {
-                    "type": "json",
-                    "property": "features"
-                  }
+                  "format": { "type": "json", "property": "features" }
                 },
                 "key": "properties.lga_name"
               },
               "as": "geo"
             },
-            {
-              "filter": "isValid(datum.geo)"
-            },
-            {
-              "calculate": "datum.geo.properties.lx",
-              "as": "lx"
-            },
-            {
-              "calculate": "datum.geo.properties.ly",
-              "as": "ly"
-            }
+            { "filter": "isValid(datum.geo)" },
+            { "calculate": "datum.geo.properties.lx", "as": "lx" },
+            { "calculate": "datum.geo.properties.ly", "as": "ly" }
           ],
           "projection": {
             "type": "conicEqualArea",
-            "rotate": [
-              -147,
-              0
-            ],
-            "parallels": [
-              -29,
-              -36
-            ],
+            "rotate": [-147, 0],
+            "parallels": [-29, -36],
             "fit": {
               "type": "Feature",
-              "properties": {},
+              "properties": { },
               "geometry": {
                 "type": "Polygon",
-                "coordinates": [
-                  [
-                    [
-                      140.9,
-                      -28.1
-                    ],
-                    [
-                      153.7,
-                      -28.1
-                    ],
-                    [
-                      153.7,
-                      -37.6
-                    ],
-                    [
-                      140.9,
-                      -37.6
-                    ],
-                    [
-                      140.9,
-                      -28.1
-                    ]
-                  ]
-                ]
+                "coordinates": [[[140.9, -28.1], [153.7, -28.1], [153.7, -37.6], [140.9, -37.6], [140.9, -28.1]]]
               }
             }
           },
@@ -351,16 +169,9 @@
             {
               "data": {
                 "url": "data/nsw_lga.geojson",
-                "format": {
-                  "type": "json",
-                  "property": "features"
-                }
+                "format": { "type": "json", "property": "features" }
               },
-              "transform": [
-                {
-                  "filter": "datum.properties.lga_name !== 'Lord Howe Island (unincorporated)'"
-                }
-              ],
+              "transform": [{ "filter": "datum.properties.lga_name !== 'Lord Howe Island (unincorporated)'" }],
               "mark": {
                 "type": "geoshape",
                 "fill": "#E6E1D6",
@@ -379,98 +190,39 @@
                 "cursor": "pointer"
               },
               "encoding": {
-                "shape": {
-                  "field": "geo",
-                  "type": "geojson"
-                },
+                "shape": { "field": "geo", "type": "geojson" },
                 "color": {
-                  "condition": {
-                    "test": "datum.count === null",
-                    "value": "#E6E1D6"
-                  },
+                  "condition": { "test": "datum.count === null", "value": "#E6E1D6" },
                   "field": "count",
                   "type": "quantitative",
                   "title": "Rescues",
                   "scale": {
                     "type": "threshold",
-                    "domain": [
-                      100,
-                      250,
-                      500,
-                      1000,
-                      2000,
-                      4000
-                    ],
-                    "range": [
-                      "#E6F2EF",
-                      "#C2E0D8",
-                      "#93C7B9",
-                      "#5FA897",
-                      "#348676",
-                      "#176B60",
-                      "#0B4A42"
-                    ]
+                    "domain": [100, 250, 500, 1000, 2000, 4000],
+                    "range": ["#E6F2EF", "#C2E0D8", "#93C7B9", "#5FA897", "#348676", "#176B60", "#0B4A42"]
                   },
                   "legend": null
                 },
                 "stroke": {
                   "condition": [
-                    {
-                      "param": "hover",
-                      "empty": false,
-                      "value": "#25332F"
-                    },
-                    {
-                      "param": "pick",
-                      "empty": false,
-                      "value": "#25332F"
-                    }
+                    { "param": "hover", "empty": false, "value": "#25332F" },
+                    { "param": "pick", "empty": false, "value": "#25332F" }
                   ],
                   "value": "#ffffff"
                 },
                 "strokeWidth": {
                   "condition": [
-                    {
-                      "param": "hover",
-                      "empty": false,
-                      "value": 2
-                    },
-                    {
-                      "param": "pick",
-                      "empty": false,
-                      "value": 2
-                    }
+                    { "param": "hover", "empty": false, "value": 2 },
+                    { "param": "pick", "empty": false, "value": 2 }
                   ],
                   "value": 0.5
                 },
-                "opacity": {
-                  "condition": {
-                    "param": "pick",
-                    "value": 1
-                  },
-                  "value": 0.35
-                },
+                "opacity": { "condition": { "param": "pick", "value": 1 }, "value": 0.35 },
                 "tooltip": [
-                  {
-                    "field": "lga_name",
-                    "type": "nominal",
-                    "title": "Area"
-                  },
-                  {
-                    "field": "fy_label",
-                    "type": "nominal",
-                    "title": "Year"
-                  },
-                  {
-                    "field": "count_label",
-                    "type": "nominal",
-                    "title": "Rescues"
-                  },
-                  {
-                    "field": "rank_label",
-                    "type": "nominal",
-                    "title": "Rank"
-                  },
+                  { "field": "lga_name", "type": "nominal", "title": "Area" },
+                  { "field": "fy_label", "type": "nominal", "title": "Year" },
+                  { "field": "count_label", "type": "nominal", "title": "Rescues" },
+                  { "field": "rank_label", "type": "nominal", "title": "Rank" },
                   {
                     "field": "share",
                     "type": "quantitative",
@@ -482,9 +234,7 @@
             },
             {
               "transform": [
-                {
-                  "filter": "datum.rank <= 5 && datum.count !== null"
-                },
+                { "filter": "datum.rank <= 5 && datum.count !== null" },
                 {
                   "filter": "!(datum.lx >= 150.55 && datum.lx <= 152.15 && datum.ly <= -32.98 && datum.ly >= -34.25) && datum.lga_name !== 'Lord Howe Island (unincorporated)'"
                 }
@@ -498,35 +248,13 @@
                 "opacity": 1
               },
               "encoding": {
-                "longitude": {
-                  "field": "lx",
-                  "type": "quantitative"
-                },
-                "latitude": {
-                  "field": "ly",
-                  "type": "quantitative"
-                },
+                "longitude": { "field": "lx", "type": "quantitative" },
+                "latitude": { "field": "ly", "type": "quantitative" },
                 "tooltip": [
-                  {
-                    "field": "lga_name",
-                    "type": "nominal",
-                    "title": "Area"
-                  },
-                  {
-                    "field": "fy_label",
-                    "type": "nominal",
-                    "title": "Year"
-                  },
-                  {
-                    "field": "count_label",
-                    "type": "nominal",
-                    "title": "Rescues"
-                  },
-                  {
-                    "field": "rank_label",
-                    "type": "nominal",
-                    "title": "Rank"
-                  },
+                  { "field": "lga_name", "type": "nominal", "title": "Area" },
+                  { "field": "fy_label", "type": "nominal", "title": "Year" },
+                  { "field": "count_label", "type": "nominal", "title": "Rescues" },
+                  { "field": "rank_label", "type": "nominal", "title": "Rank" },
                   {
                     "field": "share",
                     "type": "quantitative",
@@ -538,38 +266,21 @@
             },
             {
               "transform": [
-                {
-                  "filter": "datum.rank <= 5 && datum.count !== null"
-                },
+                { "filter": "datum.rank <= 5 && datum.count !== null" },
                 {
                   "filter": "!(datum.lx >= 150.55 && datum.lx <= 152.15 && datum.ly <= -32.98 && datum.ly >= -34.25) && datum.lga_name !== 'Lord Howe Island (unincorporated)'"
                 }
               ],
-              "mark": {
-                "type": "text",
-                "fontSize": 10,
-                "fontWeight": 700,
-                "color": "#ffffff"
-              },
+              "mark": { "type": "text", "fontSize": 10, "fontWeight": 700, "color": "#ffffff" },
               "encoding": {
-                "longitude": {
-                  "field": "lx",
-                  "type": "quantitative"
-                },
-                "latitude": {
-                  "field": "ly",
-                  "type": "quantitative"
-                },
-                "text": {
-                  "field": "rank"
-                }
+                "longitude": { "field": "lx", "type": "quantitative" },
+                "latitude": { "field": "ly", "type": "quantitative" },
+                "text": { "field": "rank" }
               }
             },
             {
               "transform": [
-                {
-                  "filter": "datum.rank <= 5 && datum.count !== null"
-                },
+                { "filter": "datum.rank <= 5 && datum.count !== null" },
                 {
                   "filter": "!(datum.lx >= 150.55 && datum.lx <= 152.15 && datum.ly <= -32.98 && datum.ly >= -34.25) && datum.lga_name !== 'Lord Howe Island (unincorporated)'"
                 }
@@ -586,24 +297,14 @@
                 "opacity": 0.9
               },
               "encoding": {
-                "longitude": {
-                  "field": "lx",
-                  "type": "quantitative"
-                },
-                "latitude": {
-                  "field": "ly",
-                  "type": "quantitative"
-                },
-                "text": {
-                  "field": "short_label"
-                }
+                "longitude": { "field": "lx", "type": "quantitative" },
+                "latitude": { "field": "ly", "type": "quantitative" },
+                "text": { "field": "short_label" }
               }
             },
             {
               "transform": [
-                {
-                  "filter": "datum.rank <= 5 && datum.count !== null"
-                },
+                { "filter": "datum.rank <= 5 && datum.count !== null" },
                 {
                   "filter": "!(datum.lx >= 150.55 && datum.lx <= 152.15 && datum.ly <= -32.98 && datum.ly >= -34.25) && datum.lga_name !== 'Lord Howe Island (unincorporated)'"
                 }
@@ -617,17 +318,9 @@
                 "color": "#25332F"
               },
               "encoding": {
-                "longitude": {
-                  "field": "lx",
-                  "type": "quantitative"
-                },
-                "latitude": {
-                  "field": "ly",
-                  "type": "quantitative"
-                },
-                "text": {
-                  "field": "short_label"
-                }
+                "longitude": { "field": "lx", "type": "quantitative" },
+                "latitude": { "field": "ly", "type": "quantitative" },
+                "text": { "field": "short_label" }
               }
             },
             {
@@ -635,31 +328,16 @@
                 "values": [
                   {
                     "type": "Feature",
-                    "properties": {},
+                    "properties": { },
                     "geometry": {
                       "type": "Polygon",
                       "coordinates": [
                         [
-                          [
-                            150.55,
-                            -32.98
-                          ],
-                          [
-                            152.15,
-                            -32.98
-                          ],
-                          [
-                            152.15,
-                            -34.25
-                          ],
-                          [
-                            150.55,
-                            -34.25
-                          ],
-                          [
-                            150.55,
-                            -32.98
-                          ]
+                          [150.55, -32.98],
+                          [152.15, -32.98],
+                          [152.15, -34.25],
+                          [150.55, -34.25],
+                          [150.55, -32.98]
                         ]
                       ]
                     }
@@ -671,10 +349,7 @@
                 "filled": false,
                 "stroke": "#25332F",
                 "strokeWidth": 1.1,
-                "strokeDash": [
-                  4,
-                  3
-                ]
+                "strokeDash": [4, 3]
               }
             }
           ]
@@ -688,46 +363,21 @@
             "anchor": "start"
           },
           "transform": [
-            {
-              "filter": "datum.lga_name !== 'LGA not recorded'"
-            },
-            {
-              "filter": "datum.financial_year === selected_year"
-            },
+            { "filter": "datum.lga_name !== 'LGA not recorded'" },
+            { "filter": "datum.financial_year === selected_year" },
             {
               "calculate": "isValid(datum.rescue_count) ? datum.rescue_count : null",
               "as": "count"
             },
+            { "calculate": "datum.count === null ? -1 : datum.count", "as": "count_sort" },
             {
-              "calculate": "datum.count === null ? -1 : datum.count",
-              "as": "count_sort"
-            },
-            {
-              "window": [
-                {
-                  "op": "rank",
-                  "as": "rank"
-                }
-              ],
-              "sort": [
-                {
-                  "field": "count_sort",
-                  "order": "descending"
-                }
-              ]
+              "window": [{ "op": "rank", "as": "rank" }],
+              "sort": [{ "field": "count_sort", "order": "descending" }]
             },
             {
               "joinaggregate": [
-                {
-                  "op": "sum",
-                  "field": "count",
-                  "as": "mapped_total"
-                },
-                {
-                  "op": "valid",
-                  "field": "count",
-                  "as": "lgas_with_data"
-                }
+                { "op": "sum", "field": "count", "as": "mapped_total" },
+                { "op": "valid", "field": "count", "as": "lgas_with_data" }
               ]
             },
             {
@@ -742,77 +392,39 @@
               "calculate": "datum.count === null ? '–' : datum.rank + ' of ' + datum.lgas_with_data",
               "as": "rank_label"
             },
-            {
-              "calculate": "replace(datum.financial_year, '/', '–')",
-              "as": "fy_label"
-            },
-            {
-              "calculate": "datum.lga_name + '  ' + format(datum.count, ',')",
-              "as": "short_label"
-            },
+            { "calculate": "replace(datum.financial_year, '/', '–')", "as": "fy_label" },
+            { "calculate": "datum.lga_name + '  ' + format(datum.count, ',')", "as": "short_label" },
             {
               "lookup": "lga_name",
               "from": {
                 "data": {
                   "url": "data/nsw_lga.geojson",
-                  "format": {
-                    "type": "json",
-                    "property": "features"
-                  }
+                  "format": { "type": "json", "property": "features" }
                 },
                 "key": "properties.lga_name"
               },
               "as": "geo"
             },
-            {
-              "filter": "isValid(datum.geo)"
-            },
-            {
-              "calculate": "datum.geo.properties.lx",
-              "as": "lx"
-            },
-            {
-              "calculate": "datum.geo.properties.ly",
-              "as": "ly"
-            }
+            { "filter": "isValid(datum.geo)" },
+            { "calculate": "datum.geo.properties.lx", "as": "lx" },
+            { "calculate": "datum.geo.properties.ly", "as": "ly" }
           ],
           "projection": {
             "type": "conicEqualArea",
-            "rotate": [
-              -147,
-              0
-            ],
-            "parallels": [
-              -29,
-              -36
-            ],
+            "rotate": [-147, 0],
+            "parallels": [-29, -36],
             "fit": {
               "type": "Feature",
-              "properties": {},
+              "properties": { },
               "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                   [
-                    [
-                      150.55,
-                      -32.98
-                    ],
-                    [
-                      152.15,
-                      -32.98
-                    ],
-                    [
-                      152.15,
-                      -34.25
-                    ],
-                    [
-                      150.55,
-                      -34.25
-                    ],
-                    [
-                      150.55,
-                      -32.98
-                    ]
+                    [150.55, -32.98],
+                    [152.15, -32.98],
+                    [152.15, -34.25],
+                    [150.55, -34.25],
+                    [150.55, -32.98]
                   ]
                 ]
               }
@@ -822,16 +434,9 @@
             {
               "data": {
                 "url": "data/nsw_lga.geojson",
-                "format": {
-                  "type": "json",
-                  "property": "features"
-                }
+                "format": { "type": "json", "property": "features" }
               },
-              "transform": [
-                {
-                  "filter": "datum.properties.lga_name !== 'Lord Howe Island (unincorporated)'"
-                }
-              ],
+              "transform": [{ "filter": "datum.properties.lga_name !== 'Lord Howe Island (unincorporated)'" }],
               "mark": {
                 "type": "geoshape",
                 "fill": "#E6E1D6",
@@ -850,98 +455,39 @@
                 "cursor": "pointer"
               },
               "encoding": {
-                "shape": {
-                  "field": "geo",
-                  "type": "geojson"
-                },
+                "shape": { "field": "geo", "type": "geojson" },
                 "color": {
-                  "condition": {
-                    "test": "datum.count === null",
-                    "value": "#E6E1D6"
-                  },
+                  "condition": { "test": "datum.count === null", "value": "#E6E1D6" },
                   "field": "count",
                   "type": "quantitative",
                   "title": "Rescues",
                   "scale": {
                     "type": "threshold",
-                    "domain": [
-                      100,
-                      250,
-                      500,
-                      1000,
-                      2000,
-                      4000
-                    ],
-                    "range": [
-                      "#E6F2EF",
-                      "#C2E0D8",
-                      "#93C7B9",
-                      "#5FA897",
-                      "#348676",
-                      "#176B60",
-                      "#0B4A42"
-                    ]
+                    "domain": [100, 250, 500, 1000, 2000, 4000],
+                    "range": ["#E6F2EF", "#C2E0D8", "#93C7B9", "#5FA897", "#348676", "#176B60", "#0B4A42"]
                   },
                   "legend": null
                 },
                 "stroke": {
                   "condition": [
-                    {
-                      "param": "hover",
-                      "empty": false,
-                      "value": "#25332F"
-                    },
-                    {
-                      "param": "pick",
-                      "empty": false,
-                      "value": "#25332F"
-                    }
+                    { "param": "hover", "empty": false, "value": "#25332F" },
+                    { "param": "pick", "empty": false, "value": "#25332F" }
                   ],
                   "value": "#ffffff"
                 },
                 "strokeWidth": {
                   "condition": [
-                    {
-                      "param": "hover",
-                      "empty": false,
-                      "value": 2
-                    },
-                    {
-                      "param": "pick",
-                      "empty": false,
-                      "value": 2
-                    }
+                    { "param": "hover", "empty": false, "value": 2 },
+                    { "param": "pick", "empty": false, "value": 2 }
                   ],
                   "value": 0.5
                 },
-                "opacity": {
-                  "condition": {
-                    "param": "pick",
-                    "value": 1
-                  },
-                  "value": 0.35
-                },
+                "opacity": { "condition": { "param": "pick", "value": 1 }, "value": 0.35 },
                 "tooltip": [
-                  {
-                    "field": "lga_name",
-                    "type": "nominal",
-                    "title": "Area"
-                  },
-                  {
-                    "field": "fy_label",
-                    "type": "nominal",
-                    "title": "Year"
-                  },
-                  {
-                    "field": "count_label",
-                    "type": "nominal",
-                    "title": "Rescues"
-                  },
-                  {
-                    "field": "rank_label",
-                    "type": "nominal",
-                    "title": "Rank"
-                  },
+                  { "field": "lga_name", "type": "nominal", "title": "Area" },
+                  { "field": "fy_label", "type": "nominal", "title": "Year" },
+                  { "field": "count_label", "type": "nominal", "title": "Rescues" },
+                  { "field": "rank_label", "type": "nominal", "title": "Rank" },
                   {
                     "field": "share",
                     "type": "quantitative",
@@ -953,9 +499,7 @@
             },
             {
               "transform": [
-                {
-                  "filter": "datum.rank <= 5 && datum.count !== null"
-                },
+                { "filter": "datum.rank <= 5 && datum.count !== null" },
                 {
                   "filter": "datum.lx >= 150.55 && datum.lx <= 152.15 && datum.ly <= -32.98 && datum.ly >= -34.25"
                 }
@@ -969,35 +513,13 @@
                 "opacity": 1
               },
               "encoding": {
-                "longitude": {
-                  "field": "lx",
-                  "type": "quantitative"
-                },
-                "latitude": {
-                  "field": "ly",
-                  "type": "quantitative"
-                },
+                "longitude": { "field": "lx", "type": "quantitative" },
+                "latitude": { "field": "ly", "type": "quantitative" },
                 "tooltip": [
-                  {
-                    "field": "lga_name",
-                    "type": "nominal",
-                    "title": "Area"
-                  },
-                  {
-                    "field": "fy_label",
-                    "type": "nominal",
-                    "title": "Year"
-                  },
-                  {
-                    "field": "count_label",
-                    "type": "nominal",
-                    "title": "Rescues"
-                  },
-                  {
-                    "field": "rank_label",
-                    "type": "nominal",
-                    "title": "Rank"
-                  },
+                  { "field": "lga_name", "type": "nominal", "title": "Area" },
+                  { "field": "fy_label", "type": "nominal", "title": "Year" },
+                  { "field": "count_label", "type": "nominal", "title": "Rescues" },
+                  { "field": "rank_label", "type": "nominal", "title": "Rank" },
                   {
                     "field": "share",
                     "type": "quantitative",
@@ -1009,38 +531,21 @@
             },
             {
               "transform": [
-                {
-                  "filter": "datum.rank <= 5 && datum.count !== null"
-                },
+                { "filter": "datum.rank <= 5 && datum.count !== null" },
                 {
                   "filter": "datum.lx >= 150.55 && datum.lx <= 152.15 && datum.ly <= -32.98 && datum.ly >= -34.25"
                 }
               ],
-              "mark": {
-                "type": "text",
-                "fontSize": 10,
-                "fontWeight": 700,
-                "color": "#ffffff"
-              },
+              "mark": { "type": "text", "fontSize": 10, "fontWeight": 700, "color": "#ffffff" },
               "encoding": {
-                "longitude": {
-                  "field": "lx",
-                  "type": "quantitative"
-                },
-                "latitude": {
-                  "field": "ly",
-                  "type": "quantitative"
-                },
-                "text": {
-                  "field": "rank"
-                }
+                "longitude": { "field": "lx", "type": "quantitative" },
+                "latitude": { "field": "ly", "type": "quantitative" },
+                "text": { "field": "rank" }
               }
             },
             {
               "transform": [
-                {
-                  "filter": "datum.rank <= 5 && datum.count !== null"
-                },
+                { "filter": "datum.rank <= 5 && datum.count !== null" },
                 {
                   "filter": "datum.lx >= 150.55 && datum.lx <= 152.15 && datum.ly <= -32.98 && datum.ly >= -34.25"
                 }
@@ -1057,24 +562,14 @@
                 "opacity": 0.9
               },
               "encoding": {
-                "longitude": {
-                  "field": "lx",
-                  "type": "quantitative"
-                },
-                "latitude": {
-                  "field": "ly",
-                  "type": "quantitative"
-                },
-                "text": {
-                  "field": "short_label"
-                }
+                "longitude": { "field": "lx", "type": "quantitative" },
+                "latitude": { "field": "ly", "type": "quantitative" },
+                "text": { "field": "short_label" }
               }
             },
             {
               "transform": [
-                {
-                  "filter": "datum.rank <= 5 && datum.count !== null"
-                },
+                { "filter": "datum.rank <= 5 && datum.count !== null" },
                 {
                   "filter": "datum.lx >= 150.55 && datum.lx <= 152.15 && datum.ly <= -32.98 && datum.ly >= -34.25"
                 }
@@ -1088,17 +583,9 @@
                 "color": "#25332F"
               },
               "encoding": {
-                "longitude": {
-                  "field": "lx",
-                  "type": "quantitative"
-                },
-                "latitude": {
-                  "field": "ly",
-                  "type": "quantitative"
-                },
-                "text": {
-                  "field": "short_label"
-                }
+                "longitude": { "field": "lx", "type": "quantitative" },
+                "latitude": { "field": "ly", "type": "quantitative" },
+                "text": { "field": "short_label" }
               }
             }
           ]
@@ -1107,55 +594,25 @@
     },
     {
       "width": 900,
-      "height": {
-        "step": 26
-      },
+      "height": { "step": 26 },
       "title": {
         "text": "Top 5 council areas",
         "subtitle": "Click a bar to find the area on the map.",
         "anchor": "start"
       },
       "transform": [
+        { "filter": "datum.lga_name !== 'LGA not recorded'" },
+        { "filter": "datum.financial_year === selected_year" },
+        { "calculate": "isValid(datum.rescue_count) ? datum.rescue_count : null", "as": "count" },
+        { "calculate": "datum.count === null ? -1 : datum.count", "as": "count_sort" },
         {
-          "filter": "datum.lga_name !== 'LGA not recorded'"
-        },
-        {
-          "filter": "datum.financial_year === selected_year"
-        },
-        {
-          "calculate": "isValid(datum.rescue_count) ? datum.rescue_count : null",
-          "as": "count"
-        },
-        {
-          "calculate": "datum.count === null ? -1 : datum.count",
-          "as": "count_sort"
-        },
-        {
-          "window": [
-            {
-              "op": "rank",
-              "as": "rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "count_sort",
-              "order": "descending"
-            }
-          ]
+          "window": [{ "op": "rank", "as": "rank" }],
+          "sort": [{ "field": "count_sort", "order": "descending" }]
         },
         {
           "joinaggregate": [
-            {
-              "op": "sum",
-              "field": "count",
-              "as": "mapped_total"
-            },
-            {
-              "op": "valid",
-              "field": "count",
-              "as": "lgas_with_data"
-            }
+            { "op": "sum", "field": "count", "as": "mapped_total" },
+            { "op": "valid", "field": "count", "as": "lgas_with_data" }
           ]
         },
         {
@@ -1170,42 +627,20 @@
           "calculate": "datum.count === null ? '–' : datum.rank + ' of ' + datum.lgas_with_data",
           "as": "rank_label"
         },
-        {
-          "calculate": "replace(datum.financial_year, '/', '–')",
-          "as": "fy_label"
-        },
-        {
-          "calculate": "datum.lga_name + '  ' + format(datum.count, ',')",
-          "as": "short_label"
-        },
+        { "calculate": "replace(datum.financial_year, '/', '–')", "as": "fy_label" },
+        { "calculate": "datum.lga_name + '  ' + format(datum.count, ',')", "as": "short_label" },
         {
           "lookup": "lga_name",
           "from": {
-            "data": {
-              "url": "data/nsw_lga.geojson",
-              "format": {
-                "type": "json",
-                "property": "features"
-              }
-            },
+            "data": { "url": "data/nsw_lga.geojson", "format": { "type": "json", "property": "features" } },
             "key": "properties.lga_name"
           },
           "as": "geo"
         },
-        {
-          "filter": "isValid(datum.geo)"
-        },
-        {
-          "calculate": "datum.geo.properties.lx",
-          "as": "lx"
-        },
-        {
-          "calculate": "datum.geo.properties.ly",
-          "as": "ly"
-        },
-        {
-          "filter": "datum.count !== null && datum.rank <= 5"
-        },
+        { "filter": "isValid(datum.geo)" },
+        { "calculate": "datum.geo.properties.lx", "as": "lx" },
+        { "calculate": "datum.geo.properties.ly", "as": "ly" },
+        { "filter": "datum.count !== null && datum.rank <= 5" },
         {
           "calculate": "datum.rank + '. ' + datum.lga_name + '  ' + format(datum.count, ',')",
           "as": "bar_label"
@@ -1215,57 +650,21 @@
         "y": {
           "field": "lga_name",
           "type": "nominal",
-          "sort": {
-            "field": "count",
-            "op": "max",
-            "order": "descending"
-          },
+          "sort": { "field": "count", "op": "max", "order": "descending" },
           "axis": null
         },
         "x": {
           "field": "count",
           "type": "quantitative",
           "title": "Number of rescues",
-          "scale": {
-            "domain": [
-              0,
-              8000
-            ]
-          },
-          "axis": {
-            "format": ",d",
-            "values": [
-              0,
-              2000,
-              4000,
-              6000,
-              8000
-            ],
-            "grid": true,
-            "domain": false
-          }
+          "scale": { "domain": [0, 8000] },
+          "axis": { "format": ",d", "values": [0, 2000, 4000, 6000, 8000], "grid": true, "domain": false }
         },
         "tooltip": [
-          {
-            "field": "lga_name",
-            "type": "nominal",
-            "title": "Area"
-          },
-          {
-            "field": "fy_label",
-            "type": "nominal",
-            "title": "Year"
-          },
-          {
-            "field": "count_label",
-            "type": "nominal",
-            "title": "Rescues"
-          },
-          {
-            "field": "rank_label",
-            "type": "nominal",
-            "title": "Rank"
-          },
+          { "field": "lga_name", "type": "nominal", "title": "Area" },
+          { "field": "fy_label", "type": "nominal", "title": "Year" },
+          { "field": "count_label", "type": "nominal", "title": "Rescues" },
+          { "field": "rank_label", "type": "nominal", "title": "Rank" },
           {
             "field": "share",
             "type": "quantitative",
@@ -1281,9 +680,7 @@
             "type": "bar",
             "cursor": "pointer",
             "cornerRadiusEnd": 2,
-            "height": {
-              "band": 0.72
-            },
+            "height": { "band": 0.72 },
             "stroke": "#25332F",
             "strokeWidth": 0.4
           },
@@ -1294,33 +691,12 @@
               "title": "Rescues",
               "scale": {
                 "type": "threshold",
-                "domain": [
-                  100,
-                  250,
-                  500,
-                  1000,
-                  2000,
-                  4000
-                ],
-                "range": [
-                  "#E6F2EF",
-                  "#C2E0D8",
-                  "#93C7B9",
-                  "#5FA897",
-                  "#348676",
-                  "#176B60",
-                  "#0B4A42"
-                ]
+                "domain": [100, 250, 500, 1000, 2000, 4000],
+                "range": ["#E6F2EF", "#C2E0D8", "#93C7B9", "#5FA897", "#348676", "#176B60", "#0B4A42"]
               },
               "legend": null
             },
-            "opacity": {
-              "condition": {
-                "param": "pick",
-                "value": 1
-              },
-              "value": 0.35
-            }
+            "opacity": { "condition": { "param": "pick", "value": 1 }, "value": 0.35 }
           }
         },
         {
@@ -1332,19 +708,13 @@
             "fontSize": 11,
             "color": "#25332F"
           },
-          "encoding": {
-            "text": {
-              "field": "bar_label"
-            }
-          }
+          "encoding": { "text": { "field": "bar_label" } }
         }
       ]
     }
   ],
   "config": {
-    "view": {
-      "stroke": null
-    },
+    "view": { "stroke": null },
     "font": "Atkinson Hyperlegible, system-ui, sans-serif",
     "title": {
       "fontSize": 14,
@@ -1361,8 +731,6 @@
       "titleColor": "#25332F",
       "gridColor": "#edf0f2"
     },
-    "concat": {
-      "spacing": 24
-    }
+    "concat": { "spacing": 24 }
   }
 }

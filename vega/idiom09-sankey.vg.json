@@ -3,24 +3,13 @@
   "description": "Idiom 09: Sankey diagram from the 8 most common rescue reasons to Survived and Died, per animal group, 2013-14 to 2018-19, laid out entirely with Vega-Lite transforms. Flow counts are estimates (author-calculated): died = round(total x died% / 100), survived = total - died. Source: Kwok et al. (2021), PLOS ONE, Table 10.",
   "width": 1030,
   "height": 420,
-  "padding": {
-    "top": 6,
-    "bottom": 6,
-    "left": 0,
-    "right": 0
-  },
-  "autosize": {
-    "type": "none"
-  },
+  "padding": { "top": 6, "bottom": 6, "left": 0, "right": 0 },
+  "autosize": { "type": "none" },
   "data": {
     "url": "data/rescue_outcomes_by_group.csv",
     "format": {
       "type": "csv",
-      "parse": {
-        "died_pct": "number",
-        "survived_pct": "number",
-        "total_rescues": "number"
-      }
+      "parse": { "died_pct": "number", "survived_pct": "number", "total_rescues": "number" }
     }
   },
   "params": [
@@ -29,203 +18,74 @@
       "value": "Birds",
       "bind": {
         "input": "select",
-        "options": [
-          "Birds",
-          "Mammals",
-          "Reptiles"
-        ],
+        "options": ["Birds", "Mammals", "Reptiles"],
         "name": "Animal group ",
         "element": "#sankey-group"
       }
     }
   ],
   "transform": [
+    { "filter": "datum.animal_group === sankey_group && datum.rescue_reason !== 'Unknown'" },
+    { "filter": "isValid(datum.died_pct) && isValid(datum.total_rescues)" },
     {
-      "filter": "datum.animal_group === sankey_group && datum.rescue_reason !== 'Unknown'"
+      "window": [{ "op": "row_number", "as": "rank" }],
+      "sort": [{ "field": "total_rescues", "order": "descending" }]
     },
-    {
-      "filter": "isValid(datum.died_pct) && isValid(datum.total_rescues)"
-    },
-    {
-      "window": [
-        {
-          "op": "row_number",
-          "as": "rank"
-        }
-      ],
-      "sort": [
-        {
-          "field": "total_rescues",
-          "order": "descending"
-        }
-      ]
-    },
-    {
-      "filter": "datum.rank <= 8"
-    },
-    {
-      "calculate": "datum.rescue_reason",
-      "as": "reason"
-    },
-    {
-      "calculate": "datum.total_rescues",
-      "as": "n"
-    },
-    {
-      "calculate": "round(datum.n * datum.died_pct / 100)",
-      "as": "Died"
-    },
-    {
-      "calculate": "datum.n - datum.Died",
-      "as": "Survived"
-    },
+    { "filter": "datum.rank <= 8" },
+    { "calculate": "datum.rescue_reason", "as": "reason" },
+    { "calculate": "datum.total_rescues", "as": "n" },
+    { "calculate": "round(datum.n * datum.died_pct / 100)", "as": "Died" },
+    { "calculate": "datum.n - datum.Died", "as": "Survived" },
     {
       "joinaggregate": [
-        {
-          "op": "sum",
-          "field": "n",
-          "as": "T"
-        },
-        {
-          "op": "sum",
-          "field": "Survived",
-          "as": "surv_total"
-        },
-        {
-          "op": "sum",
-          "field": "Died",
-          "as": "died_total"
-        },
-        {
-          "op": "count",
-          "as": "reasons"
-        }
+        { "op": "sum", "field": "n", "as": "T" },
+        { "op": "sum", "field": "Survived", "as": "surv_total" },
+        { "op": "sum", "field": "Died", "as": "died_total" },
+        { "op": "count", "as": "reasons" }
       ]
     },
+    { "calculate": "(420 - 6 * (datum.reasons - 1)) / datum.T", "as": "k" },
     {
-      "calculate": "(420 - 6 * (datum.reasons - 1)) / datum.T",
-      "as": "k"
+      "window": [{ "op": "sum", "field": "n", "as": "n_before_cum" }],
+      "sort": [{ "field": "rank" }],
+      "frame": [null, 0]
     },
-    {
-      "window": [
-        {
-          "op": "sum",
-          "field": "n",
-          "as": "n_before_cum"
-        }
-      ],
-      "sort": [
-        {
-          "field": "rank"
-        }
-      ],
-      "frame": [
-        null,
-        0
-      ]
-    },
-    {
-      "calculate": "datum.n_before_cum - datum.n",
-      "as": "n_before"
-    },
-    {
-      "calculate": "datum.n_before * datum.k + (datum.rank - 1) * 6",
-      "as": "left_y0"
-    },
-    {
-      "calculate": "datum.left_y0 + datum.n * datum.k",
-      "as": "left_y1"
-    },
-    {
-      "calculate": "(420 - (datum.T * datum.k + 28)) / 2",
-      "as": "surv_y0"
-    },
-    {
-      "calculate": "datum.surv_y0 + datum.surv_total * datum.k + 28",
-      "as": "died_y0"
-    }
+    { "calculate": "datum.n_before_cum - datum.n", "as": "n_before" },
+    { "calculate": "datum.n_before * datum.k + (datum.rank - 1) * 6", "as": "left_y0" },
+    { "calculate": "datum.left_y0 + datum.n * datum.k", "as": "left_y1" },
+    { "calculate": "(420 - (datum.T * datum.k + 28)) / 2", "as": "surv_y0" },
+    { "calculate": "datum.surv_y0 + datum.surv_total * datum.k + 28", "as": "died_y0" }
   ],
   "layer": [
     {
       "transform": [
-        {
-          "fold": [
-            "Survived",
-            "Died"
-          ],
-          "as": [
-            "outcome",
-            "v"
-          ]
-        },
-        {
-          "filter": "datum.v > 0"
-        },
-        {
-          "calculate": "datum.reason + ' → ' + datum.outcome",
-          "as": "flow"
-        },
-        {
-          "calculate": "datum.v * datum.k",
-          "as": "h"
-        },
+        { "fold": ["Survived", "Died"], "as": ["outcome", "v"] },
+        { "filter": "datum.v > 0" },
+        { "calculate": "datum.reason + ' → ' + datum.outcome", "as": "flow" },
+        { "calculate": "datum.v * datum.k", "as": "h" },
         {
           "calculate": "datum.left_y0 + (datum.outcome === 'Died' ? datum.Survived * datum.k : 0)",
           "as": "sy"
         },
         {
-          "window": [
-            {
-              "op": "sum",
-              "field": "v",
-              "as": "v_before_cum"
-            }
-          ],
-          "groupby": [
-            "outcome"
-          ],
-          "sort": [
-            {
-              "field": "rank"
-            }
-          ],
-          "frame": [
-            null,
-            0
-          ]
+          "window": [{ "op": "sum", "field": "v", "as": "v_before_cum" }],
+          "groupby": ["outcome"],
+          "sort": [{ "field": "rank" }],
+          "frame": [null, 0]
         },
-        {
-          "calculate": "datum.v_before_cum - datum.v",
-          "as": "v_before"
-        },
+        { "calculate": "datum.v_before_cum - datum.v", "as": "v_before" },
         {
           "calculate": "(datum.outcome === 'Died' ? datum.died_y0 : datum.surv_y0) + datum.v_before * datum.k",
           "as": "ty"
         },
-        {
-          "calculate": "100 * datum.v / datum.n",
-          "as": "share"
-        },
+        { "calculate": "100 * datum.v / datum.n", "as": "share" },
         {
           "calculate": "datum.outcome === 'Died' ? datum.died_pct : datum.survived_pct",
           "as": "published"
         },
-        {
-          "calculate": "sequence(0, 41)",
-          "as": "steps"
-        },
-        {
-          "flatten": [
-            "steps"
-          ],
-          "as": [
-            "step"
-          ]
-        },
-        {
-          "calculate": "datum.step / 40",
-          "as": "t"
-        },
+        { "calculate": "sequence(0, 41)", "as": "steps" },
+        { "flatten": ["steps"], "as": ["step"] },
+        { "calculate": "datum.step / 40", "as": "t" },
         {
           "calculate": "pow(1 - datum.t, 3) * 264 + 3 * datum.t * (1 - datum.t) * 542 + pow(datum.t, 3) * 820",
           "as": "x"
@@ -234,86 +94,39 @@
           "calculate": "datum.sy + (datum.ty - datum.sy) * (3 * datum.t * datum.t - 2 * pow(datum.t, 3))",
           "as": "y_top"
         },
-        {
-          "calculate": "datum.y_top + datum.h",
-          "as": "y_bot"
-        }
+        { "calculate": "datum.y_top + datum.h", "as": "y_bot" }
       ],
       "params": [
         {
           "name": "sk_flow",
-          "select": {
-            "type": "point",
-            "fields": [
-              "flow"
-            ],
-            "on": "mouseover",
-            "clear": "mouseout"
-          }
+          "select": { "type": "point", "fields": ["flow"], "on": "mouseover", "clear": "mouseout" }
         }
       ],
-      "mark": {
-        "type": "area",
-        "interpolate": "linear",
-        "cursor": "default"
-      },
+      "mark": { "type": "area", "interpolate": "linear", "cursor": "default" },
       "encoding": {
         "x": {
           "field": "x",
           "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              1030
-            ],
-            "nice": false,
-            "zero": false
-          },
+          "scale": { "domain": [0, 1030], "nice": false, "zero": false },
           "axis": null
         },
         "y": {
           "field": "y_top",
           "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              420
-            ],
-            "nice": false,
-            "zero": false,
-            "reverse": true
-          },
+          "scale": { "domain": [0, 420], "nice": false, "zero": false, "reverse": true },
           "axis": null
         },
-        "y2": {
-          "field": "y_bot"
-        },
-        "detail": {
-          "field": "flow",
-          "type": "nominal"
-        },
+        "y2": { "field": "y_bot" },
+        "detail": { "field": "flow", "type": "nominal" },
         "color": {
           "field": "outcome",
           "type": "nominal",
-          "scale": {
-            "domain": [
-              "Survived",
-              "Died"
-            ],
-            "range": [
-              "#7A55B3",
-              "#B83F35"
-            ]
-          },
+          "scale": { "domain": ["Survived", "Died"], "range": ["#7A55B3", "#B83F35"] },
           "legend": null
         },
         "fillOpacity": {
           "condition": [
-            {
-              "param": "sk_flow",
-              "empty": false,
-              "value": 0.62
-            },
+            { "param": "sk_flow", "empty": false, "value": 0.62 },
             {
               "test": "length(data(\"sk_lnode_store\")) > 0 && vlSelectionTest(\"sk_lnode_store\", {lnode: datum.reason})",
               "value": 0.62
@@ -330,16 +143,8 @@
           "value": 0.32
         },
         "tooltip": [
-          {
-            "field": "reason",
-            "type": "nominal",
-            "title": "Reason"
-          },
-          {
-            "field": "outcome",
-            "type": "nominal",
-            "title": "Outcome"
-          },
+          { "field": "reason", "type": "nominal", "title": "Reason" },
+          { "field": "outcome", "type": "nominal", "title": "Outcome" },
           {
             "field": "v",
             "type": "quantitative",
@@ -371,67 +176,26 @@
       "params": [
         {
           "name": "sk_lnode",
-          "select": {
-            "type": "point",
-            "fields": [
-              "lnode"
-            ],
-            "on": "mouseover",
-            "clear": "mouseout"
-          }
+          "select": { "type": "point", "fields": ["lnode"], "on": "mouseover", "clear": "mouseout" }
         }
       ],
-      "mark": {
-        "type": "rect",
-        "color": "#5B6770",
-        "cursor": "default"
-      },
+      "mark": { "type": "rect", "color": "#5B6770", "cursor": "default" },
       "encoding": {
-        "x": {
-          "datum": 250,
-          "type": "quantitative"
-        },
-        "x2": {
-          "datum": 264
-        },
-        "y": {
-          "field": "left_y0",
-          "type": "quantitative"
-        },
-        "y2": {
-          "field": "left_y1"
-        },
+        "x": { "datum": 250, "type": "quantitative" },
+        "x2": { "datum": 264 },
+        "y": { "field": "left_y0", "type": "quantitative" },
+        "y2": { "field": "left_y1" },
         "tooltip": [
-          {
-            "field": "reason",
-            "type": "nominal",
-            "title": "Reason"
-          },
-          {
-            "field": "n",
-            "type": "quantitative",
-            "title": "Rescues (source)",
-            "format": ","
-          }
+          { "field": "reason", "type": "nominal", "title": "Reason" },
+          { "field": "n", "type": "quantitative", "title": "Rescues (source)", "format": "," }
         ]
       },
-      "transform": [
-        {
-          "calculate": "datum.reason",
-          "as": "lnode"
-        }
-      ]
+      "transform": [{ "calculate": "datum.reason", "as": "lnode" }]
     },
     {
       "transform": [
-        {
-          "calculate": "datum.reason + ' · ' + format(datum.n, ',')",
-          "as": "label"
-        },
-        {
-          "calculate": "(datum.left_y0 + datum.left_y1) / 2",
-          "as": "mid"
-        }
+        { "calculate": "datum.reason + ' · ' + format(datum.n, ',')", "as": "label" },
+        { "calculate": "(datum.left_y0 + datum.left_y1) / 2", "as": "mid" }
       ],
       "mark": {
         "type": "text",
@@ -442,143 +206,53 @@
         "limit": 234
       },
       "encoding": {
-        "x": {
-          "datum": 240,
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "mid",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "label"
-        }
+        "x": { "datum": 240, "type": "quantitative" },
+        "y": { "field": "mid", "type": "quantitative" },
+        "text": { "field": "label" }
       }
     },
     {
       "transform": [
-        {
-          "fold": [
-            "Survived",
-            "Died"
-          ],
-          "as": [
-            "outcome",
-            "v"
-          ]
-        },
+        { "fold": ["Survived", "Died"], "as": ["outcome", "v"] },
         {
           "aggregate": [
-            {
-              "op": "sum",
-              "field": "v",
-              "as": "total"
-            },
-            {
-              "op": "max",
-              "field": "k",
-              "as": "k"
-            },
-            {
-              "op": "max",
-              "field": "T",
-              "as": "T"
-            },
-            {
-              "op": "max",
-              "field": "surv_y0",
-              "as": "surv_y0"
-            },
-            {
-              "op": "max",
-              "field": "died_y0",
-              "as": "died_y0"
-            },
-            {
-              "op": "max",
-              "field": "reasons",
-              "as": "reasons"
-            }
+            { "op": "sum", "field": "v", "as": "total" },
+            { "op": "max", "field": "k", "as": "k" },
+            { "op": "max", "field": "T", "as": "T" },
+            { "op": "max", "field": "surv_y0", "as": "surv_y0" },
+            { "op": "max", "field": "died_y0", "as": "died_y0" },
+            { "op": "max", "field": "reasons", "as": "reasons" }
           ],
-          "groupby": [
-            "outcome"
-          ]
+          "groupby": ["outcome"]
         },
-        {
-          "calculate": "datum.outcome === 'Died' ? datum.died_y0 : datum.surv_y0",
-          "as": "y0"
-        },
-        {
-          "calculate": "datum.y0 + datum.total * datum.k",
-          "as": "y1"
-        },
-        {
-          "calculate": "(datum.y0 + datum.y1) / 2",
-          "as": "mid"
-        },
-        {
-          "calculate": "100 * datum.total / datum.T",
-          "as": "pct"
-        },
+        { "calculate": "datum.outcome === 'Died' ? datum.died_y0 : datum.surv_y0", "as": "y0" },
+        { "calculate": "datum.y0 + datum.total * datum.k", "as": "y1" },
+        { "calculate": "(datum.y0 + datum.y1) / 2", "as": "mid" },
+        { "calculate": "100 * datum.total / datum.T", "as": "pct" },
         {
           "calculate": "'≈' + format(datum.total, ',') + ' cases · ' + format(datum.pct, '.1f') + '%'",
           "as": "estimate"
         },
-        {
-          "calculate": "datum.outcome",
-          "as": "rnode"
-        }
+        { "calculate": "datum.outcome", "as": "rnode" }
       ],
       "layer": [
         {
           "params": [
             {
               "name": "sk_rnode",
-              "select": {
-                "type": "point",
-                "fields": [
-                  "rnode"
-                ],
-                "on": "mouseover",
-                "clear": "mouseout"
-              }
+              "select": { "type": "point", "fields": ["rnode"], "on": "mouseover", "clear": "mouseout" }
             }
           ],
-          "mark": {
-            "type": "rect",
-            "cursor": "default"
-          },
+          "mark": { "type": "rect", "cursor": "default" },
           "encoding": {
-            "x": {
-              "datum": 820,
-              "type": "quantitative"
-            },
-            "x2": {
-              "datum": 834
-            },
-            "y": {
-              "field": "y0",
-              "type": "quantitative"
-            },
-            "y2": {
-              "field": "y1"
-            },
-            "color": {
-              "field": "outcome",
-              "type": "nominal",
-              "legend": null
-            },
+            "x": { "datum": 820, "type": "quantitative" },
+            "x2": { "datum": 834 },
+            "y": { "field": "y0", "type": "quantitative" },
+            "y2": { "field": "y1" },
+            "color": { "field": "outcome", "type": "nominal", "legend": null },
             "tooltip": [
-              {
-                "field": "outcome",
-                "type": "nominal",
-                "title": "Outcome"
-              },
-              {
-                "field": "estimate",
-                "type": "nominal",
-                "title": "Estimated (author-calculated)"
-              }
+              { "field": "outcome", "type": "nominal", "title": "Outcome" },
+              { "field": "estimate", "type": "nominal", "title": "Estimated (author-calculated)" }
             ]
           }
         },
@@ -593,17 +267,9 @@
             "color": "#25332F"
           },
           "encoding": {
-            "x": {
-              "datum": 844,
-              "type": "quantitative"
-            },
-            "y": {
-              "field": "mid",
-              "type": "quantitative"
-            },
-            "text": {
-              "field": "outcome"
-            }
+            "x": { "datum": 844, "type": "quantitative" },
+            "y": { "field": "mid", "type": "quantitative" },
+            "text": { "field": "outcome" }
           }
         },
         {
@@ -616,26 +282,13 @@
             "color": "#5E6B63"
           },
           "encoding": {
-            "x": {
-              "datum": 844,
-              "type": "quantitative"
-            },
-            "y": {
-              "field": "mid",
-              "type": "quantitative"
-            },
-            "text": {
-              "field": "estimate"
-            }
+            "x": { "datum": 844, "type": "quantitative" },
+            "y": { "field": "mid", "type": "quantitative" },
+            "text": { "field": "estimate" }
           }
         }
       ]
     }
   ],
-  "config": {
-    "view": {
-      "stroke": null
-    },
-    "font": "Atkinson Hyperlegible, system-ui, sans-serif"
-  }
+  "config": { "view": { "stroke": null }, "font": "Atkinson Hyperlegible, system-ui, sans-serif" }
 }

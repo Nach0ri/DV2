@@ -4,33 +4,84 @@
   "width": "container",
   "height": { "step": 22 },
   "autosize": { "type": "fit-x", "contains": "padding" },
-  "data": { "url": "data/rescue_reasons_by_month.csv", "format": { "type": "csv", "parse": { "month_number": "number", "count": "number" } } },
+  "data": {
+    "url": "data/rescue_reasons_by_month.csv",
+    "format": { "type": "csv", "parse": { "month_number": "number", "count": "number" } }
+  },
   "params": [
-    { "name": "heat_group", "value": "All classes", "bind": { "input": "select", "options": ["All classes", "Birds", "Mammals", "Reptiles"], "name": "Animal group ", "element": "#heatmap-group" } }
+    {
+      "name": "heat_group",
+      "value": "All classes",
+      "bind": {
+        "input": "select",
+        "options": ["All classes", "Birds", "Mammals", "Reptiles"],
+        "name": "Animal group ",
+        "element": "#heatmap-group"
+      }
+    }
   ],
   "transform": [
     { "filter": "isValid(datum.count)" },
     { "filter": "heat_group === 'All classes' || datum.group === heat_group" },
-    { "aggregate": [{ "op": "sum", "field": "count", "as": "rescues" }], "groupby": ["reason", "month", "month_number"] },
+    {
+      "aggregate": [{ "op": "sum", "field": "count", "as": "rescues" }],
+      "groupby": ["reason", "month", "month_number"]
+    },
     { "calculate": "substring(datum.month, 0, 3)", "as": "month_short" },
     { "calculate": "heat_group", "as": "group_label" },
-    { "joinaggregate": [{ "op": "sum", "field": "rescues", "as": "reason_total" }], "groupby": ["reason"] },
+    {
+      "joinaggregate": [{ "op": "sum", "field": "rescues", "as": "reason_total" }],
+      "groupby": ["reason"]
+    },
     { "calculate": "datum.rescues / datum.reason_total", "as": "share" }
   ],
   "encoding": {
-    "x": { "field": "month_short", "type": "ordinal", "sort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "title": null, "axis": { "labelAngle": 0, "labelFontSize": 11, "orient": "top", "domain": false, "ticks": false } },
-    "y": { "field": "reason", "type": "nominal", "title": null, "sort": { "field": "reason_total", "op": "max", "order": "descending" }, "axis": { "labelLimit": 240, "labelFontSize": 11, "domain": false, "ticks": false } },
+    "x": {
+      "field": "month_short",
+      "type": "ordinal",
+      "sort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      "title": null,
+      "axis": { "labelAngle": 0, "labelFontSize": 11, "orient": "top", "domain": false, "ticks": false }
+    },
+    "y": {
+      "field": "reason",
+      "type": "nominal",
+      "title": null,
+      "sort": { "field": "reason_total", "op": "max", "order": "descending" },
+      "axis": { "labelLimit": 240, "labelFontSize": 11, "domain": false, "ticks": false }
+    },
     "color": {
-      "field": "share", "type": "quantitative", "title": "Share of reason’s rescues",
+      "field": "share",
+      "type": "quantitative",
+      "title": "Share of reason’s rescues",
       "scale": { "range": ["#E6F2EF", "#176B60"], "domain": [0, 0.2], "clamp": true },
-      "legend": { "orient": "bottom", "direction": "horizontal", "gradientLength": 260, "titleFontSize": 11, "labelFontSize": 11, "format": ".0%", "values": [0, 0.05, 0.1, 0.15, 0.2], "labelExpr": "datum.value >= 0.2 ? '20%+' : datum.label" }
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal",
+        "gradientLength": 260,
+        "titleFontSize": 11,
+        "labelFontSize": 11,
+        "format": ".0%",
+        "values": [0, 0.05, 0.1, 0.15, 0.2],
+        "labelExpr": "datum.value >= 0.2 ? '20%+' : datum.label"
+      }
     },
     "tooltip": [
       { "field": "reason", "type": "nominal", "title": "Reason" },
       { "field": "month", "type": "nominal", "title": "Month" },
       { "field": "rescues", "type": "quantitative", "title": "Rescues", "format": ",d" },
-      { "field": "share", "type": "quantitative", "title": "Share of this reason’s year (author-calculated)", "format": ".1%" },
-      { "field": "reason_total", "type": "quantitative", "title": "Reason total (all months)", "format": ",d" },
+      {
+        "field": "share",
+        "type": "quantitative",
+        "title": "Share of this reason’s year (author-calculated)",
+        "format": ".1%"
+      },
+      {
+        "field": "reason_total",
+        "type": "quantitative",
+        "title": "Reason total (all months)",
+        "format": ",d"
+      },
       { "field": "group_label", "type": "nominal", "title": "Animal group" }
     ]
   },
@@ -38,7 +89,10 @@
     { "mark": { "type": "rect", "stroke": "#ffffff", "strokeWidth": 1 } },
     {
       "transform": [
-        { "joinaggregate": [{ "op": "max", "field": "share", "as": "row_max" }], "groupby": ["reason"] },
+        {
+          "joinaggregate": [{ "op": "max", "field": "share", "as": "row_max" }],
+          "groupby": ["reason"]
+        },
         { "filter": "datum.share === datum.row_max" }
       ],
       "mark": { "type": "rect", "fillOpacity": 0, "stroke": "#25332F", "strokeWidth": 2 }
@@ -46,7 +100,10 @@
     {
       "transform": [{ "filter": "datum.share >= 0.2" }],
       "mark": { "type": "text", "fontSize": 11, "fontWeight": 700 },
-      "encoding": { "text": { "field": "share", "type": "quantitative", "format": ".0%" }, "color": { "value": "#FFFFFF" } }
+      "encoding": {
+        "text": { "field": "share", "type": "quantitative", "format": ".0%" },
+        "color": { "value": "#FFFFFF" }
+      }
     }
   ],
   "config": {

@@ -2,82 +2,34 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Idiom 11: lollipop chart of the 15 sub-groups with the lowest recorded rescues, 2013-14 to 2018-19 (Unknown/Unidentified excluded). Source: Kwok et al. (2021), PLOS ONE, supplementary file S7.",
   "width": "container",
-  "height": {
-    "step": 24
-  },
-  "autosize": {
-    "type": "fit-x",
-    "contains": "padding"
-  },
+  "height": { "step": 24 },
+  "autosize": { "type": "fit-x", "contains": "padding" },
   "data": {
     "url": "data/rescue_monthly_by_group.csv",
-    "format": {
-      "type": "csv",
-      "parse": {
-        "rescue_count": "number"
-      }
-    }
+    "format": { "type": "csv", "parse": { "rescue_count": "number" } }
   },
   "transform": [
     {
       "filter": "isValid(datum.rescue_count) && !test(regexp('unknown|unidentified', 'i'), datum.sub_group)"
     },
     {
-      "aggregate": [
-        {
-          "op": "sum",
-          "field": "rescue_count",
-          "as": "count"
-        }
-      ],
-      "groupby": [
-        "animal_group",
-        "sub_group"
-      ]
+      "aggregate": [{ "op": "sum", "field": "rescue_count", "as": "count" }],
+      "groupby": ["animal_group", "sub_group"]
     },
     {
-      "window": [
-        {
-          "op": "row_number",
-          "as": "rank"
-        }
-      ],
-      "sort": [
-        {
-          "field": "count",
-          "order": "ascending"
-        },
-        {
-          "field": "sub_group",
-          "order": "ascending"
-        }
-      ]
+      "window": [{ "op": "row_number", "as": "rank" }],
+      "sort": [{ "field": "count", "order": "ascending" }, { "field": "sub_group", "order": "ascending" }]
     },
-    {
-      "filter": "datum.rank <= 15"
-    },
-    {
-      "calculate": "datum.sub_group + ' (' + datum.animal_group + ')'",
-      "as": "label"
-    },
-    {
-      "calculate": "datum.rank <= 3 ? 'Lowest three' : 'Other sub-groups'",
-      "as": "status"
-    },
-    {
-      "calculate": "0",
-      "as": "zero"
-    }
+    { "filter": "datum.rank <= 15" },
+    { "calculate": "datum.sub_group + ' (' + datum.animal_group + ')'", "as": "label" },
+    { "calculate": "datum.rank <= 3 ? 'Lowest three' : 'Other sub-groups'", "as": "status" },
+    { "calculate": "0", "as": "zero" }
   ],
   "encoding": {
     "y": {
       "field": "label",
       "type": "nominal",
-      "sort": {
-        "field": "rank",
-        "op": "min",
-        "order": "ascending"
-      },
+      "sort": { "field": "rank", "op": "min", "order": "ascending" },
       "title": null,
       "axis": {
         "labelLimit": 170,
@@ -90,38 +42,17 @@
   },
   "layer": [
     {
-      "mark": {
-        "type": "rule",
-        "strokeWidth": 1.5,
-        "color": "#D3D7D4"
-      },
-      "encoding": {
-        "x": {
-          "field": "zero",
-          "type": "quantitative"
-        },
-        "x2": {
-          "field": "count"
-        }
-      }
+      "mark": { "type": "rule", "strokeWidth": 1.5, "color": "#D3D7D4" },
+      "encoding": { "x": { "field": "zero", "type": "quantitative" }, "x2": { "field": "count" } }
     },
     {
-      "mark": {
-        "type": "circle",
-        "size": 130,
-        "opacity": 1
-      },
+      "mark": { "type": "circle", "size": 130, "opacity": 1 },
       "encoding": {
         "x": {
           "field": "count",
           "type": "quantitative",
           "title": "Rescues (full period)",
-          "scale": {
-            "domain": [
-              0,
-              6500
-            ]
-          },
+          "scale": { "domain": [0, 6500] },
           "axis": {
             "format": ",d",
             "grid": false,
@@ -134,34 +65,13 @@
         "color": {
           "field": "status",
           "type": "nominal",
-          "scale": {
-            "domain": [
-              "Lowest three",
-              "Other sub-groups"
-            ],
-            "range": [
-              "#25332F",
-              "#9DAAA4"
-            ]
-          },
+          "scale": { "domain": ["Lowest three", "Other sub-groups"], "range": ["#25332F", "#9DAAA4"] },
           "legend": null
         },
         "tooltip": [
-          {
-            "field": "rank",
-            "type": "quantitative",
-            "title": "Rank (lowest = 1)"
-          },
-          {
-            "field": "sub_group",
-            "type": "nominal",
-            "title": "Sub-group"
-          },
-          {
-            "field": "animal_group",
-            "type": "nominal",
-            "title": "Animal group"
-          },
+          { "field": "rank", "type": "quantitative", "title": "Rank (lowest = 1)" },
+          { "field": "sub_group", "type": "nominal", "title": "Sub-group" },
+          { "field": "animal_group", "type": "nominal", "title": "Animal group" },
           {
             "field": "count",
             "type": "quantitative",
@@ -181,27 +91,14 @@
         "color": "#25332F"
       },
       "encoding": {
-        "x": {
-          "field": "count",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "count",
-          "type": "quantitative",
-          "format": ",d"
-        }
+        "x": { "field": "count", "type": "quantitative" },
+        "text": { "field": "count", "type": "quantitative", "format": ",d" }
       }
     }
   ],
   "config": {
-    "view": {
-      "stroke": null
-    },
+    "view": { "stroke": null },
     "font": "Atkinson Hyperlegible, system-ui, sans-serif",
-    "axis": {
-      "labelColor": "#25332F",
-      "titleColor": "#25332F",
-      "titleFontWeight": 700
-    }
+    "axis": { "labelColor": "#25332F", "titleColor": "#25332F", "titleFontWeight": 700 }
   }
 }

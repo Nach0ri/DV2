@@ -5,28 +5,90 @@
   "height": { "step": 24 },
   "autosize": { "type": "fit-x", "contains": "padding" },
   "background": null,
-  "data": { "url": "data/rescue_monthly_by_group.csv", "format": { "type": "csv", "parse": { "month_number": "number", "rescue_count": "number" } } },
+  "data": {
+    "url": "data/rescue_monthly_by_group.csv",
+    "format": { "type": "csv", "parse": { "month_number": "number", "rescue_count": "number" } }
+  },
   "transform": [
     { "filter": "isValid(datum.rescue_count)" },
-    { "calculate": "datum.month_number >= 9 && datum.month_number <= 11 ? datum.rescue_count : 0", "as": "spring_count" },
-    { "aggregate": [{ "op": "sum", "field": "rescue_count", "as": "total" }, { "op": "sum", "field": "spring_count", "as": "spring" }], "groupby": ["animal_group"] },
+    {
+      "calculate": "datum.month_number >= 9 && datum.month_number <= 11 ? datum.rescue_count : 0",
+      "as": "spring_count"
+    },
+    {
+      "aggregate": [
+        { "op": "sum", "field": "rescue_count", "as": "total" },
+        { "op": "sum", "field": "spring_count", "as": "spring" }
+      ],
+      "groupby": ["animal_group"]
+    },
     { "calculate": "100 * datum.spring / datum.total", "as": "share" }
   ],
   "encoding": {
-    "y": { "field": "animal_group", "type": "nominal", "sort": ["Birds", "Mammals", "Reptiles"], "title": null, "axis": { "domain": false, "ticks": false, "labelFontSize": 13, "labelColor": "#25332F", "labelPadding": 8 } },
-    "x": { "field": "share", "type": "quantitative", "scale": { "domain": [0, 50] }, "title": null, "axis": null }
+    "y": {
+      "field": "animal_group",
+      "type": "nominal",
+      "sort": ["Birds", "Mammals", "Reptiles"],
+      "title": null,
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 13,
+        "labelColor": "#25332F",
+        "labelPadding": 8
+      }
+    },
+    "x": {
+      "field": "share",
+      "type": "quantitative",
+      "scale": { "domain": [0, 50] },
+      "title": null,
+      "axis": null
+    }
   },
   "layer": [
-    { "mark": { "type": "bar", "height": 12, "cornerRadiusEnd": 3, "color": "#ECE8DF" }, "encoding": { "x": { "datum": 50 } } },
+    {
+      "mark": { "type": "bar", "height": 12, "cornerRadiusEnd": 3, "color": "#ECE8DF" },
+      "encoding": { "x": { "datum": 50 } }
+    },
     {
       "mark": { "type": "bar", "height": 12, "cornerRadiusEnd": 3 },
       "encoding": {
-        "color": { "field": "animal_group", "type": "nominal", "scale": { "domain": ["Birds", "Mammals", "Reptiles"], "range": ["#23508F", "#E0AE2E", "#4CA36B"] }, "legend": null },
-        "tooltip": [{ "field": "animal_group", "title": "Animal group" }, { "field": "share", "type": "quantitative", "title": "Share in Sep–Nov (%, author-calculated)", "format": ".1f" }]
+        "color": {
+          "field": "animal_group",
+          "type": "nominal",
+          "scale": { "domain": ["Birds", "Mammals", "Reptiles"], "range": ["#23508F", "#E0AE2E", "#4CA36B"] },
+          "legend": null
+        },
+        "tooltip": [
+          { "field": "animal_group", "title": "Animal group" },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Share in Sep–Nov (%, author-calculated)",
+            "format": ".1f"
+          }
+        ]
       }
     },
-    { "mark": { "type": "rule", "color": "#25332F", "strokeWidth": 2 }, "encoding": { "x": { "datum": 25 }, "y": null } },
-    { "mark": { "type": "text", "align": "left", "dx": 6, "fontSize": 13, "fontWeight": 700, "color": "#25332F" }, "encoding": { "x": { "datum": 50 }, "text": { "field": "share", "type": "quantitative", "format": ".0f" } } }
+    {
+      "mark": { "type": "rule", "color": "#25332F", "strokeWidth": 2 },
+      "encoding": { "x": { "datum": 25 }, "y": null }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "fontSize": 13,
+        "fontWeight": 700,
+        "color": "#25332F"
+      },
+      "encoding": {
+        "x": { "datum": 50 },
+        "text": { "field": "share", "type": "quantitative", "format": ".0f" }
+      }
+    }
   ],
   "config": { "view": { "stroke": null }, "font": "Atkinson Hyperlegible, system-ui, sans-serif" }
 }

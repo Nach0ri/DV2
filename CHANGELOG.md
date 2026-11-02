@@ -243,3 +243,17 @@ CSS. They are page decoration, not charts: every chart is still a pure Vega-Lite
 **Idioms (for the interview):** a proportional symbol map keeps geography and shows magnitude by circle area, so
 small, busy councils are not hidden as they are on a choropleth. A Dorling cartogram gives up exact position to
 remove overlap: each council becomes a circle sized by its value, so the comparison is size against size.
+
+## Audit fixes: dead control, metadata, section title, readable JSON
+- **02 ranked bar:** removed the "Financial year" select. `data/rescue_reasons_by_year.csv` holds only 2022–23, so
+  the select had one option and did nothing (an interaction that cannot change the view). The filter now names
+  2022–23 directly, and the empty `#reasons-controls` div is gone.
+- **Metadata:** byline and footer author are now "Nachanok Kladsamniang"; updated date 2 November 2026.
+  Footer credits say which charts are Vega-Lite and which one is Vega, and link to the `vega/` folder on GitHub
+  (requirement: every spec is in the repository). Source list "Used in" lines now include 01b and 07b.
+- **Section 3 title:** "When do rescues happen, and how do outcomes differ?" did not match its charts (regions,
+  sub-groups, outcomes; nothing about timing). It is now "Which regions and animals, and what happens next?",
+  and the story outline matches. The section order (from the sketch) is unchanged.
+- **All 17 specs reformatted** with one style: 2-space indent, short objects and arrays on one line, longer ones
+  broken over lines. A script checked each file parses to exactly the same JSON before and after, and every chart
+  rendered with the same number of SVG items as before. Long lines that remain are single expressions or descriptions.

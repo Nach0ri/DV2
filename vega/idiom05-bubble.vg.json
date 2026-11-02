@@ -3,19 +3,12 @@
   "description": "Idiom 05: bubble chart of rescue reasons by animal group, 2013-14 to 2018-19 combined. x = rescues (log), y = died %, area = estimated deaths (author-calculated). Source: Kwok et al. (2021), PLOS ONE, Table 10.",
   "width": "container",
   "height": 420,
-  "autosize": {
-    "type": "fit-x",
-    "contains": "padding"
-  },
+  "autosize": { "type": "fit-x", "contains": "padding" },
   "data": {
     "url": "data/rescue_outcomes_by_group.csv",
     "format": {
       "type": "csv",
-      "parse": {
-        "died_pct": "number",
-        "survived_pct": "number",
-        "total_rescues": "number"
-      }
+      "parse": { "died_pct": "number", "survived_pct": "number", "total_rescues": "number" }
     }
   },
   "transform": [
@@ -25,64 +18,23 @@
     {
       "filter": "isValid(datum.died_pct) && isValid(datum.survived_pct) && isValid(datum.total_rescues)"
     },
-    {
-      "calculate": "datum.rescue_reason",
-      "as": "reason"
-    },
-    {
-      "calculate": "datum.total_rescues",
-      "as": "cases"
-    },
-    {
-      "calculate": "datum.died_pct",
-      "as": "died"
-    },
-    {
-      "calculate": "datum.survived_pct",
-      "as": "survived"
-    },
-    {
-      "calculate": "round(datum.cases * datum.died / 100)",
-      "as": "deaths"
-    },
-    {
-      "calculate": "datum.cases * datum.died / 100",
-      "as": "deaths_exact"
-    },
-    {
-      "calculate": "datum.cases >= 100 ? datum.died : null",
-      "as": "died_adequate"
-    },
+    { "calculate": "datum.rescue_reason", "as": "reason" },
+    { "calculate": "datum.total_rescues", "as": "cases" },
+    { "calculate": "datum.died_pct", "as": "died" },
+    { "calculate": "datum.survived_pct", "as": "survived" },
+    { "calculate": "round(datum.cases * datum.died / 100)", "as": "deaths" },
+    { "calculate": "datum.cases * datum.died / 100", "as": "deaths_exact" },
+    { "calculate": "datum.cases >= 100 ? datum.died : null", "as": "died_adequate" },
     {
       "joinaggregate": [
-        {
-          "op": "max",
-          "field": "cases",
-          "as": "max_cases"
-        },
-        {
-          "op": "max",
-          "field": "died_adequate",
-          "as": "max_died"
-        },
-        {
-          "op": "min",
-          "field": "died_adequate",
-          "as": "min_died"
-        }
+        { "op": "max", "field": "cases", "as": "max_cases" },
+        { "op": "max", "field": "died_adequate", "as": "max_died" },
+        { "op": "min", "field": "died_adequate", "as": "min_died" }
       ]
     },
     {
-      "joinaggregate": [
-        {
-          "op": "max",
-          "field": "deaths_exact",
-          "as": "group_max_deaths"
-        }
-      ],
-      "groupby": [
-        "animal_group"
-      ]
+      "joinaggregate": [{ "op": "max", "field": "deaths_exact", "as": "group_max_deaths" }],
+      "groupby": ["animal_group"]
     },
     {
       "calculate": "datum.cases === datum.max_cases || (datum.cases >= 100 && (datum.died === datum.max_died || datum.died === datum.min_died)) || datum.deaths_exact === datum.group_max_deaths",
@@ -103,31 +55,16 @@
   ],
   "layer": [
     {
-      "mark": {
-        "type": "circle",
-        "stroke": "#25332F",
-        "strokeWidth": 0.6,
-        "opacity": 0.8
-      },
+      "mark": { "type": "circle", "stroke": "#25332F", "strokeWidth": 0.6, "opacity": 0.8 },
       "encoding": {
         "x": {
           "field": "cases",
           "type": "quantitative",
           "title": "Total rescues for this reason and group (log scale)",
-          "scale": {
-            "type": "log",
-            "domainMin": 1,
-            "domainMax": 63183
-          },
+          "scale": { "type": "log", "domainMin": 1, "domainMax": 63183 },
           "axis": {
             "format": ",d",
-            "values": [
-              1,
-              10,
-              100,
-              1000,
-              10000
-            ],
+            "values": [1, 10, 100, 1000, 10000],
             "grid": true,
             "gridColor": "#edf0f2",
             "labelFontSize": 11,
@@ -138,61 +75,28 @@
           "field": "died",
           "type": "quantitative",
           "title": "Died (% of rescues)",
-          "scale": {
-            "domain": [
-              0,
-              100
-            ]
-          },
-          "axis": {
-            "format": "d",
-            "grid": true,
-            "tickCount": 6,
-            "labelFontSize": 11,
-            "titleFontSize": 12
-          }
+          "scale": { "domain": [0, 100] },
+          "axis": { "format": "d", "grid": true, "tickCount": 6, "labelFontSize": 11, "titleFontSize": 12 }
         },
         "size": {
           "field": "deaths",
           "type": "quantitative",
           "title": "Estimated deaths (bubble area)",
-          "scale": {
-            "type": "linear",
-            "zero": true,
-            "range": [
-              0,
-              1600
-            ]
-          },
+          "scale": { "type": "linear", "zero": true, "range": [0, 1600] },
           "legend": {
             "orient": "top",
             "direction": "horizontal",
             "titleFontSize": 11,
             "labelFontSize": 11,
             "format": ",d",
-            "values": [
-              100,
-              1000,
-              10000
-            ]
+            "values": [100, 1000, 10000]
           }
         },
         "color": {
           "field": "animal_group",
           "type": "nominal",
           "title": "Animal group",
-          "scale": {
-            "domain": [
-              "Birds",
-              "Mammals",
-              "Reptiles"
-            ],
-            "range": [
-              "#23508F",
-              "#E0AE2E",
-              "#4CA36B"
-            ]
-          },
+          "scale": { "domain": ["Birds", "Mammals", "Reptiles"], "range": ["#23508F", "#E0AE2E", "#4CA36B"] },
           "legend": {
             "orient": "top",
             "direction": "horizontal",
@@ -203,111 +107,49 @@
           }
         },
         "tooltip": [
-          {
-            "field": "animal_group",
-            "type": "nominal",
-            "title": "Animal group"
-          },
-          {
-            "field": "reason",
-            "type": "nominal",
-            "title": "Rescue reason"
-          },
+          { "field": "animal_group", "type": "nominal", "title": "Animal group" },
+          { "field": "reason", "type": "nominal", "title": "Rescue reason" },
           {
             "field": "cases",
             "type": "quantitative",
             "title": "Rescues (denominator)",
             "format": ",d"
           },
-          {
-            "field": "died",
-            "type": "quantitative",
-            "title": "Died (%)",
-            "format": ".1f"
-          },
-          {
-            "field": "survived",
-            "type": "quantitative",
-            "title": "Survived (%)",
-            "format": ".1f"
-          },
+          { "field": "died", "type": "quantitative", "title": "Died (%)", "format": ".1f" },
+          { "field": "survived", "type": "quantitative", "title": "Survived (%)", "format": ".1f" },
           {
             "field": "deaths",
             "type": "quantitative",
             "title": "Estimated deaths (author-calculated)",
             "format": ",d"
           },
-          {
-            "field": "definition",
-            "type": "nominal",
-            "title": "Outcome definitions"
-          }
+          { "field": "definition", "type": "nominal", "title": "Outcome definitions" }
         ]
       }
     },
     {
-      "mark": {
-        "type": "circle",
-        "size": 10,
-        "opacity": 1
-      },
+      "mark": { "type": "circle", "size": 10, "opacity": 1 },
       "encoding": {
-        "x": {
-          "field": "cases",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "died",
-          "type": "quantitative"
-        },
-        "color": {
-          "field": "animal_group",
-          "type": "nominal"
-        }
+        "x": { "field": "cases", "type": "quantitative" },
+        "y": { "field": "died", "type": "quantitative" },
+        "color": { "field": "animal_group", "type": "nominal" }
       }
     },
     {
       "transform": [
         {
           "aggregate": [
-            {
-              "op": "sum",
-              "field": "deaths_exact",
-              "as": "d"
-            },
-            {
-              "op": "sum",
-              "field": "cases",
-              "as": "c"
-            }
+            { "op": "sum", "field": "deaths_exact", "as": "d" },
+            { "op": "sum", "field": "cases", "as": "c" }
           ]
         },
-        {
-          "calculate": "100 * datum.d / datum.c",
-          "as": "avg"
-        },
-        {
-          "calculate": "'All reasons shown: ' + format(datum.avg, '.1f') + '% died'",
-          "as": "text"
-        }
+        { "calculate": "100 * datum.d / datum.c", "as": "avg" },
+        { "calculate": "'All reasons shown: ' + format(datum.avg, '.1f') + '% died'", "as": "text" }
       ],
       "layer": [
         {
-          "mark": {
-            "type": "rule",
-            "strokeDash": [
-              6,
-              4
-            ],
-            "strokeWidth": 1.2,
-            "color": "#5E6B63"
-          },
-          "encoding": {
-            "y": {
-              "field": "avg",
-              "type": "quantitative"
-            }
-          }
+          "mark": { "type": "rule", "strokeDash": [6, 4], "strokeWidth": 1.2, "color": "#5E6B63" },
+          "encoding": { "y": { "field": "avg", "type": "quantitative" } }
         },
         {
           "mark": {
@@ -320,40 +162,19 @@
             "color": "#5E6B63"
           },
           "encoding": {
-            "x": {
-              "datum": 1.1,
-              "type": "quantitative"
-            },
-            "y": {
-              "field": "avg",
-              "type": "quantitative"
-            },
-            "text": {
-              "field": "text"
-            }
+            "x": { "datum": 1.1, "type": "quantitative" },
+            "y": { "field": "avg", "type": "quantitative" },
+            "text": { "field": "text" }
           }
         }
       ]
     },
     {
-      "transform": [
-        {
-          "filter": "datum.label !== '' && datum.label_pos === 'right'"
-        }
-      ],
+      "transform": [{ "filter": "datum.label !== '' && datum.label_pos === 'right'" }],
       "encoding": {
-        "x": {
-          "field": "cases",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "died",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "label",
-          "type": "nominal"
-        }
+        "x": { "field": "cases", "type": "quantitative" },
+        "y": { "field": "died", "type": "quantitative" },
+        "text": { "field": "label", "type": "nominal" }
       },
       "layer": [
         {
@@ -386,24 +207,11 @@
       ]
     },
     {
-      "transform": [
-        {
-          "filter": "datum.label !== '' && datum.label_pos === 'left_below'"
-        }
-      ],
+      "transform": [{ "filter": "datum.label !== '' && datum.label_pos === 'left_below'" }],
       "encoding": {
-        "x": {
-          "field": "cases",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "died",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "label",
-          "type": "nominal"
-        }
+        "x": { "field": "cases", "type": "quantitative" },
+        "y": { "field": "died", "type": "quantitative" },
+        "text": { "field": "label", "type": "nominal" }
       },
       "layer": [
         {
@@ -436,24 +244,11 @@
       ]
     },
     {
-      "transform": [
-        {
-          "filter": "datum.label !== '' && datum.label_pos === 'left_above'"
-        }
-      ],
+      "transform": [{ "filter": "datum.label !== '' && datum.label_pos === 'left_above'" }],
       "encoding": {
-        "x": {
-          "field": "cases",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "died",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "label",
-          "type": "nominal"
-        }
+        "x": { "field": "cases", "type": "quantitative" },
+        "y": { "field": "died", "type": "quantitative" },
+        "text": { "field": "label", "type": "nominal" }
       },
       "layer": [
         {
@@ -487,9 +282,7 @@
     }
   ],
   "config": {
-    "view": {
-      "stroke": null
-    },
+    "view": { "stroke": null },
     "font": "Atkinson Hyperlegible, system-ui, sans-serif",
     "axis": {
       "labelColor": "#25332F",

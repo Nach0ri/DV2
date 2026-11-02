@@ -1,22 +1,36 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 02: ranked bar chart of rescue reasons. Source: NSW DCCEEW, NSW Wildlife Rehabilitation Annual Report 2022-23, p. 15.",
+  "description": "Idiom 02: ranked bar chart of rescue reasons, 2022-23 (the only year in this file, so there is no year control). Source: NSW DCCEEW, NSW Wildlife Rehabilitation Annual Report 2022-23, p. 15.",
   "width": "container",
   "height": { "step": 22 },
   "autosize": { "type": "fit-x", "contains": "padding" },
-  "data": { "url": "data/rescue_reasons_by_year.csv", "format": { "type": "csv", "parse": { "rescue_count": "number" } } },
-  "params": [
-    { "name": "reason_year", "value": "2022-23", "bind": { "input": "select", "options": ["2022-23"], "labels": ["2022–23"], "name": "Financial year ", "element": "#reasons-year" } }
-  ],
+  "data": {
+    "url": "data/rescue_reasons_by_year.csv",
+    "format": { "type": "csv", "parse": { "rescue_count": "number" } }
+  },
   "transform": [
-    { "filter": "isValid(datum.rescue_count) && datum.financial_year === reason_year" },
-    { "window": [{ "op": "rank", "as": "rank" }], "sort": [{ "field": "rescue_count", "order": "descending" }] },
+    { "filter": "isValid(datum.rescue_count) && datum.financial_year === '2022-23'" },
+    {
+      "window": [{ "op": "rank", "as": "rank" }],
+      "sort": [{ "field": "rescue_count", "order": "descending" }]
+    },
     { "filter": "datum.rank <= 15" },
     { "calculate": "replace(datum.financial_year, '-', '–')", "as": "year_label" }
   ],
   "encoding": {
-    "y": { "field": "reason", "type": "nominal", "sort": { "field": "rescue_count", "op": "max", "order": "descending" }, "title": null, "axis": { "labelLimit": 220, "labelFontSize": 11, "ticks": false, "domain": false } },
-    "x": { "field": "rescue_count", "type": "quantitative", "title": "Number of rescues", "axis": { "format": ",d", "grid": true, "tickCount": 5 } },
+    "y": {
+      "field": "reason",
+      "type": "nominal",
+      "sort": { "field": "rescue_count", "op": "max", "order": "descending" },
+      "title": null,
+      "axis": { "labelLimit": 220, "labelFontSize": 11, "ticks": false, "domain": false }
+    },
+    "x": {
+      "field": "rescue_count",
+      "type": "quantitative",
+      "title": "Number of rescues",
+      "axis": { "format": ",d", "grid": true, "tickCount": 5 }
+    },
     "tooltip": [
       { "field": "reason", "title": "Reason" },
       { "field": "year_label", "title": "Year" },
@@ -26,16 +40,32 @@
   "layer": [
     {
       "mark": { "type": "bar", "cornerRadiusEnd": 2, "height": { "band": 0.7 } },
-      "encoding": { "color": { "condition": { "test": "datum.rank === 1", "value": "#25332F" }, "value": "#9DAAA4" } }
+      "encoding": {
+        "color": { "condition": { "test": "datum.rank === 1", "value": "#25332F" }, "value": "#9DAAA4" }
+      }
     },
     {
-      "mark": { "type": "text", "align": "left", "baseline": "middle", "dx": 4, "fontSize": 11, "color": "#25332F" },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 4,
+        "fontSize": 11,
+        "color": "#25332F"
+      },
       "encoding": { "text": { "field": "rescue_count", "format": ",d" } }
     }
   ],
   "config": {
     "view": { "stroke": null },
     "font": "Atkinson Hyperlegible, system-ui, sans-serif",
-    "axis": { "labelFontSize": 11, "titleFontSize": 12, "titleFontWeight": 700, "labelColor": "#25332F", "titleColor": "#25332F", "gridColor": "#edf0f2" }
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "titleFontWeight": 700,
+      "labelColor": "#25332F",
+      "titleColor": "#25332F",
+      "gridColor": "#edf0f2"
+    }
   }
 }

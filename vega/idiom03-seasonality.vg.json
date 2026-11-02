@@ -3,19 +3,10 @@
   "description": "Idiom 03: monthly rescues by animal group (sub-groups summed; 'All years' = mean of the six years). Source: Kwok et al. (2021), PLOS ONE, supplementary file S7.",
   "width": "container",
   "height": 320,
-  "autosize": {
-    "type": "fit-x",
-    "contains": "padding"
-  },
+  "autosize": { "type": "fit-x", "contains": "padding" },
   "data": {
     "url": "data/rescue_monthly_by_group.csv",
-    "format": {
-      "type": "csv",
-      "parse": {
-        "month_number": "number",
-        "rescue_count": "number"
-      }
-    }
+    "format": { "type": "csv", "parse": { "month_number": "number", "rescue_count": "number" } }
   },
   "params": [
     {
@@ -23,69 +14,25 @@
       "value": "All",
       "bind": {
         "input": "select",
-        "options": [
-          "All",
-          "2013-14",
-          "2014-15",
-          "2015-16",
-          "2016-17",
-          "2017-18",
-          "2018-19"
-        ],
-        "labels": [
-          "All years (average)",
-          "2013–14",
-          "2014–15",
-          "2015–16",
-          "2016–17",
-          "2017–18",
-          "2018–19"
-        ],
+        "options": ["All", "2013-14", "2014-15", "2015-16", "2016-17", "2017-18", "2018-19"],
+        "labels": ["All years (average)", "2013–14", "2014–15", "2015–16", "2016–17", "2017–18", "2018–19"],
         "name": "Year ",
         "element": "#season-year"
       }
     }
   ],
   "transform": [
+    { "filter": "isValid(datum.rescue_count)" },
     {
-      "filter": "isValid(datum.rescue_count)"
+      "aggregate": [{ "op": "sum", "field": "rescue_count", "as": "count" }],
+      "groupby": ["financial_year", "month_number", "month", "animal_group"]
     },
+    { "filter": "season_year === 'All' || datum.financial_year === season_year" },
     {
-      "aggregate": [
-        {
-          "op": "sum",
-          "field": "rescue_count",
-          "as": "count"
-        }
-      ],
-      "groupby": [
-        "financial_year",
-        "month_number",
-        "month",
-        "animal_group"
-      ]
+      "aggregate": [{ "op": "mean", "field": "count", "as": "count" }],
+      "groupby": ["month_number", "month", "animal_group"]
     },
-    {
-      "filter": "season_year === 'All' || datum.financial_year === season_year"
-    },
-    {
-      "aggregate": [
-        {
-          "op": "mean",
-          "field": "count",
-          "as": "count"
-        }
-      ],
-      "groupby": [
-        "month_number",
-        "month",
-        "animal_group"
-      ]
-    },
-    {
-      "calculate": "substring(datum.month, 0, 3)",
-      "as": "month_short"
-    },
+    { "calculate": "substring(datum.month, 0, 3)", "as": "month_short" },
     {
       "calculate": "season_year === 'All' ? 'Average of 2013–14 to 2018–19' : replace(season_year, '-', '–')",
       "as": "period"
@@ -95,28 +42,9 @@
     "x": {
       "field": "month_short",
       "type": "ordinal",
-      "sort": [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec"
-      ],
+      "sort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       "title": "Month (calendar order)",
-      "axis": {
-        "labelAngle": 0,
-        "labelFontSize": 11,
-        "titleFontSize": 11,
-        "domain": false,
-        "ticks": false
-      }
+      "axis": { "labelAngle": 0, "labelFontSize": 11, "titleFontSize": 11, "domain": false, "ticks": false }
     },
     "y": {
       "field": "count",
@@ -134,26 +62,12 @@
   },
   "layer": [
     {
-      "mark": {
-        "type": "line",
-        "strokeWidth": 2.5
-      },
+      "mark": { "type": "line", "strokeWidth": 2.5 },
       "encoding": {
         "color": {
           "field": "animal_group",
           "type": "nominal",
-          "scale": {
-            "domain": [
-              "Birds",
-              "Mammals",
-              "Reptiles"
-            ],
-            "range": [
-              "#23508F",
-              "#E0AE2E",
-              "#4CA36B"
-            ]
-          },
+          "scale": { "domain": ["Birds", "Mammals", "Reptiles"], "range": ["#23508F", "#E0AE2E", "#4CA36B"] },
           "legend": {
             "title": "Animal group",
             "orient": "top",
@@ -165,62 +79,25 @@
       }
     },
     {
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 45
-      },
+      "mark": { "type": "point", "filled": true, "size": 45 },
       "encoding": {
-        "color": {
-          "field": "animal_group",
-          "type": "nominal"
-        },
+        "color": { "field": "animal_group", "type": "nominal" },
         "tooltip": [
-          {
-            "field": "month",
-            "type": "nominal",
-            "title": "Month"
-          },
-          {
-            "field": "animal_group",
-            "type": "nominal",
-            "title": "Group"
-          },
-          {
-            "field": "count",
-            "type": "quantitative",
-            "title": "Rescues",
-            "format": ",.0f"
-          },
-          {
-            "field": "period",
-            "type": "nominal",
-            "title": "Financial year"
-          }
+          { "field": "month", "type": "nominal", "title": "Month" },
+          { "field": "animal_group", "type": "nominal", "title": "Group" },
+          { "field": "count", "type": "quantitative", "title": "Rescues", "format": ",.0f" },
+          { "field": "period", "type": "nominal", "title": "Financial year" }
         ]
       }
     },
     {
       "transform": [
         {
-          "joinaggregate": [
-            {
-              "op": "max",
-              "field": "count",
-              "as": "group_max"
-            }
-          ],
-          "groupby": [
-            "animal_group"
-          ]
+          "joinaggregate": [{ "op": "max", "field": "count", "as": "group_max" }],
+          "groupby": ["animal_group"]
         },
-        {
-          "filter": "datum.count === datum.group_max"
-        },
-        {
-          "calculate": "'Peak: ' + datum.month_short",
-          "as": "peak_label"
-        }
+        { "filter": "datum.count === datum.group_max" },
+        { "calculate": "'Peak: ' + datum.month_short", "as": "peak_label" }
       ],
       "mark": {
         "type": "text",
@@ -232,60 +109,30 @@
         "strokeJoin": "round",
         "color": "#FFFFFF"
       },
-      "encoding": {
-        "text": {
-          "field": "peak_label"
-        }
-      }
+      "encoding": { "text": { "field": "peak_label" } }
     },
     {
       "transform": [
         {
-          "joinaggregate": [
-            {
-              "op": "max",
-              "field": "count",
-              "as": "group_max"
-            }
-          ],
-          "groupby": [
-            "animal_group"
-          ]
+          "joinaggregate": [{ "op": "max", "field": "count", "as": "group_max" }],
+          "groupby": ["animal_group"]
         },
-        {
-          "filter": "datum.count === datum.group_max"
-        },
-        {
-          "calculate": "'Peak: ' + datum.month_short",
-          "as": "peak_label"
-        },
+        { "filter": "datum.count === datum.group_max" },
+        { "calculate": "'Peak: ' + datum.month_short", "as": "peak_label" },
         {
           "calculate": "datum.animal_group === 'Birds' ? '#23508F' : datum.animal_group === 'Mammals' ? '#8A6A12' : '#2E7A4A'",
           "as": "ink"
         }
       ],
-      "mark": {
-        "type": "text",
-        "dy": -12,
-        "fontSize": 11,
-        "fontWeight": 700
-      },
+      "mark": { "type": "text", "dy": -12, "fontSize": 11, "fontWeight": 700 },
       "encoding": {
-        "text": {
-          "field": "peak_label"
-        },
-        "color": {
-          "field": "ink",
-          "type": "nominal",
-          "scale": null
-        }
+        "text": { "field": "peak_label" },
+        "color": { "field": "ink", "type": "nominal", "scale": null }
       }
     }
   ],
   "config": {
-    "view": {
-      "stroke": null
-    },
+    "view": { "stroke": null },
     "font": "Atkinson Hyperlegible, system-ui, sans-serif",
     "axis": {
       "labelColor": "#25332F",

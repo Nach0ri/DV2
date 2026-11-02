@@ -4,42 +4,110 @@
   "width": "container",
   "height": 170,
   "autosize": { "type": "fit-x", "contains": "padding" },
-  "data": { "url": "data/outcomes_by_group_full_period_table8.csv", "format": { "type": "csv", "parse": { "number_of_rescues": "number", "group_total_rescues": "number", "published_percent": "string" } } },
+  "data": {
+    "url": "data/outcomes_by_group_full_period_table8.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "number_of_rescues": "number",
+        "group_total_rescues": "number",
+        "published_percent": "string"
+      }
+    }
+  },
   "transform": [
-    { "filter": "indexof(['Birds', 'Mammals', 'Reptiles'], datum.animal_group) >= 0 && isValid(datum.number_of_rescues)" },
-    { "calculate": "indexof(['Died', 'Left and observed', 'Released', 'Permanent/long term care', 'Escaped rescuer or from care'], datum.outcome_category)", "as": "order" },
+    {
+      "filter": "indexof(['Birds', 'Mammals', 'Reptiles'], datum.animal_group) >= 0 && isValid(datum.number_of_rescues)"
+    },
+    {
+      "calculate": "indexof(['Died', 'Left and observed', 'Released', 'Permanent/long term care', 'Escaped rescuer or from care'], datum.outcome_category)",
+      "as": "order"
+    },
     { "calculate": "datum.number_of_rescues / datum.group_total_rescues", "as": "share" },
-    { "window": [{ "op": "sum", "field": "share", "as": "cum" }], "groupby": ["animal_group"], "sort": [{ "field": "order" }] },
+    {
+      "window": [{ "op": "sum", "field": "share", "as": "cum" }],
+      "groupby": ["animal_group"],
+      "sort": [{ "field": "order" }]
+    },
     { "calculate": "datum.cum - datum.share / 2", "as": "center" },
     { "calculate": "datum.share >= 0.05 ? datum.published_percent + '%' : ''", "as": "label" }
   ],
   "encoding": {
-    "y": { "field": "animal_group", "type": "nominal", "sort": ["Birds", "Mammals", "Reptiles"], "title": null, "axis": { "labelFontSize": 12, "labelFontWeight": 600, "ticks": false, "domain": false } }
+    "y": {
+      "field": "animal_group",
+      "type": "nominal",
+      "sort": ["Birds", "Mammals", "Reptiles"],
+      "title": null,
+      "axis": { "labelFontSize": 12, "labelFontWeight": 600, "ticks": false, "domain": false }
+    }
   },
   "layer": [
     {
       "mark": { "type": "bar", "stroke": "#F5F7F2", "strokeWidth": 1, "height": { "band": 0.7 } },
       "encoding": {
-        "x": { "aggregate": "sum", "field": "number_of_rescues", "type": "quantitative", "stack": "normalize", "title": "Share of each group's rescues (%)", "axis": { "format": "%", "values": [0, 0.25, 0.5, 0.75, 1], "grid": false, "labelFontSize": 11, "titleFontSize": 11.5, "domain": false } },
+        "x": {
+          "aggregate": "sum",
+          "field": "number_of_rescues",
+          "type": "quantitative",
+          "stack": "normalize",
+          "title": "Share of each group's rescues (%)",
+          "axis": {
+            "format": "%",
+            "values": [0, 0.25, 0.5, 0.75, 1],
+            "grid": false,
+            "labelFontSize": 11,
+            "titleFontSize": 11.5,
+            "domain": false
+          }
+        },
         "color": {
-          "field": "outcome_category", "type": "nominal", "title": "Outcome category (Table 8)",
-          "scale": { "domain": ["Died", "Left and observed", "Released", "Permanent/long term care", "Escaped rescuer or from care"], "range": ["#B83F35", "#D2C2EC", "#7A55B3", "#341C57", "#8F9592"] },
-          "legend": { "orient": "bottom", "direction": "horizontal", "columns": 3, "titleFontSize": 11.5, "labelFontSize": 11, "symbolType": "square", "symbolSize": 110 }
+          "field": "outcome_category",
+          "type": "nominal",
+          "title": "Outcome category (Table 8)",
+          "scale": {
+            "domain": [
+              "Died", "Left and observed", "Released", "Permanent/long term care",
+              "Escaped rescuer or from care"
+            ],
+            "range": ["#B83F35", "#D2C2EC", "#7A55B3", "#341C57", "#8F9592"]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 3,
+            "titleFontSize": 11.5,
+            "labelFontSize": 11,
+            "symbolType": "square",
+            "symbolSize": 110
+          }
         },
         "order": { "field": "order", "type": "quantitative" },
         "tooltip": [
           { "field": "animal_group", "type": "nominal", "title": "Animal group" },
           { "field": "outcome_category", "type": "nominal", "title": "Outcome category" },
-          { "field": "number_of_rescues", "type": "quantitative", "title": "Rescues", "format": ",d" },
+          {
+            "field": "number_of_rescues",
+            "type": "quantitative",
+            "title": "Rescues",
+            "format": ",d"
+          },
           { "field": "published_percent", "type": "nominal", "title": "Published % of group total" },
-          { "field": "group_total_rescues", "type": "quantitative", "title": "Group total rescues (denominator)", "format": ",d" }
+          {
+            "field": "group_total_rescues",
+            "type": "quantitative",
+            "title": "Group total rescues (denominator)",
+            "format": ",d"
+          }
         ]
       }
     },
     {
       "transform": [
         { "filter": "datum.label !== ''" },
-        { "calculate": "datum.outcome_category === 'Left and observed' ? '#25332F' : '#FFFFFF'", "as": "ink" }
+        {
+          "calculate": "datum.outcome_category === 'Left and observed' ? '#25332F' : '#FFFFFF'",
+          "as": "ink"
+        }
       ],
       "mark": { "type": "text", "fontSize": 11, "fontWeight": 600 },
       "encoding": {

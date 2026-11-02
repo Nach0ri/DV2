@@ -5,12 +5,18 @@
   "height": 600,
   "padding": 0,
   "autosize": "none",
-
   "signals": [
     {
       "name": "nsw_box",
       "description": "Bounding box of mainland NSW: the projection is fitted to this box.",
-      "value": { "type": "Feature", "properties": {}, "geometry": { "type": "Polygon", "coordinates": [[[140.9, -28.1], [153.7, -28.1], [153.7, -37.6], [140.9, -37.6], [140.9, -28.1]]] } }
+      "value": {
+        "type": "Feature",
+        "properties": { },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [[[140.9, -28.1], [153.7, -28.1], [153.7, -37.6], [140.9, -37.6], [140.9, -28.1]]]
+        }
+      }
     },
     {
       "name": "dorling_year",
@@ -18,8 +24,14 @@
       "bind": {
         "input": "select",
         "name": "Financial year ",
-        "options": ["2013/14", "2014/15", "2015/16", "2016/17", "2017/18", "2018/19", "2019/20", "2020/21", "2021/22", "2022/23", "2023/24", "2024/25"],
-        "labels": ["2013–14", "2014–15", "2015–16", "2016–17", "2017–18", "2018–19", "2019–20", "2020–21", "2021–22", "2022–23", "2023–24", "2024–25"],
+        "options": [
+          "2013/14", "2014/15", "2015/16", "2016/17", "2017/18", "2018/19", "2019/20", "2020/21",
+          "2021/22", "2022/23", "2023/24", "2024/25"
+        ],
+        "labels": [
+          "2013–14", "2014–15", "2015–16", "2016–17", "2017–18", "2018–19", "2019–20", "2020–21",
+          "2021–22", "2022–23", "2023–24", "2024–25"
+        ],
         "element": "#dorling-year"
       }
     },
@@ -32,7 +44,6 @@
       ]
     }
   ],
-
   "projections": [
     {
       "name": "nsw",
@@ -43,14 +54,16 @@
       "extent": [[20, 20], [790, 580]]
     }
   ],
-
   "data": [
     {
       "name": "counts",
       "url": "data/rescue_counts_by_lga.csv",
       "format": { "type": "csv", "parse": { "rescue_count": "number" } },
       "transform": [
-        { "type": "filter", "expr": "datum.financial_year === dorling_year && datum.lga_name !== 'LGA not recorded'" }
+        {
+          "type": "filter",
+          "expr": "datum.financial_year === dorling_year && datum.lga_name !== 'LGA not recorded'"
+        }
       ]
     },
     {
@@ -58,15 +71,31 @@
       "url": "data/nsw_lga.geojson",
       "format": { "type": "json", "property": "features" },
       "transform": [
-        { "type": "filter", "expr": "datum.properties.lga_name !== 'Lord Howe Island (unincorporated)'" }
+        {
+          "type": "filter",
+          "expr": "datum.properties.lga_name !== 'Lord Howe Island (unincorporated)'"
+        }
       ]
     },
     {
       "name": "councils",
       "source": "outline",
       "transform": [
-        { "type": "lookup", "from": "counts", "key": "lga_name", "fields": ["properties.lga_name"], "values": ["rescue_count"], "as": ["n"], "default": 0 },
-        { "type": "geopoint", "projection": "nsw", "fields": ["properties.lx", "properties.ly"], "as": ["cx", "cy"] },
+        {
+          "type": "lookup",
+          "from": "counts",
+          "key": "lga_name",
+          "fields": ["properties.lga_name"],
+          "values": ["rescue_count"],
+          "as": ["n"],
+          "default": 0
+        },
+        {
+          "type": "geopoint",
+          "projection": "nsw",
+          "fields": ["properties.lx", "properties.ly"],
+          "as": ["cx", "cy"]
+        },
         { "type": "formula", "as": "r", "expr": "sqrt(scale('area', datum.n) / PI)" },
         { "type": "formula", "as": "x", "expr": "datum.cx" },
         { "type": "formula", "as": "y", "expr": "datum.cy" },
@@ -80,7 +109,12 @@
             { "force": "y", "y": "cy", "strength": 0.12 }
           ]
         },
-        { "type": "window", "ops": ["row_number"], "as": ["rank"], "sort": { "field": "n", "order": "descending" } },
+        {
+          "type": "window",
+          "ops": ["row_number"],
+          "as": ["rank"],
+          "sort": { "field": "n", "order": "descending" }
+        },
         { "type": "joinaggregate", "ops": ["sum"], "fields": ["n"], "as": ["total"] }
       ]
     },
@@ -89,19 +123,16 @@
       "source": "councils",
       "transform": [
         { "type": "filter", "expr": "datum.rank <= 5" },
-        { "type": "formula", "as": "label", "expr": "replace(datum.properties.lga_name, ' Regional', '') + '  ' + format(datum.n, ',')" }
+        {
+          "type": "formula",
+          "as": "label",
+          "expr": "replace(datum.properties.lga_name, ' Regional', '') + '  ' + format(datum.n, ',')"
+        }
       ]
     }
   ],
-
   "scales": [
-    {
-      "name": "area",
-      "type": "linear",
-      "domain": [0, 7200],
-      "range": [0, 2830],
-      "zero": true
-    },
+    { "name": "area", "type": "linear", "domain": [0, 7200], "range": [0, 2830], "zero": true },
     {
       "name": "colour",
       "type": "threshold",
@@ -109,7 +140,6 @@
       "range": ["#E6F2EF", "#C2E0D8", "#93C7B9", "#5FA897", "#2F8573", "#16604F", "#0B3F33"]
     }
   ],
-
   "legends": [
     {
       "size": "area",
@@ -143,13 +173,14 @@
       "encode": {
         "labels": {
           "update": {
-            "text": { "signal": "['Under 100', '100–249', '250–499', '500–999', '1,000–1,999', '2,000–3,999', '4,000 or more'][datum.index]" }
+            "text": {
+              "signal": "['Under 100', '100–249', '250–499', '500–999', '1,000–1,999', '2,000–3,999', '4,000 or more'][datum.index]"
+            }
           }
         }
       }
     }
   ],
-
   "marks": [
     {
       "type": "shape",
@@ -168,10 +199,7 @@
       "type": "symbol",
       "from": { "data": "councils" },
       "encode": {
-        "enter": {
-          "shape": { "value": "circle" },
-          "cursor": { "value": "pointer" }
-        },
+        "enter": { "shape": { "value": "circle" }, "cursor": { "value": "pointer" } },
         "update": {
           "x": { "field": "x" },
           "y": { "field": "y" },
@@ -227,7 +255,12 @@
         "update": {
           "x": { "value": 840 },
           "y": { "value": 470 },
-          "text": { "value": ["Circles are pushed apart so", "none overlap: each sits as close", "as it can to its council, not on", "an exact rescue location."] },
+          "text": {
+            "value": [
+              "Circles are pushed apart so", "none overlap: each sits as close",
+              "as it can to its council, not on", "an exact rescue location."
+            ]
+          },
           "fontSize": { "value": 11 },
           "fill": { "value": "#5E6B63" },
           "lineHeight": { "value": 15 }
@@ -235,7 +268,6 @@
       }
     }
   ],
-
   "config": {
     "font": "Atkinson Hyperlegible, system-ui, sans-serif",
     "legend": { "titleColor": "#25332F", "labelColor": "#25332F" }
