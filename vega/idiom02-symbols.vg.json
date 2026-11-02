@@ -47,11 +47,11 @@
   ],
   "hconcat": [
     {
-      "width": 540,
-      "height": 400,
+      "width": 520,
+      "height": 420,
       "title": {
         "text": "Rescues by council area, 2024–25",
-        "subtitle": "Circle area = rescues. Colour = change since 2018–19. Labels mark the top five.",
+        "subtitle": "Circle area = rescues. Colour = change since 2018–19. Top five labelled.",
         "anchor": "start"
       },
       "projection": {
@@ -103,6 +103,23 @@
           }
         },
         {
+          "description": "Councils inside the dashed box are drawn only in the close-up, so Sydney is not one overlapping cluster.",
+          "data": { "values": [{ "lon": 152.25, "lat": -33.62, "note": "Shown in close-up →" }] },
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": 11,
+            "fontWeight": 700,
+            "color": "#25332F"
+          },
+          "encoding": {
+            "longitude": { "field": "lon", "type": "quantitative" },
+            "latitude": { "field": "lat", "type": "quantitative" },
+            "text": { "field": "note" }
+          }
+        },
+        {
           "name": "symMain",
           "mark": { "type": "circle", "stroke": "#FFFFFF", "strokeWidth": 0.8 },
           "encoding": {
@@ -112,14 +129,15 @@
               "field": "now",
               "type": "quantitative",
               "title": "Rescues, 2024–25",
-              "scale": { "type": "linear", "zero": true, "domain": [0, 5200], "range": [0, 1400] },
+              "scale": { "type": "linear", "zero": true, "domain": [0, 5200], "range": [0, 1000] },
               "legend": {
                 "values": [500, 2000, 5000],
                 "labelExpr": "format(datum.value, \",\")",
                 "symbolFillColor": "#B9C1BD",
                 "symbolStrokeColor": "#5E6B63",
                 "symbolOpacity": 0.7,
-                "orient": "right"
+                "orient": "bottom",
+                "direction": "horizontal"
               }
             },
             "color": {
@@ -127,7 +145,12 @@
               "type": "nominal",
               "title": "Since 2018–19",
               "scale": { "domain": ["Rose", "Same", "Fell"], "range": ["#A0286C", "#C9D0CC", "#5F6F78"] },
-              "legend": { "symbolType": "circle", "symbolOpacity": 0.8, "orient": "right" }
+              "legend": {
+                "symbolType": "circle",
+                "symbolOpacity": 0.8,
+                "orient": "bottom",
+                "direction": "horizontal"
+              }
             },
             "fillOpacity": { "condition": { "param": "dir_pick", "value": 0.62 }, "value": 0.06 },
             "strokeOpacity": { "condition": { "param": "dir_pick", "value": 1 }, "value": 0.1 },
@@ -155,7 +178,8 @@
               },
               { "field": "rank", "type": "quantitative", "title": "Rank in 2024–25" }
             ]
-          }
+          },
+          "transform": [{ "filter": "!datum.in_inset" }]
         },
         {
           "transform": [{ "filter": "datum.rank <= 5 && !datum.in_inset" }],
@@ -195,11 +219,11 @@
       ]
     },
     {
-      "width": 260,
-      "height": 320,
+      "width": 470,
+      "height": 420,
       "title": {
         "text": "Sydney and Central Coast",
-        "subtitle": "Close-up of the dashed box (same circle scale)",
+        "subtitle": "Councils in the dashed box, enlarged (same circle scale)",
         "anchor": "start"
       },
       "transform": [{ "filter": "datum.in_inset" }],
@@ -244,7 +268,7 @@
             "size": {
               "field": "now",
               "type": "quantitative",
-              "scale": { "type": "linear", "zero": true, "domain": [0, 5200], "range": [0, 1400] }
+              "scale": { "type": "linear", "zero": true, "domain": [0, 5200], "range": [0, 1000] }
             },
             "color": {
               "field": "direction",
