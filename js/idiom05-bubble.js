@@ -97,7 +97,7 @@
                     // Log scale: counts run from 2 to about 25,000, so a linear axis packs most bubbles against the left edge.
                     x: { field: "cases", type: "quantitative", title: "Total rescues for this reason and group (log scale)", scale: { type: "log", domain: [1, maxCases * 2.5] }, axis: { format: ",d", values: [1, 10, 100, 1000, 10000], grid: true, gridColor: "#edf0f2", labelFontSize: 11, titleFontSize: 12 } },
                     y: { field: "died", type: "quantitative", title: "Died (% of rescues)", scale: { domain: [0, 100] }, axis: { format: "d", grid: true, tickCount: 6, labelFontSize: 11, titleFontSize: 12 } },
-                    size: { field: "deaths", type: "quantitative", title: "Estimated deaths (bubble area)", scale: { type: "sqrt", range: [30, 1500], zero: true }, legend: { orient: "top", direction: "horizontal", titleFontSize: 11, labelFontSize: 11, format: ",d", values: [100, 1000, 10000] } },
+                    size: { field: "deaths", type: "quantitative", title: "Estimated deaths (bubble area)", scale: { type: "linear", zero: true, range: [0, 1600] }, legend: { orient: "top", direction: "horizontal", titleFontSize: 11, labelFontSize: 11, format: ",d", values: [100, 1000, 10000] } },
                     color: {
                         field: "animal_group", type: "nominal", title: "Animal group",
                         scale: { domain: groupsShown, range: groupsShown.map(g => COLOUR[g]) },
@@ -112,6 +112,15 @@
                         { field: "deaths", type: "quantitative", title: "Estimated deaths", format: ",d" },
                         { field: "definition", type: "nominal", title: "Outcome definitions" }
                     ]
+                }
+            },
+            // Fixed-size position marker: with area ∝ deaths, reasons with very few deaths would otherwise vanish.
+            {
+                mark: { type: "circle", size: 10, opacity: 1 },
+                encoding: {
+                    x: { field: "cases", type: "quantitative" },
+                    y: { field: "died", type: "quantitative" },
+                    color: { field: "animal_group", type: "nominal", legend: null }
                 }
             },
             // Annotation: dashed line at the overall died share of all bubbles shown.
@@ -161,7 +170,7 @@
         `<li>Died share by group: ` + byGroup.map(b => `<b>${b.g}</b> ${b.died.toFixed(1)}%`).join(", ") + `.</li></ul>`;
     document.getElementById("bubble-note").innerHTML =
         `Source: ${SRC.kwok("Table 10")}, combined reporting period 2013–14 to 2018–19. ${DEF} ` +
-        `Denominator for each percentage: the total rescues shown for that reason and group. Bubble area = estimated deaths (rescues × published died %, rounded). Unknown cause is not shown.`;
+        `Denominator for each percentage: the total rescues shown for that reason and group. Bubble area is proportional to estimated deaths (rescues × published died %, rounded; author-calculated); the small dot only marks each bubble’s position, so reasons with few deaths stay visible. Unknown cause is not shown.`;
 
     try {
         chartEl.innerHTML = "";

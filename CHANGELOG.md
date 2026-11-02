@@ -40,3 +40,19 @@ The bump greys are intentionally close; their lines are distinguished by dash pa
 Please also confirm visually in Color Oracle.
 
 ---
+
+## Fix — 05 bubble chart: bubble area now truly proportional to estimated deaths
+**Rubric:** Idioms & complexity (marks and channels used correctly). **DV1 lesson:** encodings must be honest.
+
+- **Before:** `size` used `scale: { type: "sqrt", range: [30, 1500] }`. In Vega-Lite the `size` channel already sets the
+  mark's **area** (px²), so a square-root scale made area ∝ √deaths: large values were under-represented, while the
+  legend said "bubble area". The range also started at 30 px², so even zero deaths had an area.
+- **After:** `scale: { type: "linear", zero: true, range: [0, 1600] }`, so area ∝ estimated deaths (0 deaths = 0 area;
+  the 10,000 legend circle is 100× the area of the 100 circle).
+- With true proportional area, 12 of 57 bubbles fall below a 1 px radius, so a small fixed-size dot in the group
+  colour marks every bubble's position. The note says the dot only marks position.
+- Estimated deaths are labelled **author-calculated** in the note.
+
+**Idiom (for the interview):** bubble chart (a scatterplot plus a size channel). x = total rescues on a log scale
+(position; counts span 2 to ~25,000), y = died % (position), area = estimated deaths (size, linear in area), hue =
+animal group. It answers "which reasons are both common and deadly?" with three quantitative variables at once.
