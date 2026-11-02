@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Idiom 07: dumbbell (connected dot) plot of the 15 LGAs with the most rescues in 2024-25, compared with 2018-19. Source: NSW DCCEEW, NSW Wildlife Rehabilitation Data Dashboard.",
+  "width": "container",
+  "height": 390,
+  "autosize": { "type": "fit-x", "contains": "padding" },
+  "data": { "url": "data/rescue_counts_by_lga.csv", "format": { "type": "csv", "parse": { "financial_year": "string", "rescue_count": "number" } } },
+  "transform": [
+    { "filter": "datum.lga_name !== 'LGA not recorded' && isValid(datum.rescue_count)" },
+    { "filter": { "field": "financial_year", "oneOf": ["2018/19", "2024/25"] } },
+    { "pivot": "financial_year", "value": "rescue_count", "groupby": ["lga_name"] },
+    { "calculate": "datum['2018/19']", "as": "a" },
+    { "calculate": "datum['2024/25']", "as": "b" },
+    { "filter": "isValid(datum.a) && isValid(datum.b)" },
+    { "window": [{ "op": "row_number", "as": "rank" }], "sort": [{ "field": "b", "order": "descending" }] },
+    { "filter": "datum.rank <= 15" },
+    { "calculate": "datum.b - datum.a", "as": "change" },
+    { "calculate": "min(datum.a, datum.b)", "as": "lo" },
+    { "calculate": "max(datum.a, datum.b)", "as": "hi" },
+    { "joinaggregate": [{ "op": "max", "field": "change", "as": "max_rise" }] },
+    { "calculate": "datum.change === datum.max_rise && datum.max_rise > 0", "as": "is_max" },
+    { "calculate": "(datum.change > 0 ? '+' : '') + format(datum.change, ',') + (datum.is_max ? '  largest rise' : '')", "as": "change_label" }
+  ],
+  "encoding": {
+    "y": { "field": "lga_name", "type": "nominal", "sort": { "field": "b", "order": "descending" }, "title": null, "axis": { "labelLimit": 190, "labelFontSize": 12 } }
+  },
+  "layer": [
+    {
+      "mark": { "type": "rule", "strokeWidth": 2.5, "color": "#CFC9BC" },
+      "encoding": {
+        "x": { "field": "lo", "type": "quantitative", "title": "Recorded rescues (count) · axis starts at 1,000", "axis": { "format": ",d", "labelFontSize": 11, "titleFontSize": 12, "tickCount": 6 }, "scale": { "zero": false, "domainMin": 1000, "domainMax": 6000 } },
+        "x2": { "field": "hi" }
+      }
+    },
+    {
+      "transform": [{ "calculate": "datum.is_max ? '#A0286C' : '#5E6B63'", "as": "ink" }],
+      "mark": { "type": "text", "align": "left", "baseline": "middle", "dx": 10, "fontSize": 11 },
+      "encoding": {
+        "x": { "field": "hi", "type": "quantitative" },
+        "text": { "field": "change_label" },
+        "color": { "field": "ink", "type": "nominal", "scale": null }
+      }
+    },
+    {
+      "transform": [
+        { "fold": ["a", "b"], "as": ["key", "count"] },
+        { "calculate": "datum.key === 'a' ? '2018–19' : '2024–25'", "as": "period" }
+      ],
+      "mark": { "type": "point", "filled": true, "size": 85, "stroke": "#FFFFFF", "strokeWidth": 1, "opacity": 1 },
+      "encoding": {
+        "x": { "field": "count", "type": "quantitative" },
+        "color": { "field": "period", "type": "nominal", "scale": { "domain": ["2018–19", "2024–25"], "range": ["#A9B1AD", "#25332F"] }, "legend": { "title": "Financial year", "orient": "top", "direction": "horizontal", "labelFontSize": 12, "titleFontSize": 12, "symbolType": "circle", "symbolSize": 120 } },
+        "tooltip": [
+          { "field": "lga_name", "type": "nominal", "title": "LGA" },
+          { "field": "period", "type": "nominal", "title": "Financial year" },
+          { "field": "count", "type": "quantitative", "title": "Recorded rescues", "format": ",d" },
+          { "field": "change", "type": "quantitative", "title": "Change, 2018–19 to 2024–25 (author-calculated)", "format": "+,d" }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "font": "Atkinson Hyperlegible, system-ui, sans-serif",
+    "axis": { "labelColor": "#25332F", "titleColor": "#25332F", "domain": false, "ticks": false, "grid": false, "titleFontWeight": 700 }
+  }
+}

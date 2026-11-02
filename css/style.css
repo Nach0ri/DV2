@@ -5,11 +5,6 @@
 
 body { margin: 0; }
 
-#map {
-    width: 100%;
-    overflow-x: auto;
-}
-
 .controls {
     display: flex;
     flex-wrap: wrap;
@@ -135,17 +130,6 @@ body { margin: 0; }
     padding-bottom: 32px;
     border-bottom: 1px solid var(--rule);
 }
-/* Interactive wildlife background (js/header-wildlife.js): behind all header content,
-   faded out on the left where the title and intro text sit. */
-.hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.6) 35%, #000 65%);
-    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.6) 35%, #000 65%);
-}
-.story-header > :not(.hero-bg) { position: relative; z-index: 1; }
 
 .story-title {
     margin: 0;
@@ -359,7 +343,7 @@ body { margin: 0; }
 .text-card .hint { font-size: 13px; }
 .text-card .summary { margin: 0; font-size: 14px; }
 .chart-area .legend-note { margin: 0; font-size: 13px; line-height: 1.55; max-width: none; }   /* source notes span the full panel width */
-.chart-area #map { min-height: 380px; }
+
 
 /* Sources & acknowledgements (footer). */
 .story-footer a {
@@ -563,8 +547,6 @@ body { margin: 0; }
     transform-origin: left center;
     transform: scaleX(1);
 }
-.hl-stat.is-counting .hl-bar { transform: scaleX(0); transition: none; }
-.hl-stat.is-counting.is-animating .hl-bar { transform: scaleX(1); transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1); }
 .hl-label { font-size: 13.5px; line-height: 1.45; color: var(--ink); }
 .hl-ref {
     margin-top: auto;
@@ -679,5 +661,7 @@ body { margin: 0; }
 .bubble-findings-list { grid-template-columns: minmax(0, 1fr); gap: 6px; }
 @media (max-width: 960px) { .summary-row { grid-template-columns: minmax(0, 1fr); gap: 14px; } }
 
-/* Idioms 13 and 14: fixed-size Vega-Lite maps scroll sideways on narrow screens instead of overflowing the card. */
-.vl-scroll { overflow-x: auto; }
+/* Every chart is a Vega-Lite spec rendered as SVG with a viewBox; fixed-size specs (maps, treemap, Sankey, waffle)
+   shrink to fit the card on narrow screens instead of overflowing it. */
+[data-vl] { display: block; width: 100%; max-width: 100%; }
+[data-vl] svg { max-width: 100%; height: auto; }

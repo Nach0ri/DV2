@@ -1,0 +1,329 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Idiom 08: two-level treemap (animal group > sub-group); area proportional to rescues 2013-14 to 2018-19. Rectangle corners come from data/treemap_layout.csv (squarified layout computed once offline by tools/make-treemap.mjs). Source: Kwok et al. (2021), PLOS ONE, supplementary file S7.",
+  "width": 1030,
+  "height": 480,
+  "padding": 0,
+  "autosize": {
+    "type": "none"
+  },
+  "data": {
+    "url": "data/treemap_layout.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "value": "number",
+        "share": "number",
+        "x0": "number",
+        "x1": "number",
+        "y0": "number",
+        "y1": "number",
+        "label_x": "number",
+        "name_y": "number",
+        "count_y": "number",
+        "rank": "number",
+        "badge_x": "number",
+        "badge_y": "number"
+      }
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "x0",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          1030
+        ],
+        "nice": false,
+        "zero": false
+      },
+      "axis": null
+    },
+    "y": {
+      "field": "y0",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          480
+        ],
+        "nice": false,
+        "zero": false,
+        "reverse": true
+      },
+      "axis": null
+    }
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "filter": "datum.kind === 'band'"
+        }
+      ],
+      "mark": {
+        "type": "rect"
+      },
+      "encoding": {
+        "x2": {
+          "field": "x1"
+        },
+        "y2": {
+          "field": "y1"
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Birds",
+              "Mammals",
+              "Reptiles"
+            ],
+            "range": [
+              "#23508F",
+              "#E0AE2E",
+              "#4CA36B"
+            ]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.kind === 'tile'"
+        }
+      ],
+      "params": [
+        {
+          "name": "tm_hover",
+          "select": {
+            "type": "point",
+            "fields": [
+              "group",
+              "name"
+            ],
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "stroke": "#25332F",
+        "cursor": "default"
+      },
+      "encoding": {
+        "x2": {
+          "field": "x1"
+        },
+        "y2": {
+          "field": "y1"
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "legend": null
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "tm_hover",
+            "empty": false,
+            "value": 2.5
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "type": "nominal",
+            "title": "Sub-group"
+          },
+          {
+            "field": "group",
+            "type": "nominal",
+            "title": "Animal group"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Recorded rescues",
+            "format": ","
+          },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Share of 456,735 named (%, author-calculated)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.kind === \"tile\" && datum.name_label !== \"\""
+        },
+        {
+          "calculate": "datum.group === 'Birds' ? '#FFFFFF' : datum.group === 'Mammals' ? '#25332F' : '#1B2A22'",
+          "as": "ink"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 12,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "x": {
+          "field": "label_x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "name_y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "name_label"
+        },
+        "color": {
+          "field": "ink",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.kind === 'band'"
+        },
+        {
+          "calculate": "datum.group === 'Birds' ? '#FFFFFF' : datum.group === 'Mammals' ? '#25332F' : '#1B2A22'",
+          "as": "ink"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12.5,
+        "fontWeight": 700
+      },
+      "encoding": {
+        "x": {
+          "field": "label_x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "name_y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "name_label"
+        },
+        "color": {
+          "field": "ink",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.kind === 'tile' && datum.count_label !== ''"
+        },
+        {
+          "calculate": "datum.group === 'Birds' ? '#FFFFFF' : datum.group === 'Mammals' ? '#25332F' : '#1B2A22'",
+          "as": "ink"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 11
+      },
+      "encoding": {
+        "x": {
+          "field": "label_x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "count_y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "count_label"
+        },
+        "color": {
+          "field": "ink",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.rank > 0"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 400,
+        "color": "#FFFFFF",
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "badge_x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "badge_y",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.rank > 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#25332F"
+      },
+      "encoding": {
+        "x": {
+          "field": "badge_x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "badge_y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "rank"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Atkinson Hyperlegible, system-ui, sans-serif"
+  }
+}

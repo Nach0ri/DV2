@@ -137,3 +137,42 @@ classing the data, but the positions inside an area are random, so it must not b
 - Both maps are fixed-size (a JSON spec cannot measure the page), so on narrow screens they scroll sideways inside the
   card (`.vl-scroll`) instead of overflowing the page.
 - Numbering 13 and 14 is temporary; Step 3 regroups and renumbers the sections.
+
+---
+
+## Every chart is now a pure Vega-Lite JSON specification (no chart JavaScript)
+**Why:** the brief asks for Vega-Lite. Before, 01–12 were Vega-Lite specs built at runtime by JavaScript files, which
+also did the data preparation and wrote the text. Now every chart is a standalone `.vl.json` file in `specs/`.
+
+**What changed**
+- `js/` is deleted (all 15 chart scripts, `chart-defaults.js`, `headline-stats.js`, `header-wildlife.js`).
+- 17 specs in `specs/`: 01 choropleth (map, close-up, linked top-5 bars, colour key), 02, 03, 03 spring bars, 04, 05,
+  05b, 06, 07 dumbbell, 07 overview bar, 08, 09, 10, 11, 12, 13, 14. Each spec loads its CSV/GeoJSON by URL and does all
+  reshaping itself: `filter`, `aggregate`, `joinaggregate`, `window` (rank, row_number, dense_rank, cumulative sum),
+  `pivot`, `fold`, `lookup`, `flatten`, `calculate`. Dropdowns are params bound to selects; hover/click/legend
+  highlighting uses selection params.
+- The page loads each spec with one loop: `vegaEmbed(el, el.dataset.vl)` for every `<div data-vl="specs/…">`. That
+  loop is the only script on the page, because vega-embed itself is a JavaScript library.
+- Things Vega-Lite cannot compute are generated once, offline, into data files (same approach as the dot density map):
+  - `tools/make-treemap.mjs` → `data/treemap_layout.csv` (squarified rectangle corners and fitted labels)
+  - `tools/make-sankey.mjs` → `data/sankey_layout.json` (node positions, band curves sampled to points, estimated flows)
+  - `tools/make-dots.mjs` → `data/rescue_dots_2024_25.csv` (unchanged)
+- The waffle's largest-remainder rounding now runs inside Vega-Lite (`joinaggregate` + `window` rank of remainders),
+  and `sequence()` + `flatten` expand each category into one row per square.
+- Summaries, key findings and notes that the scripts used to compute are now static text in `index.html`, copied
+  exactly from what the scripts produced (no number changed). Where a dropdown exists, the static text names the view
+  it describes (for example "In 2024–25", "All classes", "All years (average)"); the in-chart annotations (peak
+  labels, top-five labels, rank badges, largest-rise label, reference line) are still computed by Vega-Lite and update
+  with the selection.
+- `data/rescue_outcomes_by_group.csv`: its first line was a `#` comment, which Vega's CSV loader cannot skip. The
+  comment moved to `data/rescue_outcomes_by_group.SOURCE.txt`; the data rows are unchanged.
+- Fixed-size specs (maps, treemap, Sankey, waffle) shrink to fit narrow screens through the SVG viewBox
+  (`[data-vl] svg { max-width: 100%; height: auto }`) instead of overflowing; tooltips keep exact values.
+- Removed with the scripts: the animated leaf canvas in the header and the count-up animation on the headline numbers
+  (the numbers themselves are static HTML and unchanged).
+- Corrected an out-of-date note on 11 ("terracotta = the lowest 3" → "dark dots = the lowest 3").
+- 07 dumbbell axis title now says "axis starts at 1,000" (Step 2 item).
+
+**Checked:** all 17 specs render with no errors; hover, click, legend and dropdown interactions tested with simulated
+events (Sankey flow/node highlight and group switch, waffle linked highlight, map year switch, heatmap group switch);
+screenshots compared with the previous version at desktop and phone widths.

@@ -1,0 +1,324 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Idiom 09: Sankey diagram from the 8 most common rescue reasons to Survived and Died, per animal group, 2013-14 to 2018-19. Flow counts are estimates (author-calculated). Node positions and band curves come from data/sankey_layout.json (computed once offline by tools/make-sankey.mjs). Source: Kwok et al. (2021), PLOS ONE, Table 10.",
+  "width": 1030,
+  "height": 420,
+  "padding": {
+    "top": 6,
+    "bottom": 6,
+    "left": 0,
+    "right": 0
+  },
+  "autosize": {
+    "type": "none"
+  },
+  "params": [
+    {
+      "name": "sankey_group",
+      "value": "Birds",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Birds",
+          "Mammals",
+          "Reptiles"
+        ],
+        "name": "Animal group ",
+        "element": "#sankey-group"
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/sankey_layout.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.group === sankey_group && datum.kind === \"flow\""
+        }
+      ],
+      "params": [
+        {
+          "name": "sk_flow",
+          "select": {
+            "type": "point",
+            "fields": [
+              "flow"
+            ],
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "interpolate": "linear",
+        "cursor": "default"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1030
+            ],
+            "nice": false,
+            "zero": false
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "y_top",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              420
+            ],
+            "nice": false,
+            "zero": false,
+            "reverse": true
+          },
+          "axis": null
+        },
+        "y2": {
+          "field": "y_bot"
+        },
+        "detail": {
+          "field": "flow",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "tgt",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Survived",
+              "Died"
+            ],
+            "range": [
+              "#7A55B3",
+              "#B83F35"
+            ]
+          },
+          "legend": null
+        },
+        "fillOpacity": {
+          "condition": [
+            {
+              "param": "sk_flow",
+              "empty": false,
+              "value": 0.62
+            },
+            {
+              "test": "length(data('sk_node_store')) > 0 && (vlSelectionTest('sk_node_store', {node: datum.src}) || vlSelectionTest('sk_node_store', {node: datum.tgt}))",
+              "value": 0.62
+            },
+            {
+              "test": "length(data('sk_flow_store')) > 0 || length(data('sk_node_store')) > 0",
+              "value": 0.06
+            }
+          ],
+          "value": 0.32
+        },
+        "tooltip": [
+          {
+            "field": "src",
+            "type": "nominal",
+            "title": "Reason"
+          },
+          {
+            "field": "tgt",
+            "type": "nominal",
+            "title": "Outcome"
+          },
+          {
+            "field": "est",
+            "type": "quantitative",
+            "title": "Estimated cases (author-calculated)",
+            "format": ","
+          },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Share of this reason (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "published",
+            "type": "quantitative",
+            "title": "Published % (source)",
+            "format": ".1f"
+          },
+          {
+            "field": "total",
+            "type": "quantitative",
+            "title": "Total rescues for reason (source)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/sankey_layout.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.group === sankey_group && datum.kind === \"node\""
+        }
+      ],
+      "params": [
+        {
+          "name": "sk_node",
+          "select": {
+            "type": "point",
+            "fields": [
+              "node"
+            ],
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "cursor": "default"
+      },
+      "encoding": {
+        "x": {
+          "field": "x0",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "x1"
+        },
+        "y": {
+          "field": "y0",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "y1"
+        },
+        "color": {
+          "field": "colour",
+          "type": "nominal",
+          "scale": null
+        },
+        "tooltip": [
+          {
+            "field": "node",
+            "type": "nominal",
+            "title": "Node"
+          },
+          {
+            "field": "detail",
+            "type": "nominal",
+            "title": "Rescues"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/sankey_layout.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.group === sankey_group && datum.kind === \"reason\""
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": 13,
+        "color": "#25332F",
+        "limit": 234
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/sankey_layout.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.group === sankey_group && datum.kind === \"outcome\""
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 14,
+        "fontWeight": 700,
+        "color": "#25332F"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/sankey_layout.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.group === sankey_group && datum.kind === \"estimate\""
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "color": "#5E6B63"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Atkinson Hyperlegible, system-ui, sans-serif"
+  }
+}

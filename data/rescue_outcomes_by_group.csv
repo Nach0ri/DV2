@@ -1,4 +1,3 @@
-# Source: Kwok et al. (2021), PLOS ONE, Table 10. https://doi.org/10.1371/journal.pone.0257209.t010 . Transcribed from the published table; percentages as published (rounded to 0.1%). Died = dead, died or euthanased; Survived = released, left and observed, relocated, or permanent care (paper, Data preparation).
 animal_group,rescue_reason,died_pct,survived_pct,total_rescues
 Birds,"Abandoned/Orphaned",36.9,63.1,22253
 Birds,"Attacked by cat",77.3,22.7,3275

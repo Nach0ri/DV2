@@ -1,0 +1,79 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Idiom 06: bump chart of the five largest rescue reasons (all years), ranked within each reporting year among all reasons except Unknown. Counts sum Birds, Mammals and Reptiles. Source: Kwok et al. (2021), PLOS ONE, supplementary file S4.",
+  "width": "container",
+  "height": 380,
+  "padding": { "left": 5, "top": 5, "bottom": 5, "right": 40 },
+  "autosize": { "type": "fit-x", "contains": "padding" },
+  "data": { "url": "data/rescue_reasons_by_group_year.csv", "format": { "type": "csv", "parse": { "rescues": "number" } } },
+  "transform": [
+    { "filter": "datum.reason !== 'Unknown' && isValid(datum.rescues)" },
+    { "aggregate": [{ "op": "sum", "field": "rescues", "as": "rescues" }], "groupby": ["reason", "reporting_year"] },
+    { "window": [{ "op": "row_number", "as": "rank" }], "groupby": ["reporting_year"], "sort": [{ "field": "rescues", "order": "descending" }] },
+    { "joinaggregate": [{ "op": "sum", "field": "rescues", "as": "reason_total" }], "groupby": ["reason"] },
+    { "window": [{ "op": "dense_rank", "as": "reason_order" }], "sort": [{ "field": "reason_total", "order": "descending" }] },
+    { "filter": "datum.reason_order <= 5" },
+    { "calculate": "replace(datum.reporting_year, '-', '–')", "as": "year_label" },
+    { "calculate": "toNumber(substring(datum.reporting_year, 0, 4))", "as": "year_start" },
+    { "joinaggregate": [{ "op": "max", "field": "year_start", "as": "last_year" }, { "op": "max", "field": "rank", "as": "max_rank" }] },
+    { "calculate": "datum.rank === 1 ? 1 : 0", "as": "is_first" },
+    { "joinaggregate": [{ "op": "sum", "field": "is_first", "as": "firsts" }], "groupby": ["reason"] },
+    { "joinaggregate": [{ "op": "max", "field": "firsts", "as": "leader_firsts" }] }
+  ],
+  "encoding": {
+    "x": { "field": "year_label", "type": "ordinal", "sort": "ascending", "title": "Reporting year (financial year)", "scale": { "paddingOuter": 1.0 }, "axis": { "labelAngle": 0, "labelFontSize": 12, "titleFontSize": 12, "domain": false, "ticks": false } },
+    "y": { "field": "rank", "type": "quantitative", "title": "Rank among reasons (1 = most rescues)", "scale": { "reverse": true, "nice": false, "zero": false, "padding": 14 }, "axis": { "tickMinStep": 1, "format": "d", "grid": true, "labelFontSize": 12, "titleFontSize": 12, "domain": false, "ticks": false } }
+  },
+  "layer": [
+    {
+      "mark": { "type": "line", "strokeWidth": 2.5 },
+      "encoding": {
+        "color": { "field": "reason_order", "type": "ordinal", "scale": { "domain": [1, 2, 3, 4, 5], "range": ["#25332F", "#4A5752", "#6B7872", "#8A9690", "#A3ADA8"] }, "legend": null },
+        "strokeDash": { "field": "reason_order", "type": "ordinal", "scale": { "domain": [1, 2, 3, 4, 5], "range": [[1, 0], [7, 3], [2, 3], [9, 3, 2, 3], [4, 4]] }, "legend": null },
+        "opacity": { "condition": { "param": "hl", "empty": true, "value": 1 }, "value": 0.18 },
+        "detail": { "field": "reason" },
+        "tooltip": [
+          { "field": "reason", "type": "nominal", "title": "Reason" },
+          { "field": "year_label", "type": "ordinal", "title": "Reporting year" },
+          { "field": "rank", "type": "quantitative", "title": "Rank" },
+          { "field": "rescues", "type": "quantitative", "title": "Rescues (all groups)", "format": ",d" }
+        ]
+      }
+    },
+    {
+      "params": [{ "name": "hl", "select": { "type": "point", "fields": ["reason"], "on": "pointerover", "clear": "pointerout" } }],
+      "mark": { "type": "point", "filled": true, "size": 90, "stroke": "#FFFFFF", "strokeWidth": 1.2, "cursor": "pointer" },
+      "encoding": {
+        "opacity": { "condition": { "param": "hl", "empty": true, "value": 1 }, "value": 0.18 },
+        "color": { "field": "reason_order", "type": "ordinal", "scale": { "domain": [1, 2, 3, 4, 5], "range": ["#25332F", "#4A5752", "#6B7872", "#8A9690", "#A3ADA8"] }, "legend": null },
+        "tooltip": [
+          { "field": "reason", "type": "nominal", "title": "Reason" },
+          { "field": "year_label", "type": "ordinal", "title": "Reporting year" },
+          { "field": "rank", "type": "quantitative", "title": "Rank" },
+          { "field": "rescues", "type": "quantitative", "title": "Rescues (all groups)", "format": ",d" }
+        ]
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.year_start === datum.last_year" }],
+      "mark": { "type": "text", "align": "left", "dx": 10, "fontSize": 12, "fontWeight": 600, "clip": false, "color": "#25332F" },
+      "encoding": {
+        "opacity": { "condition": { "param": "hl", "empty": true, "value": 1 }, "value": 0.25 },
+        "text": { "field": "reason", "type": "nominal" }
+      }
+    },
+    {
+      "transform": [
+        { "filter": "datum.rank === 1 && datum.firsts < datum.leader_firsts" },
+        { "calculate": "datum.reason + ' ranks first'", "as": "note" }
+      ],
+      "mark": { "type": "text", "dy": -18, "fontSize": 11, "fontStyle": "italic", "color": "#5E6B63" },
+      "encoding": { "text": { "field": "note" } }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "font": "Atkinson Hyperlegible, system-ui, sans-serif",
+    "axis": { "labelColor": "#25332F", "titleColor": "#25332F", "gridColor": "#E6E1D6", "titleFontWeight": 700 }
+  }
+}
