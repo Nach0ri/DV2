@@ -286,3 +286,11 @@ were re-rendered after the change. The "b" files (04-spring, 06b, 08-overview) a
 ## AI acknowledgement in the footer
 Added an "AI acknowledgement" heading and paragraph at the bottom of the footer, after the credits, using the
 user's own wording. It uses the existing `sources-sub` heading and `footer-credits` text styles, so no new CSS.
+
+## Removed the end-of-page Key findings section; cleaner footer
+- **Key findings removed** (user request): the four finding cards, the "★ Key findings" link in the story
+  outline, and their CSS (`.findings-*`, `.finding-*`). The findings boxes inside charts 05, 06 and 10 stay.
+- **Footer rebuilt** in three blocks: "About this visualisation" (title, author, unit, date and data period in one
+  white card), the numbered "Data sources" list (unchanged content), then "Credits" and "AI acknowledgement" as
+  two matching cards side by side (stacked under 760 px). The data-period text is shortened to
+  "2013–14 to 2024–25 (stated on each chart)" so it fits on one line. Checked at 1280 px and 390 px.

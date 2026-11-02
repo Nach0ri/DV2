@@ -444,65 +444,6 @@ body { margin: 0; }
 .group-summary .card-kicker { margin-bottom: 4px; }
 .group-summary .legend-note { margin-top: 8px; }
 
-/* ---------- Key findings (end of page) ---------- */
-.findings-section .section-head { margin-bottom: 24px; }
-.findings-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
-}
-.finding-card {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 22px 20px 18px;
-    background: var(--stone-card);
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-}
-.finding-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    margin-bottom: 4px;
-}
-.finding-icon svg { width: 24px; height: 24px; }
-/* Icons use the brand teal; only the outcome card uses the "Died" red, matching its meaning in the charts. */
-.finding-icon--teal,
-.finding-icon--blue,
-.finding-icon--ochre { color: #176B60; background: #E3EEEA; }
-.finding-icon--terracotta { color: #B83F35; background: #F6E3E0; }
-.finding-heading {
-    margin: 0;
-    font-size: 1.02rem;
-    font-weight: 700;
-    line-height: 1.3;
-    color: #25332F;
-}
-.finding-card p {
-    margin: 0;
-    font-size: 14.5px;
-    line-height: 1.55;
-    color: var(--ink);
-}
-.finding-ref {
-    margin-top: auto;
-    padding-top: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #176B60;
-    text-decoration: none;
-}
-.finding-ref:hover { text-decoration: underline; }
-@media (max-width: 960px) {
-    .findings-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 680px) {
-    .findings-grid { grid-template-columns: minmax(0, 1fr); }
-}
 
 /* ---------- Header: animated headline figures (js/headline-stats.js) ---------- */
 .headline-stats {
@@ -595,15 +536,14 @@ body { margin: 0; }
 
 /* ---------- Typography refinements ---------- */
 /* Headings: balanced line breaks so titles never leave a single word on the last line. */
-.story-title, .section-title, .idiom-title, .card-heading, .finding-heading, .footer-heading { text-wrap: balance; }
+.story-title, .section-title, .idiom-title, .card-heading, .footer-heading { text-wrap: balance; }
 /* Body text: avoid short orphan words at the end of paragraphs. */
-.story-intro, .idiom-text p, .text-card p, .card-note, .summary, .legend-note, .finding-card p, .hl-label { text-wrap: pretty; }
+.story-intro, .idiom-text p, .text-card p, .card-note, .summary, .legend-note, .hl-label { text-wrap: pretty; }
 /* Figures in running text and summaries line up as tabular numbers. */
 .summary, .legend-note, .hl-num, .insight-list li { font-variant-numeric: tabular-nums; }
 /* Footer source entries: comfortable reading width. */
 .source-list li { max-width: none; }   /* source entries span the full width */
 .section-subtitle { max-width: 36em; }
-.footer-credits { margin: 18px 0 0; font-size: 13.5px; color: var(--muted); max-width: none; }
 
 /* ---------- Byline, story outline and footer metadata ---------- */
 .story-byline { margin: -10px 0 18px; font-size: 14px; color: var(--muted); }
@@ -679,3 +619,37 @@ body { margin: 0; }
    shrink to fit the card on narrow screens instead of overflowing it. */
 .vl-chart { display: block; width: 100%; max-width: 100%; }
 .vl-chart svg { max-width: 100%; height: auto; }
+
+/* ---------- Footer layout: metadata card, source list, credits and AI notes side by side ---------- */
+.story-footer .footer-heading { margin: 0 0 14px; font-size: 1.35rem; }
+.story-footer .meta-list {
+    margin: 0;
+    padding: 16px 20px;
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+}
+.story-footer .sources-sub { margin: 36px 0 10px; }
+.footer-notes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 36px;
+}
+.footer-note {
+    padding: 16px 20px;
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+}
+.footer-note-title {
+    margin: 0 0 8px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--forest);
+}
+.footer-note p { margin: 0 0 8px; font-size: 13.5px; line-height: 1.6; color: var(--muted); max-width: none; }
+.footer-note p:last-child { margin-bottom: 0; }
+@media (max-width: 760px) { .footer-notes { grid-template-columns: minmax(0, 1fr); } }

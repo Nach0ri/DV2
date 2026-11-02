@@ -58,7 +58,6 @@
                     <li><a href="#section-2-title"><b>2</b> Why animals need help</a></li>
                     <li><a href="#section-3-title"><b>3</b> Regions, animals and what happens next</a></li>
                     <li><a href="#section-4-title"><b>4</b> Species and outcomes</a></li>
-                    <li><a href="#findings-title"><b>★</b> Key findings</a></li>
                 </ol>
             </nav>
         </header>
@@ -366,67 +365,18 @@
             </article>
         </section>
 
-        <!-- ============ Key findings ============ -->
-        <section class="story-section findings-section" aria-labelledby="findings-title">
-            <header class="section-head">
-                <div>
-                    <h2 class="section-title" id="findings-title">4 Key Findings from Our Data</h2>
-                    <p class="section-subtitle">What the rescue data reveal about NSW wildlife.</p>
-                </div>
-            </header>
-
-            <div class="findings-grid">
-                <article class="finding-card">
-                    <span class="finding-icon finding-icon--teal" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>
-                    </span>
-                    <h3 class="finding-heading">Rescues cluster in a few councils</h3>
-                    <p>Top five councils had 18.8% of 2024–25 rescues.</p>
-                    <a class="finding-ref" href="#idiom-01-title">See Idiom 01</a>
-                </article>
-
-                <article class="finding-card">
-                    <span class="finding-icon finding-icon--blue" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15l1.5-5a2 2 0 0 1 1.9-1.4h9.2A2 2 0 0 1 18.5 10L20 15v3h-2v-1.5H6V18H4z"/><circle cx="7.5" cy="15.5" r="1"/><circle cx="16.5" cy="15.5" r="1"/></svg>
-                    </span>
-                    <h3 class="finding-heading">Vehicle collisions are the top reason</h3>
-                    <p>15,639 rescues in 2022–23, 2.4 times the next reason.</p>
-                    <a class="finding-ref" href="#idiom-03-title">See Idiom 03</a>
-                </article>
-
-                <article class="finding-card">
-                    <span class="finding-icon finding-icon--ochre" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M9 3.5v4M15 3.5v4"/></svg>
-                    </span>
-                    <h3 class="finding-heading">Reptile rescues are the most seasonal</h3>
-                    <p>13% of reptile rescues in January, only 2% in July.</p>
-                    <a class="finding-ref" href="#idiom-12-title">See Idiom 12</a>
-                </article>
-
-                <article class="finding-card">
-                    <span class="finding-icon finding-icon--terracotta" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v8.5h8.5"/></svg>
-                    </span>
-                    <h3 class="finding-heading">Died is the largest recorded outcome</h3>
-                    <p>54.8% recorded as Died, 37.1% as Released (2013–14 to 2018–19).</p>
-                    <a class="finding-ref" href="#idiom-14-title">See Idiom 14</a>
-                </article>
-            </div>
-        </section>
-
         <!-- ============ Footer ============ -->
-        <footer class="story-footer" aria-labelledby="sources-title">
-            <dl class="meta-list" aria-label="About this visualisation">
+        <footer class="story-footer" aria-labelledby="about-title">
+            <h2 class="footer-heading" id="about-title">About this visualisation</h2>
+            <dl class="meta-list">
                 <div><dt>Title</dt><dd>Wildlife Rescue &amp; Rehabilitation in NSW</dd></div>
                 <div><dt>Author</dt><dd>Nachanok Kladsamniang</dd></div>
                 <div><dt>Unit</dt><dd>FIT3179 Data Visualisation 2, Monash University</dd></div>
                 <div><dt>Last updated</dt><dd><time datetime="2026-11-02">2 November 2026</time></dd></div>
-                <div><dt>Data period</dt><dd>2013–14 to 2024–25 (varies by chart; each chart states its period)</dd></div>
+                <div><dt>Data period</dt><dd>2013–14 to 2024–25 (stated on each chart)</dd></div>
             </dl>
 
-            <h2 class="footer-heading" id="sources-title">Data Sources &amp; Acknowledgements</h2>
-
-            <h3 class="sources-sub">Data sources</h3>
+            <h3 class="sources-sub" id="sources-title">Data sources</h3>
             <ol class="source-list">
                 <li>
                     <a href="https://doi.org/10.1371/journal.pone.0257209">Kwok, A. B. C., Haering, R., Travers, S. K., &amp; Stathis, P. (2021). Trends in wildlife rehabilitation rescues and animal fate across a six-year period in New South Wales, Australia.</a>
@@ -449,10 +399,18 @@
                     <span class="src-use">Used in: 01, 02 and 09 (council boundaries and label points; land-area shares in 09 are author-calculated from this file).</span>
                 </li>
             </ol>
-            <p class="footer-credits">Typefaces: Newsreader (Production Type) for headings and Atkinson Hyperlegible (Braille Institute) for text, via Google Fonts. Charts built with Vega-Lite 5; the 09 cartogram is a Vega 5 spec because it needs a force layout. Every chart’s JSON specification is in the <a href="https://github.com/Nach0ri/DV2/tree/master/vega"><code>vega/</code> folder of the GitHub repository</a>.</p>
 
-            <h3 class="sources-sub" id="ai-ack-title">AI acknowledgement</h3>
-            <p class="footer-credits footer-ai">Generative AI tools were used as supplementary tools for brainstorming, coding assistance, debugging, and language refinement. The project’s core work, including data analysis, visualisation design, implementation, interpretation of findings, and final decisions, was primarily carried out by me. All AI-generated suggestions were independently reviewed, tested, and adapted to ensure the accuracy and quality of the final work.</p>
+            <div class="footer-notes">
+                <section class="footer-note" aria-labelledby="credits-title">
+                    <h3 class="footer-note-title" id="credits-title">Credits</h3>
+                    <p>Typefaces: Newsreader (Production Type) for headings and Atkinson Hyperlegible (Braille Institute) for text, via Google Fonts.</p>
+                    <p>Charts built with Vega-Lite 5; the 09 cartogram is a Vega 5 spec because it needs a force layout. Every chart’s JSON specification is in the <a href="https://github.com/Nach0ri/DV2/tree/master/vega"><code>vega/</code> folder of the GitHub repository</a>.</p>
+                </section>
+                <section class="footer-note" aria-labelledby="ai-ack-title">
+                    <h3 class="footer-note-title" id="ai-ack-title">AI acknowledgement</h3>
+                    <p>Generative AI tools were used as supplementary tools for brainstorming, coding assistance, debugging, and language refinement. The project’s core work, including data analysis, visualisation design, implementation, interpretation of findings, and final decisions, was primarily carried out by me. All AI-generated suggestions were independently reviewed, tested, and adapted to ensure the accuracy and quality of the final work.</p>
+                </section>
+            </div>
         </footer>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
