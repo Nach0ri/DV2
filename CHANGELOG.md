@@ -94,3 +94,46 @@ coloured HTML spans. Data, colours, annotations and text are unchanged; only the
 - **03 spring-share bars** (text column beside 03): these were HTML bars. They are now a Vega-Lite layered bar chart:
   a grey track, a bar per animal group (group colours), a `rule` at 25% (an even spread across the year) and value
   labels, with tooltips. Values are unchanged (author-calculated share of each group's year falling in Sep–Nov).
+
+---
+
+## New charts 13 and 14: two maps written as pure Vega-Lite JSON specs
+**Rubric:** Idioms & complexity (more distinct map idioms; the audit found only one). **Plan item:** Phase 2 B and C.
+Both charts are complete Vega-Lite specifications in `specs/`. Vega-Lite loads the CSV and GeoJSON itself and does all
+reshaping (filter, pivot, lookup, calculate, window). The page only calls `vegaEmbed(element, "specs/….vl.json")`.
+No chart code is in JavaScript.
+
+### 13 Proportional symbol map: "Where are the most rescues, and where are they rising?"
+`specs/idiom13-symbols.vl.json`. Data: NSW DCCEEW dashboard counts by LGA, 2018–19 and 2024–25.
+- Vega-Lite `pivot` puts both years on one row, `calculate` gives change and direction, and `lookup` joins each LGA to
+  its label point (`lx`, `ly`) in the boundary file.
+- Circle **area** ∝ 2024–25 rescues (`size` linear, `zero: true`, shared across both views), with a size legend.
+  Colour = change direction (raspberry rose / grey same / slate fell: never red vs green). Fill opacity 0.62 with a
+  thin white stroke, and `order` draws big circles first so small ones stay on top.
+- NSW map plus a Sydney and Central Coast close-up (same circle scale); top five labelled.
+- Interaction: click a colour in the key (`bind: "legend"`) to keep only areas that rose, stayed the same or fell;
+  tooltips give both years, change and change % (author-calculated).
+- Lord Howe Island (0 rescues) and 64 rescues with no LGA are not mapped; the note says so.
+
+**Idiom (for the interview):** a proportional symbol map uses a position on the map and the area of a circle for
+magnitude. Unlike the choropleth, small, busy councils are not hidden by their small area. A second channel (hue)
+answers the trend question.
+
+### 14 Dot density map: "How concentrated are rescues?"
+`specs/idiom14-dots.vl.json`. Data: 2024–25 counts; dots from `data/rescue_dots_2024_25.csv`.
+- Dots are generated **once, offline** by `tools/make-dots.mjs` with a fixed seed (20251102): one dot per 25 rescues,
+  placed at random inside each LGA polygon (holes excluded). Running it twice gives a byte-identical file. 4,782 dots
+  represent 119,582 rescues (rounding per LGA, author-calculated). Nothing is randomised at render time.
+- 1 dot = 25 avoids a single solid Sydney blob on the close-up; the main map's dashed box points to the Sydney and
+  Central Coast close-up, where the dots are drawn smaller and lighter.
+- Hovering an area outlines it and shows its count and number of dots.
+- Caption: "1 dot = 25 rescues. Dots are placed randomly within each council area and do not show exact rescue
+  locations."
+- Sydney Harbour (unincorporated) has no row in the counts file, so it has no dots (reported by the script).
+
+**Idiom (for the interview):** dot density shows concentration. Dense clusters read instantly as "lots here" without
+classing the data, but the positions inside an area are random, so it must not be read as exact locations.
+
+- Both maps are fixed-size (a JSON spec cannot measure the page), so on narrow screens they scroll sideways inside the
+  card (`.vl-scroll`) instead of overflowing the page.
+- Numbering 13 and 14 is temporary; Step 3 regroups and renumbers the sections.

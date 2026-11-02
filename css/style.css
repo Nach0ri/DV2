@@ -678,3 +678,6 @@ body { margin: 0; }
 .summary-row .summary { max-width: none; }
 .bubble-findings-list { grid-template-columns: minmax(0, 1fr); gap: 6px; }
 @media (max-width: 960px) { .summary-row { grid-template-columns: minmax(0, 1fr); gap: 14px; } }
+
+/* Idioms 13 and 14: fixed-size Vega-Lite maps scroll sideways on narrow screens instead of overflowing the card. */
+.vl-scroll { overflow-x: auto; }
