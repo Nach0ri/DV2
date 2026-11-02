@@ -581,8 +581,6 @@ body { margin: 0; }
 /* ---------- Idiom 07: overview of all council areas (text column) ---------- */
 .dot-overview { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule); }
 .dot-ov-title { margin: 0 0 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--forest); }
-.dot-ov-bar { display: flex; height: 14px; border-radius: 3px; overflow: hidden; gap: 2px; }
-.dot-ov-key { margin: 6px 0 16px; font-size: 13.5px; color: var(--ink); }
 .dot-ov-list { margin: 0; padding: 0; list-style: none; counter-reset: rise; }
 .dot-ov-list li {
     counter-increment: rise;
@@ -674,3 +672,5 @@ body { margin: 0; }
 
 /* Summary placed directly in a chart card (07 bump chart, which has no chart-area wrapper). */
 .chart-card > .chart-summary { margin: 0 0 12px; font-size: 14px; }
+.heat-key { display: flex; align-items: center; gap: 8px; margin: 4px 0 10px; font-size: 12.5px; color: var(--ink); }
+.heat-swatch { width: 16px; height: 16px; background: #FFFFFF; border: 1px solid #9AA5A0; border-radius: 2px; flex: none; }

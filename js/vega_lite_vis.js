@@ -30,9 +30,6 @@ vegaEmbed("#vis-07-bump", vg_7, { actions: false, renderer: "svg" }).catch(conso
 var vg_8 = "vega/idiom08-dumbbell.vg.json";
 vegaEmbed("#vis-08-connected-dot", vg_8, { actions: false, renderer: "svg" }).catch(console.error);
 
-var vg_8b = "vega/idiom08-overview.vg.json";
-vegaEmbed("#dot-ov-bar", vg_8b, { actions: false, renderer: "svg" }).catch(console.error);
-
 var vg_9 = "vega/idiom09-dorling.vg.json";
 vegaEmbed("#dorling-chart", vg_9, { actions: false, renderer: "svg" }).catch(console.error);
 
