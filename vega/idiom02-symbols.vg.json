@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 01b: proportional symbol map of recorded wildlife rescues by NSW council area (LGA). Circle area = rescues in 2024-25; colour = whether rescues rose, stayed the same or fell since 2018-19 (author-calculated). Main NSW map plus a Sydney and Central Coast close-up on the same circle scale. Source: NSW DCCEEW, NSW Wildlife Rehabilitation Data Dashboard; boundaries: NSW Spatial Services.",
+  "description": "Idiom 02: proportional symbol map of recorded wildlife rescues by NSW council area (LGA). Circle area = rescues in 2024-25; colour = whether rescues rose, stayed the same or fell since 2018-19 (author-calculated). Main NSW map plus a Sydney and Central Coast close-up on the same circle scale. Source: NSW DCCEEW, NSW Wildlife Rehabilitation Data Dashboard; boundaries: NSW Spatial Services.",
   "data": {
     "url": "data/rescue_counts_by_lga.csv",
     "format": { "type": "csv", "parse": { "financial_year": "string", "rescue_count": "number" } }

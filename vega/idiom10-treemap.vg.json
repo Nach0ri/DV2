@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 08: two-level slice-and-dice treemap (animal group > sub-group), area proportional to rescues 2013-14 to 2018-19, laid out entirely with Vega-Lite transforms. Source: Kwok et al. (2021), PLOS ONE, supplementary file S7.",
+  "description": "Idiom 10: two-level slice-and-dice treemap (animal group > sub-group), area proportional to rescues 2013-14 to 2018-19, laid out entirely with Vega-Lite transforms. Source: Kwok et al. (2021), PLOS ONE, supplementary file S7.",
   "width": 1030,
   "height": 480,
   "padding": 0,

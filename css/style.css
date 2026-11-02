@@ -27,7 +27,7 @@ body { margin: 0; }
     font-size: 0.95rem;
 }
 
-/* Colour key for the map, drawn with Vega-Lite (js/idiom01-map.js). */
+/* Colour key for the map, drawn with Vega-Lite (vega/idiom01-choropleth.vg.json). */
 .map-legend { margin: 0 0 10px; width: 100%; }
 
 .status {

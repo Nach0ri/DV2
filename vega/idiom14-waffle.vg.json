@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 12: waffle charts of outcome categories (100 squares = 100%) for all groups and each animal group, 2013-14 to 2018-19. Squares are rounded with the largest-remainder method (author-calculated), all inside Vega-Lite. Source: Kwok et al. (2021), PLOS ONE, Table 8.",
+  "description": "Idiom 14: waffle charts of outcome categories (100 squares = 100%) for all groups and each animal group, 2013-14 to 2018-19. Squares are rounded with the largest-remainder method (author-calculated), all inside Vega-Lite. Source: Kwok et al. (2021), PLOS ONE, Table 8.",
   "data": {
     "url": "data/outcomes_by_group_full_period_table8.csv",
     "format": {

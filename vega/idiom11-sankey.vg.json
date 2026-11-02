@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 09: Sankey diagram from the 8 most common rescue reasons to Survived and Died, per animal group, 2013-14 to 2018-19, laid out entirely with Vega-Lite transforms. Flow counts are estimates (author-calculated): died = round(total x died% / 100), survived = total - died. Source: Kwok et al. (2021), PLOS ONE, Table 10.",
+  "description": "Idiom 11: Sankey diagram from the 8 most common rescue reasons to Survived and Died, per animal group, 2013-14 to 2018-19, laid out entirely with Vega-Lite transforms. Flow counts are estimates (author-calculated): died = round(total x died% / 100), survived = total - died. Source: Kwok et al. (2021), PLOS ONE, Table 10.",
   "width": 1030,
   "height": 420,
   "padding": { "top": 6, "bottom": 6, "left": 0, "right": 0 },

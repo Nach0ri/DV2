@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 07: dumbbell (connected dot) plot of the 15 LGAs with the most rescues in 2024-25, compared with 2018-19. Source: NSW DCCEEW, NSW Wildlife Rehabilitation Data Dashboard.",
+  "description": "Idiom 08: dumbbell (connected dot) plot of the 15 LGAs with the most rescues in 2024-25, compared with 2018-19. Source: NSW DCCEEW, NSW Wildlife Rehabilitation Data Dashboard.",
   "width": "container",
   "height": 390,
   "autosize": { "type": "fit-x", "contains": "padding" },

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 10: small multiples, one panel per animal group: each month's share of that group's annual rescues (mean of six years, band = lowest to highest year; author-calculated). Source: Kwok et al. (2021), PLOS ONE, supplementary file S7.",
+  "description": "Idiom 12: small multiples, one panel per animal group: each month's share of that group's annual rescues (mean of six years, band = lowest to highest year; author-calculated). Source: Kwok et al. (2021), PLOS ONE, supplementary file S7.",
   "data": {
     "url": "data/rescue_monthly_by_group.csv",
     "format": { "type": "csv", "parse": { "month_number": "number", "rescue_count": "number" } }

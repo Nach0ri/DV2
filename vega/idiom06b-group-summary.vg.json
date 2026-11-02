@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 05b: full-period outcome mix per animal group (100% stacked bar). Labels are the published percentages. Source: Kwok et al. (2021), PLOS ONE, Table 8.",
+  "description": "Idiom 06b: full-period outcome mix per animal group (100% stacked bar). Labels are the published percentages. Source: Kwok et al. (2021), PLOS ONE, Table 8.",
   "width": "container",
   "height": 170,
   "autosize": { "type": "fit-x", "contains": "padding" },

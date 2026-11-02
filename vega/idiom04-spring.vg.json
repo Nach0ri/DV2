@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 03 side chart: share of each group's rescues in spring (Sep-Nov), 2013-14 to 2018-19 (author-calculated). Source: Kwok et al. (2021), supplementary file S7.",
+  "description": "Idiom 04 side chart: share of each group's rescues in spring (Sep-Nov), 2013-14 to 2018-19 (author-calculated). Source: Kwok et al. (2021), supplementary file S7.",
   "width": "container",
   "height": { "step": 24 },
   "autosize": { "type": "fit-x", "contains": "padding" },

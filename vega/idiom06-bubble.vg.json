@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 05: bubble chart of rescue reasons by animal group, 2013-14 to 2018-19 combined. x = rescues (log), y = died %, area = estimated deaths (author-calculated). Source: Kwok et al. (2021), PLOS ONE, Table 10.",
+  "description": "Idiom 06: bubble chart of rescue reasons by animal group, 2013-14 to 2018-19 combined. x = rescues (log), y = died %, area = estimated deaths (author-calculated). Source: Kwok et al. (2021), PLOS ONE, Table 10.",
   "width": "container",
   "height": 420,
   "autosize": { "type": "fit-x", "contains": "padding" },

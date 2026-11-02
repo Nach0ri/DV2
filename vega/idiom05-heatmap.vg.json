@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 04: heatmap of rescue reasons by month; colour = each month's share of that reason's rescues (author-calculated). Source: Kwok et al. (2021), PLOS ONE, supplementary file S8.",
+  "description": "Idiom 05: heatmap of rescue reasons by month; colour = each month's share of that reason's rescues (author-calculated). Source: Kwok et al. (2021), PLOS ONE, supplementary file S8.",
   "width": "container",
   "height": { "step": 22 },
   "autosize": { "type": "fit-x", "contains": "padding" },

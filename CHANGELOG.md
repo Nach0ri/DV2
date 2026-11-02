@@ -257,3 +257,28 @@ remove overlap: each council becomes a circle sized by its value, so the compari
 - **All 17 specs reformatted** with one style: 2-space indent, short objects and arrays on one line, longer ones
   broken over lines. A script checked each file parses to exactly the same JSON before and after, and every chart
   rendered with the same number of SVG items as before. Long lines that remain are single expressions or descriptions.
+
+## Renumbered all idioms 01–14 in page order (user request)
+01b became 02, and every later chart moved up so the numbers run 01 to 14 down the page with no "b" numbers.
+
+| Old | New | Chart | Spec file |
+|---|---|---|---|
+| 01 | 01 | Choropleth | `idiom01-choropleth.vg.json` |
+| 01b | 02 | Proportional symbol map | `idiom02-symbols.vg.json` |
+| 02 | 03 | Ranked bar (reasons) | `idiom03-reasons.vg.json` |
+| 03 | 04 | Multi-series line + spring bars | `idiom04-seasonality.vg.json`, `idiom04-spring.vg.json` |
+| 04 | 05 | Heatmap | `idiom05-heatmap.vg.json` |
+| 05 | 06 | Bubble + group summary | `idiom06-bubble.vg.json`, `idiom06b-group-summary.vg.json` |
+| 06 | 07 | Bump chart | `idiom07-bump.vg.json` |
+| 07 | 08 | Dumbbell + overview bar | `idiom08-dumbbell.vg.json`, `idiom08-overview.vg.json` |
+| 07b | 09 | Dorling cartogram (Vega) | `idiom09-dorling.vg.json` |
+| 08 | 10 | Treemap | `idiom10-treemap.vg.json` |
+| 09 | 11 | Sankey | `idiom11-sankey.vg.json` |
+| 10 | 12 | Small multiples | `idiom12-small-multiples.vg.json` |
+| 11 | 13 | Lollipop | `idiom13-lollipop.vg.json` |
+| 12 | 14 | Waffle | `idiom14-waffle.vg.json` |
+
+Updated together: visible numbers, `idiom-NN-title` anchors, headline and key-finding links ("See Idiom …"),
+chart container ids (`vis-NN-…`), source "Used in" lists, the 01 note, footer credits, spec file names, spec
+descriptions and `js/vega_lite_vis.js`. Earlier entries in this changelog keep the old numbers. All 17 charts
+were re-rendered after the change. The "b" files (04-spring, 06b, 08-overview) are companion views of their chart.

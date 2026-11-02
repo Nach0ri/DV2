@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 06: bump chart of the five largest rescue reasons (all years), ranked within each reporting year among all reasons except Unknown. Counts sum Birds, Mammals and Reptiles. Source: Kwok et al. (2021), PLOS ONE, supplementary file S4.",
+  "description": "Idiom 07: bump chart of the five largest rescue reasons (all years), ranked within each reporting year among all reasons except Unknown. Counts sum Birds, Mammals and Reptiles. Source: Kwok et al. (2021), PLOS ONE, supplementary file S4.",
   "width": "container",
   "height": 380,
   "padding": { "left": 5, "top": 5, "bottom": 5, "right": 40 },

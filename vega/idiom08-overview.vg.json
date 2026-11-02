@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 07 side chart: share of all council areas whose rescues rose, stayed the same or fell between 2018-19 and 2024-25 (author-calculated). Source: NSW DCCEEW dashboard.",
+  "description": "Idiom 08 side chart: share of all council areas whose rescues rose, stayed the same or fell between 2018-19 and 2024-25 (author-calculated). Source: NSW DCCEEW dashboard.",
   "width": "container",
   "height": 14,
   "padding": 0,

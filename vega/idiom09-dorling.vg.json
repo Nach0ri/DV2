@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "Idiom 07b: Dorling cartogram of recorded wildlife rescues by NSW council area (LGA). One circle per council, area proportional to rescues in the selected financial year, pushed apart by a force layout so that no circle overlaps another while each stays as close as possible to its council. Written in Vega (not Vega-Lite) because Vega-Lite has no force layout. Source: NSW DCCEEW, NSW Wildlife Rehabilitation Data Dashboard; boundaries: NSW Spatial Services.",
+  "description": "Idiom 09: Dorling cartogram of recorded wildlife rescues by NSW council area (LGA). One circle per council, area proportional to rescues in the selected financial year, pushed apart by a force layout so that no circle overlaps another while each stays as close as possible to its council. Written in Vega (not Vega-Lite) because Vega-Lite has no force layout. Source: NSW DCCEEW, NSW Wildlife Rehabilitation Data Dashboard; boundaries: NSW Spatial Services.",
   "width": 1030,
   "height": 600,
   "padding": 0,
