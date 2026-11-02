@@ -1,8 +1,3 @@
-// Interactive wildlife background for the page header.
-// Eucalyptus leaves drift across the header and a few birds fly through. Moving the pointer pushes nearby
-// leaves aside and makes birds swerve; clicking sends a gust through the leaves.
-// Purely decorative: the canvas is aria-hidden, sits behind the text, pauses when off-screen or in a
-// background tab, and draws a single still frame for readers who prefer reduced motion.
 (function () {
     const canvas = document.querySelector(".hero-bg");
     if (!canvas || !canvas.getContext) return;

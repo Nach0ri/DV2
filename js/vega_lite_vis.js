@@ -1,8 +1,3 @@
-// Embeds each visualisation into its div (same approach as the FIT3179 Week 7 studio).
-// Every chart is a JSON spec in vega/: data loading, transforms, encodings and interactions are all in the spec.
-// All specs are Vega-Lite except 09 (Dorling cartogram), which is Vega because Vega-Lite has no force layout;
-// vegaEmbed reads each spec's "$schema" and renders both kinds the same way.
-
 var vg_1 = "vega/idiom01-choropleth.vg.json";
 vegaEmbed("#map", vg_1, { actions: false, renderer: "svg" }).then(function (result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view

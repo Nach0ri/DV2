@@ -1,7 +1,3 @@
-// Headline figures in the page header.
-// The final values are already in the HTML (so the page reads correctly without JavaScript).
-// This script counts each number up from zero when the header comes into view, replays the count
-// on hover or keyboard focus, and skips all motion for readers who prefer reduced motion.
 (function () {
     const tiles = [...document.querySelectorAll(".hl-stat")];
     if (tiles.length === 0) return;
