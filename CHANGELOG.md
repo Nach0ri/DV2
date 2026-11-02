@@ -176,3 +176,10 @@ also did the data preparation and wrote the text. Now every chart is a standalon
 **Checked:** all 17 specs render with no errors; hover, click, legend and dropdown interactions tested with simulated
 events (Sankey flow/node highlight and group switch, waffle linked highlight, map year switch, heatmap group switch);
 screenshots compared with the previous version at desktop and phone widths.
+
+---
+
+## Removed: 13 proportional symbol map and 14 dot density map
+Removed at the author's request: their articles in `index.html`, `specs/idiom13-symbols.vl.json`,
+`specs/idiom14-dots.vl.json`, and the files only they used (`tools/make-dots.mjs`, `data/rescue_dots_2024_25.csv`).
+The page now has 15 Vega-Lite specs. Both maps remain in git history (commit `4b98aae`) if needed again.
