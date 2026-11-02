@@ -183,3 +183,11 @@ screenshots compared with the previous version at desktop and phone widths.
 Removed at the author's request: their articles in `index.html`, `specs/idiom13-symbols.vl.json`,
 `specs/idiom14-dots.vl.json`, and the files only they used (`tools/make-dots.mjs`, `data/rescue_dots_2024_25.csv`).
 The page now has 15 Vega-Lite specs. Both maps remain in git history (commit `4b98aae`) if needed again.
+
+---
+
+## Restored: header background animation and headline count-up
+At the author's request, `js/header-wildlife.js` (drifting eucalyptus leaves and birds that react to the pointer and
+clicks; one still frame under reduced motion) and `js/headline-stats.js` (headline figures count up when the header comes
+into view and replay on hover or focus) are back, restored unchanged from before commit `7e50a4b`, with their canvas and
+CSS. They are page decoration, not charts: every chart is still a pure Vega-Lite spec in `specs/`.

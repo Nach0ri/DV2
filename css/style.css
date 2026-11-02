@@ -131,6 +131,18 @@ body { margin: 0; }
     border-bottom: 1px solid var(--rule);
 }
 
+/* Interactive wildlife background (js/header-wildlife.js): behind all header content,
+   faded out on the left where the title and intro text sit. */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.6) 35%, #000 65%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.6) 35%, #000 65%);
+}
+.story-header > :not(.hero-bg) { position: relative; z-index: 1; }
+
 .story-title {
     margin: 0;
     font-family: var(--font-title);
@@ -547,6 +559,8 @@ body { margin: 0; }
     transform-origin: left center;
     transform: scaleX(1);
 }
+.hl-stat.is-counting .hl-bar { transform: scaleX(0); transition: none; }
+.hl-stat.is-counting.is-animating .hl-bar { transform: scaleX(1); transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1); }
 .hl-label { font-size: 13.5px; line-height: 1.45; color: var(--ink); }
 .hl-ref {
     margin-top: auto;
