@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Idiom 08: two-level treemap (animal group > sub-group); area proportional to rescues 2013-14 to 2018-19. Rectangle corners come from data/treemap_layout.csv (squarified layout computed once offline by tools/make-treemap.mjs). Source: Kwok et al. (2021), PLOS ONE, supplementary file S7.",
+  "description": "Idiom 08: two-level slice-and-dice treemap (animal group > sub-group), area proportional to rescues 2013-14 to 2018-19, laid out entirely with Vega-Lite transforms. Source: Kwok et al. (2021), PLOS ONE, supplementary file S7.",
   "width": 1030,
   "height": 480,
   "padding": 0,
@@ -8,25 +8,137 @@
     "type": "none"
   },
   "data": {
-    "url": "data/treemap_layout.csv",
+    "url": "data/rescue_monthly_by_group.csv",
     "format": {
       "type": "csv",
       "parse": {
-        "value": "number",
-        "share": "number",
-        "x0": "number",
-        "x1": "number",
-        "y0": "number",
-        "y1": "number",
-        "label_x": "number",
-        "name_y": "number",
-        "count_y": "number",
-        "rank": "number",
-        "badge_x": "number",
-        "badge_y": "number"
+        "rescue_count": "number"
       }
     }
   },
+  "transform": [
+    {
+      "filter": "isValid(datum.rescue_count) && indexof(['Birds', 'Mammals', 'Reptiles'], datum.animal_group) >= 0"
+    },
+    {
+      "filter": "!test(regexp('unknown|unidentified', 'i'), datum.sub_group)"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "rescue_count",
+          "as": "value"
+        }
+      ],
+      "groupby": [
+        "animal_group",
+        "sub_group"
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "value",
+          "as": "total"
+        }
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "value",
+          "as": "group_total"
+        }
+      ],
+      "groupby": [
+        "animal_group"
+      ]
+    },
+    {
+      "calculate": "datum.animal_group === 'Birds' ? datum.value : 0",
+      "as": "b"
+    },
+    {
+      "calculate": "datum.animal_group === 'Mammals' ? datum.value : 0",
+      "as": "m"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "b",
+          "as": "birds"
+        },
+        {
+          "op": "sum",
+          "field": "m",
+          "as": "mammals"
+        }
+      ]
+    },
+    {
+      "calculate": "(datum.animal_group === 'Birds' ? 0 : datum.animal_group === 'Mammals' ? datum.birds : datum.birds + datum.mammals) / datum.total * 1030",
+      "as": "x0"
+    },
+    {
+      "calculate": "datum.x0 + datum.group_total / datum.total * 1030",
+      "as": "x1"
+    },
+    {
+      "stack": "value",
+      "groupby": [
+        "animal_group"
+      ],
+      "sort": [
+        {
+          "field": "value",
+          "order": "descending"
+        }
+      ],
+      "offset": "normalize",
+      "as": [
+        "s0",
+        "s1"
+      ]
+    },
+    {
+      "calculate": "24 + datum.s0 * (480 - 24)",
+      "as": "y0"
+    },
+    {
+      "calculate": "24 + datum.s1 * (480 - 24)",
+      "as": "y1"
+    },
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "value",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "calculate": "100 * datum.value / datum.total",
+      "as": "share"
+    },
+    {
+      "calculate": "datum.y1 - datum.y0",
+      "as": "tile_h"
+    },
+    {
+      "calculate": "datum.animal_group === 'Birds' ? '#FFFFFF' : datum.animal_group === 'Mammals' ? '#25332F' : '#1B2A22'",
+      "as": "ink"
+    }
+  ],
   "encoding": {
     "x": {
       "field": "x0",
@@ -58,13 +170,24 @@
   },
   "layer": [
     {
-      "transform": [
+      "params": [
         {
-          "filter": "datum.kind === 'band'"
+          "name": "tm_hover",
+          "select": {
+            "type": "point",
+            "fields": [
+              "animal_group",
+              "sub_group"
+            ],
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
         }
       ],
       "mark": {
-        "type": "rect"
+        "type": "rect",
+        "stroke": "#FFFFFF",
+        "cursor": "default"
       },
       "encoding": {
         "x2": {
@@ -74,7 +197,7 @@
           "field": "y1"
         },
         "color": {
-          "field": "group",
+          "field": "animal_group",
           "type": "nominal",
           "scale": {
             "domain": [
@@ -89,45 +212,14 @@
             ]
           },
           "legend": null
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.kind === 'tile'"
-        }
-      ],
-      "params": [
-        {
-          "name": "tm_hover",
-          "select": {
-            "type": "point",
-            "fields": [
-              "group",
-              "name"
-            ],
-            "on": "mouseover",
-            "clear": "mouseout"
-          }
-        }
-      ],
-      "mark": {
-        "type": "rect",
-        "stroke": "#25332F",
-        "cursor": "default"
-      },
-      "encoding": {
-        "x2": {
-          "field": "x1"
         },
-        "y2": {
-          "field": "y1"
-        },
-        "color": {
-          "field": "group",
-          "type": "nominal",
-          "legend": null
+        "stroke": {
+          "condition": {
+            "param": "tm_hover",
+            "empty": false,
+            "value": "#25332F"
+          },
+          "value": "#FFFFFF"
         },
         "strokeWidth": {
           "condition": {
@@ -135,16 +227,16 @@
             "empty": false,
             "value": 2.5
           },
-          "value": 0
+          "value": 1.5
         },
         "tooltip": [
           {
-            "field": "name",
+            "field": "sub_group",
             "type": "nominal",
             "title": "Sub-group"
           },
           {
-            "field": "group",
+            "field": "animal_group",
             "type": "nominal",
             "title": "Animal group"
           },
@@ -157,8 +249,13 @@
           {
             "field": "share",
             "type": "quantitative",
-            "title": "Share of 456,735 named (%, author-calculated)",
+            "title": "Share of named sub-groups (%, author-calculated)",
             "format": ".1f"
+          },
+          {
+            "field": "rank",
+            "type": "quantitative",
+            "title": "Rank (largest = 1)"
           }
         ]
       }
@@ -166,30 +263,117 @@
     {
       "transform": [
         {
-          "filter": "datum.kind === \"tile\" && datum.name_label !== \"\""
+          "aggregate": [
+            {
+              "op": "min",
+              "field": "x0",
+              "as": "x0"
+            },
+            {
+              "op": "max",
+              "field": "x1",
+              "as": "x1"
+            },
+            {
+              "op": "max",
+              "field": "group_total",
+              "as": "group_total"
+            },
+            {
+              "op": "max",
+              "field": "total",
+              "as": "total"
+            }
+          ],
+          "groupby": [
+            "animal_group"
+          ]
         },
         {
-          "calculate": "datum.group === 'Birds' ? '#FFFFFF' : datum.group === 'Mammals' ? '#25332F' : '#1B2A22'",
+          "calculate": "0",
+          "as": "y0"
+        },
+        {
+          "calculate": "24",
+          "as": "y1"
+        },
+        {
+          "calculate": "datum.animal_group + ' · ' + format(datum.group_total, ',') + ' (' + format(100 * datum.group_total / datum.total, '.1f') + '%)'",
+          "as": "band_label"
+        },
+        {
+          "calculate": "datum.animal_group === 'Birds' ? '#FFFFFF' : datum.animal_group === 'Mammals' ? '#25332F' : '#1B2A22'",
           "as": "ink"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 1.5
+          },
+          "encoding": {
+            "x2": {
+              "field": "x1"
+            },
+            "y2": {
+              "field": "y1"
+            },
+            "color": {
+              "field": "animal_group",
+              "type": "nominal",
+              "legend": null
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 7,
+            "dy": 12,
+            "fontSize": 12.5,
+            "fontWeight": 700,
+            "limit": {
+              "expr": "datum.x1 - datum.x0 - 14"
+            }
+          },
+          "encoding": {
+            "text": {
+              "field": "band_label"
+            },
+            "color": {
+              "field": "ink",
+              "type": "nominal",
+              "scale": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.tile_h >= 34"
         }
       ],
       "mark": {
         "type": "text",
         "align": "left",
+        "baseline": "top",
+        "dx": 7,
+        "dy": 6,
         "fontSize": 12,
-        "fontWeight": 600
+        "fontWeight": 600,
+        "limit": {
+          "expr": "datum.x1 - datum.x0 - 14"
+        }
       },
       "encoding": {
-        "x": {
-          "field": "label_x",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "name_y",
-          "type": "quantitative"
-        },
         "text": {
-          "field": "name_label"
+          "field": "sub_group"
         },
         "color": {
           "field": "ink",
@@ -201,63 +385,25 @@
     {
       "transform": [
         {
-          "filter": "datum.kind === 'band'"
+          "filter": "datum.tile_h >= 34"
         },
         {
-          "calculate": "datum.group === 'Birds' ? '#FFFFFF' : datum.group === 'Mammals' ? '#25332F' : '#1B2A22'",
-          "as": "ink"
+          "calculate": "format(datum.value, ',') + ' · ' + format(datum.share, '.1f') + '%'",
+          "as": "count_label"
         }
       ],
       "mark": {
         "type": "text",
         "align": "left",
-        "baseline": "middle",
-        "fontSize": 12.5,
-        "fontWeight": 700
+        "baseline": "top",
+        "dx": 7,
+        "dy": 20,
+        "fontSize": 11,
+        "limit": {
+          "expr": "datum.x1 - datum.x0 - 14"
+        }
       },
       "encoding": {
-        "x": {
-          "field": "label_x",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "name_y",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "name_label"
-        },
-        "color": {
-          "field": "ink",
-          "type": "nominal",
-          "scale": null
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.kind === 'tile' && datum.count_label !== ''"
-        },
-        {
-          "calculate": "datum.group === 'Birds' ? '#FFFFFF' : datum.group === 'Mammals' ? '#25332F' : '#1B2A22'",
-          "as": "ink"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "fontSize": 11
-      },
-      "encoding": {
-        "x": {
-          "field": "label_x",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "count_y",
-          "type": "quantitative"
-        },
         "text": {
           "field": "count_label"
         },
@@ -271,53 +417,87 @@
     {
       "transform": [
         {
-          "filter": "datum.rank > 0"
+          "filter": "datum.tile_h >= 15 && datum.tile_h < 34"
+        },
+        {
+          "calculate": "datum.sub_group + '  ' + format(datum.value, ',')",
+          "as": "line_label"
+        },
+        {
+          "calculate": "(datum.y0 + datum.y1) / 2",
+          "as": "y_mid"
         }
       ],
       "mark": {
-        "type": "circle",
-        "size": 400,
-        "color": "#FFFFFF",
-        "opacity": 1
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 7,
+        "fontSize": 11,
+        "limit": {
+          "expr": "datum.x1 - datum.x0 - 14"
+        }
       },
       "encoding": {
-        "x": {
-          "field": "badge_x",
+        "y": {
+          "field": "y_mid",
           "type": "quantitative"
         },
-        "y": {
-          "field": "badge_y",
-          "type": "quantitative"
+        "text": {
+          "field": "line_label"
+        },
+        "color": {
+          "field": "ink",
+          "type": "nominal",
+          "scale": null
         }
       }
     },
     {
       "transform": [
         {
-          "filter": "datum.rank > 0"
+          "filter": "datum.rank <= 3"
         }
       ],
-      "mark": {
-        "type": "text",
-        "align": "center",
-        "baseline": "middle",
-        "fontSize": 12,
-        "fontWeight": 700,
-        "color": "#25332F"
-      },
-      "encoding": {
-        "x": {
-          "field": "badge_x",
-          "type": "quantitative"
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "size": 400,
+            "color": "#FFFFFF",
+            "opacity": 1,
+            "xOffset": -17,
+            "yOffset": 17
+          },
+          "encoding": {
+            "x": {
+              "field": "x1",
+              "type": "quantitative"
+            }
+          }
         },
-        "y": {
-          "field": "badge_y",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "rank"
+        {
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "middle",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "color": "#25332F",
+            "xOffset": -17,
+            "yOffset": 17
+          },
+          "encoding": {
+            "x": {
+              "field": "x1",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "rank"
+            }
+          }
         }
-      }
+      ]
     }
   ],
   "config": {

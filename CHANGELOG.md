@@ -201,3 +201,21 @@ CSS. They are page decoration, not charts: every chart is still a pure Vega-Lite
   `vegaEmbed("#div-id", vg_1, …).catch(console.error);` for each of the 15 specs. Each chart has its own `<div id="…">` in
   `index.html` (the `data-vl` attributes and the inline loop are gone).
 - `renderer: "svg"` is set so charts can scale down on narrow screens.
+
+---
+
+## Treemap and Sankey laid out entirely in Vega-Lite (no offline scripts)
+- **08 treemap** is now a two-level **slice-and-dice** treemap (Shneiderman 1992) computed in the spec: each animal group
+  is a column whose width is its share of rescues (`joinaggregate` totals → `calculate` x0/x1); inside each column the
+  `stack` transform with `offset: "normalize"` splits the height among sub-groups, largest first. Area is still
+  proportional to rescues. Labels appear only where the tile is tall enough and are clipped to the tile width
+  (`limit` as an expression); rank badges 1–3 come from a `window` row_number. Replaces the squarified layout, which
+  Vega-Lite cannot compute.
+- **09 Sankey** is computed in the spec: `window` rank keeps the top 8 reasons; running sums place the left nodes;
+  `fold` turns each reason into a Survived flow and a Died flow; a running sum per outcome stacks the band ends on the
+  right; `sequence` + `flatten` sample 41 points per band and `calculate` applies the cubic Bézier S-curve; bands are
+  `area` marks (`y` = top edge, `y2` = bottom edge). Estimated flows (author-calculated) as before. Output identical to
+  the previous version (Birds ≈40,442 Survived, ≈41,343 Died).
+- Hover: node selections use their own fields (`lnode`, `rnode`) so hovering a flow highlights only that flow.
+- Removed `tools/make-treemap.mjs`, `tools/make-sankey.mjs`, `data/treemap_layout.csv`, `data/sankey_layout.json`. No
+  offline layout step remains: every chart is computed by Vega-Lite from the source CSV files.
