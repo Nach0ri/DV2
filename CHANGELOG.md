@@ -219,3 +219,7 @@ CSS. They are page decoration, not charts: every chart is still a pure Vega-Lite
 - Hover: node selections use their own fields (`lnode`, `rnode`) so hovering a flow highlights only that flow.
 - Removed `tools/make-treemap.mjs`, `tools/make-sankey.mjs`, `data/treemap_layout.csv`, `data/sankey_layout.json`. No
   offline layout step remains: every chart is computed by Vega-Lite from the source CSV files.
+
+- Audit: all 15 chart specs are Vega-Lite v5 and compile; removed two redundant `legend: null` settings (03, 05) that caused
+  "conflicting legend" warnings. Remaining "Dropping fit-y" notes (02, 03 spring, 04, 11) are informational: those charts
+  use a step height on purpose.
