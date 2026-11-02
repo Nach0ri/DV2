@@ -294,3 +294,18 @@ user's own wording. It uses the existing `sources-sub` heading and `footer-credi
   white card), the numbered "Data sources" list (unchanged content), then "Credits" and "AI acknowledgement" as
   two matching cards side by side (stacked under 760 px). The data-period text is shortened to
   "2013–14 to 2024–25 (stated on each chart)" so it fits on one line. Checked at 1280 px and 390 px.
+
+## Copy edit: professional, story-led wording across the page
+Rewrote all reader-facing text in `index.html` (subtitle, intro, headline labels, story outline, section titles and
+subtitles, chart titles, lead paragraphs, notes, hints, summaries and source notes). **No figures changed**: every
+number is the same as before; the one new comparison ("2.4 times the next reason, unsuitable environment (6,530)")
+comes from `data/rescue_reasons_by_year.csv` and matches the earlier key finding.
+- **Story thread:** the intro states the scope (recorded rescues, not populations); lead paragraphs now link the
+  charts ("Knowing where rescues happen leads to the next question: why", "From places to animals", "The story ends
+  where every rescue ends: with an outcome").
+- **Titles match content:** Section 1 "Where and when are animals rescued?"; Section 4 "How do animal groups
+  differ?"; 08 says "council areas" (the data unit) instead of "regions"; 10 and 13 say "animals" instead of
+  "animal sub-groups" in the title.
+- **Plain English:** replaced shorthand such as "×", "=", "Transformation for this chart", "LGA" and "See Idiom"
+  with full sentences, "Method:", "council area" and "See chart". Claims kept within what the data shows
+  (e.g. "associations, not evidence of cause"; low counts are not rarity).
