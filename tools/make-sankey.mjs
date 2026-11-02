@@ -1,6 +1,6 @@
 // Offline data preparation for the Sankey diagram (idiom 09). Run once: node tools/make-sankey.mjs
 // Vega-Lite has no Sankey layout, so this script computes node positions and samples each band's S-curve into
-// points at a fixed size, for every animal group. specs/idiom09-sankey.vl.json only draws them (area, rect, text).
+// points at a fixed size, for every animal group. vega/idiom09-sankey.vg.json only draws them (area, rect, text).
 // Input:  data/rescue_outcomes_by_group.csv (Kwok et al. 2021, Table 10).
 // Estimated flows (author-calculated): died = round(total × died% / 100), survived = total − died.
 // Output: data/sankey_layout.json, one flat list; "kind" says whether a row is a flow point, a node or a label.

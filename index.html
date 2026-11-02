@@ -86,7 +86,7 @@
                         <div class="chart-area" id="vis-01-choropleth">
                             <div class="controls"><div id="fy-control"></div><span class="hint">Hover over an area to see its numbers. Click an area or bar to highlight it, and double-click to clear.</span></div>
                             <p class="summary" id="fy-summary" aria-live="polite">In <b>2024–25</b>, 119,582 rescues were linked to a council area. The top five (Northern Beaches, Central Coast, Shoalhaven, Tweed, Sutherland Shire) had <b>18.8%</b> of them. The bottom 65 areas together had only 7.1%.</p>
-                                                        <div id="map" data-vl="specs/idiom01-choropleth.vl.json" role="img" aria-label="Choropleth map of rescues by NSW council area"><p class="status">Loading map…</p></div>
+                                                        <div id="map" class="vl-chart" role="img" aria-label="Choropleth map of rescues by NSW council area"><p class="status">Loading map…</p></div>
                             <p class="legend-note" id="fy-gaps">64 rescues in 2024–25 had no location, so they are not on the map. Lord Howe Island is too far east to show (0 rescues). Grey areas have no data.</p>
                         </div>
                     </figure>
@@ -103,7 +103,7 @@
                     <div class="chart-area" id="vis-02-ranked-bar">
                             <div class="controls" id="reasons-controls"><div id="reasons-year"></div></div>
                             <p class="summary" id="reasons-summary">In <b>2022–23</b>, the most common reason was <b>Collision - motor vehicle</b>, with 15,639 rescues.</p>
-                            <div id="reasons-chart" data-vl="specs/idiom02-reasons.vl.json" role="img" aria-label="Ranked bar chart of rescue reasons"><p class="status">Loading chart…</p></div>
+                            <div id="reasons-chart" class="vl-chart" role="img" aria-label="Ranked bar chart of rescue reasons"><p class="status">Loading chart…</p></div>
                             <p class="legend-note" id="reasons-note">Reporting period: 2022–23. Source: NSW DCCEEW, <a href="https://www2.environment.nsw.gov.au/sites/default/files/wildlife-rehabilitaton-annual-report-2022-23-240222.pdf">NSW Wildlife Rehabilitation Annual Report 2022–23</a>, p. 15. Rescues with an unknown reason are not included.</p>
                         </div>
                 </figure>
@@ -115,7 +115,7 @@
                 <div class="idiom-body">
                     <figure class="chart-card">
                         <div class="chart-area" id="vis-03-multiline">
-                            <div id="seasonality-chart" data-vl="specs/idiom03-seasonality.vl.json" role="img" aria-label="Line chart of monthly rescues by animal group"><p class="status">Loading chart…</p></div>
+                            <div id="seasonality-chart" class="vl-chart" role="img" aria-label="Line chart of monthly rescues by animal group"><p class="status">Loading chart…</p></div>
                             <p class="legend-note" id="season-note">Source: Kwok et al. (2021), <i>PLOS ONE</i>, supplementary file S7 (<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), 2013–14 to 2018–19. Counts are sums of sub-groups within each animal group. Months marked “Not recorded” are excluded.</p>
                         </div>
                     </figure>
@@ -127,7 +127,7 @@
                         <ul class="insight-list" id="season-insights" aria-label="Key patterns in the selected period"><li><b>Birds</b> have the highest peak monthly volume: November averages 5,671 rescues, 2.1× the mammals peak (August, 2,694).</li></ul>
                         <div class="spring-block" id="season-spring">
                             <p class="spring-title">Share of the year in spring (Sep–Nov)</p>
-                            <div data-vl="specs/idiom03-spring.vl.json" role="img" aria-label="Share of each group’s rescues in spring"></div>
+                            <div id="spring-chart" class="vl-chart" role="img" aria-label="Share of each group’s rescues in spring"></div>
                             <p class="spring-key"><span class="spring-even-key"></span> 25% = rescues spread evenly across the year</p>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                             <div class="controls" id="heatmap-controls"><div id="heatmap-group"></div><span class="hint">Hover over a cell to see the reason, month and count.</span></div>
                             <p class="summary" id="heatmap-summary">Largest cell for <b>All classes</b>: <b>Abandoned/Orphaned</b> in <b>November</b>, with 7,682 rescues (3.5% of this group’s known-reason rescues).</p>
                             <div class="heat-findings-wrap" id="heatmap-findings" aria-live="polite"><p class="dot-ov-title">Key findings · All classes</p><ul class="insight-list heat-findings"><li><b>7 of 19</b> reasons peak in spring (September to November).</li><li>Most concentrated: <b>Weather - Drought/heat</b>, 77% of its rescues in February.</li><li>Most even: <b>Collision with vehicle</b>; its busiest month (August) holds only 10%.</li><li>Busiest month overall: <b>November</b>, with 12% of known-reason rescues.</li></ul></div>
-                            <div id="heatmap-chart" data-vl="specs/idiom04-heatmap.vl.json" role="img" aria-label="Heatmap of rescue reasons by month"><p class="status">Loading heatmap…</p></div>
+                            <div id="heatmap-chart" class="vl-chart" role="img" aria-label="Heatmap of rescue reasons by month"><p class="status">Loading heatmap…</p></div>
                             <p class="legend-note" id="heatmap-note">Source: Kwok et al. (2021), <i>PLOS ONE</i>, supplementary file S8 (<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), 2013–14 to 2018–19. Counts are summed over the source period (no year column). Colour = each month’s share of that reason’s rescues (20% or more in the darkest shade); the outlined cell is each reason’s peak month; rows are ordered by total rescues. A blank cell has no records. Causes marked “Unknown” and rescues with no month are not included.</p>
                         </div>
                 </figure>
@@ -178,11 +178,11 @@
                                 <p class="summary" id="bubble-summary">Birds, Mammals and Reptiles, 2013–14 to 2018–19 combined (188,665 rescues across 57 reason-group pairs). Among causes with at least 100 rescues, the highest died share is <b>Weather—Drought/heat</b> (Mammals, 91.0%) and the lowest is <b>Unsuitable environment</b> (Reptiles, 2.5%). These are associated differences, not causes.</p>
                                 <div id="bubble-findings" aria-live="polite"><p class="dot-ov-title">Key findings</p><ul class="insight-list heat-findings bubble-findings-list"><li>Most estimated deaths: <b>Collision with vehicle</b> (Mammals), about 22,190.</li><li>Across all bubbles, <b>52.3%</b> of rescues died (dashed line).</li><li>Died share by group: <b>Mammals</b> 65.9%, <b>Birds</b> 50.5%, <b>Reptiles</b> 20.1%.</li></ul></div>
                             </div>
-                            <div id="bubble-chart" data-vl="specs/idiom05-bubble.vl.json" role="img" aria-label="Bubble chart of rescue reasons by volume and died share"><p class="status">Loading chart…</p></div>
+                            <div id="bubble-chart" class="vl-chart" role="img" aria-label="Bubble chart of rescue reasons by volume and died share"><p class="status">Loading chart…</p></div>
                             <p class="legend-note" id="bubble-note">Source: Kwok et al. (2021), <i>PLOS ONE</i>, Table 10 (<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), combined reporting period 2013–14 to 2018–19. Died = dead, died or euthanased. Survived = released, left and observed, relocated, or permanent care. Denominator for each percentage: the total rescues shown for that reason and group. Bubble area is proportional to estimated deaths (rescues × published died %, rounded; author-calculated); the small dot only marks each bubble’s position, so reasons with few deaths stay visible. Unknown cause is not shown.</p>
                             <div class="group-summary">
                                 <p class="card-kicker">Full-period summary by animal group (Table 8)</p>
-                                <div id="group-summary" data-vl="specs/idiom05b-group-summary.vl.json" role="img" aria-label="Stacked bar of outcomes by animal group"><p class="status">Loading summary…</p></div>
+                                <div id="group-summary" class="vl-chart" role="img" aria-label="Stacked bar of outcomes by animal group"><p class="status">Loading summary…</p></div>
                                 <p class="legend-note" id="group-summary-note">Full-period summary (2013–14 to 2018–19) from Kwok et al. (2021), Table 8. Totals: Birds 192,628, Mammals 124,517, Reptiles 47,316 rescues. Table 8 gives no breakdown by year or rescue reason and is not combined with Table 10 or S9. Categories are as labelled in the source; “Released” is the source's category and is not a measure of recovery.</p>
                             </div>
                         </div>
@@ -197,7 +197,7 @@
                         <p>Follow how rescue reasons move up or down each year.</p>
                 </div>
                 <figure class="chart-card chart-card--full">
-                    <div class="chart-area" id="vis-06-bump" data-vl="specs/idiom06-bump.vl.json" role="img" aria-label="Bump chart of rescue reason rankings"><p class="status">Loading chart…</p></div>
+                    <div class="chart-area vl-chart" id="vis-06-bump" role="img" aria-label="Bump chart of rescue reason rankings"><p class="status">Loading chart…</p></div>
                     <p class="legend-note" id="bump-note">Source: Kwok et al. (2021), <i>PLOS ONE</i>, supplementary file S4 (<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>). Years 2013–14 to 2018–19. Each count sums Birds, Mammals and Reptiles. Ranks are among all reasons, excluding “Unknown”.</p>
                 </figure>
             </article>
@@ -218,7 +218,7 @@
                 <h3 class="idiom-title" id="idiom-07-title"><span class="idiom-num">07</span>Which regions record the most rescues?</h3>
                 <div class="idiom-body">
                     <figure class="chart-card">
-                        <div class="chart-area" id="vis-07-connected-dot" data-vl="specs/idiom07-dumbbell.vl.json" role="img" aria-label="Dumbbell plot of rescues by council area, 2018–19 and 2024–25"><p class="status">Loading chart…</p></div>
+                        <div class="chart-area vl-chart" id="vis-07-connected-dot" role="img" aria-label="Dumbbell plot of rescues by council area, 2018–19 and 2024–25"><p class="status">Loading chart…</p></div>
                         <p class="legend-note" id="dot-source">Source: NSW DCCEEW, <a href="https://www.environment.nsw.gov.au/topics/animals-and-plants/native-animals/rehabilitating-native-animals/wildlife-rehabilitation-data-and-reporting/wildlife-rehabilitation-data-dashboard">NSW Wildlife Rehabilitation Data Dashboard</a>, rescues by council area (LGA). The 15 LGAs shown had the most rescues in 2024–25.</p>
                     </figure>
                     <div class="text-card">
@@ -227,7 +227,7 @@
                         <p class="card-note">Counts are not adjusted for population size.</p>
                         <div class="dot-overview" id="dot-overview">
                             <p class="dot-ov-title">All 131 council areas, 2018–19 to 2024–25</p>
-                            <div class="dot-ov-bar" data-vl="specs/idiom07-overview.vl.json" role="img" aria-label="107 rose, 2 stayed the same, 22 fell"></div>
+                            <div class="dot-ov-bar vl-chart" id="dot-ov-bar" role="img" aria-label="107 rose, 2 stayed the same, 22 fell"></div>
                             <p class="dot-ov-key"><b style="color:#A0286C">107 rose</b> · 2 same · <b style="color:#5F6F78">22 fell</b></p>
                             <p class="dot-ov-title">Largest rises</p>
                             <ol class="dot-ov-list"><li><span>Shoalhaven</span><b>+2,559</b></li><li><span>Tweed</span><b>+1,676</b></li><li><span>Port Macquarie-Hastings</span><b>+1,439</b></li></ol>
@@ -249,7 +249,7 @@
                             <p class="summary" id="tm-insight"><b>Parrots</b> (Birds) is the largest sub-group, with 16.5% of 456,735 recorded rescues, followed by <b>Possums</b> (Mammals, 14.0%). The ten largest sub-groups together account for 71.9%.</p>
                             <div id="tm-findings" aria-live="polite"><p class="dot-ov-title">Key findings</p><ul class="insight-list heat-findings bubble-findings-list"><li>Just <b>5 of 34</b> sub-groups make up half of all rescues.</li><li>The top three (numbered 1–3 on the chart) account for <b>41.4%</b>.</li><li>Largest in each group: <b>Birds</b>: Parrots (30% of birds); <b>Mammals</b>: Possums (43% of mammals); <b>Reptiles</b>: Snakes - others (40% of reptiles).</li></ul></div>
                         </div>
-                        <div id="treemap-chart" data-vl="specs/idiom08-treemap.vl.json" role="img" aria-label="Treemap of rescues by animal group and sub-group"><p class="status">Loading chart…</p></div>
+                        <div id="treemap-chart" class="vl-chart" role="img" aria-label="Treemap of rescues by animal group and sub-group"><p class="status">Loading chart…</p></div>
                         <p class="legend-note" id="tm-note">Source: Kwok et al. (2021), <i>PLOS ONE</i>, supplementary file S7 (<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), rescues 2013–14 to 2018–19. Project aggregation for this chart: each sub-group’s monthly counts summed over all months and years; areas are proportional to those totals. Percentages use the 456,735 rescues with a named sub-group as the denominator (author-calculated). 12,567 rescues recorded as “Unknown” or “Unidentified” sub-groups are excluded. Sub-groups are not all single species. Not combined with Table 10 or S9.</p>
                     </div>
                 </figure>
@@ -266,7 +266,7 @@
                 <figure class="chart-card chart-card--full">
                     <div class="chart-area" id="vis-09-sankey">
                         <div class="controls"><span id="sankey-group"></span><span class="hint">Hover over a flow or node for the numbers.</span></div>
-                        <div id="sankey-chart" data-vl="specs/idiom09-sankey.vl.json" role="img" aria-label="Sankey diagram from rescue reasons to outcomes"><p class="status">Loading chart…</p></div>
+                        <div id="sankey-chart" class="vl-chart" role="img" aria-label="Sankey diagram from rescue reasons to outcomes"><p class="status">Loading chart…</p></div>
                         <p class="legend-note" id="sankey-note">Estimated flows (author-calculated): each count is calculated from the published percentage (rounded to 0.1%) and the total rescues for that reason. Data are aggregated across 2013–14 to 2018–19 and do not show year-by-year change. Only the 8 most common reasons are shown; smaller reasons and rescues with an unknown reason are left out, and percentages use the reasons shown. Source: Kwok et al. (2021), <i>PLOS ONE</i>, Table 10 (<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>). Survived = released, left and observed, relocated, or permanent care. Died = dead, died or euthanased.</p>
                     </div>
                 </figure>
@@ -293,7 +293,7 @@
                     <figure class="chart-card">
                         <div class="chart-area" id="vis-10-small-multiples">
                             <p class="summary" id="sm-insight"><b>Reptiles</b> are the most seasonal: 13% of their rescues fall in January, but only 2% in July (6.2× difference). <b>Birds</b> peak in November (3.0× from their lowest month), and <b>Mammals</b> vary least (1.5×).</p>
-                            <div id="small-multiples-chart" data-vl="specs/idiom10-small-multiples.vl.json" role="img" aria-label="Small multiples of monthly share of rescues by animal group"><p class="status">Loading chart…</p></div>
+                            <div id="small-multiples-chart" class="vl-chart" role="img" aria-label="Small multiples of monthly share of rescues by animal group"><p class="status">Loading chart…</p></div>
                             <p class="legend-note" id="sm-note">Source: Kwok et al. (2021), <i>PLOS ONE</i>, supplementary file S7 (<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), rescues 2013–14 to 2018–19. Transformation for this chart: sub-groups summed to each animal group, month and year; each month’s share = that month’s rescues ÷ the group’s rescues in that year. Line = mean of six years; band = lowest to highest year. Only Birds, Mammals and Reptiles appear in S7; not combined with Table 10 or S9.</p>
                         </div>
                     </figure>
@@ -308,7 +308,7 @@
                     <figure class="chart-card">
                         <div class="chart-area" id="vis-11-lollipop">
                             <p class="summary" id="lp-insight">The lowest recorded sub-groups are <b>Platypus</b> (56 rescues), <b>Geckoes</b> (132) and <b>Emu</b> (317). Low recorded counts do not necessarily mean a sub-group is rare or at greater conservation risk: they can also reflect rescue activity, reporting coverage, species identification and data availability.</p>
-                            <div id="lollipop-chart" data-vl="specs/idiom11-lollipop.vl.json" role="img" aria-label="Lollipop chart of the lowest-count sub-groups"><p class="status">Loading chart…</p></div>
+                            <div id="lollipop-chart" class="vl-chart" role="img" aria-label="Lollipop chart of the lowest-count sub-groups"><p class="status">Loading chart…</p></div>
                             <p class="legend-note" id="lp-note">Source: Kwok et al. (2021), <i>PLOS ONE</i>, supplementary file S7 (<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), rescues 2013–14 to 2018–19. Transformation for this chart: sub-groups summed across all months and years; the 15 lowest counts shown (dark dots = the lowest 3), after excluding 3 “Unknown” or “Unidentified” sub-groups. Sub-groups are not all single species. Not combined with Table 10 or S9.</p>
                         </div>
                     </figure>
@@ -325,7 +325,7 @@
                 <figure class="chart-card chart-card--full">
                     <div class="chart-area" id="vis-12-waffle">
                         <p class="summary" id="wf-insight"><b>Died</b> is the largest outcome: 54.8% of 364,461 recorded rescues. The mix differs by group: <b>Released</b> is 57.7% for Reptiles, 37.7% for Birds and 28.4% for Mammals, and Mammals have the highest died share (64.6%).</p>
-                        <div id="waffle-chart" data-vl="specs/idiom12-waffle.vl.json" role="img" aria-label="Waffle charts of outcome shares"><p class="status">Loading chart…</p></div>
+                        <div id="waffle-chart" class="vl-chart" role="img" aria-label="Waffle charts of outcome shares"><p class="status">Loading chart…</p></div>
                         <p class="legend-note" id="wf-note">Source: Kwok et al. (2021), <i>PLOS ONE</i>, Table 8 (<a href="https://doi.org/10.1371/journal.pone.0257209">doi:10.1371/journal.pone.0257209</a>), rescues 2013–14 to 2018–19. Each waffle has 100 squares (1% each) of that group’s recorded rescues; squares are rounded so they add to 100 (largest remainder, author-calculated), so a category under 0.5% can show no square. Hover a square to highlight that outcome in every waffle. Died = dead, died or euthanased.</p>
                     </div>
                 </figure>
@@ -424,12 +424,7 @@
     <!-- Header decoration only (not charts): animated wildlife background and count-up headline figures. -->
     <script src="js/headline-stats.js"></script>
     <script src="js/header-wildlife.js"></script>
-    <!-- Every chart is a Vega-Lite JSON specification in specs/. This loop only loads each file and renders it;
-         all data loading, transforms, encodings and interactions are inside the specs. -->
-    <script>
-        document.querySelectorAll("[data-vl]").forEach(el =>
-            vegaEmbed(el, el.dataset.vl, { actions: false, renderer: "svg" })
-                .catch(err => { el.textContent = "This chart could not be loaded (" + err.message + ")."; }));
-    </script>
+    <!-- Each chart is a Vega-Lite JSON file in vega/; js/vega_lite_vis.js embeds each one into its div. -->
+    <script src="js/vega_lite_vis.js"></script>
 </body>
 </html>

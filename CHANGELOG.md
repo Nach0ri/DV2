@@ -191,3 +191,13 @@ At the author's request, `js/header-wildlife.js` (drifting eucalyptus leaves and
 clicks; one still frame under reduced motion) and `js/headline-stats.js` (headline figures count up when the header comes
 into view and replay on hover or focus) are back, restored unchanged from before commit `7e50a4b`, with their canvas and
 CSS. They are page decoration, not charts: every chart is still a pure Vega-Lite spec in `specs/`.
+
+---
+
+## Embedding follows the Week 7 studio approach
+- Specs moved from `specs/` to `vega/` (by the author) and renamed from `.vl.json` to `.vg.json`, the naming used in the
+  Week 7 studio. Contents unchanged.
+- `js/vega_lite_vis.js` embeds each chart the way the studio shows: `var vg_1 = "vega/….vg.json";` then
+  `vegaEmbed("#div-id", vg_1, …).catch(console.error);` for each of the 15 specs. Each chart has its own `<div id="…">` in
+  `index.html` (the `data-vl` attributes and the inline loop are gone).
+- `renderer: "svg"` is set so charts can scale down on narrow screens.

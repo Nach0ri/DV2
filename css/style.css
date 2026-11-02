@@ -677,5 +677,5 @@ body { margin: 0; }
 
 /* Every chart is a Vega-Lite spec rendered as SVG with a viewBox; fixed-size specs (maps, treemap, Sankey, waffle)
    shrink to fit the card on narrow screens instead of overflowing it. */
-[data-vl] { display: block; width: 100%; max-width: 100%; }
-[data-vl] svg { max-width: 100%; height: auto; }
+.vl-chart { display: block; width: 100%; max-width: 100%; }
+.vl-chart svg { max-width: 100%; height: auto; }

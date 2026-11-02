@@ -1,6 +1,6 @@
 // Offline data preparation for the treemap (idiom 08). Run once: node tools/make-treemap.mjs
 // Vega-Lite has no treemap layout, so this script computes each rectangle's corners (squarified layout,
-// Bruls, Huizing & van Wijk) at a fixed size and saves them. specs/idiom08-treemap.vl.json only draws them.
+// Bruls, Huizing & van Wijk) at a fixed size and saves them. vega/idiom08-treemap.vg.json only draws them.
 // Input:  data/rescue_monthly_by_group.csv (Kwok et al. 2021, S7), summed per sub-group over all months and years.
 // Output: data/treemap_layout.csv (one row per group band and per sub-group tile).
 import { readFileSync, writeFileSync } from "node:fs";
