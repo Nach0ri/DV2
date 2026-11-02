@@ -32,18 +32,8 @@ body { margin: 0; }
     font-size: 0.95rem;
 }
 
-.map-legend {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px 14px;
-    margin: 0 0 10px;
-    font-size: 0.82rem;
-}
-
-.map-legend b { width: 100%; font-size: 0.85rem; }
-.map-legend .key { display: inline-flex; align-items: center; gap: 5px; }
-.map-legend i { width: 14px; height: 14px; border-radius: 2px; border: 1px solid rgba(0, 0, 0, 0.15); }
+/* Colour key for the map, drawn with Vega-Lite (js/idiom01-map.js). */
+.map-legend { margin: 0 0 10px; width: 100%; }
 
 .status {
     margin: 0;

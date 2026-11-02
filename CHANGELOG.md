@@ -86,3 +86,8 @@ coloured HTML spans. Data, colours, annotations and text are unchanged; only the
   Vega-Lite draws them as area marks.
 - **Waffle:** 100 countable squares give a part-to-whole reading that is more precise than pie angles. Vega-Lite's own
   window and calculate transforms lay out the grid.
+- **01 map key:** the colour key was HTML swatches. It is now a small Vega-Lite chart (`square` + `text` marks, laid out
+  in a grid with `calculate`: 8 columns on desktop, 4 or 2 on narrow screens). Vega-Lite's built-in legend is not used
+  because it draws a threshold scale as a squashed gradient. Classes, colours and labels are unchanged.
+- Known issue, not caused by this change: on phone width the 01 map is wider than its card. It will be fixed in
+  Step 2, when the map is rebuilt.

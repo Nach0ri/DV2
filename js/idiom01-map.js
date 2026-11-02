@@ -82,7 +82,7 @@ const yearTransforms = years => [
 const colour = {
     field: "count", type: "quantitative", title: "Rescues",
     scale: { type: "threshold", domain: CLASS_BREAKS, range: CLASS_COLOURS },
-    legend: null // drawn in HTML by renderLegend(): Vega-Lite only offers a squashed gradient for threshold scales
+    legend: null // drawn as a separate Vega-Lite key by renderLegend()
 };
 
 const tooltip = [
@@ -230,16 +230,39 @@ function buildSpec(rows, years) {
     };
 }
 
-// HTML legend for the fixed classes, kept in sync with CLASS_BREAKS / CLASS_COLOURS.
-function renderLegend() {
+// Colour key for the fixed classes, drawn with Vega-Lite and kept in sync with CLASS_BREAKS / CLASS_COLOURS.
+// A separate small chart is used because Vega-Lite's own legend shows a threshold scale as a squashed gradient.
+async function renderLegend() {
+    const el = document.getElementById("map-legend");
     const labels = CLASS_COLOURS.map((_, i) =>
         i === 0 ? `Under ${fmt(CLASS_BREAKS[0])}`
         : i === CLASS_BREAKS.length ? `${fmt(CLASS_BREAKS[i - 1])}+`
         : `${fmt(CLASS_BREAKS[i - 1])}–${fmt(CLASS_BREAKS[i] - 1)}`);
-    const item = (colour, label) => `<span class="key"><i style="background:${colour}"></i>${label}</span>`;
-    document.getElementById("map-legend").innerHTML =
-        `<b>Number of rescues</b>` +
-        CLASS_COLOURS.map((c, i) => item(c, labels[i])).join("") + item(NO_DATA_COLOUR, "No records");
+    const keys = [...CLASS_COLOURS.map((c, i) => ({ label: labels[i], colour: c })), { label: "No records", colour: NO_DATA_COLOUR }]
+        .map((k, i) => ({ ...k, i }));
+    const W = Math.max(260, Math.floor(el.getBoundingClientRect().width));
+    const cols = W >= 720 ? keys.length : W >= 420 ? 4 : 2;
+    const rows = Math.ceil(keys.length / cols);
+    await vegaEmbed(el, {
+        $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+        title: { text: "Number of rescues", anchor: "start", fontSize: 13, fontWeight: 700, color: "#25332F", offset: 8 },
+        width: W, height: rows * 22, padding: { top: 26, left: 0, right: 0, bottom: 0 }, autosize: { type: "none" },
+        data: { values: keys },
+        // Lay the keys out in a grid: column and row from each key's position in the list.
+        transform: [
+            { calculate: `(datum.i % ${cols}) * ${W / cols}`, as: "x" },
+            { calculate: `floor(datum.i / ${cols}) * 22 + 8`, as: "y" }
+        ],
+        encoding: {
+            x: { field: "x", type: "quantitative", scale: { domain: [0, W], nice: false, zero: false }, axis: null },
+            y: { field: "y", type: "quantitative", scale: { domain: [0, rows * 22], nice: false, zero: false, reverse: true }, axis: null }
+        },
+        layer: [
+            { mark: { type: "square", size: 196, opacity: 1, stroke: "rgba(0,0,0,0.15)", strokeWidth: 1, xOffset: 7 }, encoding: { color: { field: "colour", type: "nominal", scale: null } } },
+            { mark: { type: "text", align: "left", baseline: "middle", dx: 20, fontSize: 12, color: "#25332F" }, encoding: { text: { field: "label" } } }
+        ],
+        config: { view: { stroke: null } }
+    }, { actions: false, renderer: "svg", config: window.CHART_TEXT });
 }
 
 // Evidence-based notes for the selected year, computed from the same data the map shows.
@@ -291,7 +314,7 @@ async function init() {
         document.getElementById("map").appendChild(target);
         const { view } = await vegaEmbed(target, buildSpec(rows, years), { actions: { export: true, source: false, compiled: false, editor: false }, renderer: "svg", config: window.CHART_TEXT });
         statusEl.remove();
-        renderLegend();
+        await renderLegend();
         updateNotes(rows, notRecorded, view.signal("selected_year"));
         view.addSignalListener("selected_year", (_, fy) => updateNotes(rows, notRecorded, fy));
     } catch (err) {
