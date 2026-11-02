@@ -162,7 +162,7 @@ body { margin: 0; }
 }
 
 .story-intro {
-    max-width: 34em;            /* about 70 characters per line */
+    max-width: none;            /* text spans the full content width */
     margin: 0;
     font-size: clamp(1rem, 1.5vw, 1.1rem);
 }
@@ -242,7 +242,7 @@ body { margin: 0; }
     font-variant-numeric: tabular-nums;
 }
 
-.idiom-text { max-width: 32em; margin-bottom: 18px; }   /* about 70 characters per line */
+.idiom-text { max-width: none; margin-bottom: 18px; }   /* text spans the full content width */
 .idiom-text p { margin: 0 0 10px; }
 
 .card-kicker {
@@ -349,7 +349,7 @@ body { margin: 0; }
 .chart-area { display: flex; flex-direction: column; gap: 10px; min-width: 0; width: 100%; }
 .chart-area .controls { margin: 0; font-size: 14px; }
 .chart-area .hint { font-size: 13px; }
-.chart-area .summary { margin: 0; font-size: 14px; max-width: 40em; }   /* keeps summary lines near 90 characters */
+.chart-area .summary { margin: 0; font-size: 14px; max-width: none; }   /* summaries span the full panel width */
 /* Idiom 03: year selector and summary sit in the text column beside the chart. */
 .text-card .controls { margin: 14px 0 10px; font-size: 14px; }
 .text-card .hint { font-size: 13px; }
@@ -543,7 +543,7 @@ body { margin: 0; }
 .summary, .legend-note, .hl-num, .insight-list li { font-variant-numeric: tabular-nums; }
 /* Footer source entries: comfortable reading width. */
 .source-list li { max-width: none; }   /* source entries span the full width */
-.section-subtitle { max-width: 36em; }
+.section-subtitle { max-width: none; }
 
 /* ---------- Byline, story outline and footer metadata ---------- */
 .story-byline { margin: -10px 0 18px; font-size: 14px; color: var(--muted); }

@@ -309,3 +309,13 @@ comes from `data/rescue_reasons_by_year.csv` and matches the earlier key finding
 - **Plain English:** replaced shorthand such as "×", "=", "Transformation for this chart", "LGA" and "See Idiom"
   with full sentences, "Method:", "council area" and "See chart". Claims kept within what the data shows
   (e.g. "associations, not evidence of cause"; low counts are not rarity).
+
+## Full-width text and headings of 10 words or fewer (user request)
+- **Width:** removed the reading-width caps so text runs to the right edge of the content column (1,120 px page):
+  `.story-intro` (was 34em), `.idiom-text` (was 32em), `.chart-area .summary` (was 40em), `.section-subtitle`
+  (was 36em). Two-column cards (04, 08) still wrap within their own column.
+- **Headings ≤ 10 words** (checked with a script over every h1–h4 and subtitle; the longest is now 9):
+  page subtitle "Where native animals are rescued, why, and what follows."; section subtitles "Council areas, main
+  causes and the busiest months", "Seasonal timing, survival and changing rank of each threat", "Council trends,
+  most-rescued animals and how rescues end", "Seasonality, least-recorded animals and final outcomes by group";
+  09 title "How big is each council if size means rescues?".
